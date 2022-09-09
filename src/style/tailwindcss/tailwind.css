@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    .selected {
+        opacity: 1;
+        filter: drop-shadow(0 0 0.25rem #76A8FF);
+    }
+}
+

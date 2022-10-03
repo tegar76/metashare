@@ -5,5 +5,3 @@
             $this->load->view('tamu/v_tamu');
         }
     }
-
-?>

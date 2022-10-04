@@ -101,7 +101,7 @@
                     </table>
                     <hr class="mt-n3">
                     <div class="mb-3 ml-3">
-                        <a href="<?= base_url('SuperAdmin/Dashboard') ?>" class="btn btn-sm btn-warning px-2">Kembali</a>
+                        <a href="<?= base_url('SuperAdmin/DataKustomer') ?>" class="btn btn-sm btn-warning px-2">Kembali</a>
                     </div>
                 </div>
             </div>

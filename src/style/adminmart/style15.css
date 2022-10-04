@@ -1,0 +1,375 @@
+/* Custom Text Style */
+.text-black {
+    color: #132639;
+}
+
+.text-white {
+    color: #e6e6ff;
+}
+
+.text-gray-600 {
+    color: #6b6b6b;
+}
+
+.text-warning {
+    color: #ff8000 !important;
+}
+
+.text-success {
+    color: #009900 !important;
+}
+
+.text-primary {
+    color: #2989A8 !important;
+}
+
+.text-xs {
+    font-size:10px;
+}
+
+.text-sm {
+    font-size:14px;
+}
+/* Custom Text Style End */
+
+.btn-primary {
+    background-color: #2989A8;
+    color: white !important;
+    border: 0;
+}
+
+.btn-primary:hover {
+    background-color: #06607D;
+}
+
+.btn-outline-primary {
+    color: #2989A8;
+    border: 1px solid #2989A8 !important;
+    border: 0;
+}
+
+.btn-outline-primary:hover {
+    background-color: #06607D;
+}
+
+.btn-success {
+    background-color: #00cc66;
+    color: white !important;
+    border: 0;
+}
+
+.btn-success:hover {
+    background-color: #129E3A;
+}
+
+.btn-danger {
+    background-color: #cc0000;
+    color: white !important;
+    border: 0;
+}
+
+.btn-danger:hover {
+    background-color: #990000;
+}
+
+.btn-warning {
+    background-color: #CCA829;
+    border: 0;
+    color: white !important;
+}
+
+.btn-warning:hover {
+    background-color: #9F7C00;
+}
+
+.btn-secondary {
+    background-color: #c2c2a3;
+    color: white !important;
+    border: 0;
+}
+
+.btn-secondary:hover {
+    background-color: #adad85;
+}
+
+.btn-info {
+    background-color: #99b3e6;
+    border: 0;
+}
+
+.btn-outline-info {
+    color: 6675E8;
+    border: 1px solid 6675E8;
+    opacity: 0.9;
+}
+
+.btn-info:hover {
+    background-color: #8585e0;
+}
+
+.btn-sm {
+    border-radius: 5px;
+    padding: 2px 5px 4px 5px;
+}
+
+/* Resize Feather Icons */
+.feather-10{
+width: 10px;
+height: 10px;
+}
+.feather-14{
+    width: 14px;
+    height: 14px;
+    }
+.feather-16{
+    width: 16px;
+    height: 16px;
+}
+.feather-20{
+width: 20px;
+height: 20px;
+}
+.feather-24{
+width: 24px;
+height: 24px;
+}
+.feather-32{
+width: 32px;
+height: 32px;
+}
+
+/* Resize Feather Icons End */
+
+.font-weight-medium {
+    opacity: 0.8;
+}
+
+hr {
+    opacity: 0.8;
+}
+
+p {
+    font-size: 13px;
+}
+
+/* Contents */
+
+.breadcrumb-item.disabled {
+    color: #b3b3b3 !important;
+}
+
+.breadcrumb-item.active {
+    color: #999999 !important;
+}
+
+.breadcrumb-item .text-link {
+    color:  #2989A8 !important;
+    opacity: 0.5;
+}
+
+.breadcrumb-item .text-link:hover {
+    color: #2989A8 !important;
+    opacity: 1;
+}
+
+/* Nav Tabs */
+.nav-tabs .nav-item .nav-link{
+    color: #9b9b9b;
+}
+
+.nav-tabs .nav-item .active {
+    color: #2989A8;
+}
+/* Nav Tabs End*/
+
+/* Form */
+
+
+.form-group label {
+    font-size: 13px;
+    color: #5b5b5b;
+}
+
+.form-group label span {
+    color: #ff8080 !important;
+}
+
+.form-group .input-group input {
+    font-size: 13px !important;
+    color: #8b8b8b;
+}
+
+.form-group .input-group select {
+    font-size: 13px !important;
+    color: #8b8b8b;
+}
+
+.form-group .input-group textarea {
+    font-size: 13px !important;
+    color: #8b8b8b;
+}
+
+.form-group .input-group .input-group-prepend .input-group-text {
+    font-size: 13px !important;
+    color: #8b8b8b;
+}
+
+.form-group p {
+    font-size: 12px !important;
+    color: #ff8080;
+}
+
+.icon-show-pw {
+    margin-left: -30px;
+    margin-top: 10px;
+    cursor: pointer;
+    position: relative;
+    color: #3d4852;
+    opacity: 0.6;
+  }  
+
+/* End Form */
+
+/* Model undangan */
+    .card-sampul-cover {
+        border: 1.8px solid #e0ebeb;
+        border-radius: 10px;
+        width: 290px;
+    }
+    .img-sampul-cover {
+        border: 1px solid #e0ebeb;
+        border-radius: 15px;
+        width: 270px;
+        height: 378px;
+    }
+
+    /* Floating Button */
+    @-webkit-keyframes come-in {
+        0% {
+        -webkit-transform: translatey(100px);
+                transform: translatey(100px);
+        opacity: 0;
+        }
+        30% {
+        -webkit-transform: translateX(-50px) scale(0.4);
+                transform: translateX(-50px) scale(0.4);
+        }
+        70% {
+        -webkit-transform: translateX(0px) scale(1.2);
+                transform: translateX(0px) scale(1.2);
+        }
+        100% {
+        -webkit-transform: translatey(0px) scale(1);
+                transform: translatey(0px) scale(1);
+        opacity: 1;
+        }
+    }
+    @keyframes come-in {
+        0% {
+        -webkit-transform: translatey(100px);
+                transform: translatey(100px);
+        opacity: 0;
+        }
+        30% {
+        -webkit-transform: translateX(-50px) scale(0.4);
+                transform: translateX(-50px) scale(0.4);
+        }
+        70% {
+        -webkit-transform: translateX(0px) scale(1.2);
+                transform: translateX(0px) scale(1.2);
+        }
+        100% {
+        -webkit-transform: translatey(0px) scale(1);
+                transform: translatey(0px) scale(1);
+        opacity: 1;
+        }
+    }
+    
+    .floating-container {
+        position: fixed;
+        width: 100px;
+        height: 100px;
+        bottom: 0;
+        right: 0;
+        margin: 40px 5px;
+    }
+    .floating-container:hover {
+        height: 300px;
+    }
+    .floating-container:hover .floating-button {
+        box-shadow: 0 10px 25px #e67300;
+        -webkit-transform: translatey(-5px);
+                transform: translatey(-5px);
+        -webkit-transition: all 0.3s;
+        transition: all 0.3s;
+    }
+    .floating-container:hover .element-container .float-element:nth-child(1) {
+        -webkit-animation: come-in 0.4s forwards 0.2s;
+                animation: come-in 0.4s forwards 0.2s;
+    }
+    .floating-container:hover .element-container .float-element:nth-child(2) {
+        -webkit-animation: come-in 0.4s forwards 0.4s;
+                animation: come-in 0.4s forwards 0.4s;
+    }
+    .floating-container:hover .element-container .float-element:nth-child(3) {
+        -webkit-animation: come-in 0.4s forwards 0.6s;
+                animation: come-in 0.4s forwards 0.6s;
+    }
+    .floating-container .floating-button {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        bottom: 0;
+        border-radius: 50%;
+        left: 0;
+        right: 0;
+        margin: auto;
+        background-color: #CCA829;
+        color: white;
+        line-height: 50px;
+        text-align: center;
+        font-size: 23px;
+        z-index: 100;
+        box-shadow: 0 10px 25px -5px #CCA829;
+        cursor: pointer;
+        -webkit-transition: all 0.3s;
+        transition: all 0.3s;
+    }
+    /* Floating Button End */
+
+    /* Carousel */
+    .carousel-indicators {
+        bottom: -35px;
+    }
+
+    .carousel-indicators li {
+        border: 1px solid #2989A8;
+        border-radius: 3px;
+        width: 20px;
+        height: 8px;
+    }
+
+    .carousel-indicators li:hover {
+        background-color: #2989A8;
+        opacity: 0.5;
+    }
+
+    .carousel-indicators .active {
+        background-color: #2989A8;
+        opacity: 0.8;
+    }
+    /* Corousel */
+/* Model undangan */
+
+
+/* Contents End*/
+
+/* Footer */
+footer{
+    font-size: 15px;
+}
+
+footer span {
+    font-size: 14px;
+}
+/* Footer End */

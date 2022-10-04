@@ -48,17 +48,31 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group mb-3">
-                            <label for="modelUndangan">Model Undangan <span class="text-danger">*</span></label>
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Masukan Model Undangan" id="modelUndangan">
-                            </div>
-                        </div>
+                        <!-- Harga Sesuai Kategori Undangan yang dipilih -->
                         <div class="form-group mb-3">
                             <label for="harga">Harga Undangan <span class="text-danger">*</span></label>
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Masukan Harga" id="harga">
+                                <input type="text" class="form-control" placeholder="Harga Undangan" id="harga" value="Rp. 150.000" readonly>
                             </div>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="modelUndangan">Model Undangan <span class="text-danger">*</span></label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Masukan Nama Model Undangan" id="modelUndangan">
+                            </div>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="uploadSampul">Upload Sampul Undangan <span class="text-danger">*</span></label>
+                            <div class="input-group">
+                                <div class="input-group-prepend h-75">
+                                    <span class="input-group-text">Upload</span>
+                                </div>
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="uploadSampul">
+                                    <label class="custom-file-label" for="uploadCover">Choose file</label>
+                                </div>
+                            </div>
+                            <p>Catatan: File max 2mb format (SVG,PNG,JPG,JPEG), rekomendasi format SVG (270 x 378 pixels) </p>
                         </div>
                         <div class="form-group mb-3">
                             <label for="uploadCover">Upload Cover Undangan <span class="text-danger">*</span></label>

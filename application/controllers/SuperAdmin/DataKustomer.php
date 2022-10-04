@@ -31,5 +31,3 @@ class DataKustomer extends CI_Controller
 	}
 
 }
-
-?>

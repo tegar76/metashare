@@ -42,20 +42,21 @@
                         <div class="form-group mb-3">
                             <label for="email">Email <span class="text-danger">*</span></label>
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Masukan Email" id="email">
+                                <input type="email" class="form-control" placeholder="Masukan Email" id="email">
                             </div>
                         </div>
                         <p class="text-primary">Data Transaksi</p>
                         <div class="form-group mb-3">
                             <label for="modelUndangan">Model Undangan <span class="text-danger">*</span></label>
                             <div class="input-group">
-                                <select class="form-control" id="modelUndangan">
+                                <select class="selectpicker form-control" id="modelUndangan" data-live-search="true"> 
                                     <option>Pilih Model Undangan</option>
                                     <option>Model A</option>
                                     <option>Model B</option>
                                 </select>
                             </div>
                         </div>
+                         <!-- Setelah admin memilih model undangan sesuai yang Customer pilih, maka munculkan value form jenis, kategori, harga sesuai data-->
                         <div class="form-group mb-3">
                             <label for="jenis">Jenis <span class="text-danger">*</span></label>
                             <div class="input-group">
@@ -72,6 +73,15 @@
                             <label for="harga">Harga <span class="text-danger">*</span></label>
                             <div class="input-group">
                                 <input type="text" class="form-control" id="harga" value="150000" readonly>
+                            </div>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="harga">Cek Model Undangan</label>
+                            <div class="input-group">
+                            <a target="_blank" href="<?= base_url('PreviewModelUndangan')?>" class="btn     btn-sm btn-outline-info text-sm  px-2 mr-3">
+                                <i class="fas fa-eye mr-1"></i>
+                                <span class="mb-1">Preview</span>
+                            </a>
                             </div>
                         </div>
                         <div class="form-group mb-3">
@@ -100,7 +110,7 @@
                             </div>
                         </div>
                         <div class="flex mt-3 mb-4">
-                            <button type="submit" class="btn btn-sm btn-success px-3 py-2 mr-3">Update</button>
+                            <button type="submit" class="btn btn-sm btn-warning px-3 py-2 mr-3">Simpan</button>
                             <button type="reset" class="btn btn-sm btn-secondary px-3 py-2">Reset</button>
                         </div>
                     </form>

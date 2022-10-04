@@ -219,6 +219,40 @@ p {
     color: #ff8080;
 }
 
+.border-password {
+    border: 1px solid rgba(139, 139, 139, 0.2);
+}
+
+/* Select Search */
+
+.bootstrap-select .btn {
+  background-color: #ffffff;
+  color: #8b8b8b;
+  font-size: 13px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.bootstrap-select .dropdown-menu {
+  margin: 15px 0 0;
+  background-color: #F6F6FB;
+  border-radius: 10px;
+  border: 1px solid  #ccccb3;
+  color: #8b8b8b;
+  font-size: 13px;
+}
+
+.bootstrap-select .dropdown-menu .selected {
+  background-color: #99b3e6 !important;
+}
+
+select::-ms-expand {
+  /* for IE 11 */
+  display: none;
+}
+
+/* Select Search End*/
+
 .icon-show-pw {
     margin-left: -30px;
     margin-top: 10px;

@@ -75,27 +75,31 @@
 			</div>
 			<div class="form-group mb-3">
 				<div class="row">
-					<div class="col-6">
-						<label for="password">Password <span class="text-danger">*</span></label>
-						<div class="input-group">
-							<input type="password" name="password" class="form-control <?= form_error('password') ? 'is-invalid' : '' ?>" placeholder="Masukan Password" id="password">
-							<div class="invalid-feedback">
-								<?= form_error('password', '<div class="text-danger">', '</div>') ?>
+					<div class="col-6 mb-1">
+						<div class="form-group">
+							<label for="password">Password <span class="text-danger">*</span></label>
+							<div class="input-group border-password">
+								<input name="password" class="form-control border-0 <?= form_error('password') ? 'is-invalid' : '' ?>" id="password" type="password" placeholder="Masukan Password" autocomplete="current-password" id="password"><span role="button" class="d-flex"><i class="fas fa-eye fa-xs mr-2 my-auto" id="togglePassword"></i></span>
+								<div class="invalid-feedback">
+									<?= form_error('password', '<div class="text-danger">', '</div>') ?>
+								</div>
 							</div>
 						</div>
 					</div>
 					<div class="col-6">
-						<label for="conf_pass">Password Baru <span class="text-danger">*</span></label>
-						<div class="input-group">
-							<input type="password" name="conf_pass" class="form-control <?= form_error('conf_pass') ? 'is-invalid' : '' ?>" placeholder="Masukan Password Baru" id="conf_pass">
-							<div class="invalid-feedback">
-								<?= form_error('conf_pass', '<div class="text-danger">', '</div>') ?>
+						<div class="form-group">
+							<label for="passwordBaru">Password Baru <span class="text-danger">*</span></label>
+							<div class="input-group border-password">
+								<input name="conf_pass" class="form-control border-0 <?= form_error('conf_pass') ? 'is-invalid' : '' ?>" id="passwordBaru" type="password" placeholder="Masukan Password Baru" autocomplete="current-password"><span role="button" class="d-flex"><i class="fas fa-eye fa-xs mr-2 my-auto" id="togglePasswordBaru"></i></span>
+								<div class="invalid-feedback">
+									<?= form_error('conf_pass', '<div class="text-danger">', '</div>') ?>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="flex mt-3 mb-4">
+			<div class="flex mb-4">
 				<button type="submit" name="update" class="btn btn-sm btn-success px-3 py-2 mr-3">Update</button>
 				<button type="reset" class="btn btn-sm btn-secondary px-3 py-2">Reset</button>
 			</div>
@@ -106,3 +110,26 @@
 	<!-- End Container fluid  -->
 	<!-- ============================================================== -->
 	<!-- ============================================================== -->
+
+	<script>
+		// Show Toggle Password
+		const togglePassword = document.querySelector('#togglePassword');
+		const password = document.querySelector('#password');
+		togglePassword.addEventListener('click', function(e) {
+			// toggle the type attribute
+			const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+			password.setAttribute('type', type);
+			// toggle the eye slash icon
+			this.classList.toggle('fa-eye-slash');
+		});
+		// Show Toggle Password baru
+		const togglePasswordBaru = document.querySelector('#togglePasswordBaru');
+		const passwordBaru = document.querySelector('#passwordBaru');
+		togglePasswordBaru.addEventListener('click', function(e) {
+			// toggle the type attribute
+			const type = passwordBaru.getAttribute('type') === 'password' ? 'text' : 'password';
+			passwordBaru.setAttribute('type', type);
+			// toggle the eye slash icon
+			this.classList.toggle('fa-eye-slash');
+		});
+	</script>

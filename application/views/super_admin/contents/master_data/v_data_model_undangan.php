@@ -59,19 +59,41 @@
                         <div class="tab-pane show active" id="pernikahan">
                             <div class="row ml-0">
                                 <!-- Item Model -->
-                                <div class="card shadow-sm card-cover p-2 mx-2 mb-3">
-                                    <img class="img-cover mx-auto" src="<?= base_url('storage/cover_model_undangan/cover_a.svg')?>" alt="">
-                                    <h5 class="text-black mt-3">Model A</h5>
+                                <div class="card shadow-sm card-sampul-cover p-2 mx-2 mb-3">
+                                    <div id="carousel-sampul-cover" class="carousel slide" data-ride="carousel">
+                                        <div class="carousel-inner" role="listbox">
+                                            <div class="carousel-item active">
+                                                <img class="img-sampul-cover mx-auto" src="<?= base_url('storage/model_undangan_sampul/sampul_a.svg')?>" alt="Cover">
+                                                <!-- Caption Off -->
+                                                <!-- <div class="carousel-caption d-none d-md-block">
+                                                    <h3 class="text-white">First title goes here</h3>
+                                                    <p>this is the subcontent you can use this</p>
+                                                </div> -->
+
+                                            </div>
+                                            <div class="carousel-item">
+                                                <img class="img-sampul-cover mx-auto" src="<?= base_url('storage/model_undangan_cover/cover_a.svg')?>" alt="Cover">
+                                                <!-- Caption Off -->
+                                                <!-- <div class="carousel-caption d-none d-md-block">
+                                                    <h3 class="text-white">Second title goes here</h3>
+                                                    <p>this is the subcontent you can use this</p>
+                                                </div> -->
+
+                                            </div>
+                                        </div>
+                                        <ol class="carousel-indicators">
+                                            <li data-target="#carousel-sampul-cover" data-slide-to="0" class="active"></li>
+                                            <li data-target="#carousel-sampul-cover" data-slide-to="1"></li>
+                                        </ol>
+                                    </div>
+                                    <!-- <img class="img-cover mx-auto" src="<?= base_url('storage/cover_model_undangan/cover_a.svg')?>" alt="Cover"> -->
+                                    <h5 class="text-black mt-4">Model A</h5>
                                     <p>Undangan Pernikahan / Special</p>
                                     <h4 class="text-danger mt-n2">Rp. 150.000</h4>
-                                    <div class="d-flex mx-auto mt-2">
-                                        <a target="_blank" href="<?= base_url('PreviewModelUndangan')?>" class="btn btn-sm btn-info text-sm text-white px-2 mr-3">
+                                    <div class="mt-2">
+                                        <a target="_blank" href="<?= base_url('PreviewModelUndangan')?>" class="btn btn-sm btn-outline-info text-sm  px-2 mr-3">
                                             <i class="fas fa-eye mr-1"></i>
                                             <span class="mb-1">Preview</span>
-                                        </a>
-                                        <a href="" class="btn btn-sm btn-success text-sm text-white px-2">
-                                            <i class="fab fa-whatsapp fa-lg mr-1"></i>
-                                            <span class="mb-1">Order Sekarang</span>
                                         </a>
                                     </div>
                                     <div class="text-xs mt-3 mb-n2">

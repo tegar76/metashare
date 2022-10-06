@@ -73,4 +73,48 @@ class MasterModel extends Ci_Model
 	{
 		$this->db->insert('admin', $admin);
 	}
+
+	public function getInvitation()
+	{
+		$this->db->order_by('name', 'ASC');
+		return $this->db->get('model_invitation')->result();
+	}
+
+	public function getDataAdmin()
+	{
+		$this->db->where('level', 'admin');
+		$this->db->order_by('name', 'ASC');
+		return $this->db->get('admin')->result();
+	}
+
+	public function get_select2($type, $search)
+	{
+		if ($type == 'admin') {
+			$this->db->select('admin_id, code, name, level');
+			$this->db->from('admin');
+			$this->db->like('code', $search);
+			$this->db->like('name', $search);
+			$this->db->where('level', 'admin');
+			$this->db->order_by('name', 'ASC');
+			$query	= $this->db->get();
+			if ($query->num_rows() == null) {
+				return 0;
+			}
+			return $query->result();
+		} elseif ($type == 'invitation') {
+			$this->db->select('model_id, name, type, category, price');
+			$this->db->from('model_invitation');
+			$this->db->like('name', $search);
+			$this->db->like('type', $search);
+			$this->db->like('category', $search);
+			$this->db->order_by('name', 'ASC');
+			$query	= $this->db->get();
+			if ($query->num_rows() == null) {
+				return 0;
+			}
+			return $query->result();
+		} else {
+			return false;
+		}
+	}
 }

@@ -75,10 +75,13 @@
 	<!-- id data table -->
 	<script src="<?= base_url('src/adminmart') ?>/assets/extra-libs/datatables.net/js/dataTablesId.js"></script>
 	<!-- End Data Table -->
+	<!-- Select 2 -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
 
 	<!-- Bootstrap Select search -->
 	<script src="<?= base_url('src/bootstrap-select-1.13.14/dist/js/bootstrap-select.min.js') ?>"></script>
-	<script src="<?= base_url('assets/js/su_admin.js') ?>"></script>
+	<script src="<?= base_url('assets/js/su-admin.js') ?>"></script>
 
 	<script>
 		$(function() {

@@ -17,7 +17,7 @@
 					</ul>
 				</li>
 				<li class="list-divider"></li>
-				<li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="<?= base_url('su-admin/DataKustomer') ?>" aria-expanded="false"><i data-feather="users" class="feather-icon"></i><span class="hide-menu">Data Kustomer</span></a></li>
+				<li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="<?= base_url('su-admin/customer') ?>" aria-expanded="false"><i data-feather="users" class="feather-icon"></i><span class="hide-menu">Data Kustomer</span></a></li>
 				<li class="list-divider"></li>
 				<li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="<?= base_url('su-admin/LaporanBulanan') ?>" aria-expanded="false"><i data-feather="file-text" class="feather-icon"></i><span class="hide-menu">Laporan Bulanan</span></a></li>
 				<li class="list-divider"></li>

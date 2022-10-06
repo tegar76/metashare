@@ -9,7 +9,7 @@ class MasterData extends CI_Controller
 		$this->load->model('MasterModel', 'master', true);
 	}
 
-	public function dataModelUndangan()
+	public function model_undangan()
 	{
 		$data['title'] = 'Data Model Undangan';
 		$data['content'] = 'super_admin/contents/master_data/v_data_model_undangan';
@@ -34,7 +34,7 @@ class MasterData extends CI_Controller
 	public function data_admin()
 	{
 		$no = 1;
-		$admin = $this->master->getAdmin();
+		$admin = $this->master->getDataAdmin();
 		$data['admin'] = array();
 		if ($admin) {
 			foreach ($admin as $row => $value) {
@@ -64,6 +64,8 @@ class MasterData extends CI_Controller
 			$data['title'] = 'Detail Admin ' . (!empty($admin)) ? $admin->name : '';
 			$data['content'] = 'super_admin/contents/master_data/v_detail_admin';
 		} else {
+			$data['title'] = '404 Not Found';
+			$data['content'] = 'errors/contents/error_404';
 		}
 		$this->load->view('super_admin/layouts/wrapper', $data, FALSE);
 	}
@@ -138,7 +140,9 @@ class MasterData extends CI_Controller
 	public function update_admin($code = false)
 	{
 		$admin = $this->master->getAdminByCode($code);
-		if ($code == false && empty($admin)) {
+		if ($code == false or empty($admin)) {
+			$data['title'] = '404 Not Found';
+			$data['content'] = 'errors/contents/error_404';
 		} else {
 			$data['admin'] = $admin;
 			$data['title'] = 'Edit Admin';

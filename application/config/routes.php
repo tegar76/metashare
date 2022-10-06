@@ -53,13 +53,17 @@ $route['default_controller'] = 'Tamu/';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-$route['admin/login'] = 'Auth';
 
 // Routing super admin
+# routing login super admin
+$route['su-admin/login'] = 'SuperAdmin/Login/index';
+# routing dashboard super admin
 $route['su-admin/dashboard'] = 'SuperAdmin/Dashboard';
 # routing master data
 $route['su-admin/master-data'] = 'SuperAdmin/MasterData';
 $route['su-admin/master-data/(:any)'] = 'SuperAdmin/MasterData/$1';
 $route['su-admin/master-data/(:any)/(:any)'] = 'SuperAdmin/MasterData/$1/$2';
 
-$route['su-admin/cutomer'] = 'SuperAdmin/DataKustomer';
+$route['su-admin/customer'] = 'SuperAdmin/DataKustomer';
+$route['su-admin/customer/(:any)'] = 'SuperAdmin/DataKustomer/$1';
+$route['su-admin/customer/(:any)/'] = 'SuperAdmin/DataKustomer/$1/$2';

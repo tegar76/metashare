@@ -11,10 +11,10 @@ class AuthAdmin extends CI_Controller
 	{
 		if ($this->session->userdata('backToken')) {
 			if ($this->auth->checkToken($this->session->userdata('backToken'))) {
-				redirect('admin/dashboard');
+				redirect('su-admin/dashboard');
 			} else {
 				$this->session->unset_userdata('backToken');
-				redirect('admin/logout');
+				redirect('su-admin/logout');
 			}
 		}
 	}
@@ -45,7 +45,8 @@ class AuthAdmin extends CI_Controller
 			],
 		]);
 		if ($this->form_validation->run() == false) {
-			$this->load->view('admin/login');
+			$data['title'] = 'Login Super Admin';
+			$this->load->view('super_admin/contents/login/v_login', $data, FALSE);
 		} else {
 			$this->process();
 		}
@@ -67,14 +68,14 @@ class AuthAdmin extends CI_Controller
 				$this->session->set_userdata($sess_);
 				$this->auth->registToken($forToken = ['access_token' => $sess_['backToken']]);
 				sweetAlert("Selamat Datang $admin->name", "Semoga hari anda menyenangkan :)", "success");
-				redirect('admin/dashboard');
+				redirect('su-admin/dashboard');
 			} else {
 				$this->session->set_flashdata('message', 'password salah');
-				$this->load->view('admin/login');
+				$this->load->view('su-admin/login');
 			}
 		} else {
 			sweetAlert("Login Gagal", "Akun admin tidak tersedia", "error");
-			redirect('admin/login');
+			redirect('su-admin/login');
 		}
 	}
 

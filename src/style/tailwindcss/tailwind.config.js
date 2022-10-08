@@ -29,11 +29,13 @@ module.exports = {
         'xs': '500px',
       },
       backgroundImage: {
-        'simple-white': "url('../../../assets/bg_img/bg_simple_white.png')",
+        'sambutan-sm': "url('../../../assets/bg_img/bg_sambutan_sm.png')",
+        'sambutan-xl': "url('../../../assets/bg_img/bg_sambutan_xl_fix.png')",
+        'primary': "url('../../../assets/bg_img/bg_primary.png')",
+        'perjalanan-cinta-xl': "url('../../../assets/bg_img/bg_perjalanan_cinta_xl.png')",
         'cover-full': "url('../../../assets/bg_img/bg_foto_cover_full.jpg')",
         'cover-crop': "url('../../../assets/bg_img/bg_foto_cover_crop.jpg')",
-        'resepsi' : "url('../../../assets/bg_img/bg_resepsi.svg')",
-        'pesan-bahagia' : "url('../../../assets/bg_img/bg_pesan_bahagia.svg')",
+        'pesan-bahagia-sm' : "url('../../../assets/bg_img/bg_pesan_bahagia_sm.png')",
       },
       animation: {
         'spin-slow': 'spin 2s linear infinite',
@@ -45,6 +47,7 @@ module.exports = {
         wiggleRight: 'wiggleRight 2s ease-in-out infinite',
         fadeIn: 'fadeIn 3s ease-in-out',
         resize: 'resize 3s ease-in-out',
+        fadeAlert: 'fadeAlert 3s ease-in-out',
       },
 
       // that is actual animation
@@ -104,6 +107,20 @@ module.exports = {
            },
           '100%': { 
 
+           },
+        },
+        fadeAlert: {
+          '0%': { 
+            opacity: 0,
+           },
+           '40%': { 
+            opacity: 40,
+           },
+           '70%': { 
+            opacity: 80,
+           },
+          '100%': { 
+            opacity: 100,
            },
         },
       }),

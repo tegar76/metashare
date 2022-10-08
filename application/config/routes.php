@@ -67,3 +67,8 @@ $route['su-admin/master-data/(:any)/(:any)'] = 'SuperAdmin/MasterData/$1/$2';
 $route['su-admin/customer'] = 'SuperAdmin/DataKustomer';
 $route['su-admin/customer/(:any)'] = 'SuperAdmin/DataKustomer/$1';
 $route['su-admin/customer/(:any)/'] = 'SuperAdmin/DataKustomer/$1/$2';
+
+$route['admin/undangan'] = 'Admin/Invitation';
+$route['admin/undangan/(:any)'] = 'Admin/Invitation/$1';
+$route['admin/undangan/(:any)/(:any)'] = 'Admin/Invitation/$1/$2';
+$route['admin/undangan/(:any)/(:any)/(:any)'] = 'Admin/Invitation/$1/$2/$3';

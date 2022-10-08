@@ -62,7 +62,24 @@ class Invitation extends CI_Controller
 		}
 	}
 
-	public function wedding($slug)
+	public function wedding($slug = false)
 	{
+		$invt = $this->invitation->getInvitationBySlug($slug);
+		if ($slug == false or empty($invt)) {
+		} else {
+			$photo = $this->invitation->getPhotoPreWedding(1);
+			foreach ($photo as $key => $value) {
+				$img['id'] = $value->gallery_id;
+				$img['img'] = 	base_url('assets/img/' .  $value->photo);
+				$imgs[] = $img;
+			}
+			if (isset($_GET['to'])) {
+				$data['guest'] = $this->input->get('to');
+			} else {
+				$data['guest'] = null;
+			}
+			$data['photo'] = $imgs;
+			$this->load->view('tamu/v_tamu', $data);
+		}
 	}
 }

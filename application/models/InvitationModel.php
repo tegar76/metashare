@@ -38,4 +38,16 @@ class InvitationModel extends CI_Model
 		$this->db->order_by('name', 'ASC');
 		return $this->db->get('invited_guest')->result();
 	}
+
+	public function getPhotoPreWedding($id)
+	{
+		$this->db->where('invitaion_id', $id);
+		return $this->db->get('photo_gallery')->result();
+	}
+
+	public function getInvitationBySlug($slug)
+	{
+		$this->db->where("slug", $slug);
+		return $this->db->get("invitation")->row();
+	}
 }

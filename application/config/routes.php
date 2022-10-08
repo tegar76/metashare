@@ -72,3 +72,7 @@ $route['admin/undangan'] = 'Admin/Invitation';
 $route['admin/undangan/(:any)'] = 'Admin/Invitation/$1';
 $route['admin/undangan/(:any)/(:any)'] = 'Admin/Invitation/$1/$2';
 $route['admin/undangan/(:any)/(:any)/(:any)'] = 'Admin/Invitation/$1/$2/$3';
+
+$route['wedding'] = 'Admin/Invitation/wedding';
+$route['wedding/(:any)'] = 'Admin/Invitation/wedding/$1';
+$route['wedding/(:any)/(:any)'] = 'Admin/Invitation/wedding/$1/$2';

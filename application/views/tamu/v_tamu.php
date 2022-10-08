@@ -6,7 +6,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<link rel="stylesheet" href="<?= base_url('src/style/css/style5.css') ?>">
+	<link rel="stylesheet" href="<?= base_url('src/style/css/style21.css') ?>">
+	<link rel="icon" type="image/png" sizes="16x16" href="<?= base_url() ?>/assets/icons/logo_metashare_small.png">
 
 	<!-- Hitung tanggal -->
 	<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
@@ -18,11 +19,6 @@
 		@font-face {
 			font-family: "BacktoBlack";
 			src: url("assets/fonts/BacktoBlack.ttf") format('truetype');
-		}
-
-		@font-face {
-			font-family: "GreatVibes";
-			src: url("assets/fonts/GreatVibes-Regular.ttf") format('truetype');
 		}
 
 		@font-face {

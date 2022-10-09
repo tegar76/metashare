@@ -14,7 +14,10 @@
 
 	<!-- Tailwind Elements -->
 	<script src="<?= base_url('src/style/tailwindcss/node_modules/tw-elements/dist/js/index.min.js') ?>"></script>
-
+	<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+	<!-- SweetAlert 2 -->
+	<link rel="stylesheet" href="<?= base_url('assets/') ?>plugin/sweetalert2/sweetalert2.min.css">
+	<script src="<?= base_url('assets/') ?>plugin/sweetalert2/sweetalert2.all.min.js"></script>
 	<style>
 		@font-face {
 			font-family: "BacktoBlack";
@@ -466,89 +469,44 @@
 									<div class="mx-8">
 										<div class="">
 											<div class="">
-												<form action="">
-													<div class="">
-														<label for="pesan" class="opacity-60 font-semibold tracking-wide cursor-pointer text-base-md lg:text-md">Pesan</label>
+												<?= form_open("#", ['id' => 'submit-message']) ?>
+												<input type="hidden" name="guest_name" value="<?= $guest ?>">
+												<input type="hidden" name="invt_id" value="<?= $invt_id; ?>">
+												<div class="">
+													<label for="pesan" class="opacity-60 font-semibold tracking-wide cursor-pointer text-base-md lg:text-md">Pesan</label>
+													<div class="mt-2">
+														<textarea class="form-textarea w-full rounded-lg bg-white/30 border-blue-900 leading-tight focus:ring-0 focus:border border-dashed focus:border-blue-900 border-opacity-30 focus:border-opacity-50" name="pesan" id="pesan" placeholder="Masukan Pesan"></textarea>
+													</div>
+												</div>
+												<div class="mt-3">
+													<label for="konfirmasi" class="opacity-60 font-semibold tracking-wide text-base-md lg:text-md">Konfirmasi Kehadiran</label>
+													<div class="flex">
+														<div class="mt-2 mr-3 lg:mr-5">
+															<input type="radio" value="2" class="w-5 h-4 rounded-md border-blue-900 border-opacity-20 bg-white/30 leading-tight focus:ring-0 focus:bg-transparent focus:border-slate-500 checked:bg-green-500 checked:hover:bg-green-600 checked:focus:bg-green-600 cursor-pointer" name="konfirmasiHadir" id="hadir">
+															<label class="lg:ml-1 text-slate-600 cursor-pointer text-sm lg:text-base" for="hadir">Hadir</label>
+														</div>
+														<div class="mt-2 mr-3 lg:mr-5">
+															<input type="radio" value="1" class="w-5 h-4 rounded-md border-blue-900 border-opacity-20 bg-white/30 leading-tight focus:ring-0 focus:bg-transparent focus:border-slate-400 checked:bg-red-400 checked:hover:bg-red-500 checked:focus:bg-red-500 cursor-pointer" name="konfirmasiHadir" id="tidakHadir">
+															<label class="lg:ml-1 text-slate-600 cursor-pointer text-sm lg:text-base" for="tidakHadir">Tidak Hadir</label>
+														</div>
 														<div class="mt-2">
-															<textarea class="form-textarea w-full rounded-lg bg-white/30 border-blue-900 leading-tight focus:ring-0 focus:border border-dashed focus:border-blue-900 border-opacity-30 focus:border-opacity-50" name="pesan" id="pesan" placeholder="Masukan Pesan"></textarea>
+															<input type="radio" value="0" class="w-5 h-4 rounded-md border-blue-900 border-opacity-20 bg-white/30 leading-tight focus:ring-0 focus:bg-transparent focus:border-slate-500 checked:bg-yellow-500 checked:hover:bg-yellow-600 checked:focus:bg-yellow-600 cursor-pointer" name="konfirmasiHadir" id="belumPasti">
+															<label class="lg:ml-1 text-slate-600 cursor-pointer text-sm lg:text-base" for="belumPasti">Belum Pasti</label>
 														</div>
 													</div>
-													<div class="mt-3">
-														<label for="konfirmasi" class="opacity-60 font-semibold tracking-wide text-base-md lg:text-md">Konfirmasi Kehadiran</label>
-														<div class="flex">
-															<div class="mt-2 mr-3 lg:mr-5">
-																<input type="radio" class="w-5 h-4 rounded-md border-blue-900 border-opacity-20 bg-white/30 leading-tight focus:ring-0 focus:bg-transparent focus:border-slate-500 checked:bg-green-500 checked:hover:bg-green-600 checked:focus:bg-green-600 cursor-pointer" name="konfirmasiHadir" id="hadir">
-																<label class="lg:ml-1 text-slate-600 cursor-pointer text-sm lg:text-base" for="hadir">Hadir</label>
-															</div>
-															<div class="mt-2 mr-3 lg:mr-5">
-																<input type="radio" class="w-5 h-4 rounded-md border-blue-900 border-opacity-20 bg-white/30 leading-tight focus:ring-0 focus:bg-transparent focus:border-slate-400 checked:bg-red-400 checked:hover:bg-red-500 checked:focus:bg-red-500 cursor-pointer" name="konfirmasiHadir" id="tidakHadir">
-																<label class="lg:ml-1 text-slate-600 cursor-pointer text-sm lg:text-base" for="tidakHadir">Tidak Hadir</label>
-															</div>
-															<div class="mt-2">
-																<input type="radio" class="w-5 h-4 rounded-md border-blue-900 border-opacity-20 bg-white/30 leading-tight focus:ring-0 focus:bg-transparent focus:border-slate-500 checked:bg-yellow-500 checked:hover:bg-yellow-600 checked:focus:bg-yellow-600 cursor-pointer" name="konfirmasiHadir" id="belumPasti">
-																<label class="lg:ml-1 text-slate-600 cursor-pointer text-sm lg:text-base" for="belumPasti">Belum Pasti</label>
-															</div>
-														</div>
-													</div>
-													<div class="mt-3">
-														<button type="submit" class="px-4 py-1 bg-blue-900 bg-opacity-50 text-white rounded-lg hover:bg-opacity-80 transition-all duration-300 text-base-md lg:text-base font-semibold">Kirim</button>
-													</div>
-												</form>
+												</div>
+												<div class="mt-3">
+													<button type="submit" class="px-4 py-1 bg-blue-900 bg-opacity-50 text-white rounded-lg hover:bg-opacity-80 transition-all duration-300 text-base-md lg:text-base font-semibold">Kirim</button>
+												</div>
+												<?= form_close() ?>
 											</div>
 											<div class="">
 												<div>
-													<p class="opacity-60 font-semibold tracking-wide mb-3 mt-4 text-base-md lg:text-md ">Total Pesan : <span>3</span></p>
+													<p class="opacity-60 font-semibold tracking-wide mb-3 mt-4 text-base-md lg:text-md ">Total Pesan : <span><?= $message ?></span></p>
 												</div>
 												<div class="overflow-y-scroll h-[350px] xl:h-[250px] border border-dashed border-blue-900 border-opacity-30 cursor-all-scroll rounded-md bg-white/30">
 													<div class="mx-3 mb-3">
-														<div class="flex mt-3">
-															<div class="mr-3">
-																<div class="flex w-9 h-9 font-semibold border border-slate-300 shadow-lg text-green-500 text-center rounded-full items-center justify-center">F</div>
-															</div>
-															<div>
-																<div>
-																	<p class="font-semibold opacity-60 tracking-wide text-base-sm lg:text-base-md">Firmansah</p>
-																	<p class="text-sm text-slate-500 mb-1">10-05-2022 13.00</p>
-																	<p class="text-base-sm tracking-wide text-slate-700 text-justify mr-2">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit enim ullam quaerat totam perferendis minus assumenda tempora nostrum! Veniam, error.</p>
-																</div>
-															</div>
-														</div>
-														<div class="flex mt-3">
-															<div class="mr-3">
-																<div class="flex w-9 h-9 font-semibold border border-slate-300 shadow-lg text-red-400 text-center rounded-full items-center justify-center">B</div>
-															</div>
-															<div>
-																<div>
-																	<p class="font-semibold opacity-60 tracking-wide text-base-sm lg:text-base-md">Bayu Purnomo</p>
-																	<p class="text-sm text-slate-500 mb-1">10-05-2022 13.00</p>
-																	<p class="text-sm lg:text-base-sm tracking-wide text-slate-600">Selamat menempuh hidup baru Lorem ipsum dolor sit amet.</p>
-																</div>
-															</div>
-														</div>
-														<div class="flex mt-3">
-															<div class="mr-3">
-																<div class="flex w-9 h-9 font-semibold border border-slate-300 shadow-lg text-yellow-500 text-center rounded-full items-center justify-center">T</div>
-															</div>
-															<div>
-																<div>
-																	<p class="font-semibold opacity-60 tracking-wide text-base-sm lg:text-base-md">Tegar</p>
-																	<p class="text-sm text-slate-500 mb-1">10-05-2022 13.00</p>
-																	<p class="text-sm lg:text-base-sm tracking-wide text-slate-600 text-justify mr-2">Selamat menempuh hidup baru Lorem ipsum dolor sit amet.</p>
-																</div>
-															</div>
-														</div>
-														<div class="flex mt-5">
-															<div class="mr-3">
-																<div class="flex w-9 h-9 font-semibold border border-slate-300 shadow-lg text-yellow-500 text-center rounded-full items-center justify-center">T</div>
-															</div>
-															<div>
-																<div>
-																	<p class="font-semibold text-slate-500 tracking-wide text-base-md">Tegar</p>
-																	<p class="text-sm text-slate-500 mb-1">10-05-2022 13.00</p>
-																	<p class="text-sm lg:text-base-sm tracking-wide text-slate-600 text-justify mr-2">Selamat menempuh hidup baru Lorem ipsum dolor sit amet.</p>
-																</div>
-															</div>
-														</div>
+														<div id="display_message"></div>
 													</div>
 												</div>
 											</div>
@@ -1133,6 +1091,56 @@
 		// Tooltip End
 	</script>
 
+	<script>
+		$(document).ready(function() {
+			load_comment();
+			$("#submit-message").submit(function(e) {
+				e.preventDefault();
+				var form = this;
+				var formdata = new FormData(form);
+				$.ajax({
+					url: "<?= base_url('admin/undangan/submit_message') ?>",
+					type: "POST",
+					processData: false,
+					contentType: false,
+					data: formdata,
+					dataType: "json",
+					success: function(response) {
+						if (response.success == true) {
+							swal.fire(
+								"Pesan Tersampaikan",
+								"Terima kasih atas ucapannya",
+								"success"
+							);
+							load_comment();
+							form.reset();
+						}
+					},
+					error: function() {
+						swal.fire(
+							"Gagal",
+							"Pesan tidak tersampaikan",
+							"error"
+						);
+					},
+				});
+			});
+
+			function load_comment() {
+				$.ajax({
+					type: "GET",
+					url: "<?= base_url('admin/undangan/get_message') ?>",
+					dataType: "json",
+					success: function(reponse) {
+						$("#display_message").html(reponse);
+					},
+					error: function(reponse) {
+						console.log(reponse.responseText);
+					},
+				});
+			}
+		});
+	</script>
 </body>
 
 </html>

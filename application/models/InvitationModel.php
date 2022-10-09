@@ -50,4 +50,17 @@ class InvitationModel extends CI_Model
 		$this->db->where("slug", $slug);
 		return $this->db->get("invitation")->row();
 	}
+
+	public function insertMessage()
+	{
+		$data = $this->input->post();
+		$message = array(
+			'name' => $data['guest_name'],
+			'message' => $data['pesan'],
+			'status' => $data['konfirmasiHadir'],
+			'create_time' => date('Y-m-d H:i:s'),
+			'invitation_id' => $data['invt_id']
+		);
+		$this->db->insert('message', $message);
+	}
 }

@@ -35,11 +35,9 @@
 					<table id="dataTable" class="table table-striped table-bordered" style="width: 100%;">
 						<thead>
 							<tr>
-								<th style="width: 3%;">No</th>
-								<th style="width: 8%;">Tamu Undangan</th>
-								<th style="width: 7%;">Dibuat</th>
-								<th style="width: 8%;">Diedit</th>
-								<th style="width: 10%;">Aksi</th>
+								<th style="width: 2%;">No</th>
+								<th style="width: 10%;">Tamu Undangan</th>
+								<th style="width: 2%;">Aksi</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -47,13 +45,10 @@
 								<tr>
 									<td><?= $row['nomor']; ?></td>
 									<td><?= $row['name']; ?></td>
-									<td><?= $row['create']; ?></td>
-									<td><?= $row['update']; ?></td>
 									<td>
-
 										<div class="flex">
-											<a href="<?= base_url('wedding/' . $row['slug'] . '/to') ?>" class="btn btn-sm btn-primary mr-1"><i data-feather="search" class="feather-14" data-toggle="tooltip" title="Detail" data-placement="top"></i></a>
-											<a href="<?= base_url('su-admin/master-data/update_admin/') ?>" class="btn btn-sm btn-success mr-1"><i data-feather="edit" class="feather-14" data-toggle="tooltip" title="Edit" data-placement="top"></i></a>
+											<a href="<?= base_url('wedding/' . $row['slug'] . '?to=' . $row['name']) ?>" class="btn btn-sm btn-primary mr-1"><i data-feather="search" class="feather-14" data-toggle="tooltip" title="Detail" data-placement="top"></i></a>
+											<button class="btn btn-sm btn-warning mr-1 btn-copy-link" link="<?= base_url('wedding/' . $row['slug'] . '?to=' . $row['name']) ?>"><i data-feather="copy" class="feather-14" data-toggle="tooltip" title="Copy" data-placement="top"></i></button>
 										</div>
 									</td>
 								</tr>
@@ -75,3 +70,19 @@
 	<!-- End Container fluid  -->
 	<!-- ============================================================== -->
 	<!-- ============================================================== -->
+
+	<script>
+		$(document).ready(function() {
+			$('.btn-copy-link').on("click", function(e) {
+				e.preventDefault();
+				var link = $(e.currentTarget).attr("link");
+				document.addEventListener('copy', function(e) {
+					e.clipboardData.setData('text/plain', link);
+					e.preventDefault();
+				}, true);
+				document.execCommand('copy');
+				console.log('copied text : ', link);
+				alert('Link Berhasil Dicopy');
+			});
+		});
+	</script>

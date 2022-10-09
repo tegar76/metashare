@@ -37,20 +37,17 @@ class Invitation extends CI_Controller
 	public function detail($id = false)
 	{
 		if ($id == false) {
-			show_404();
+			$data['title'] = '404 Not Found';
+			$data['content'] = 'errors/contents/error_404';
 		} else {
 			$invt = $this->invitation->getDetailInvitation($id);
 			$guest = $this->invitation->getInvitedGuest($invt->id);
-			// var_dump($guest);
-			// die;
 			$data['guest'] = array();
 			if ($guest) {
 				$no = 1;
 				foreach ($guest as $row) {
 					$val['nomor'] = $no++;
 					$val['name'] = $row->name;
-					$val['create'] = '';
-					$val['update'] = '';
 					$val['slug'] = $invt->slug;
 					$restult[] = $val;
 				}
@@ -58,14 +55,16 @@ class Invitation extends CI_Controller
 			}
 			$data['title'] = 'Detail';
 			$data['content'] = 'admin/contents/undangan/v_detail_undangan';
-			$this->load->view('admin/layouts/wrapper', $data, FALSE);
 		}
+		$this->load->view('admin/layouts/wrapper', $data, FALSE);
 	}
 
 	public function wedding($slug = false)
 	{
-		$invt = $this->invitation->getInvitationBySlug($slug);
+		$invt = $this->invitation->getInvitationBySlug('runa-ratna');
 		if ($slug == false or empty($invt)) {
+			$data['title'] = '404 Not Found';
+			$this->load->view('errors/contents/v_error_404', $data, FALSE);
 		} else {
 			$photo = $this->invitation->getPhotoPreWedding(1);
 			foreach ($photo as $key => $value) {
@@ -78,8 +77,77 @@ class Invitation extends CI_Controller
 			} else {
 				$data['guest'] = null;
 			}
+			$data['invt_id'] = $invt->invitation_id;
+			$data['message'] = $this->db->get_where('message', ['invitation_id' => 1])->num_rows();
 			$data['photo'] = $imgs;
 			$this->load->view('tamu/v_tamu', $data);
 		}
+	}
+
+	public function get_message()
+	{
+		$output = '';
+		$req = $_REQUEST;
+		$where = array(
+			'invitation_id' => 1,
+		);
+		$query 	= $this->db->order_by('create_time', 'DESC')->get_where('message', $where);
+		$result	= $query->result();
+		foreach ($result as $key => $val) {
+			$inisial = substr($val->name, 0, 1);
+			if ($val->status == 2) {
+				$bgcolor = 'text-green-500';
+			} elseif ($val->status == 1) {
+				$bgcolor = 'text-red-400';
+			} elseif ($val->status == 0) {
+				$bgcolor = 'text-yellow-400';
+			}
+			$output .= '
+			<div class="flex mt-3">
+				<div class="mr-3">
+					<div class="flex w-9 h-9 font-semibold border border-slate-300 shadow-lg ' . $bgcolor . ' text-center rounded-full items-center justify-center">' . $inisial . '</div>
+				</div>
+				<div>
+					<div>
+						<p class="font-semibold opacity-60 tracking-wide text-base-sm lg:text-base-md">' . $val->name . '</p>
+						<p class="text-sm text-slate-500 mb-1">' . date('d-m-Y H:i', strtotime($val->create_time)) . '</p>
+						<p class="text-base-sm tracking-wide text-slate-700 text-justify mr-2">' . $val->message . '</p>
+					</div>
+				</div>
+			</div>
+			';
+		}
+		echo json_encode([$output]);
+	}
+
+	public function submit_message()
+	{
+		$reponse = [
+			'csrfName' => $this->security->get_csrf_token_name(),
+			'csrfHash' => $this->security->get_csrf_hash(),
+			'success' => False,
+			'messages' => []
+		];
+
+		$this->form_validation->set_rules('pesan', 'Pesan Bahagia', 'trim|required|xss_clean', [
+			'required' => '{field} harus diisi',
+			'xss_clean' => 'cek kembali pada {field}'
+		]);
+		$this->form_validation->set_rules('konfirmasiHadir', 'Konfirmasi Kehadiran', 'trim|required|xss_clean', [
+			'required' => '{field} harus diisi',
+			'xss_clean' => 'cek kembali pada {field}'
+		]);
+		if ($this->form_validation->run() == FALSE) {
+			$reponse['messages'] = '<div class="alert alert-danger" role="alert">' . validation_errors() . '</div>';
+		} else {
+
+			$this->invitation->insertMessage();
+			$reponse = [
+				'csrfName' => $this->security->get_csrf_token_name(),
+				'csrfHash' => $this->security->get_csrf_hash(),
+				'success' => true
+			];
+		}
+		echo json_encode($reponse);
 	}
 }

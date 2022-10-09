@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------------
@@ -49,6 +49,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'Tamu/';
+$route['default_controller'] = 'su-admin/login';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+
+// Routing super admin
+# routing login super admin
+$route['su-admin/login'] = 'SuperAdmin/Login/index';
+# routing dashboard super admin
+$route['su-admin/dashboard'] = 'SuperAdmin/Dashboard';
+# routing master data
+$route['su-admin/master-data'] = 'SuperAdmin/MasterData';
+$route['su-admin/master-data/(:any)'] = 'SuperAdmin/MasterData/$1';
+$route['su-admin/master-data/(:any)/(:any)'] = 'SuperAdmin/MasterData/$1/$2';
+
+$route['su-admin/customer'] = 'SuperAdmin/DataKustomer';
+$route['su-admin/customer/(:any)'] = 'SuperAdmin/DataKustomer/$1';
+$route['su-admin/customer/(:any)/'] = 'SuperAdmin/DataKustomer/$1/$2';
+
+$route['admin/undangan'] = 'Admin/Invitation';
+$route['admin/undangan/(:any)'] = 'Admin/Invitation/$1';
+$route['admin/undangan/(:any)/(:any)'] = 'Admin/Invitation/$1/$2';
+$route['admin/undangan/(:any)/(:any)/(:any)'] = 'Admin/Invitation/$1/$2/$3';
+
+$route['wedding'] = 'Admin/Invitation/wedding';
+$route['wedding/(:any)'] = 'Admin/Invitation/wedding/$1';
+$route['wedding/(:any)/(:any)'] = 'Admin/Invitation/wedding/$1/$2';

@@ -1,13 +1,12 @@
 <?php
 
-class Login extends CI_Controller
+class AuthAdmin extends CI_Controller
 {
 	public function __construct()
 	{
 		parent::__construct();
 		$this->load->model('AuthModel', 'auth', true);
 	}
-
 	public function checkToken()
 	{
 		if ($this->session->userdata('backToken')) {
@@ -59,22 +58,17 @@ class Login extends CI_Controller
 		$admin = $this->auth->getAdminByEmail($data['username']);
 		if ($admin) {
 			if (password_verify($data['password'], $admin->password)) {
-				if ($admin->level != 'su-admin') {
-					sweetAlert("Login Gagal", "Anda tidak memiliki akses untuk masuk", "error");
-					redirect('su-admin/login');
-				} else {
-					$sess_ = [
-						'fullName' => $admin->name,
-						'email' 	=> $admin->email,
-						'backToken' => crypt($admin->name, ''),
-						'level'		=> $admin->level,
-						'logged_in'	=> true
-					];
-					$this->session->set_userdata($sess_);
-					$this->auth->registToken($forToken = ['access_token' => $sess_['backToken']]);
-					sweetAlert("Selamat Datang $admin->name", "Semoga hari anda menyenangkan :)", "success");
-					redirect('su-admin/dashboard');
-				}
+				$sess_ = [
+					'fullName' => $admin->name,
+					'email' 	=> $admin->email,
+					'backToken' => crypt($admin->name, ''),
+					'level'		=> 'admin',
+					'logged_in'	=> true
+				];
+				$this->session->set_userdata($sess_);
+				$this->auth->registToken($forToken = ['access_token' => $sess_['backToken']]);
+				sweetAlert("Selamat Datang $admin->name", "Semoga hari anda menyenangkan :)", "success");
+				redirect('su-admin/dashboard');
 			} else {
 				$this->session->set_flashdata('message', 'password salah');
 				$this->load->view('su-admin/login');
@@ -98,5 +92,5 @@ class Login extends CI_Controller
 	}
 }
 
-/* End of file Login.php */
-/* Location: ./application/controllers/SuperAdmin/Login.php */
+/* End of file Auth.php */
+/* Location: ./application/controllers/Auth.php */

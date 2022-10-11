@@ -2,6 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "BacktoBlack";
+  src: url("../../../assets/fonts/BacktoBlack.ttf");
+}
+
+@font-face {
+  font-family: "GreatVibes";
+  src: url("../../../assets/fonts/GreatVibes-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("../../../assets/fonts/MontserratAlternates-Light.ttf");
+}
+
+@font-face {
+  font-family: "MontserratBold";
+  src: url("../../../assets/fonts/MontserratAlternates-Regular.ttf");
+}
+
 @layer utilities {
     .selected {
         opacity: 1;

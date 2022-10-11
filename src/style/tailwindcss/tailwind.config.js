@@ -29,13 +29,10 @@ module.exports = {
         'xs': '500px',
       },
       backgroundImage: {
-        'sambutan-sm': "url('../../../assets/bg_img/bg_sambutan_sm.png')",
-        'sambutan-xl': "url('../../../assets/bg_img/bg_sambutan_xl_fix.png')",
-        'primary': "url('../../../assets/bg_img/bg_primary.png')",
-        'perjalanan-cinta-xl': "url('../../../assets/bg_img/bg_perjalanan_cinta_xl.png')",
+        'primary-sm': "url('../../../assets/bg_img/bg_primary_sm2.png')",
+        'sampul': "url('../../../assets/bg_img/bg_sampul.png')",
         'cover-full': "url('../../../assets/bg_img/bg_foto_cover_full.jpg')",
-        'cover-crop': "url('../../../assets/bg_img/bg_foto_cover_crop.jpg')",
-        'pesan-bahagia-sm' : "url('../../../assets/bg_img/bg_pesan_bahagia_sm.png')",
+        'cover-crop': "url('../../../assets/bg_img/bg_foto_cover_crop.png')",
       },
       animation: {
         'spin-slow': 'spin 2s linear infinite',

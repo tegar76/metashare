@@ -6,6 +6,7 @@ class Invitation extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('InvitationModel', 'invitation', true);
+		isAdminLogin();
 	}
 
 	public function index()
@@ -100,7 +101,7 @@ class Invitation extends CI_Controller
 			} elseif ($val->status == 1) {
 				$bgcolor = 'text-red-400';
 			} elseif ($val->status == 0) {
-				$bgcolor = 'text-yellow-500';
+				$bgcolor = 'text-yellow-400';
 			}
 			$output .= '
 			<div class="flex mt-3">
@@ -140,7 +141,6 @@ class Invitation extends CI_Controller
 		if ($this->form_validation->run() == FALSE) {
 			$reponse['messages'] = '<div class="alert alert-danger" role="alert">' . validation_errors() . '</div>';
 		} else {
-
 			$this->invitation->insertMessage();
 			$reponse = [
 				'csrfName' => $this->security->get_csrf_token_name(),
@@ -148,6 +148,18 @@ class Invitation extends CI_Controller
 				'success' => true
 			];
 		}
+		echo json_encode($reponse);
+	}
+
+	public function view_photo()
+	{
+		$data['gallery'] = $this->db->get_where('photo_gallery', ['gallery_id' => $this->input->post('id')])->row();
+		$html = $this->load->view('tamu/view_photo', $data);
+		$reponse = [
+			'url' => $html,
+			'csrfName' => $this->security->get_csrf_token_name(),
+			'csrfHash' => $this->security->get_csrf_hash()
+		];
 		echo json_encode($reponse);
 	}
 }

@@ -9,5 +9,3 @@ class Errors extends CI_Controller
 	}
 
 }
-
-?>

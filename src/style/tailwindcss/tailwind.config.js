@@ -29,8 +29,8 @@ module.exports = {
         'xs': '500px',
       },
       backgroundImage: {
-        'cover-sm': "url('../../../assets/bg_img/bg_primary_cover_sm.png')",
         'primary-sm': "url('../../../assets/bg_img/bg_primary_sm2.png')",
+        'sampul': "url('../../../assets/bg_img/bg_sampul.png')",
         'cover-full': "url('../../../assets/bg_img/bg_foto_cover_full.jpg')",
         'cover-crop': "url('../../../assets/bg_img/bg_foto_cover_crop.png')",
       },

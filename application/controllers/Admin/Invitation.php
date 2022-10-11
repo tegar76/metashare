@@ -100,7 +100,7 @@ class Invitation extends CI_Controller
 			} elseif ($val->status == 1) {
 				$bgcolor = 'text-red-400';
 			} elseif ($val->status == 0) {
-				$bgcolor = 'text-yellow-400';
+				$bgcolor = 'text-yellow-500';
 			}
 			$output .= '
 			<div class="flex mt-3">

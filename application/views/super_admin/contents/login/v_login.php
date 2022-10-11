@@ -65,7 +65,7 @@
 								</div>
 							<?php endif ?>
 						</div>
-						<?= form_open('su-admin/login', ['class' => 'mt-4']) ?>
+						<?= form_open('admin/login', ['class' => 'mt-4']) ?>
 						<div class="row">
 							<div class="col-lg-12 mb-1">
 								<div class="form-group">

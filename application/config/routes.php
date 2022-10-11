@@ -49,7 +49,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'su-admin/login';
+$route['default_controller'] = 'Login';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
@@ -68,6 +68,8 @@ $route['su-admin/customer'] = 'SuperAdmin/DataKustomer';
 $route['su-admin/customer/(:any)'] = 'SuperAdmin/DataKustomer/$1';
 $route['su-admin/customer/(:any)/'] = 'SuperAdmin/DataKustomer/$1/$2';
 
+$route['admin/login'] = 'Login';
+$route['admin/logout'] = 'Login/logout';
 $route['admin/undangan'] = 'Admin/Invitation';
 $route['admin/undangan/(:any)'] = 'Admin/Invitation/$1';
 $route['admin/undangan/(:any)/(:any)'] = 'Admin/Invitation/$1/$2';

@@ -80,7 +80,7 @@ class Invitation extends CI_Controller
 			$data['invt_id'] = $invt->invitation_id;
 			$data['message'] = $this->db->get_where('message', ['invitation_id' => 1])->num_rows();
 			$data['photo'] = $imgs;
-			$this->load->view('tamu/v_tamu2', $data);
+			$this->load->view('tamu/v_tamu', $data);
 		}
 	}
 

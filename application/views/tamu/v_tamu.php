@@ -10,7 +10,7 @@
 	<link rel="icon" type="image/png" sizes="16x16" href="<?= base_url() ?>/assets/icons/logo_metashare_small.png">
 
 	<!-- Css -->
-	<link rel="stylesheet" href="<?= base_url('src/style/css/style30.css') ?>">
+	<link rel="stylesheet" href="<?= base_url('src/style/css/style31.css') ?>">
 
 	<!-- Hitung tanggal -->
 	<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
@@ -278,8 +278,8 @@
 											<h1 class="font-MontserratBold font-semibold text-tiny mb-3 opacity-60 lg:text-xl">Tasyakuran</h1>
 											<p class="mb-1 text-center">Jum'at, 21 Oktober 2022</p>
 											<p class="mb-1 text-center">10.00 WIB - Selesai</p>
-											<p class="text-sm mt-2 text-slate-800">Jl. Pramuka No.215 Samudra, Purwokerto Selatan</p>
-											<p class="text-sm text-slate-700">(Kediaman Mempelai Pria)</p>
+											<p class="text-sm mt-2 text-slate-800">Jl. Pramuka Timur No.213 RT.02 RW.01</p>
+											<p class="text-sm text-slate-600">(Kediaman Mempelai Pria)</p>
 											<a target="_blank" href="https://goo.gl/maps/HyxMYiBshiDf29f27">
 												<button class="mt-3 px-4 py-2 rounded-lg bg-sky-800 bg-opacity-40 font-semibold hover:bg-sky-900/50 transition ease-in-out duration-500 text-white">
 													<div class="flex justify-items-center">
@@ -301,7 +301,7 @@
 											<p class="mb-1 text-center">Minggu, 23 Oktober 2022</p>
 											<p class="mb-1 text-center">10.00 WIB - Selesai</p>
 											<p class="text-sm mt-2 text-slate-800">Jl. Margo Mulyo RT.07 RW.08 Arcawinangun, Purwokerto Timur</p>
-											<p class="text-sm text-slate-700">(Kediaman Mempelai Wanita)</p>
+											<p class="text-sm text-slate-600">(Kediaman Mempelai Wanita)</p>
 											<a target="_blank" href="https://goo.gl/maps/EZuPnM1pmkVDnyaEA">
 												<button class="mt-3 px-4 py-2 rounded-lg bg-sky-800 bg-opacity-40 font-semibold hover:bg-sky-900/50 transition ease-in-out duration-500 text-white">
 													<div class="flex justify-items-center">

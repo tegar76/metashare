@@ -6,11 +6,11 @@ class Invitation extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('InvitationModel', 'invitation', true);
-		isAdminLogin();
 	}
 
 	public function index()
 	{
+	   	isAdminLogin();
 		$invitation = $this->invitation->getInvitation();
 		$no = 1;
 		$data['invitation'] = array();
@@ -37,6 +37,7 @@ class Invitation extends CI_Controller
 
 	public function detail($id = false)
 	{
+	    isAdminLogin();
 		if ($id == false) {
 			$data['title'] = '404 Not Found';
 			$data['content'] = 'errors/contents/error_404';

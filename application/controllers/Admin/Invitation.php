@@ -102,7 +102,7 @@ class Invitation extends CI_Controller
 			} elseif ($val->status == 1) {
 				$bgcolor = 'text-red-400';
 			} elseif ($val->status == 0) {
-				$bgcolor = 'text-yellow-400';
+				$bgcolor = 'text-yellow-500';
 			}
 			$output .= '
 			<div class="flex mt-3">
@@ -112,8 +112,8 @@ class Invitation extends CI_Controller
 				<div>
 					<div>
 						<p class="font-semibold opacity-60 tracking-wide text-base-sm lg:text-base-md">' . $val->name . '</p>
-						<p class="text-sm text-slate-500 mb-1">' . date('d-m-Y H:i', strtotime($val->create_time)) . '</p>
-						<p class="text-base-sm tracking-wide text-slate-700 text-justify mr-2">' . $val->message . '</p>
+						<p class="text-xs text-slate-500 mb-1">' . date('d-m-Y H:i', strtotime($val->create_time)) . '</p>
+						<p class="text-base-xs tracking-wide text-slate-700 text-justify mr-2">' . $val->message . '</p>
 					</div>
 				</div>
 			</div>

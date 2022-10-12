@@ -278,7 +278,7 @@
 											<h1 class="font-MontserratBold font-semibold text-tiny mb-3 opacity-60 lg:text-xl">Tasyakuran</h1>
 											<p class="mb-1 text-center">Jum'at, 21 Oktober 2022</p>
 											<p class="mb-1 text-center">10.00 WIB - Selesai</p>
-											<p class="text-sm mt-2 text-slate-800">Jl. Pramuka Timur N0. 213 RT.02 RW.01</p>
+											<p class="text-sm mt-2 text-slate-800">Jl. Pramuka Timur No.213 RT.02 RW.01</p>
 											<p class="text-sm text-slate-600">(Kediaman Mempelai Pria)</p>
 											<a target="_blank" href="https://goo.gl/maps/HyxMYiBshiDf29f27">
 												<button class="mt-3 px-4 py-2 rounded-lg bg-sky-800 bg-opacity-40 font-semibold hover:bg-sky-900/50 transition ease-in-out duration-500 text-white">

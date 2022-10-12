@@ -80,7 +80,7 @@ class Invitation extends CI_Controller
 			$data['invt_id'] = $invt->invitation_id;
 			$data['message'] = $this->db->get_where('message', ['invitation_id' => 1])->num_rows();
 			$data['photo'] = $imgs;
-			$this->load->view('tamu/v_tamu', $data);
+			$this->load->view('tamu/v_tamu2', $data);
 		}
 	}
 
@@ -110,8 +110,8 @@ class Invitation extends CI_Controller
 				<div>
 					<div>
 						<p class="font-semibold opacity-60 tracking-wide text-base-sm lg:text-base-md">' . $val->name . '</p>
-						<p class="text-sm text-slate-500 mb-1">' . date('d-m-Y H:i', strtotime($val->create_time)) . '</p>
-						<p class="text-base-sm tracking-wide text-slate-700 text-justify mr-2">' . $val->message . '</p>
+						<p class="text-xs text-slate-500 mb-1">' . date('d-m-Y H:i', strtotime($val->create_time)) . '</p>
+						<p class="text-base-xs tracking-wide text-slate-700 text-justify mr-2">' . $val->message . '</p>
 					</div>
 				</div>
 			</div>
@@ -140,7 +140,6 @@ class Invitation extends CI_Controller
 		if ($this->form_validation->run() == FALSE) {
 			$reponse['messages'] = '<div class="alert alert-danger" role="alert">' . validation_errors() . '</div>';
 		} else {
-
 			$this->invitation->insertMessage();
 			$reponse = [
 				'csrfName' => $this->security->get_csrf_token_name(),
@@ -148,6 +147,18 @@ class Invitation extends CI_Controller
 				'success' => true
 			];
 		}
+		echo json_encode($reponse);
+	}
+
+	public function view_photo()
+	{
+		$data['gallery'] = $this->db->get_where('photo_gallery', ['gallery_id' => $this->input->post('id')])->row();
+		$html = $this->load->view('tamu/view_photo', $data);
+		$reponse = [
+			'url' => $html,
+			'csrfName' => $this->security->get_csrf_token_name(),
+			'csrfHash' => $this->security->get_csrf_hash()
+		];
 		echo json_encode($reponse);
 	}
 }

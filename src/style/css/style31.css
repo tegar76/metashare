@@ -4816,9 +4816,9 @@ textarea.form-control.is-invalid {
   color: rgb(248 113 113 / var(--tw-text-opacity));
 }
 
-.text-yellow-500 {
+.text-yellow-400 {
   --tw-text-opacity: 1;
-  color: rgb(234 179 8 / var(--tw-text-opacity));
+  color: rgb(250 204 21 / var(--tw-text-opacity));
 }
 
 .text-slate-500 {
@@ -4871,6 +4871,11 @@ textarea.form-control.is-invalid {
   color: rgb(71 85 105 / var(--tw-text-opacity));
 }
 
+.text-yellow-500 {
+  --tw-text-opacity: 1;
+  color: rgb(234 179 8 / var(--tw-text-opacity));
+}
+
 .text-green-600 {
   --tw-text-opacity: 1;
   color: rgb(22 163 74 / var(--tw-text-opacity));
@@ -4885,9 +4890,9 @@ textarea.form-control.is-invalid {
   color: rgb(96 165 250 / var(--tw-text-opacity));
 }
 
-.text-\[\#f3ba50\] {
+.text-\[\#e7a528\] {
   --tw-text-opacity: 1;
-  color: rgb(243 186 80 / var(--tw-text-opacity));
+  color: rgb(231 165 40 / var(--tw-text-opacity));
 }
 
 .text-\[\#f0e3bb\] {
@@ -4900,6 +4905,11 @@ textarea.form-control.is-invalid {
   color: rgb(22 101 52 / var(--tw-text-opacity));
 }
 
+.text-red-600 {
+  --tw-text-opacity: 1;
+  color: rgb(220 38 38 / var(--tw-text-opacity));
+}
+
 .text-black {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
@@ -4910,54 +4920,9 @@ textarea.form-control.is-invalid {
   color: rgb(75 85 99 / var(--tw-text-opacity));
 }
 
-.text-\[\#daa036\] {
+.text-yellow-300 {
   --tw-text-opacity: 1;
-  color: rgb(218 160 54 / var(--tw-text-opacity));
-}
-
-.text-\[\#f3b23a\] {
-  --tw-text-opacity: 1;
-  color: rgb(243 178 58 / var(--tw-text-opacity));
-}
-
-.text-\[\#eca829\] {
-  --tw-text-opacity: 1;
-  color: rgb(236 168 41 / var(--tw-text-opacity));
-}
-
-.text-\[\#f7ae27\] {
-  --tw-text-opacity: 1;
-  color: rgb(247 174 39 / var(--tw-text-opacity));
-}
-
-.text-\[\#eca726\] {
-  --tw-text-opacity: 1;
-  color: rgb(236 167 38 / var(--tw-text-opacity));
-}
-
-.text-\[\#f1ac2a\] {
-  --tw-text-opacity: 1;
-  color: rgb(241 172 42 / var(--tw-text-opacity));
-}
-
-.text-\[\#e7a62c\] {
-  --tw-text-opacity: 1;
-  color: rgb(231 166 44 / var(--tw-text-opacity));
-}
-
-.text-\[\#df9e27\] {
-  --tw-text-opacity: 1;
-  color: rgb(223 158 39 / var(--tw-text-opacity));
-}
-
-.text-\[\#e7a528\] {
-  --tw-text-opacity: 1;
-  color: rgb(231 165 40 / var(--tw-text-opacity));
-}
-
-.text-red-600 {
-  --tw-text-opacity: 1;
-  color: rgb(220 38 38 / var(--tw-text-opacity));
+  color: rgb(253 224 71 / var(--tw-text-opacity));
 }
 
 .opacity-60 {

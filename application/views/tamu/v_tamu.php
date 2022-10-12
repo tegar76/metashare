@@ -335,34 +335,34 @@
 
                             <div class="columns-2 gap-x-2 xl:gap-x-3 md:columns-5xs lg:columns-4xs xl:columns-3xs" id="objekFoto">
                                 <div class="modal-foto-open hover:contrast-50 hover:saturate-200 hover:shadow-xl  transition duration-300  aspect-w-5 aspect-h-3  mb-2 xl:mb-3">
-                                    <img class="w-full  rounded-2xl view-photo border cursor-pointer hover:border-2 hover:border-blue-400" src="<?= $photo[0]['img'] ?>" alt="">
+                                    <img class="w-full  rounded-2xl view-photo border cursor-pointer hover:border-2 hover:border-blue-400" src="<?= $photo[0]['img'] ?>" alt="" id>
                                 </div>
                                 <div class="modal-foto-open hover:contrast-50 hover:saturate-200 hover:shadow-xl  transition duration-300 aspect-w-4 aspect-h-5 mb-2 xl:mb-3">
-                                    <img class="w-full  rounded-2xl view-photo border cursor-pointer hover:border-2 hover:border-blue-400" src="<?= $photo[1]['img'] ?>" alt="">
+                                    <img class="w-full  rounded-2xl view-photo border cursor-pointer hover:border-2 hover:border-blue-400" src="<?= $photo[1]['img'] ?>" alt="" id>
                                 </div>
                                 <div class="modal-foto-open hover:contrast-50 hover:saturate-200 hover:shadow-xl  transition duration-300 aspect-w-5 aspect-h-3 mb-2 xl:mb-3">
-                                    <img class="w-full  rounded-2xl view-photo border cursor-pointer hover:border-2 hover:border-blue-400" src="<?= $photo[2]['img'] ?>" alt="">
+                                    <img class="w-full  rounded-2xl view-photo border cursor-pointer hover:border-2 hover:border-blue-400" src="<?= $photo[2]['img'] ?>" alt="" id>
                                 </div>
                                 <div class="modal-foto-open hover:contrast-50 hover:saturate-200 hover:shadow-xl  transition duration-300 aspect-w-4 aspect-h-5 mb-2 xl:mb-3">
-                                    <img class="w-full  rounded-2xl view-photo border cursor-pointer hover:border-2 hover:border-blue-400" src="<?= $photo[3]['img'] ?>" alt="">
+                                    <img class="w-full  rounded-2xl view-photo border cursor-pointer hover:border-2 hover:border-blue-400" src="<?= $photo[3]['img'] ?>" alt="" id>
                                 </div>
                                 <div class="modal-foto-open hover:contrast-50 hover:saturate-200 hover:shadow-xl  transition duration-300 aspect-w-4 aspect-h-5 mb-2 xl:mb-3">
-                                    <img class="w-full  rounded-2xl view-photo border cursor-pointer hover:border-2 hover:border-blue-400" src="<?= $photo[4]['img'] ?>" alt="">
+                                    <img class="w-full  rounded-2xl view-photo border cursor-pointer hover:border-2 hover:border-blue-400" src="<?= $photo[4]['img'] ?>" alt="" id>
                                 </div>
                                 <div class="modal-foto-open hover:contrast-50 hover:saturate-200 hover:shadow-xl  transition duration-300 aspect-w-5 aspect-h-3 mb-2 xl:mb-3">
-                                    <img class="w-full  rounded-2xl view-photo border cursor-pointer hover:border-2 hover:border-blue-400" src="<?= $photo[5]['img'] ?>" alt="">
+                                    <img class="w-full  rounded-2xl view-photo border cursor-pointer hover:border-2 hover:border-blue-400" src="<?= $photo[5]['img'] ?>" alt="" id>
                                 </div>
                                 <div class="modal-foto-open hover:contrast-50 hover:saturate-200 hover:shadow-xl  transition duration-300 aspect-w-4 aspect-h-5 mb-2 xl:mb-3">
-                                    <img class="w-full  rounded-2xl view-photo border cursor-pointer hover:border-2 hover:border-blue-400" src="<?= $photo[6]['img'] ?>" alt="">
+                                    <img class="w-full  rounded-2xl view-photo border cursor-pointer hover:border-2 hover:border-blue-400" src="<?= $photo[6]['img'] ?>" alt="" id>
                                 </div>
                                 <div class="modal-foto-open hover:contrast-50 hover:saturate-200 hover:shadow-xl  transition duration-300 aspect-w-5 aspect-h-3 mb-2 xl:mb-3">
-                                    <img class="w-full  rounded-2xl view-photo border cursor-pointer hover:border-2 hover:border-blue-400" src="<?= $photo[7]['img'] ?>" alt="">
+                                    <img class="w-full  rounded-2xl view-photo border cursor-pointer hover:border-2 hover:border-blue-400" src="<?= $photo[7]['img'] ?>" alt="" id>
                                 </div>
                             </div>
 
                             <div class="mb-2">
                                 <div class="flex justify-center content-center mt-1 cursor-pointer"">
-                                    <img class=" h-[20px] xs:h-[30] lg:h-[35px] opacity-70" src="<?= base_url('assets/icons/galeri_antena_video.svg') ?>" alt="">
+                                    <img class=" h-[20px] xs:h-[30] lg:h-[35px] opacity-70" src="<?= base_url('assets/icons/galeri_antena_video.svg') ?>" alt="" id>
                                 </div>
                                 <div class="flex justify-center content-center ">
                                     <video class="gdriveVideo md:h-72 rounded-2xl view-photo cursor-pointer" preload="auto" controls poster="<?= base_url('assets/img/foto_tumbnail_video.jpg') ?>">
@@ -806,6 +806,8 @@
             body.classList.toggle('modal-foto-active')
         }
         // Modal Foto End
+        // Change Modal Image
+      
 
         // Play Song 
         var song = document.getElementById("song");

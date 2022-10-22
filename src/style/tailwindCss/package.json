@@ -1,0 +1,24 @@
+{
+  "name": "tailwindcss",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tailwindcss -i ./tailwind.css -o ./../marketplace/style28.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "flowbite": "^1.5.3",
+    "tailwindcss": "^3.1.8",
+    "tailwindcss-animation-delay": "^1.0.7",
+    "tw-elements": "^1.0.0-alpha12"
+  },
+  "description": "",
+  "devDependencies": {
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/forms": "^0.5.3",
+    "tailwindcss-animate": "^1.0.5"
+  }
+}

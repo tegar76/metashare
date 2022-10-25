@@ -10,13 +10,13 @@
 	<link rel="icon" type="image/png" sizes="16x16" href="<?= base_url() ?>/assets/icons/logo_metashare_small.png">
 
 	<!-- Css -->
-	<link rel="stylesheet" href="<?= base_url('src/style/css/style31.css') ?>">
+	<link rel="stylesheet" href="<?= base_url('src/style/css/style32.css') ?>">
 
 	<!-- Hitung tanggal -->
 	<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
 
 	<!-- Tailwind Elements -->
-	<script src="<?= base_url('src/style/tailwindcss/node_modules/tw-elements/dist/js/index.min.js') ?>"></script>
+	<script src="<?= base_url('src/style/tailwindCss/node_modules/tw-elements/dist/js/index.min.js') ?>"></script>
 	<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 	<!-- SweetAlert 2 -->
 	<link rel="stylesheet" href="<?= base_url('assets/') ?>plugin/sweetalert2/sweetalert2.min.css">

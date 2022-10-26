@@ -49,24 +49,38 @@ defined('BASEPATH') or exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'Login';
+$route['default_controller'] = 'Marketplace';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 
-// Routing super admin
-# routing login super admin
-$route['su-admin/login'] = 'SuperAdmin/Login/index';
-# routing dashboard super admin
+/*
+| -------------------------------------------------------------------------
+| ROUTING USER SUPER ADMINISTATOR
+| -------------------------------------------------------------------------
+*/
+// 1. Authentication 
+$route['su-admin/login'] = 'SuperAdmin/Auth';
+$route['su-admin/logout'] = 'SuperAdmin/Auth/logout';
+
+// 2. Dahsboard
 $route['su-admin/dashboard'] = 'SuperAdmin/Dashboard';
-# routing master data
-$route['su-admin/master-data'] = 'SuperAdmin/MasterData';
-$route['su-admin/master-data/(:any)'] = 'SuperAdmin/MasterData/$1';
-$route['su-admin/master-data/(:any)/(:any)'] = 'SuperAdmin/MasterData/$1/$2';
+
+// 3. Master Data
+$route['su-admin/master'] = 'SuperAdmin/MasterData';
+$route['su-admin/master/(:any)'] = 'SuperAdmin/MasterData/$1';
+$route['su-admin/master/(:any)/(:any)'] = 'SuperAdmin/MasterData/$1/$2';
 
 $route['su-admin/customer'] = 'SuperAdmin/DataKustomer';
 $route['su-admin/customer/(:any)'] = 'SuperAdmin/DataKustomer/$1';
 $route['su-admin/customer/(:any)/'] = 'SuperAdmin/DataKustomer/$1/$2';
+
+
+/*
+| -------------------------------------------------------------------------
+| ROUTING USER ADMINISTATOR
+| -------------------------------------------------------------------------
+*/
 
 $route['admin/login'] = 'Login';
 $route['admin/logout'] = 'Login/logout';

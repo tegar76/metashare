@@ -29,7 +29,4 @@ class DataKustomer extends CI_Controller
 		$data['content'] = 'super_admin/contents/data_kustomer/v_edit_kustomer';
 		$this->load->view('super_admin/layouts/wrapper', $data, FALSE);
 	}
-
 }
-
-?>

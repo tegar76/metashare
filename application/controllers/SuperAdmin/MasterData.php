@@ -277,3 +277,6 @@ class MasterData extends CI_Controller
 		echo json_encode($reponse);
 	}
 }
+
+/* End of file MasterData.php */
+/* Location: ./application/controllers/SuperAdmin/MasterData.php */

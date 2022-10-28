@@ -61,20 +61,26 @@
                             </div>
                         </div>
                         <div class="form-group mb-3">
+                            <label for="username">Username <span class="text-danger">*</span></label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="username" value="ADM001" readonly>
+                            </div>
+                        </div>
+                        <div class="form-group mb-3">
                            <div class="row">
                                 <div class="col-6 mb-1">
                                     <div class="form-group">
-                                        <label for="password">Password <span class="text-danger">*</span></label>
+                                        <label for="password">Password Baru <span class="text-danger">*</span></label>
                                         <div class="input-group border-password">
-                                            <input class="form-control border-0" id="password" type="password" placeholder="Masukan Password" autocomplete="current-password" id="password"><span role="button" class="d-flex"><i class="fas fa-eye fa-xs mr-2 my-auto" id="togglePassword"></i></span>
+                                            <input class="form-control border-0" id="password" type="password" placeholder="Masukan Password Baru (Minimal 8 Karakter)" autocomplete="current-password" id="password"><span role="button" class="d-flex" style="cursor: pointer;"><i class="fas fa-eye-slash fa-xs mr-2 my-auto" id="togglePassword"></i></span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="form-group">
-                                        <label for="passwordBaru">Password Baru <span class="text-danger">*</span></label>
+                                        <label for="passwordConfirm">Konfirmasi Password <span class="text-danger">*</span></label>
                                         <div class="input-group border-password">
-                                            <input class="form-control border-0" id="passwordBaru" type="password" placeholder="Masukan Password Baru" autocomplete="current-password"><span role="button" class="d-flex"><i class="fas fa-eye fa-xs mr-2 my-auto" id="togglePasswordBaru"></i></span>
+                                            <input class="form-control border-0" id="passwordConfirm" type="password" placeholder="Masukan Konfirmasi Password" autocomplete="current-password"><span role="button" class="d-flex" style="cursor: pointer;"><i class="fas fa-eye-slash fa-xs mr-2 my-auto" id="togglePasswordConfirm"></i></span>
                                         </div>
                                     </div>
                                 </div>
@@ -102,16 +108,16 @@
                     const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
                     password.setAttribute('type', type);
                     // toggle the eye slash icon
-                    this.classList.toggle('fa-eye-slash');
+                    this.classList.toggle('fa-eye');
                 });
                 // Show Toggle Password baru
-                const togglePasswordBaru = document.querySelector('#togglePasswordBaru');
-                const passwordBaru = document.querySelector('#passwordBaru');
-                togglePasswordBaru.addEventListener('click', function(e) {
+                const togglePasswordConfirm = document.querySelector('#togglePasswordConfirm');
+                const passwordConfirm = document.querySelector('#passwordConfirm');
+                togglePasswordConfirm.addEventListener('click', function(e) {
                     // toggle the type attribute
-                    const type = passwordBaru.getAttribute('type') === 'password' ? 'text' : 'password';
-                    passwordBaru.setAttribute('type', type);
+                    const type = passwordConfirm.getAttribute('type') === 'password' ? 'text' : 'password';
+                    passwordConfirm.setAttribute('type', type);
                     // toggle the eye slash icon
-                    this.classList.toggle('fa-eye-slash');
+                    this.classList.toggle('fa-eye');
                 });
             </script>

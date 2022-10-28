@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="<?= base_url('src/style/css/model_a.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('src/style/css/style32.css') ?>">
 
     <!-- Hitung tanggal -->
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
@@ -611,9 +611,9 @@
                             </div>
                         </div>
                         <div class="flex justify-center items-center w-1/2 ml-5">
-                            <a href="" class="flex">
-                                <img src="<?= base_url('assets/icons/wa.svg') ?>" class="mr-1 w-3 lg:w-4" alt="Whatsapp Logo">
-                                <span class="self-center text-xs text-green-600 lg:text-base-md whitespace-nowrap">Whatsapp</span>
+                            <a target="_blank" href="https://api.whatsapp.com/send/?phone=6287899703471&text=Saya tertarik untuk bikin undangan" class="flex">
+                                <img src="<?= base_url('assets/icons/wa.png') ?>" class="mr-1 h-4 lg:h-5" alt="Whatsapp Logo">
+                                <span class="self-center text-[13px] text-green-800 lg:text-[16px] whitespace-nowrap">Whatsapp</span>
                             </a>
                         </div>
                     </div>

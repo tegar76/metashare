@@ -9,7 +9,7 @@
                         <div class="d-flex align-items-center">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb m-0 p-0">
-                                    <li class="breadcrumb-item"><a href="index.html"><?= $title?></a>
+                                    <li class="breadcrumb-item disabled"><?= $title?>
                                     </li>
                                 </ol>
                             </nav>
@@ -35,7 +35,7 @@
                                 <div class="d-inline-flex align-items-center">
                                     <h2 class="font-weight-medium text-black">99</h2>
                                 </div>
-                                <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Jumlah Admin Aktif</h6>
+                                <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Total Admin Aktif</h6>
                             </div>
                             <div class="ml-auto mt-md-3 mt-lg-0">
                                 <span class="opacity-7 text-muted"><i data-feather="user-plus" class="feather-icon"></i></span>
@@ -48,7 +48,7 @@
                         <div class="d-flex d-lg-flex d-md-block align-items-center">
                             <div class="total">
                                 <h2 class="font-weight-medium text-black">99</h2>
-                                <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Jumlah Kustomer
+                                <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Total Kustomer
                                 </h6>
                             </div>
                             <div class="ml-auto mt-md-3 mt-lg-0">
@@ -64,10 +64,10 @@
                                 <div class="d-inline-flex align-items-center">
                                     <h2 class="font-weight-medium text-black">99</h2>
                                 </div>
-                                <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Jumlah Kustomer Aktif</h6>
+                                <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Total Order Masuk</h6>
                             </div>
                             <div class="ml-auto mt-md-3 mt-lg-0">
-                                <span class="opacity-7 text-muted"><i data-feather="user-check" class="feather-icon"></i></span>
+                                <span class="opacity-7 text-muted"><i data-feather="shopping-cart" class="feather-icon"></i></span>
                             </div>
                         </div>
                     </div>
@@ -77,7 +77,7 @@
                         <div class="d-flex d-lg-flex d-md-block align-items-center">
                             <div class="total">
                                 <h2 class="font-weight-medium text-black">99</h2>
-                                <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Jumlah Model Undangan</h6>
+                                <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Total Model Undangan</h6>
                             </div>
                             <div class="ml-auto mt-md-3 mt-lg-0">
                                 <span class="opacity-7 text-muted"><i data-feather="server" class="feather-icon"></i></span>
@@ -98,58 +98,58 @@
                             <thead>
                                 <tr>
                                     <th style="width: 3%;">No</th>
+                                    <th style="width: 5%;">Kode</th>
                                     <th style="width: 10%;">Tanggal</th>
-                                    <th style="width: 10%;">Nama Kustomer</th>
-                                    <th style="width: 10%;">No Telepon</th>
-                                    <th style="width: 8%;">Kategori</th>
-                                    <th style="width: 8%;">Model Undangan</th>
+                                    <th style="width: 11%;">Nama Kustomer</th>
+                                    <th style="width: 7%;">Kategori</th>
+                                    <th style="width: 9%;">Nama Model</th>
                                     <th style="width: 8%;">Admin</th>
-                                    <th style="width: 12%;">Keterangan</th>
-                                    <th style="width: 8%;">Status</th>
+                                    <th style="width: 11%;">Keterangan</th>
+                                    <th style="width: 6%;">Status</th>
                                     <th style="width: 4%;">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>1</td>
+                                    <td>00003</td>
                                     <td>02-09-2022 18:00 WIB</td>
                                     <td>Heru Rudiansah</td>
-                                    <td>082322452311</td>
                                     <td>Special</td>
-                                    <td>Model A</td>
+                                    <td>Flower Flaying</td>
                                     <td>Tegar Kusuma</td>
                                     <td class="text-danger">Belum Dikerjakan</td>
                                     <td>Tidak Aktif</td>
                                     <td>
-                                        <a href="<?= base_url('SuperAdmin/DataKustomer/detailKustomer')?>" class="btn-sm btn-primary"><i data-feather="search" class="feather-16" data-toggle="tooltip" title="Detail" data-placement="top"></i></a>
+                                        <a href="<?= base_url('SuperAdmin/Penugasan/detailPenugasan')?>" class="btn-sm btn-primary"><i data-feather="search" class="feather-16" data-toggle="tooltip" title="Detail" data-placement="top"></i></a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>2</td>
+                                    <td>00002</td>
                                     <td>02-09-2022 18:00 WIB</td>
                                     <td>Heru Rudiansah</td>
-                                    <td>082322452311</td>
                                     <td>Standard</td>
-                                    <td>Model B</td>
+                                    <td>Flower Flaying</td>
                                     <td>Bayu Purnomo</td>
                                     <td class="text-warning">Proses Pengerjaan</td>
                                     <td>Aktif</td>
                                     <td>
-                                        <a href="<?= base_url('SuperAdmin/DataKustomer/detailKustomer')?>" class="btn-sm btn-primary"><i data-feather="search" class="feather-16" data-toggle="tooltip" title="Detail" data-placement="top"></i></a>
+                                        <a href="<?= base_url('SuperAdmin/Penugasan/detailPenugasan')?>" class="btn-sm btn-primary"><i data-feather="search" class="feather-16" data-toggle="tooltip" title="Detail" data-placement="top"></i></a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>3</td>
+                                    <td>00001</td>
                                     <td>02-09-2022 18:00 WIB</td>
                                     <td>Heru Rudiansah</td>
-                                    <td>082322452311</td>
                                     <td>Basic</td>
                                     <td>Model C</td>
                                     <td>Firmansah</td>
                                     <td class="text-success">Sudah Dikerjakan</td>
                                     <td>Tidak Aktif</td>
                                     <td>
-                                        <a href="<?= base_url('SuperAdmin/DataKustomer/detailKustomer')?>" class="btn-sm btn-primary"><i data-feather="search" class="feather-16" data-toggle="tooltip" title="Detail" data-placement="top"></i></a>
+                                        <a href="<?= base_url('SuperAdmin/Penugasan/detailPenugasan')?>" class="btn-sm btn-primary"><i data-feather="search" class="feather-16" data-toggle="tooltip" title="Detail" data-placement="top"></i></a>
                                     </td>
                                 </tr>
                             </tbody>

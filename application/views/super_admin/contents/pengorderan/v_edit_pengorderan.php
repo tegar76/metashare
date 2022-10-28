@@ -9,8 +9,7 @@
                         <div class="d-flex align-items-center">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb m-0 p-0">
-                                    <li class="breadcrumb-item disabled" aria-current="page">Master Data</li>
-                                    <li class="breadcrumb-item" aria-current="page"><a href="<?= base_url('SuperAdmin/MasterData/dataModelUndangan') ?>" class="text-link">Data Model Undangan</a></li>
+                                    <li class="breadcrumb-item" aria-current="page"><a href="<?= base_url('SuperAdmin/Pengorderan') ?>" class="text-link">Pengorderan</a></li>
                                     <li class="breadcrumb-item active" aria-current="page"><?= $title?></li>
                                 </ol>
                             </nav>
@@ -27,68 +26,66 @@
             <div class="container-fluid">
                 <div class="card shadow px-3">
                     <form class="mt-4">
+                        <p class="text-primary">Data Kustomer</p>
                         <div class="form-group mb-3">
-                            <label for="jenisUndangan">Jenis Undangan <span class="text-danger">*</span></label>
+                            <label>Nama Kustomer</label>
                             <div class="input-group">
-                                <select class="form-control" id="jenisUndangan">
-                                    <option>Pilih Jenis Undangan</option>
-                                    <option>Undangan Pernikahan</option>
-                                    <option>Undangan Khitanan</option>
-                                </select>
+                                <input type="text" class="form-control" value="Heru" readonly>
+                            </div>
+                        </div>
+                        <p class="text-primary">Data Transaksi</p>
+                        <div class="form-group mb-3">
+                            <label>Kode</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" value="00001" readonly>
+                            </div>
+                        </div>
+                         <!-- Setelah admin memilih model undangan sesuai yang Customer pilih, maka munculkan value form jenis, kategori, harga sesuai data-->
+                        <div class="form-group mb-3">
+                            <label for="jenis">Jenis</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="jenis" value="Undangan Pernikahan Islami" readonly>
                             </div>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="kategoriUndangan">Kategori Undangan <span class="text-danger">*</span></label>
+                            <label for="kategori">Kategori</label>
                             <div class="input-group">
-                                <select class="form-control" id="kategoriUndangan">
-                                    <option>Pilih Kategori Undangan</option>
-                                    <option>Special</option>
-                                    <option>Standard</option>
-                                    <option>Basic</option>
-                                </select>
-                            </div>
-                        </div>
-                        <!-- Harga Sesuai Kategori Undangan yang dipilih -->
-                        <div class="form-group mb-3">
-                            <label for="harga">Harga Undangan <span class="text-danger">*</span></label>
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Harga Undangan" id="harga" value="Rp. 150.000" readonly>
+                                <input type="text" class="form-control" id="kategori" value="Special" readonly>
                             </div>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="modelUndangan">Model Undangan <span class="text-danger">*</span></label>
+                            <label for="model">Model</label>
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Masukan Nama Model Undangan" id="modelUndangan">
+                                <input type="text" class="form-control" id="model" value="Model A" readonly>
                             </div>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="uploadSampul">Upload Sampul Undangan <span class="text-danger">*</span></label>
+                            <label for="uploadBuktiPembayaran">Upload Bukti Pembayaran <span class="text-danger">*</span></label>
                             <div class="input-group">
                                 <div class="input-group-prepend h-75">
                                     <span class="input-group-text">Upload</span>
                                 </div>
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="uploadSampul">
+                                    <input type="file" class="custom-file-input" id="uploadBuktiPembayaran">
                                     <label class="custom-file-label" for="uploadCover">Choose file</label>
                                 </div>
                             </div>
-                            <p>Catatan: File max 2mb format (SVG,PNG,JPG,JPEG), rekomendasi format SVG (270 x 378 pixels) </p>
+                            <p>Catatan: File max 2mb format (PNG,JPG,JPEG) </p>
                         </div>
+                        <p class="text-primary">Data Penugasan</p>
                         <div class="form-group mb-3">
-                            <label for="uploadCover">Upload Cover Undangan <span class="text-danger">*</span></label>
+                            <label for="adminYangMenangani">Admin Yang Menangani <span class="text-danger">*</span></label>
                             <div class="input-group">
-                                <div class="input-group-prepend h-75">
-                                    <span class="input-group-text">Upload</span>
-                                </div>
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="uploadCover">
-                                    <label class="custom-file-label" for="uploadCover">Choose file</label>
-                                </div>
+                                <select class="form-control" id="adminYangMenangani">
+                                    <option>Pilih Admin Yang Menangani</option>
+                                    <option>Tegar</option>
+                                    <option>Firman</option>
+                                    <option>Bayu</option>
+                                </select>
                             </div>
-                            <p>Catatan: File max 2mb format (SVG,PNG,JPG,JPEG), rekomendasi format SVG (270 x 378 pixels) </p>
                         </div>
                         <div class="flex mt-3 mb-4">
-                            <button type="submit" class="btn btn-sm btn-warning px-3 py-2 mr-3">Simpan</button>
+                            <button type="submit" class="btn btn-sm btn-success px-3 py-2 mr-3">Update</button>
                             <button type="reset" class="btn btn-sm btn-secondary px-3 py-2">Reset</button>
                         </div>
                     </form>

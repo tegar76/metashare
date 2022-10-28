@@ -25,7 +25,7 @@
             <!-- Container fluid  -->
             <!-- ============================================================== -->
             <div class="container-fluid">
-                <div class="card shadow-sm px-3">
+                <div class="card shadow-sm px-3 py-2">
                     <table class="table">
                         <tbody>
                             <tr class="table-borderless">
@@ -71,12 +71,12 @@
                                 <thead>
                                     <tr>
                                         <th style="width: 3%;">No</th>
+                                        <th style="width: 5%;">Kode</th>
                                         <th style="width: 9%;">Tanggal</th>
                                         <th style="width: 8%;">Nama Kustomer</th>
-                                        <th style="width: 10%;">No Telepon</th>
                                         <th style="width: 8%;">Jenis</th>
                                         <th style="width: 7%;">Kategori</th>
-                                        <th style="width: 8%;">Model Undangan</th>
+                                        <th style="width: 8%;">Nama Model</th>
                                         <th style="width: 8%;">Admin</th>
                                         <th style="width: 12%;">Keterangan</th>
                                         <th style="width: 7%;">Status</th>
@@ -85,10 +85,10 @@
                                 <tbody>
                                     <tr>
                                         <td>1</td>
+                                        <td>00003</td>
                                         <td>02-09-2022 18:00 WIB</td>
                                         <td>Heru Rudiansah</td>
-                                        <td>082322452311</td>
-                                        <td>Undangan Pernikahan</td>
+                                        <td>Undangan Pernikahan Islami</td>
                                         <td>Special</td>
                                         <td>Model A</td>
                                         <td>Tegar Kusuma</td>
@@ -96,11 +96,11 @@
                                         <td>Aktif</td>
                                     </tr>
                                     <tr>
-                                        <td>1</td>
+                                        <td>2</td>
+                                        <td>00002</td>
                                         <td>02-09-2022 18:00 WIB</td>
                                         <td>Heru Rudiansah</td>
-                                        <td>082322452311</td>
-                                        <td>Undangan Pernikahan</td>
+                                        <td>Undangan Pernikahan Islami</td>
                                         <td>Standard</td>
                                         <td>Model A</td>
                                         <td>Tegar Kusuma</td>
@@ -108,11 +108,11 @@
                                         <td>Tidak Aktif</td>
                                     </tr>
                                     <tr>
-                                        <td>1</td>
+                                        <td>3</td>
+                                        <td>00001</td>
                                         <td>02-09-2022 18:00 WIB</td>
                                         <td>Heru Rudiansah</td>
-                                        <td>082322452311</td>
-                                        <td>Undangan Khitanan</td>
+                                        <td>Undangan Pernikahan Umum</td>
                                         <td>Basic</td>
                                         <td>Model A</td>
                                         <td>Tegar Kusuma</td>
@@ -123,7 +123,7 @@
                             </table>
                         </div>
                     </div>
-                    <div class="mb-3 ml-3">
+                    <div class="mb-3 ml-4">
                         <a href="<?= base_url('SuperAdmin/MasterData/dataAdmin') ?>" class="btn btn-sm btn-warning px-2">Kembali</a>
                     </div>
                 </div>

@@ -172,13 +172,14 @@
 						<table>
 							<thead>
 								<tr>
-									<th style="width: 4%;">No</th>
+									<th style="width: 5%;">No</th>
+									<th style="width: 7%;">Kode</th>
 									<th style="width: 10%;">Tanggal</th>
-									<th style="width: 14%;">Nama Kustomer</th>
+									<th style="width: 12%;">Nama Kustomer</th>
                                     <th style="width: 10%;">Jenis</th>
                                     <th style="width: 9%;">Kategori</th>
                                     <th style="width: 8%;">Model</th>
-                                    <th style="width: 10%;">Harga</th>
+                                    <th style="width: 8%;">Harga</th>
                                     <th style="width: 11%;">Keterangan</th>
                                     <th style="width: 7%;">Status</th>
                                     <th style="width: 8%;">Admin</th>
@@ -188,12 +189,13 @@
                                 <?php for($i = 1; $i < 51; $i++) :?>
                                 <tr>
                                     <td><?= $i?></td>
+                                    <td>00001</td>
                                     <td>01-09-2022</td>
                                     <td>Heru Rudiansah</td>
-                                    <td>Undangan Pernikahan</td>
+                                    <td>Undangan Pernikahan Islami</td>
                                     <td>Standard</td>
                                     <td>Model A</td>
-                                    <td>Rp. 150000</td>
+                                    <td>150000</td>
                                     <td>Belum Dikerjakan</td>
                                     <td>Tidak Aktif</td>
                                     <td>Tegar Kusuma</td>

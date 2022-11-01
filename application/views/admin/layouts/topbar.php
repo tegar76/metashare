@@ -68,14 +68,12 @@
                                     class="text-dark">Jason Doe</span> 
                                 <i data-feather="chevron-down"
                                 class="svg-icon"></i></span>
-                                <img src="<?= base_url('src/adminmart')?>/assets/images/users/profile-pic.jpg" alt="user" class="rounded-circle"
-                                    width="40">
                             </a>
                             <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
-                            <a class="dropdown-item" href="<?= base_url('Guru/Profile')?>"><i data-feather="user"
+                            <a class="dropdown-item" href="<?= base_url('Admin/Profile')?>"><i data-feather="user"
                                         class="svg-icon mr-2 ml-1"></i>
-                                    Profil</a>
-                                <a class="dropdown-item" href="<?= base_url('Guru/Profile/editPassword')?>"><i data-feather="key"
+                                    Profile</a>
+                                <a class="dropdown-item" href="<?= base_url('Admin/Profile/editPassword')?>"><i data-feather="key"
                                         class="svg-icon mr-2 ml-1"></i>
                                     Edit Password</a>
 									<hr>

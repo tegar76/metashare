@@ -34,7 +34,7 @@
     <!-- Data Table -->
 
     <!-- Css All -->
-    <link href="<?= base_url('src/style/adminmart/style19.css')?>" rel="stylesheet">
+    <link href="<?= base_url('src/style/adminmart/style24.css')?>" rel="stylesheet">
     <!-- Css All End -->
 
 </head>

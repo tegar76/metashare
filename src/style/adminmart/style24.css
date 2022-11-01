@@ -92,6 +92,17 @@
     background-color: #9F7C00;
 }
 
+.btn-outline-warning {
+    color: #CCA829 !important;
+    border: 1px solid #CCA829 !important;
+    border: 0;
+}
+
+.btn-outline-warning:hover {
+    background-color: #f3e7be;
+}
+
+
 .btn-secondary {
     background-color: #c2c2a3;
     color: white !important;
@@ -108,8 +119,8 @@
 }
 
 .btn-outline-info {
-    color: 6675E8;
-    border: 1px solid 6675E8;
+    color: #6675E8;
+    border: 1px solid #6675E8;
     opacity: 0.9;
 }
 
@@ -146,6 +157,20 @@ height: 24px;
 .feather-32{
 width: 32px;
 height: 32px;
+}
+
+/* dropdown */
+.dropdown-menu {
+    padding: 0px;
+}
+
+.dropdown-item {
+    font-size: 12px;
+}
+
+.dropdown-divider {
+    margin-bottom:0px;
+    margin-top:0px;
 }
 
 /* Resize Feather Icons End */
@@ -405,6 +430,73 @@ select::-ms-expand {
     }
     /* Corousel */
 /* Model undangan */
+
+/* Toogle Switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 36px;
+    height: 19px;
+  }
+  
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+    border: 2px solid #2989A8;
+    opacity: 0.5;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 12px;
+    width: 12px;
+    left: 3px;
+    bottom: 2.5px;
+    background-color: #ff8000;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  /* input:checked + .slider {
+    border: 2px solid #4aff44
+  } */
+
+  input:checked + .slider:before {
+    background-color: #009900;
+  }
+  
+  input:focus + .slider {
+    filter: saturate(4);
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(14px);
+    -ms-transform: translateX(14px);
+    transform: translateX(14px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
 
 
 /* Contents End*/

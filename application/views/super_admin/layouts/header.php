@@ -17,8 +17,8 @@
     <link href="<?= base_url('src/adminmart')?>/assets/extra-libs/jvector/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
     <!-- Custom CSS -->
     <link href="<?= base_url('src/adminmart')?>/dist/css/style.min.css" rel="stylesheet">
-    <!-- Fontawesome -->
-    <link rel="stylesheet" href="<?= base_url('src/adminmart/dist/css/icons/font-awesome/css/fontawesome.all.css')?>">
+     <!-- Fontawesome -->
+    <link rel="stylesheet" href="<?= base_url('src/fontawesome-free-6.2.0-web/css/all.css') ?>">
     <!-- Bootstrap Select search -->
     <link rel="stylesheet" href="<?= base_url('src/bootstrap-select-1.13.14/dist/css/bootstrap-select.min.css')?>">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -34,7 +34,7 @@
     <!-- Data Table -->
 
     <!-- Css All -->
-    <link href="<?= base_url('src/style/adminmart/style16.css')?>" rel="stylesheet">
+    <link href="<?= base_url('src/style/adminmart/style24.css')?>" rel="stylesheet">
     <!-- Css All End -->
 
 </head>

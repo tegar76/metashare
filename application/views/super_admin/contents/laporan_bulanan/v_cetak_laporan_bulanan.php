@@ -85,8 +85,15 @@
 
 			.date {
 				font-size: 12px;
-				color: #6b6b6b;
+				color: #5b5b5b;
 				text-align: right;
+			}
+
+			.address {
+				font-size: 12px;
+				color: #6b6b6b;
+				margin-left: 140px;
+				margin-right: 140px;
 			}
 
             table {
@@ -155,7 +162,7 @@
 					<div class="title-page">
 						<div class="title">LAPORAN BULANAN</div>
 						<div class="sub-title">Bulan September 2022</div>
-						<div class="sub-title">Metashare By Paralogy</div>
+						<div class="address">Gang Bugenvile Karangmiri,Sumampir, Kec Purwokerto Utara, Kab. Banyumas, Jawa Tengah 53125 Telp.087899703471</div>
 					</div>
 					<div class="date">
 						<p>Tanggal Cetak : 01-10-2022 14:00 WIB</p>
@@ -165,13 +172,14 @@
 						<table>
 							<thead>
 								<tr>
-									<th style="width: 4%;">No</th>
+									<th style="width: 5%;">No</th>
+									<th style="width: 7%;">Kode</th>
 									<th style="width: 10%;">Tanggal</th>
-									<th style="width: 14%;">Nama Kustomer</th>
+									<th style="width: 12%;">Nama Kustomer</th>
                                     <th style="width: 10%;">Jenis</th>
                                     <th style="width: 9%;">Kategori</th>
                                     <th style="width: 8%;">Model</th>
-                                    <th style="width: 10%;">Harga</th>
+                                    <th style="width: 8%;">Harga</th>
                                     <th style="width: 11%;">Keterangan</th>
                                     <th style="width: 7%;">Status</th>
                                     <th style="width: 8%;">Admin</th>
@@ -181,12 +189,13 @@
                                 <?php for($i = 1; $i < 51; $i++) :?>
                                 <tr>
                                     <td><?= $i?></td>
+                                    <td>00001</td>
                                     <td>01-09-2022</td>
                                     <td>Heru Rudiansah</td>
-                                    <td>Undangan Pernikahan</td>
+                                    <td>Undangan Pernikahan Islami</td>
                                     <td>Standard</td>
                                     <td>Model A</td>
-                                    <td>Rp. 150000</td>
+                                    <td>150000</td>
                                     <td>Belum Dikerjakan</td>
                                     <td>Tidak Aktif</td>
                                     <td>Tegar Kusuma</td>
@@ -221,21 +230,39 @@
                             </p>
                         </div> -->
                        <div class="keterangan">
-                            <h4>Keterangan : </h4>
-                            <div class="row">
-                                <div class="column">Total Kategori Spesial Yang Terorder</div>
-                                <div class="column"> : 99</div>
-                                <div class="column">Total Kategori Standard Yang Terorder</div>
-                                <div class="column"> : 99</div>
-                                <div class="column">Total Kategori Basic Yang Terorder</div>
-                                <div class="column"> : 99</div>
-                                <div class="column">Total Undangan  Belum Dikerjakan</div>
-                                <div class="column"> : 99</div>
-                                <div class="column">Total Undangan Dalam Proses Pengerjaan</div>
-                                <div class="column"> : 99</div>
-                                <div class="column">Total Undangan Sudah Dikerjakan</div>
-                                <div class="column"> : 99</div>
-                            </div>
+                            <div>
+								<h4>Dari Jenis Undangan Pernikahan Islami </h4>
+								<div class="row">
+									<div class="column">Total Kategori Spesial Yang Terorder</div>
+									<div class="column"> : 99</div>
+									<div class="column">Total Kategori Standard Yang Terorder</div>
+									<div class="column"> : 99</div>
+									<div class="column">Total Kategori Basic Yang Terorder</div>
+									<div class="column"> : 99</div>
+								</div>
+							</div>
+							<div style="margin-top: -10px;">
+								<h4>Dari Jenis Undangan Pernikahan Umum </h4>
+								<div class="row">
+									<div class="column">Total Kategori Spesial Yang Terorder</div>
+									<div class="column"> : 99</div>
+									<div class="column">Total Kategori Standard Yang Terorder</div>
+									<div class="column"> : 99</div>
+									<div class="column">Total Kategori Basic Yang Terorder</div>
+									<div class="column"> : 99</div>
+								</div>
+							</div>
+							<div>
+								<h4>Keterangan : </h4>
+								<div class="row">
+									<div class="column">Total Undangan Belum Dikerjakan</div>
+									<div class="column"> : 99</div>
+									<div class="column">Total Undangan Dalam Proses Pengerjaan</div>
+									<div class="column"> : 99</div>
+									<div class="column">Total Undangan Sudah Dikerjakan</div>
+									<div class="column"> : 99</div>
+								</div>
+							</div>
                        </div>
 					</div>
 				</div>

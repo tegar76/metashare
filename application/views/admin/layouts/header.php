@@ -24,13 +24,16 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
 
-	<!-- Data Table -->
-	<link href="<?= base_url('src/adminmart') ?>/assets/extra-libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
-	<link href="<?= base_url('src/adminmart') ?>/assets/extra-libs/datatables.net-bs4/css/dataTables.style1.css" rel="stylesheet">
-	<!-- Data Table -->
+	<!-- Fontawesome -->
+	<link rel="stylesheet" href="<?= base_url('src/fontawesome-free-6.2.0-web/css/all.css') ?>">
+
+	 <!-- Data Table -->
+	 <link href="<?= base_url('src/adminmart')?>/assets/extra-libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
+    <link href="<?= base_url('src/adminmart')?>/assets/extra-libs/datatables.net-bs4/css/dataTables.style.css" rel="stylesheet">
+    <!-- Data Table -->
 
 	<!-- Css All -->
-	<link href="<?= base_url('src/style/adminmart/style2.css') ?>" rel="stylesheet">
+	<link href="<?= base_url('src/style/adminmart/style24.css') ?>" rel="stylesheet">
 	<!-- Css All End -->
 
 	<!-- SweetAlert 2 -->

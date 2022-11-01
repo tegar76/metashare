@@ -27,16 +27,16 @@
                 <div class="card shadow px-5 py-3">
                     <ul class="nav nav-tabs">
                         <li class="nav-item">
-                            <a href="#pernikahan" data-toggle="tab" aria-expanded="false" class="nav-link active">
+                            <a href="#pernikahanIslami" data-toggle="tab" aria-expanded="false" class="nav-link active">
                                 <i class="mdi mdi-home-variant d-lg-none d-block mr-1"></i>
-                                <span class="d-none d-lg-block">Pernikahan</span>
+                                <span class="d-none d-lg-block">Pernikahan Islami</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#khitanan" data-toggle="tab" aria-expanded="true"
+                            <a href="#pernikahanUmum" data-toggle="tab" aria-expanded="true"
                                 class="nav-link">
                                 <i class="mdi mdi-account-circle d-lg-none d-block mr-1"></i>
-                                <span class="d-none d-lg-block">Khitanan</span>
+                                <span class="d-none d-lg-block">Pernikahan Umum</span>
                             </a>
                         </li>
                     </ul>
@@ -56,7 +56,7 @@
                     </div>
 
                     <div class="tab-content mb-3">
-                        <div class="tab-pane show active" id="pernikahan">
+                        <div class="tab-pane show active" id="pernikahanIslami">
                             <div class="row ml-0">
                                 <!-- Item Model -->
                                 <div class="card shadow-sm card-sampul-cover p-2 mx-2 mb-3">
@@ -64,21 +64,9 @@
                                         <div class="carousel-inner" role="listbox">
                                             <div class="carousel-item active">
                                                 <img class="img-sampul-cover mx-auto" src="<?= base_url('storage/model_undangan_sampul/sampul_a.svg')?>" alt="Cover">
-                                                <!-- Caption Off -->
-                                                <!-- <div class="carousel-caption d-none d-md-block">
-                                                    <h3 class="text-white">First title goes here</h3>
-                                                    <p>this is the subcontent you can use this</p>
-                                                </div> -->
-
                                             </div>
                                             <div class="carousel-item">
                                                 <img class="img-sampul-cover mx-auto" src="<?= base_url('storage/model_undangan_cover/cover_a.svg')?>" alt="Cover">
-                                                <!-- Caption Off -->
-                                                <!-- <div class="carousel-caption d-none d-md-block">
-                                                    <h3 class="text-white">Second title goes here</h3>
-                                                    <p>this is the subcontent you can use this</p>
-                                                </div> -->
-
                                             </div>
                                         </div>
                                         <ol class="carousel-indicators">
@@ -88,7 +76,7 @@
                                     </div>
                                     <!-- <img class="img-cover mx-auto" src="<?= base_url('storage/cover_model_undangan/cover_a.svg')?>" alt="Cover"> -->
                                     <h5 class="text-black mt-4">Model A</h5>
-                                    <p>Undangan Pernikahan / Special</p>
+                                    <p>Undangan Pernikahan Islami / Special</p>
                                     <h4 class="text-danger mt-n2">Rp. 150.000</h4>
                                     <div class="mt-2">
                                         <a target="_blank" href="<?= base_url('PreviewModelUndangan')?>" class="btn btn-sm btn-outline-info text-sm  px-2 mr-3">
@@ -119,7 +107,7 @@
                                 
                             </div>
                         </div>
-                        <div class="tab-pane" id="khitanan">
+                        <div class="tab-pane" id="pernikahanUmum">
                             <p>Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim
                                 justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis
                                 eu pede mollis pretium. Integer tincidunt.Cras dapibus. Vivamus elementum

@@ -14,12 +14,17 @@
 						<li class="sidebar-item">
 							<a href="<?= base_url('SuperAdmin/MasterData/dataAdmin') ?>" class="sidebar-link"><span class="hide-menu"> Data Admin</span></a>
 						</li>
+						<li class="sidebar-item">
+							<a href="<?= base_url('SuperAdmin/MasterData/dataKustomer') ?>" class="sidebar-link"><span class="hide-menu"> Data Kustomer</span></a>
+						</li>
 					</ul>
 				</li>
 				<li class="list-divider"></li>
-				<li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="<?= base_url('SuperAdmin/DataKustomer') ?>" aria-expanded="false"><i data-feather="users" class="feather-icon"></i><span class="hide-menu">Data Kustomer</span></a></li>
+				<li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="<?= base_url('SuperAdmin/Pengorderan') ?>" aria-expanded="false"><i data-feather="shopping-bag" class="feather-icon"></i><span class="hide-menu">Pengorderan</span></a></li>
 				<li class="list-divider"></li>
-				<li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="<?= base_url('SuperAdmin/LaporanBulanan') ?>" aria-expanded="false"><i data-feather="file-text" class="feather-icon"></i><span class="hide-menu">Laporan Bulanan</span></a></li>
+				<li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="<?= base_url('SuperAdmin/Penugasan') ?>" aria-expanded="false"><i data-feather="clipboard" class="feather-icon"></i><span class="hide-menu">Penugasan</span></a></li>
+				<li class="list-divider"></li>
+				<li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="<?= base_url('SuperAdmin/laporanBulanan') ?>" aria-expanded="false"><i data-feather="file-text" class="feather-icon"></i><span class="hide-menu">Laporan Bulanan</span></a></li>
 				<li class="list-divider"></li>
 				<li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="<?= base_url('') ?>" aria-expanded="false"><i data-feather="log-out" class="feather-icon"></i><span class="hide-menu">Logout</span></a></li>
 				<li class="list-divider"></li>

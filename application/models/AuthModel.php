@@ -5,7 +5,7 @@ class AuthModel extends CI_Model
 
 	public function getSuperAdmin($username)
 	{
-		$this->db->where('username', $username);
+		$this->db->where('code', $username);
 		$this->db->where('level', 'su-admin');
 		return $this->db->get('admin')->row();
 	}

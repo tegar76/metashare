@@ -29,7 +29,4 @@ class Penugasan extends CI_Controller
 		$data['content'] = 'super_admin/contents/penugasan/v_edit_penugasan';
 		$this->load->view('super_admin/layouts/wrapper', $data, FALSE);
 	}
-
 }
-
-?>

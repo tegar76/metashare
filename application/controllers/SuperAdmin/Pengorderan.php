@@ -17,5 +17,3 @@ class Pengorderan extends CI_Controller
 	}
 
 }
-
-?>

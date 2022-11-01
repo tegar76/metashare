@@ -2,7 +2,14 @@
 
 class MasterData extends CI_Controller
 {
-	public function dataModelUndangan()
+
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->model('MasterModel', 'master', true);
+	}
+
+	public function model_undangan()
 	{
 		$data['title'] = 'Data Model Undangan';
 		$data['content'] = 'super_admin/contents/master_data/data_model_undangan/v_data_model_undangan';
@@ -20,34 +27,6 @@ class MasterData extends CI_Controller
 	{
 		$data['title'] = 'Edit Model Undangan';
 		$data['content'] = 'super_admin/contents/master_data/data_model_undangan/v_edit_model_undangan';
-		$this->load->view('super_admin/layouts/wrapper', $data, FALSE);
-	}
-
-	public function dataAdmin()
-	{
-		$data['title'] = 'Data Admin';
-		$data['content'] = 'super_admin/contents/master_data/data_admin/v_data_admin';
-		$this->load->view('super_admin/layouts/wrapper', $data, FALSE);
-	}
-
-	public function detailAdmin()
-	{
-		$data['title'] = 'Detail Admin';
-		$data['content'] = 'super_admin/contents/master_data/data_admin/v_detail_admin';
-		$this->load->view('super_admin/layouts/wrapper', $data, FALSE);
-	}
-
-	public function tambahAdmin()
-	{
-		$data['title'] = 'Tambah Admin';
-		$data['content'] = 'super_admin/contents/master_data/data_admin/v_tambah_admin';
-		$this->load->view('super_admin/layouts/wrapper', $data, FALSE);
-	}
-
-	public function editAdmin()
-	{
-		$data['title'] = 'Edit Admin';
-		$data['content'] = 'super_admin/contents/master_data/data_admin/v_edit_admin';
 		$this->load->view('super_admin/layouts/wrapper', $data, FALSE);
 	}
 
@@ -86,7 +65,7 @@ class MasterData extends CI_Controller
 			$data['admin'] = $data_admin;
 		}
 		$data['title'] = 'Data Admin';
-		$data['content'] = 'super_admin/contents/master_data/v_data_admin';
+		$data['content'] = 'super_admin/contents/master_data/data_admin/v_data_admin';
 		$this->load->view('super_admin/layouts/wrapper', $data, FALSE);
 	}
 
@@ -97,7 +76,7 @@ class MasterData extends CI_Controller
 		if ($admin) {
 			$data['admin'] = $admin;
 			$data['title'] = 'Detail Admin ' . (!empty($admin)) ? $admin->name : '';
-			$data['content'] = 'super_admin/contents/master_data/v_detail_admin';
+			$data['content'] = 'super_admin/contents/master_data/data_admin/v_detail_admin';
 		} else {
 			$data['title'] = '404 Not Found';
 			$data['content'] = 'errors/contents/error_404';
@@ -108,7 +87,7 @@ class MasterData extends CI_Controller
 	public function tambah_admin()
 	{
 		$data['title'] = 'Tambah Admin';
-		$data['content'] = 'super_admin/contents/master_data/v_tambah_admin';
+		$data['content'] = 'super_admin/contents/master_data/data_admin/v_tambah_admin';
 		$this->form_validation->set_rules([
 			[
 				'field' => 'name',
@@ -181,7 +160,7 @@ class MasterData extends CI_Controller
 		} else {
 			$data['admin'] = $admin;
 			$data['title'] = 'Edit Admin';
-			$data['content'] = 'super_admin/contents/master_data/v_edit_admin';
+			$data['content'] = 'super_admin/contents/master_data/data_admin/v_edit_admin';
 			if (isset($_POST['update'])) {
 
 				if ($data['admin']->email != $this->input->post('email_update', true)) {

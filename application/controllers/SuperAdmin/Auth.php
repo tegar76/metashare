@@ -27,11 +27,10 @@ class Auth extends CI_Controller
 			[
 				'field' => 'username',
 				'label' => 'username',
-				'rules' => 'trim|required|xss_clean|valid_email',
+				'rules' => 'trim|required|xss_clean',
 				'errors' => [
 					'required' => '{field} harus diisi!',
 					'xss_clean' => 'cek kembali pada {field}',
-					'valid_email' => 'Email yang anda masukan tidak valid'
 				]
 			],
 			[

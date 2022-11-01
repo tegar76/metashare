@@ -117,4 +117,53 @@ class MasterModel extends Ci_Model
 			return false;
 		}
 	}
+
+	public function getDataPenugasan()
+	{
+		$this->db->select("
+			transaction.code,
+			transaction.date,
+			transaction.active,
+			transaction.desc,
+			transaction.status,
+			customer.name as customer,
+			model.category,
+			model.name as model,
+			admin.name as admin,
+		");
+		$this->db->from("transaction");
+		$this->db->join("customer", "customer.cus_id=transaction.cus_id");
+		$this->db->join("model_invitation as model", "model.model_id=transaction.model_id");
+		$this->db->join("admin", "admin.admin_id=transaction.admin_id");
+		$this->db->order_by("transaction.date", "DESC");
+		return $this->db->get()->result();
+	}
+
+	public function getDetailPenugasan($code = null)
+	{
+		$this->db->select("
+			customer.name as cs_name,
+			customer.phone as cs_phone,
+			customer.email as cs_email,
+			transaction.code as t_code,
+			transaction.date as t_date,
+			transaction.active as t_active,
+			transaction.desc as t_desc,
+			transaction.status as t_status,
+			transaction.proof as t_proof,
+			model.name as m_name,
+			model.type as m_type,
+			model.category as m_category,
+			model.price as m_price,
+			admin.code as adm_code,
+			admin.name as adm_name,
+			admin.phone as adm_phone,
+		");
+		$this->db->from("transaction");
+		$this->db->join("customer", "customer.cus_id=transaction.cus_id");
+		$this->db->join("model_invitation as model", "model.model_id=transaction.model_id");
+		$this->db->join("admin", "admin.admin_id=transaction.admin_id");
+		$this->db->where('transaction.code', $code);
+		return $this->db->get()->row();
+	}
 }

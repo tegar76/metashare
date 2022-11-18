@@ -80,6 +80,18 @@
 	<script src="<?= base_url('src/bootstrap-select-1.13.14/dist/js/bootstrap-select.min.js') ?>"></script>
 
 	<script>
+		function base_url() {
+			var pathparts = location.pathname.split("/");
+			if (location.host == "localhost:8080" || location.host == "localhost") {
+				var url = location.origin + "/" + pathparts[1].trim("/") + "/"; // http://localhost/siberhyl/
+			} else {
+				var url = location.origin + "/"; // http://localhost/
+			}
+			return url;
+		}
+
+		const BASEURL = base_url();
+		// console.log(BASEURL);
 		$(function() {
 			var title = '<?= $this->session->flashdata("title") ?>';
 			var text = '<?= $this->session->flashdata("text") ?>';

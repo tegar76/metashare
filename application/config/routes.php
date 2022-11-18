@@ -75,6 +75,21 @@ $route['su-admin/customer'] = 'SuperAdmin/DataKustomer';
 $route['su-admin/customer/(:any)'] = 'SuperAdmin/DataKustomer/$1';
 $route['su-admin/customer/(:any)/'] = 'SuperAdmin/DataKustomer/$1/$2';
 
+// 4. Pengorderan
+$route['su-admin/order'] = 'SuperAdmin/Pengorderan';
+$route['su-admin/order/(:any)'] = 'SuperAdmin/Pengorderan/$1';
+$route['su-admin/order/(:any)/(:any)'] = 'SuperAdmin/Pengorderan/$1/$2';
+
+
+// 5. Penugasan
+$route['su-admin/penugasan'] = 'SuperAdmin/Penugasan';
+$route['su-admin/penugasan/(:any)'] = 'SuperAdmin/Penugasan/$1';
+$route['su-admin/penugasan/(:any)/(:any)'] = 'SuperAdmin/Penugasan/$1/$2';
+
+// 6. Laporan Bulanan
+$route['su-admin/laporan_bulanan'] = 'SuperAdmin/LaporanBulanan';
+$route['su-admin/laporan_bulanan/(:any)'] = 'SuperAdmin/LaporanBulanan/$1';
+$route['su-admin/laporan_bulanan/(:any)/(:any)'] = 'SuperAdmin/LaporanBulanan/$1/$2';
 
 /*
 | -------------------------------------------------------------------------
@@ -92,3 +107,12 @@ $route['admin/undangan/(:any)/(:any)/(:any)'] = 'Admin/Invitation/$1/$2/$3';
 $route['wedding'] = 'Admin/Invitation/wedding';
 $route['wedding/(:any)'] = 'Admin/Invitation/wedding/$1';
 $route['wedding/(:any)/(:any)'] = 'Admin/Invitation/wedding/$1/$2';
+
+/*
+| -------------------------------------------------------------------------
+| ROUTING Preview Model Undangan
+| -------------------------------------------------------------------------
+*/
+$route['preview'] = 'PreviewModelUndangan';
+$route['views'] = 'View/View';
+$route['views/(:any)'] = 'View/View/$1';

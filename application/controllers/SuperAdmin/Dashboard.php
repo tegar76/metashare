@@ -6,8 +6,8 @@ class Dashboard extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		checkSuperAdmin();
 		$this->load->model('MasterModel', 'master', true);
+		checkSuperAdmin();
 	}
 
 	public function index()
@@ -56,16 +56,18 @@ class Dashboard extends CI_Controller
 					}
 					$invt['clss'] = $cls;
 					$invt['desc'] = $desc;
-					if ($value->status < 1) {
-						$status = 'Tidak Aktif';
-					} else {
-						$status = 'Aktif';
-					}
-					$invt['status'] = $status;
+					$invt['status'] = ($value->status < 1) ? 'Tidak Aktif' : 'Aktif';
 					$new_invt[] = $invt;
 				}
 				$data['invite'] = $new_invt;
 			}
+			$total_data = array(
+				'admin' => $this->master->getRowData('admin', ['level' => 'admin', 'status' => 1]),
+				'customer' => $this->master->getRowData('customer', []),
+				'order' => $this->master->getRowData('transaction', ['admin_id' => 0]),
+				'model' => $this->master->getRowData('model_invitation', [])
+			);
+			$data['total'] = $total_data;
 			$data['title'] = 'Dashboard Super Admin';
 			$data['content'] = 'super_admin/contents/dashboard/v_dashboard';
 			$this->load->view('super_admin/layouts/wrapper', $data, FALSE);

@@ -15,19 +15,19 @@
 							<a href="<?= base_url('su-admin/master/data_admin') ?>" class="sidebar-link"><span class="hide-menu"> Data Admin</span></a>
 						</li>
 						<li class="sidebar-item">
-							<a href="<?= base_url('su-admin/customer') ?>" class="sidebar-link"><span class="hide-menu"> Data Kustomer</span></a>
+							<a href="<?= base_url('su-admin/master/customer') ?>" class="sidebar-link"><span class="hide-menu"> Data Kustomer</span></a>
 						</li>
 					</ul>
 
 				</li>
 				<li class="list-divider"></li>
-				<li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="<?= base_url('su-admin/Pengorderan') ?>" aria-expanded="false"><i data-feather="shopping-bag" class="feather-icon"></i><span class="hide-menu">Pengorderan</span></a></li>
+				<li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="<?= base_url('su-admin/order') ?>" aria-expanded="false"><i data-feather="shopping-bag" class="feather-icon"></i><span class="hide-menu">Pengorderan</span></a></li>
 				<li class="list-divider"></li>
-				<li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="<?= base_url('su-admin/Penugasan') ?>" aria-expanded="false"><i data-feather="clipboard" class="feather-icon"></i><span class="hide-menu">Penugasan</span></a></li>
+				<li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="<?= base_url('su-admin/penugasan') ?>" aria-expanded="false"><i data-feather="clipboard" class="feather-icon"></i><span class="hide-menu">Penugasan</span></a></li>
 				<li class="list-divider"></li>
-				<li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="<?= base_url('su-admin/laporanBulanan') ?>" aria-expanded="false"><i data-feather="file-text" class="feather-icon"></i><span class="hide-menu">Laporan Bulanan</span></a></li>
+				<li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="<?= base_url('su-admin/laporan_bulanan') ?>" aria-expanded="false"><i data-feather="file-text" class="feather-icon"></i><span class="hide-menu">Laporan Bulanan</span></a></li>
 				<li class="list-divider"></li>
-				<li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="<?= base_url('') ?>" aria-expanded="false"><i data-feather="log-out" class="feather-icon"></i><span class="hide-menu">Logout</span></a></li>
+				<li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="javascript:void(0)" id="logout" aria-expanded="false"><i data-feather="log-out" class="feather-icon"></i><span class="hide-menu">Logout</span></a></li>
 				<li class="list-divider"></li>
 			</ul>
 		</nav>
@@ -35,3 +35,47 @@
 	</div>
 	<!-- End Sidebar scroll-->
 </aside>
+
+<script>
+	// logout
+	$(document).ready(function() {
+		$("#logout").click(function(event) {
+			event.preventDefault();
+			Swal.fire({
+				title: "Anda Yakin Keluar?",
+				text: "Anda yakin ingin keluar dari METASHARE?",
+				icon: "warning",
+				showConfirmButton: true,
+				confirmButtonColor: "#3085d6",
+				cancelButtonColor: "#d33",
+				confirmButtonText: "Logout",
+			}).then((result) => {
+				if (result.value) {
+					$.ajax({
+						type: "GET",
+						url: BASEURL + "su-admin/logout",
+						beforeSend: function() {
+							swal.fire({
+								imageUrl: BASEURL + "assets/logo/rolling.png",
+								title: "Logging Out",
+								text: "silahkan tunggu...",
+								showConfirmButton: false,
+								allowOutsideClick: false,
+							});
+						},
+						success: function(data) {
+							swal.fire({
+								icon: "success",
+								title: "Logout",
+								text: "Silahkan login kembali untuk melanjutkan :)",
+								showConfirmButton: false,
+								allowOutsideClick: false,
+							});
+							window.location.href = BASEURL;
+						},
+					});
+				}
+			});
+		});
+	});
+</script>

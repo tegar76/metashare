@@ -1,7 +1,14 @@
 <?php
 
+// coming son
 class LaporanBulanan extends CI_Controller
 {
+
+	public function __construct()
+	{
+		parent::__construct();
+	}
+
 	public function index()
 	{
 		$data['title'] = 'Laporan Bulanan';
@@ -9,12 +16,9 @@ class LaporanBulanan extends CI_Controller
 		$this->load->view('super_admin/layouts/wrapper', $data, FALSE);
 	}
 
-    public function cetakLaporanBulanan()
+	public function cetakLaporanBulanan()
 	{
 		$data['title'] = 'Cetak Laporan Bulanan';
 		$this->load->view('super_admin/contents/laporan_bulanan/v_cetak_laporan_bulanan', $data, FALSE);
 	}
-
 }
-
-?>

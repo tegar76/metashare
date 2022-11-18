@@ -33,7 +33,7 @@
 					<div class="d-flex d-lg-flex d-md-block align-items-center">
 						<div class="total">
 							<div class="d-inline-flex align-items-center">
-								<h2 class="font-weight-medium text-black">99</h2>
+								<h2 class="font-weight-medium text-black"><?= $total['admin']; ?></h2>
 							</div>
 							<h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Total Admin Aktif</h6>
 						</div>
@@ -47,7 +47,7 @@
 				<div class="card-body">
 					<div class="d-flex d-lg-flex d-md-block align-items-center">
 						<div class="total">
-							<h2 class="font-weight-medium text-black">99</h2>
+							<h2 class="font-weight-medium text-black"><?= $total['customer'] ?></h2>
 							<h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Total Kustomer
 							</h6>
 						</div>
@@ -62,7 +62,7 @@
 					<div class="d-flex d-lg-flex d-md-block align-items-center">
 						<div class="total">
 							<div class="d-inline-flex align-items-center">
-								<h2 class="font-weight-medium text-black">99</h2>
+								<h2 class="font-weight-medium text-black"><?= $total['order'] ?></h2>
 							</div>
 							<h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Total Order Masuk</h6>
 						</div>
@@ -76,7 +76,7 @@
 				<div class="card-body">
 					<div class="d-flex d-lg-flex d-md-block align-items-center">
 						<div class="total">
-							<h2 class="font-weight-medium text-black">99</h2>
+							<h2 class="font-weight-medium text-black"><?= $total['model'] ?></h2>
 							<h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Total Model Undangan</h6>
 						</div>
 						<div class="ml-auto mt-md-3 mt-lg-0">

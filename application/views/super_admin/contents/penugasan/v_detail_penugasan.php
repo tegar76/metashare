@@ -10,7 +10,7 @@
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb m-0 p-0">
 							<li class="breadcrumb-item" aria-current="page"><a href="<?= base_url('su-admin/dashboard') ?>" class="text-link">Dashboard</a></li>
-							<li class="breadcrumb-item" aria-current="page"><a href="<?= base_url('su-admin/Penugasan') ?>" class="text-link">Penugasan</a></li>
+							<li class="breadcrumb-item" aria-current="page"><a href="<?= base_url('su-admin/penugasan') ?>" class="text-link">Penugasan</a></li>
 							<li class="breadcrumb-item text-muted active" aria-current="page"><?= $title ?></li>
 						</ol>
 					</nav>
@@ -66,7 +66,7 @@
 					</tr>
 					<tr>
 						<th scope="row">Model Undangan</th>
-						<td><a target="_blank" href="<?= base_url('PreviewModelUndangan') ?>" class="text-link-detail" data-toggle="tooltip" title="Lihat" data-placement="right"><?= $detail->m_name ?></a></td>
+						<td><a target="_blank" href="<?= base_url('preview?model=' . $detail->m_view) ?>" class="text-link-detail" data-toggle="tooltip" title="Lihat" data-placement="right"><?= $detail->m_name ?></a></td>
 					</tr>
 					<tr>
 						<th scope="row">Harga</th>
@@ -87,7 +87,7 @@
 					</tr>
 					<tr>
 						<th scope="row">Bukti Pembayaran</th>
-						<td><a target="_blank" href="<?= base_url('View/View/viewImg') ?>"><img src="<?= base_url('assets/icons/icon_file_img.svg') ?>" alt="" width="25" data-toggle="tooltip" title="Lihat" data-placement="right"></a></td>
+						<td><a target="_blank" href="<?= base_url('views/view_img?code=' . $detail->t_code) ?>"><img src="<?= base_url('assets/icons/icon_file_img.svg') ?>" alt="" width="25" data-toggle="tooltip" title="Lihat" data-placement="right"></a></td>
 					</tr>
 					<tr>
 						<th scope="row" class="text-primary">Data Admin Yang Menangani</th>
@@ -109,7 +109,7 @@
 			</table>
 			<hr class="mt-n3">
 			<div class="d-flex mb-2">
-				<a href="<?= base_url('su-admin/Penugasan') ?>" class="btn btn-sm btn-warning px-2 mr-4">Kembali</a>
+				<a href="<?= base_url('su-admin/penugasan') ?>" class="btn btn-sm btn-warning px-2 mr-4">Kembali</a>
 				<a target="_blank" href="<?= base_url('wedding/runa-ratna') ?>" class="btn btn-sm btn-outline-primary px-2">
 					<i class="fas fa-eye mr-1"></i>
 					<span class="mb-1">Live Demo</span>

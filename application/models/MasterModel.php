@@ -2,6 +2,7 @@
 
 class MasterModel extends Ci_Model
 {
+	// function untuk menghitung jumlah row data
 	public function getRowData($table = null, $where = null)
 	{
 		if ($table == null) {
@@ -15,6 +16,7 @@ class MasterModel extends Ci_Model
 		}
 	}
 
+	// function untuk mengambil semua data transaksi customer 
 	public function getCustomer()
 	{
 		$this->db->select("
@@ -40,18 +42,22 @@ class MasterModel extends Ci_Model
 		return $this->db->get();
 	}
 
+	// function untuk mengambil data semua admin baik super admin atau admin 
+	// diurutkan berdasarkan nama secara ascending order
 	public function getAdmin()
 	{
 		$this->db->order_by('name', 'ASC');
 		return $this->db->get('admin')->result();
 	}
 
+	// function untuk mengambil data admin berdasarkan code admin
 	public function getAdminByCode($code)
 	{
 		$this->db->where('code', $code);
 		return $this->db->get('admin')->row();
 	}
 
+	//  function untuk membuat code admin otomatis
 	public function createCodeAdmin()
 	{
 		$this->db->select('RIGHT(admin.code,3) as code', FALSE);
@@ -69,17 +75,22 @@ class MasterModel extends Ci_Model
 		return $resultcode;
 	}
 
+	// function untuk input data ke tabel admin
 	public function insertAdmin(array $admin)
 	{
 		$this->db->insert('admin', $admin);
 	}
 
+	// function untuk mengambil data model undangan 
+	// diurutkan berdasarkan nama secara ascending
 	public function getInvitation()
 	{
 		$this->db->order_by('name', 'ASC');
 		return $this->db->get('model_invitation')->result();
 	}
 
+	// function untuk mengambil data admin  
+	// diurutkan berdasarkan nama secara ascending
 	public function getDataAdmin()
 	{
 		$this->db->where('level', 'admin');
@@ -155,6 +166,8 @@ class MasterModel extends Ci_Model
 			model.type as m_type,
 			model.category as m_category,
 			model.price as m_price,
+			model.view_model as m_view,
+			admin.admin_id as adm_id,
 			admin.code as adm_code,
 			admin.name as adm_name,
 			admin.phone as adm_phone,
@@ -165,5 +178,102 @@ class MasterModel extends Ci_Model
 		$this->db->join("admin", "admin.admin_id=transaction.admin_id");
 		$this->db->where('transaction.code', $code);
 		return $this->db->get()->row();
+	}
+
+	public function getHistoryAdmin($code)
+	{
+		$this->db->select("
+			customer.name as cs_name,
+			transaction.code as t_code,
+			transaction.date as t_date,
+			transaction.desc as t_desc,
+			transaction.status as t_status,
+			model.name as m_name,
+			model.type as m_type,
+			model.category as m_category,
+			admin.name as adm_name,
+		");
+		$this->db->from("transaction");
+		$this->db->join("customer", "customer.cus_id=transaction.cus_id");
+		$this->db->join("model_invitation as model", "model.model_id=transaction.model_id");
+		$this->db->join("admin", "admin.admin_id=transaction.admin_id");
+		$this->db->where('admin.code', $code);
+		return $this->db->get();
+	}
+
+	public function getAllModelUndangan()
+	{
+		$query = $this->db->get('model_invitation');
+		return $query->result();
+	}
+
+	public function getUndanganByCategory($category)
+	{
+		$this->db->where('category', $category);
+		return $this->db->get('model_invitation')->result();
+	}
+
+	public function getModelUndanganById($id)
+	{
+		$this->db->where('model_id', $id);
+		return $this->db->get('model_invitation')->row();
+	}
+
+	public function getSumOrder(String $where, $id)
+	{
+		$this->db->where($where, $id);
+		return $this->db->get('transaction')->num_rows();
+	}
+
+	public function getDataCustomer()
+	{
+		$this->db->order_by('create_time', 'desc');
+		return $this->db->get('customer');
+	}
+
+	public function gerCustomerById($id)
+	{
+		$query = $this->db->get_where('customer', array('cus_id' => $id))->row();
+		return $query;
+	}
+
+
+	public function getOrderanUndangan()
+	{
+		$this->db->select("
+			transaction.code,
+			transaction.date,
+			customer.name as customer,
+			model.type,
+			model.category,
+			model.name as model,
+		");
+		$this->db->from("transaction");
+		$this->db->join("customer", "customer.cus_id=transaction.cus_id");
+		$this->db->join("model_invitation as model", "model.model_id=transaction.model_id");
+		$this->db->where('admin_id', 0);
+		$this->db->order_by("transaction.date", "ASC");
+		return $this->db->get()->result();
+	}
+	public function getOrderanUndanganByCode($code)
+	{
+		$this->db->select("
+			transaction.id,
+			transaction.code,
+			transaction.date,
+			customer.name as customer,
+			model.type,
+			model.category,
+			model.name as model,
+		");
+		$this->db->from("transaction");
+		$this->db->join("customer", "customer.cus_id=transaction.cus_id");
+		$this->db->join("model_invitation as model", "model.model_id=transaction.model_id");
+		$this->db->where('code', $code);
+		return $this->db->get()->row();
+	}
+
+	public function getModelUndangan()
+	{
 	}
 }

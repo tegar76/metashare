@@ -12,21 +12,42 @@ class Pengorderan extends CI_Controller
 
 	public function index()
 	{
-		$nomor	= 1;
-		$order = $this->master->getOrderanUndangan();
-		$data['order'] = array();
-		if ($order) {
-			foreach ($order as $row) {
-				$ord['nomor'] = $nomor++;
-				$ord['code'] = $row->code;
-				$ord['date'] =  date('d-m-Y H:i', strtotime($row->date)) . " WIB";
-				$ord['customer'] = $row->customer;
-				$ord['type'] = $row->type;
-				$ord['category'] = $row->category;
-				$ord['model'] = $row->model;
-				$neword[] = $ord;
+		if (isset($_GET['date']) and !empty($_GET['date'])) {
+			$nomor	= 1;
+			$year = date('Y', strtotime($_GET['date']));
+			$month = date('m', strtotime($_GET['date']));
+			$order = $this->master->getOrderanUndanganByDate($month, $year);
+			$data['order'] = array();
+			if ($order) {
+				foreach ($order as $row) {
+					$ord['nomor'] = $nomor++;
+					$ord['code'] = $row->code;
+					$ord['date'] =  date('d-m-Y H:i', strtotime($row->date)) . " WIB";
+					$ord['customer'] = $row->customer;
+					$ord['type'] = $row->type;
+					$ord['category'] = $row->category;
+					$ord['model'] = $row->model;
+					$neword[] = $ord;
+				}
+				$data['order'] = $neword;
 			}
-			$data['order'] = $neword;
+		} else {
+			$nomor	= 1;
+			$order = $this->master->getOrderanUndangan();
+			$data['order'] = array();
+			if ($order) {
+				foreach ($order as $row) {
+					$ord['nomor'] = $nomor++;
+					$ord['code'] = $row->code;
+					$ord['date'] =  date('d-m-Y H:i', strtotime($row->date)) . " WIB";
+					$ord['customer'] = $row->customer;
+					$ord['type'] = $row->type;
+					$ord['category'] = $row->category;
+					$ord['model'] = $row->model;
+					$neword[] = $ord;
+				}
+				$data['order'] = $neword;
+			}
 		}
 		$data['title'] = 'Pengorderan';
 		$data['content'] = 'super_admin/contents/pengorderan/v_pengorderan';

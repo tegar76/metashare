@@ -27,7 +27,7 @@
 		<!-- *************************************************************** -->
 		<div class="form-group col-4 pb-2">
 			<div class="input-group mb-2 ml-n3">
-				<input class="form-control" type="text" onfocus="(this.type='month')" placeholder="Pilih Bulan">
+				<input class="form-control" type="text" id="change-month" onfocus="(this.type='month')" placeholder="Pilih Bulan">
 				<div class="input-group-prepend">
 					<div class="input-group-text"><i class="fa fa-filter"></i></div>
 				</div>
@@ -89,16 +89,6 @@
 	<!-- ============================================================== -->
 
 	<script>
-		// function base_url() {
-		// 	var pathparts = location.pathname.split("/");
-		// 	if (location.host == "localhost:8080" || location.host == "localhost") {
-		// 		var url = location.origin + "/" + pathparts[1].trim("/") + "/"; // http://localhost/metashare/
-		// 	} else {
-		// 		var url = location.origin + "/"; // http://localhost/
-		// 	}
-		// 	return url;
-		// }
-		// const BASEURL = base_url();
 		$(document).ready(function() {
 			var csrfName = $(".csrf_token").attr("name");
 			var csrfHash = $(".csrf_token").val();
@@ -164,5 +154,9 @@
 					}
 				});
 			});
+		});
+		$("#change-month").change(function() {
+			var month = $("#change-month").val();
+			window.location = BASEURL + "su-admin/penugasan?date=" + month;
 		});
 	</script>

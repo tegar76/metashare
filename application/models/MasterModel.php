@@ -150,6 +150,30 @@ class MasterModel extends Ci_Model
 		return $this->db->get()->result();
 	}
 
+	public function getDataPenugasanByDate($years, $month)
+	{
+		$this->db->select("
+			transaction.code,
+			transaction.date,
+			transaction.active,
+			transaction.desc,
+			transaction.status,
+			customer.name as customer,
+			model.category,
+			model.name as model,
+			model.price,
+			admin.name as admin,
+		");
+		$this->db->from("transaction");
+		$this->db->join("customer", "customer.cus_id=transaction.cus_id");
+		$this->db->join("model_invitation as model", "model.model_id=transaction.model_id");
+		$this->db->join("admin", "admin.admin_id=transaction.admin_id");
+		$this->db->where("MONTH(transaction.date)", $month);
+		$this->db->where("YEAR(transaction.date)", $years);
+		$this->db->order_by("transaction.date", "DESC");
+		return $this->db->get()->result();
+	}
+
 	public function getDetailPenugasan($code = null)
 	{
 		$this->db->select("
@@ -237,7 +261,6 @@ class MasterModel extends Ci_Model
 		return $query;
 	}
 
-
 	public function getOrderanUndangan()
 	{
 		$this->db->select("
@@ -255,6 +278,7 @@ class MasterModel extends Ci_Model
 		$this->db->order_by("transaction.date", "ASC");
 		return $this->db->get()->result();
 	}
+
 	public function getOrderanUndanganByCode($code)
 	{
 		$this->db->select("
@@ -273,7 +297,25 @@ class MasterModel extends Ci_Model
 		return $this->db->get()->row();
 	}
 
-	public function getModelUndangan()
+	public function getOrderanUndanganByDate($month, $years)
+	{
+		$this->db->select("
+			transaction.code,
+			transaction.date,
+			customer.name as customer,
+			model.type,
+			model.category,
+			model.name as model,
+		");
+		$this->db->from("transaction");
+		$this->db->join("customer", "customer.cus_id=transaction.cus_id");
+		$this->db->join("model_invitation as model", "model.model_id=transaction.model_id");
+		$this->db->where("MONTH(transaction.date)", $month);
+		$this->db->where("YEAR(transaction.date)", $years);
+		return $this->db->get()->result();
+	}
+
+	public function getReportMonthly()
 	{
 	}
 }

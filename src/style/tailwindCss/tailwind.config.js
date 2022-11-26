@@ -5,10 +5,15 @@ module.exports = {
     extend: {
       colors: {
         'primary-blue-cyan': '#2989A8',
-        'secondary-gr-l': '#56CCF2',
-        'secondary-gr-r': '#2F80ED',
+        'primary-blue-cyan-hover': '#005E7C',
+        'secondary-blue-sky': '#56CCF2',
+        'secondary-blue': '#2F80ED',
         'success': '#4ECB71',
         'success-hover': '#3ab35c',
+        'danger': '#ff4d4d',
+        'danger-hover': '#ff3333',
+        'warning': '#ff9933',
+        'warning-hover': '#e67300',
       },
       spacing: {
         '3/10': '30%',
@@ -30,8 +35,8 @@ module.exports = {
         'base-md': '0.95rem',
         'base-sm': '0.9rem',
         'base-xs': '0.83rem',
-        'base-1xs': '0.7rem',
-        'base-2xs': '0.6rem',
+        'base-1xs': '0.70rem',
+        'base-2xs': '0.60rem',
       },
 
       screens: {
@@ -44,6 +49,7 @@ module.exports = {
         'cover-crop': "url('../../../assets/bg_img/bg_foto_cover_crop.png')",
         'mp-primary-xl': "url('../../../assets/bg_img/bg_marketplace/mp_bg_primary_xl.svg')",
         'mp-primary-sm': "url('../../../assets/bg_img/bg_marketplace/mp_bg_primary_sm.svg')",
+        'split-white-sky': "linear-gradient(to bottom left, #F9FDF7 50% , #F1F1F1 50%);"
       },
       animation: {
         'spin-slow': 'spin 2s linear infinite',
@@ -149,4 +155,15 @@ module.exports = {
     require('tw-elements/dist/plugin'),
     require('flowbite/plugin'),
   ],
+  future: {
+    defaultLineHeights: true,
+    purgeLayersByDefault: true,
+    removeDeprecatedGapUtilities: true,
+  },
+  experimental: {
+      additionalBreakpoint: true,
+      extendedFontSizeScale: true,
+      extendedSpacingScale: true,
+  },
+  
 }

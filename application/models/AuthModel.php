@@ -10,11 +10,16 @@ class AuthModel extends CI_Model
 		return $this->db->get('admin')->row();
 	}
 
+	public function getAdminByCode($code)
+	{
+		$this->db->where('code', $code);
+		return $this->db->get('admin')->row();
+	}
 
 	public function getAdminByEmail($email)
 	{
 		$this->db->where('email', $email);
-		return $this->db->get('admin')->row_object();
+		return $this->db->get('admin')->row();
 	}
 
 	public function getCustomerByUsername($username)

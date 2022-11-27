@@ -2,11 +2,13 @@
 
 class Dashboard extends CI_Controller
 {
-	// public function __construct()
-	// {
-	// 	parent::__construct();
-	// 	isAdminLogin();
-	// }
+	public function __construct()
+	{
+		parent::__construct();
+		// isAdminLogin();
+		$this->load->model('MasterModel', 'master', true);
+	}
+
 	public function index()
 	{
 		$data['title'] = 'Dashboard';

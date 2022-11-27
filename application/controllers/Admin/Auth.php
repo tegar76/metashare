@@ -8,14 +8,15 @@ class Auth extends CI_Controller
 		$this->load->model('AuthModel', 'auth', true);
 	}
 
+	// function untuk mengecek token login dari user admin
 	public function checkToken()
 	{
 		if ($this->session->userdata('backToken')) {
 			if ($this->auth->checkToken($this->session->userdata('backToken'))) {
-				redirect('su-admin/dashboard');
+				redirect('admin/dashboard');
 			} else {
 				$this->session->unset_userdata('backToken');
-				redirect('su-admin/logout');
+				redirect('admin/logout');
 			}
 		}
 	}
@@ -23,6 +24,7 @@ class Auth extends CI_Controller
 	public function index()
 	{
 		$this->checkToken();
+		$data['title'] = 'Login Admin';
 		$this->form_validation->set_rules([
 			[
 				'field' => 'username',
@@ -45,8 +47,8 @@ class Auth extends CI_Controller
 			],
 		]);
 		if ($this->form_validation->run() == false) {
-			$data['title'] = 'Login Super Admin';
-			$this->load->view('super_admin/contents/login/v_login', $data, FALSE);
+			$data['title'] = 'Login Admin';
+			$this->load->view('admin/contents/login/v_login', $data, FALSE);
 		} else {
 			$this->process();
 		}
@@ -55,28 +57,36 @@ class Auth extends CI_Controller
 	public function process()
 	{
 		$data = $this->input->post();
-		$su_admin = $this->auth->getSuperAdmin($data['username']);
-		if ($su_admin) {
-			if (password_verify($data['password'], $su_admin->password)) {
-				$sess_ = [
-					'fullName' => $su_admin->name,
-					'email' 	=> $su_admin->email,
-					'backToken' => crypt($su_admin->name, ''),
-					'level'		=> $su_admin->level,
-					'logged_in'	=> true
-				];
-				$this->session->set_userdata($sess_);
-				$this->auth->registToken($forToken = ['access_token' => $sess_['backToken']]);
-				sweetAlert("Selamat Datang $su_admin->name", "Semoga hari anda menyenangkan :)", "success");
-				redirect('su-admin/dashboard');
+		$admin = $this->auth->getAdminByCode($data['username']);
+		if ($admin) {
+			if (password_verify($data['password'], $admin->password)) {
+				if ($admin->level != 'admin') {
+					sweetAlert("Login Gagal", "Anda tidak memiliki akses untuk masuk", "error");
+					redirect('admin/login');
+				} else if ($admin->status != '1') {
+					sweetAlert("Login Gagal", "Akun anda saat ini tidak aktif, mohon hubungi Super Admin untuk mengaktifkan", "error");
+					redirect('admin/login');
+				} else {
+					$sess_ = [
+						'fullName' => $admin->name,
+						'email' 	=> $admin->email,
+						'backToken' => crypt($admin->name, ''),
+						'level'		=> $admin->level,
+						'logged_in'	=> true
+					];
+					$this->session->set_userdata($sess_);
+					$this->auth->registToken($forToken = ['access_token' => $sess_['backToken']]);
+					sweetAlert("Selamat Datang $admin->name", "Semoga hari anda menyenangkan :)", "success");
+					redirect('admin/dashboard');
+				}
 			} else {
 				$this->session->set_flashdata('message', 'password salah');
-				$data['title'] = 'Login Super Admin';
-				$this->load->view('super_admin/contents/login/v_login', $data, FALSE);
+				$data['title'] = 'Login Admin';
+				$this->load->view('admin/contents/login/v_login', $data, FALSE);
 			}
 		} else {
 			sweetAlert("Login Gagal", "Akun admin tidak tersedia", "error");
-			redirect('su-admin/login');
+			redirect('admin/login');
 		}
 	}
 
@@ -92,6 +102,3 @@ class Auth extends CI_Controller
 		echo json_encode($reponse);
 	}
 }
-
-/* End of file Auth.php */
-/* Location: ./application/controllers/SuperAdmin/Auth.php */

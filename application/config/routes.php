@@ -96,9 +96,28 @@ $route['su-admin/laporan_bulanan/(:any)/(:any)'] = 'SuperAdmin/LaporanBulanan/$1
 | ROUTING USER ADMINISTATOR
 | -------------------------------------------------------------------------
 */
+// 1. Authentication Admin
+$route['admin/login'] = 'Admin/Auth';
+$route['admin/logout'] = 'Admin/Auth/logout';
 
-$route['admin/login'] = 'Login';
-$route['admin/logout'] = 'Login/logout';
+// 2. Dashboard Admin
+$route['admin/dashboard'] = 'Admin/Dashboard';
+
+// 3. Master Data
+$route['admin/master_data'] = 'Admin/MasterData';
+$route['admin/master_data/(:any)'] = 'Admin/MasterData/$1';
+$route['admin/master_data/(:any)/(:any)'] = 'Admin/MasterData/$1/$2';
+
+// 4. Pengerjaan Undangan
+$route['admin/invitation'] = 'Admin/PengerjaanUndangan';
+$route['admin/invitation/(:any)'] = 'Admin/PengerjaanUndangan/$1';
+$route['admin/invitation'] = 'Admin/PengerjaanUndangan';
+
+// 5. Profile Admin
+$route['admin/profile'] = 'Admin/Profile';
+$route['admin/profile/(:any)'] = 'Admin/Profile/$1';
+$route['admin/profile/(:any)/(:any)'] = 'Admin/Profile/$1/$2';
+
 $route['admin/undangan'] = 'Admin/Invitation';
 $route['admin/undangan/(:any)'] = 'Admin/Invitation/$1';
 $route['admin/undangan/(:any)/(:any)'] = 'Admin/Invitation/$1/$2';

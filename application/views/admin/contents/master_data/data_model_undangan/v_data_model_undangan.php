@@ -90,11 +90,11 @@
 									</span>
 									<span>
 										<i data-feather="edit" class="feather-icon feather-10 ml-2"></i>
-										<?= $value['عحيشفث']; ?> WIB
+										<?= $value['update']; ?> WIB
 									</span>
 								</div>
 								<hr class="mx-n2">
-								<p class="mx-2">Total Order : 10000</p>
+								<p class="mx-2">Total Order : <?= $value['order'] ?></p>
 								<span class="border-left mt-n3 mb-2 mx-2"></span>
 							</div>
 							<!-- Item Model End -->
@@ -138,6 +138,6 @@
 		const BASEURL = base_url();
 		$("#change-category").change(function() {
 			var data = $("#change-category option:selected").val();
-			window.location = BASEURL + "su-admin/master/model_undangan?category=" + data;
+			window.location = BASEURL + "admin/master_data/model_undangan?category=" + data;
 		});
 	</script>

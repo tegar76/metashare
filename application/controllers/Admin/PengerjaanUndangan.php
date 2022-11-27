@@ -2,6 +2,14 @@
 
 class PengerjaanUndangan extends CI_Controller
 {
+
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->model('MasterModel', 'master', true);
+		$this->load->model('InvitationModel', 'invitation', true);
+	}
+
 	public function index()
 	{
 		$data['title'] = 'Pengerjaan Undangan';
@@ -9,14 +17,14 @@ class PengerjaanUndangan extends CI_Controller
 		$this->load->view('admin/layouts/wrapper', $data, FALSE);
 	}
 
-    public function detailOrder()
+	public function detailOrder()
 	{
 		$data['title'] = 'Detail Order';
 		$data['content'] = 'admin/contents/pengerjaan_undangan/v_detail_order';
 		$this->load->view('admin/layouts/wrapper', $data, FALSE);
 	}
 
-    public function settingUndangan()
+	public function settingUndangan()
 	{
 		$data['title'] = 'Setting Undangan';
 		$data['content'] = 'admin/contents/pengerjaan_undangan/v_setting_undangan';
@@ -113,5 +121,4 @@ class PengerjaanUndangan extends CI_Controller
 		$data['content'] = 'admin/contents/pengerjaan_undangan/v_edit_berikan_hadiah_detail';
 		$this->load->view('admin/layouts/wrapper', $data, FALSE);
 	}
-	
 }

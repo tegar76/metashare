@@ -64,6 +64,7 @@ $route['su-admin/login'] = 'SuperAdmin/Auth';
 $route['su-admin/logout'] = 'SuperAdmin/Auth/logout';
 
 // 2. Dahsboard
+$route['su-admin'] = 'SuperAdmin/Dashboard';
 $route['su-admin/dashboard'] = 'SuperAdmin/Dashboard';
 
 // 3. Master Data
@@ -101,7 +102,9 @@ $route['admin/login'] = 'Admin/Auth';
 $route['admin/logout'] = 'Admin/Auth/logout';
 
 // 2. Dashboard Admin
+$route['admin'] = 'Admin/Dashboard';
 $route['admin/dashboard'] = 'Admin/Dashboard';
+$route['admin/dashboard/(:any)'] = 'Admin/Dashboard/$1';
 
 // 3. Master Data
 $route['admin/master_data'] = 'Admin/MasterData';

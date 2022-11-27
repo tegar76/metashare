@@ -25,36 +25,46 @@
 	<!-- ============================================================== -->
 	<div class="container-fluid">
 		<div class="card shadow px-3">
-			<form class="mt-4">
-				<div class="form-group mb-3">
-					<label for="username">Username <span class="text-danger">*</span></label>
-					<div class="input-group">
-						<input type="text" class="form-control" id="username" value="ADM001" readonly>
+			<?= form_open('admin/profile/update_password', ['class' => 'mt-4']) ?>
+			<input type="hidden" name="id_admin" value="<?= $admin->admin_id ?>">
+			<div class="form-group mb-3">
+				<label for="username">Username <span class="text-danger">*</span></label>
+				<div class="input-group">
+					<input type="text" class="form-control" id="username" value="<?= $admin->code ?>" readonly>
+				</div>
+			</div>
+			<div class="form-group mb-3">
+				<label for="password">Password Lama <span class="text-danger">*</span></label>
+				<div class="input-group border-password">
+					<input class="form-control border-0 <?= (form_error('old_pass')) ? 'is-invalid' : '' ?>" id="oldPassword" name="old_pass" type="password" placeholder="Masukan Password Lama" autocomplete="current-password" id="oldPassword"><span role="button" class="d-flex" style="cursor: pointer;"><i class="fas fa-eye-slash fa-xs mr-2 my-auto" id="toggleOldPassword"></i></span>
+					<div id="old_passFeedback" class="invalid-feedback">
+						<?= form_error('old_pass', '<small class="text-danger">', '</small>') ?>
 					</div>
 				</div>
-				<div class="form-group mb-3">
-					<label for="password">Password Lama <span class="text-danger">*</span></label>
-					<div class="input-group border-password">
-						<input class="form-control border-0" id="oldPassword" type="password" placeholder="Masukan Password Lama" autocomplete="current-password" id="oldPassword"><span role="button" class="d-flex" style="cursor: pointer;"><i class="fas fa-eye-slash fa-xs mr-2 my-auto" id="toggleOldPassword"></i></span>
+			</div>
+			<div class="form-group mb-3">
+				<label for="password">Password Baru <span class="text-danger">*</span></label>
+				<div class="input-group border-password">
+					<input class="form-control border-0 <?= (form_error('password')) ? 'is-invalid' : '' ?>" id="newPassword" name="password" type="password" placeholder="Masukan Password Baru (Minimal 8 Karakter)" autocomplete="current-password" id="newPassword"><span role="button" class="d-flex" style="cursor: pointer;"><i class="fas fa-eye-slash fa-xs mr-2 my-auto" id="toggleNewPassword"></i></span>
+					<div id="passwordFeedback" class="invalid-feedback">
+						<?= form_error('password', '<small class="text-danger">', '</small>') ?>
 					</div>
 				</div>
-				<div class="form-group mb-3">
-					<label for="password">Password Baru <span class="text-danger">*</span></label>
-					<div class="input-group border-password">
-						<input class="form-control border-0" id="newPassword" type="password" placeholder="Masukan Password Baru (Minimal 8 Karakter)" autocomplete="current-password" id="newPassword"><span role="button" class="d-flex" style="cursor: pointer;"><i class="fas fa-eye-slash fa-xs mr-2 my-auto" id="toggleNewPassword"></i></span>
+			</div>
+			<div class="form-group mb-4">
+				<label for="newPasswordConfirm">Konfirmasi Password Baru<span class="text-danger">*</span></label>
+				<div class="input-group border-password">
+					<input class="form-control border-0 <?= (form_error('password')) ? 'is-invalid' : '' ?>" id="newPasswordConfirm" name="conf_pass" type="password" placeholder="Masukan Konfirmasi Password Baru" autocomplete="current-password"><span role="button" class="d-flex" style="cursor: pointer;"><i class="fas fa-eye-slash fa-xs mr-2 my-auto" id="toggleNewPasswordConfirm"></i></span>
+					<div id="conf_passwordFeedback" class="invalid-feedback">
+						<?= form_error('conf_pass', '<small class="text-danger">', '</small>') ?>
 					</div>
 				</div>
-				<div class="form-group mb-4">
-					<label for="newPasswordConfirm">Konfirmasi Password Baru<span class="text-danger">*</span></label>
-					<div class="input-group border-password">
-						<input class="form-control border-0" id="newPasswordConfirm" type="password" placeholder="Masukan Konfirmasi Password Baru" autocomplete="current-password"><span role="button" class="d-flex" style="cursor: pointer;"><i class="fas fa-eye-slash fa-xs mr-2 my-auto" id="toggleNewPasswordConfirm"></i></span>
-					</div>
-				</div>
-				<div class="flex mb-4">
-					<button type="submit" class="btn btn-sm btn-success px-3 py-2 mr-3">Update</button>
-					<button type="reset" class="btn btn-sm btn-secondary px-3 py-2">Reset</button>
-				</div>
-			</form>
+			</div>
+			<div class="flex mb-4">
+				<button type="submit" name="update" class="btn btn-sm btn-success px-3 py-2 mr-3">Update</button>
+				<button type="reset" class="btn btn-sm btn-secondary px-3 py-2">Reset</button>
+			</div>
+			<?= form_close() ?>
 		</div>
 	</div>
 	<!-- ============================================================== -->

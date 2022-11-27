@@ -59,6 +59,8 @@ class Auth extends CI_Controller
 		$data = $this->input->post();
 		$admin = $this->auth->getAdminByCode($data['username']);
 		if ($admin) {
+			// var_dump($admin);
+			// die;
 			if (password_verify($data['password'], $admin->password)) {
 				if ($admin->level != 'admin') {
 					sweetAlert("Login Gagal", "Anda tidak memiliki akses untuk masuk", "error");
@@ -68,8 +70,10 @@ class Auth extends CI_Controller
 					redirect('admin/login');
 				} else {
 					$sess_ = [
+						'idAdmin' => $admin->admin_id,
+						'code' => $admin->code,
 						'fullName' => $admin->name,
-						'email' 	=> $admin->email,
+						'email' => $admin->email,
 						'backToken' => crypt($admin->name, ''),
 						'level'		=> $admin->level,
 						'logged_in'	=> true

@@ -29,27 +29,27 @@
 				<tbody>
 					<tr class="table-borderless">
 						<th scope="row">Kode</th>
-						<td>ADM002</td>
+						<td><?= $admin->code ?></td>
 					</tr>
 					<tr>
 						<th scope="row">Nama</th>
-						<td>Firmansah</td>
+						<td><?= $admin->name ?></td>
 					</tr>
 					<tr>
 						<th scope="row">No Telepon</th>
-						<td>082322452311</td>
+						<td><?= $admin->phone ?></td>
 					</tr>
 					<tr>
 						<th scope="row">Email</th>
-						<td>fsah@gmail.com</td>
+						<td><?= $admin->email ?></td>
 					</tr>
 					<tr>
 						<th scope="row">Alamat</th>
-						<td>Paguyangan</td>
+						<td><?= $admin->address ?></td>
 					</tr>
 					<tr>
 						<th scope="row">Status</th>
-						<td>Aktif</td>
+						<td><?= ($admin->status == 1) ? 'Aktif' : 'Tidak Aktif' ?></td>
 					</tr>
 				</tbody>
 			</table>

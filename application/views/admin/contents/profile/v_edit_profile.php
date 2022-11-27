@@ -26,36 +26,49 @@
 	<!-- ============================================================== -->
 	<div class="container-fluid">
 		<div class="card shadow px-3">
-			<form class="mt-4">
-				<div class="form-group mb-3">
-					<label for="nama">Nama <span class="text-danger">*</span></label>
-					<div class="input-group">
-						<input type="text" class="form-control" placeholder="Masukan Nama" id="nama">
+			<?= form_open('admin/profile/update_profile', ['class' => 'mt-4']) ?>
+			<input type="hidden" name="id_admin" value="<?= $admin->admin_id ?>">
+			<div class="form-group mb-3">
+				<label for="nama">Nama <span class="text-danger">*</span></label>
+				<div class="input-group">
+					<input type="text" name="name_update" class="form-control <?= (form_error('name_update')) ? 'is-invalid' : '' ?>" placeholder="Masukan Nama" id="nama" value="<?= $admin->name ?>">
+					<div class="invalid-feedback">
+						<?= form_error('name_update', '<div class="text-danger">', '</div>') ?>
 					</div>
 				</div>
-				<div class="form-group mb-3">
-					<label for="notlp">No Telepon <span class="text-danger">*</span></label>
-					<div class="input-group">
-						<input type="text" class="form-control" placeholder="Masukan No Telepon" id="notlp">
+			</div>
+			<div class="form-group mb-3">
+				<label for="notlp">No Telepon <span class="text-danger">*</span></label>
+				<div class="input-group">
+					<input type="text" name="phone_update" class="form-control <?= (form_error('phone_update')) ? 'is-invalid' : '' ?>" placeholder="Masukan No Telepon" id="notlp" value="<?= $admin->phone ?>">
+					<div class="invalid-feedback">
+						<?= form_error('phone_update', '<div class="text-danger">', '</div>') ?>
 					</div>
 				</div>
-				<div class="form-group mb-3">
-					<label for="email">Email <span class="text-danger">*</span></label>
-					<div class="input-group">
-						<input type="text" class="form-control" placeholder="Masukan Email" id="email">
+			</div>
+			<div class="form-group mb-3">
+				<label for="email">Email <span class="text-danger">*</span></label>
+				<div class="input-group">
+					<input type="text" name="email_update" class="form-control <?= (form_error('email_update')) ? 'is-invalid' : '' ?>" placeholder="Masukan Email" id="email" value="<?= $admin->email ?>">
+					<div class="invalid-feedback">
+						<?= form_error('email_update', '<div class="text-danger">', '</div>') ?>
 					</div>
 				</div>
-				<div class="form-group mb-3">
-					<label for="alamat">Alamat <span class="text-danger">*</span></label>
-					<div class="input-group">
-						<textarea name="" class="form-control" id="alamat" placeholder="Masukan Alamat"></textarea>
+			</div>
+			<div class="form-group mb-3">
+				<label for="alamat">Alamat <span class="text-danger">*</span></label>
+				<div class="input-group">
+					<textarea name="address_update" class="form-control <?= (form_error('address_update')) ? 'is-invalid' : '' ?>" id="alamat" placeholder="Masukan Alamat"><?= $admin->address ?></textarea>
+					<div class="invalid-feedback">
+						<?= form_error('address_update', '<div class="text-danger">', '</div>') ?>
 					</div>
 				</div>
-				<div class="flex mb-4">
-					<button type="submit" class="btn btn-sm btn-success px-3 py-2 mr-3">Update</button>
-					<button type="reset" class="btn btn-sm btn-secondary px-3 py-2">Reset</button>
-				</div>
-			</form>
+			</div>
+			<div class="flex mb-4">
+				<button type="submit" name="update" class="btn btn-sm btn-success px-3 py-2 mr-3">Update</button>
+				<button type="reset" class="btn btn-sm btn-secondary px-3 py-2">Reset</button>
+			</div>
+			<?= form_close() ?>
 		</div>
 	</div>
 	<!-- ============================================================== -->

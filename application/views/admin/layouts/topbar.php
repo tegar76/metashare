@@ -58,7 +58,7 @@
     					<!-- ============================================================== -->
     					<li class="nav-item dropdown">
     						<a class="nav-link dropdown-toggle" href="javascript:void(0)" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    							<span class="ml-2 d-none d-lg-inline-block"><span>Hello,</span> <span class="text-dark">Jason Doe</span>
+    							<span class="ml-2 d-none d-lg-inline-block"><span>Hello,</span> <span class="text-dark"><?= ($this->session->userdata('fullName')) ? $this->session->userdata('fullName') : '' ?></span>
     								<i data-feather="chevron-down" class="svg-icon"></i></span>
     						</a>
     						<div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
@@ -67,8 +67,7 @@
     							<a class="dropdown-item" href="<?= base_url('admin/profile/update_password') ?>"><i data-feather="key" class="svg-icon mr-2 ml-1"></i>
     								Edit Password</a>
     							<hr>
-    							<a class="dropdown-item" href="javascript:void(0)"><i data-feather="power" class="svg-icon mr-2 ml-1"></i>
-    								Logout</a>
+    							<a class="dropdown-item" id="logout" href="javascript:void(0)"><i data-feather="power" class="svg-icon mr-2 ml-1"></i>Logout</a>
     						</div>
     					</li>
     					<!-- ============================================================== -->
@@ -81,3 +80,46 @@
     	<!-- ============================================================== -->
     	<!-- End Topbar header -->
     	<!-- ============================================================== -->
+    	<script>
+    		// logout
+    		$(document).ready(function() {
+    			$("#logout").click(function(event) {
+    				event.preventDefault();
+    				Swal.fire({
+    					title: "Anda Yakin Keluar?",
+    					text: "Anda yakin ingin keluar dari METASHARE?",
+    					icon: "warning",
+    					showConfirmButton: true,
+    					confirmButtonColor: "#3085d6",
+    					cancelButtonColor: "#d33",
+    					confirmButtonText: "Logout",
+    				}).then((result) => {
+    					if (result.value) {
+    						$.ajax({
+    							type: "GET",
+    							url: BASEURL + "admin/logout",
+    							beforeSend: function() {
+    								swal.fire({
+    									imageUrl: BASEURL + "assets/logo/rolling.png",
+    									title: "Logging Out",
+    									text: "silahkan tunggu...",
+    									showConfirmButton: false,
+    									allowOutsideClick: false,
+    								});
+    							},
+    							success: function(data) {
+    								swal.fire({
+    									icon: "success",
+    									title: "Logout",
+    									text: "Silahkan login kembali untuk melanjutkan :)",
+    									showConfirmButton: false,
+    									allowOutsideClick: false,
+    								});
+    								window.location.href = BASEURL;
+    							},
+    						});
+    					}
+    				});
+    			});
+    		});
+    	</script>

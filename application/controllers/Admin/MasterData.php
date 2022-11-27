@@ -6,6 +6,7 @@ class MasterData extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
+		isAdminLogin();
 		$this->load->model('MasterModel', 'master', true);
 	}
 

@@ -9,7 +9,7 @@
 				<div class="d-flex align-items-center">
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb m-0 p-0">
-							<li class="breadcrumb-item" aria-current="page"><a class="text-link" href="<?= base_url('Admin/Dashboard') ?>">Dashboard</a></li>
+							<li class="breadcrumb-item" aria-current="page"><a class="text-link" href="<?= base_url('admin/dashboard') ?>">Dashboard</a></li>
 							<li class="breadcrumb-item active" aria-current="page"><?= $title ?></li>
 						</ol>
 					</nav>
@@ -48,24 +48,25 @@
 							</tr>
 						</thead>
 						<tbody>
+							<?php foreach ($invite as $row => $value) : ?>
 								<tr>
-									<td>1</td>
-									<td>00001</td>
-									<td>01-01-1970 07:00 WIB</td>
-									<td>Heru</td>
-									<td>Special</td>
-									<td>Model A</td>
-									<td>Bayu purnomo</td>
-									<!-- n: Belum dikerjakan : class=text-danger, Sudah dikerjakan : class=text-success, proses pengerjaan : class=text-warning -->
-									<td class="text-warning">Proses Pengerjaan</td>
-									<td>Aktif</td>
+									<td><?= $value['nomor'] ?></td>
+									<td><?= $value['code'] ?></td>
+									<td><?= $value['date'] ?></td>
+									<td><?= $value['customer'] ?></td>
+									<td><?= $value['category'] ?></td>
+									<td><?= $value['model'] ?></td>
+									<td><?= $value['admin'] ?></td>
+									<td class="<?= $value['clss'] ?>"><?= $value['desc'] ?></td>
+									<td><?= $value['status'] ?></td>
 									<td>
 										<div class="flex">
-											<a href="<?= base_url('Admin/PengerjaanUndangan/detailOrder') ?>" class="btn btn-sm btn-primary mr-1"><i data-feather="search" class="feather-14" data-toggle="tooltip" title="Detail" data-placement="top"></i></a>
-											<a href="<?= base_url('Admin/PengerjaanUndangan/settingUndangan') ?>" class="btn btn-sm btn-success"><i data-feather="edit" class="feather-14" data-toggle="tooltip" title="Edit" data-placement="top"></i></a>
+											<a href="<?= base_url('admin/invitation?code=' . $value['code']) ?>" class="btn btn-sm btn-primary mr-1"><i data-feather="search" class="feather-14" data-toggle="tooltip" title="Detail" data-placement="top"></i></a>
+											<a href="<?= base_url('admin/invitation/settings') ?>" class="btn btn-sm btn-success"><i data-feather="edit" class="feather-14" data-toggle="tooltip" title="Edit" data-placement="top"></i></a>
 										</div>
 									</td>
 								</tr>
+							<?php endforeach ?>
 						</tbody>
 					</table>
 				</div>

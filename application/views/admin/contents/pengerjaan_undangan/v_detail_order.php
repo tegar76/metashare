@@ -90,6 +90,10 @@
                                 <td><a target="_blank" href="<?= base_url('View/View/viewImg')?>"><img src="<?= base_url('assets/icons/icon_file_img.svg')?>" alt="" width="25" data-toggle="tooltip" title="Lihat" data-placement="right"></a></td>
                             </tr>
                             <tr>
+                                <th scope="row">Sumber Order</th>
+                                <td>Marketplace</td>
+                            </tr>
+                            <tr>
                                 <th scope="row" class="text-primary">Data Admin Yang Menangani</th>
                                 <td></td>
                             </tr>

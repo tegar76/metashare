@@ -27,14 +27,10 @@
             <div class="container-fluid">
                 <div class="card shadow px-3">
                     <form class="mt-4">
-                        <div class="form-group mb-3">
+                    <div class="form-group mb-3">
                             <label for="jenisUndangan">Jenis Undangan <span class="text-danger">*</span></label>
                             <div class="input-group">
-                                <select class="form-control" id="jenisUndangan">
-                                    <option>Pilih Jenis Undangan</option>
-                                    <option>Undangan Pernikahan Islami</option>
-                                    <option>Undangan Pernikahan Umum</option>
-                                </select>
+                                <input type="text" class="form-control" readonly value="Undangan Pernikahan Digital" id="jenisUndangan">
                             </div>
                         </div>
                         <div class="form-group mb-3">

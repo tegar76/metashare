@@ -30,11 +30,7 @@
                         <div class="form-group mb-3">
                             <label for="jenisUndangan">Jenis Undangan <span class="text-danger">*</span></label>
                             <div class="input-group">
-                                <select class="form-control" id="jenisUndangan">
-                                    <option>Pilih Jenis Undangan</option>
-                                    <option>Undangan Pernikahan Islami</option>
-                                    <option>Undangan Pernikahan Umum</option>
-                                </select>
+                                <input type="text" class="form-control" readonly value="Undangan Pernikahan Digital" id="jenisUndangan">
                             </div>
                         </div>
                         <div class="form-group mb-3">
@@ -87,7 +83,7 @@
                             </div>
                             <p>Catatan: File max 2mb format (SVG,PNG,JPG,JPEG), rekomendasi format SVG (270 x 378 pixels) </p>
                         </div>
-                        <div class="flex mt-3 mb-4">
+                        <div class="flex mt-4 mb-4">
                             <button type="submit" class="btn btn-sm btn-warning px-3 py-2 mr-3">Simpan</button>
                             <button type="reset" class="btn btn-sm btn-secondary px-3 py-2">Reset</button>
                         </div>

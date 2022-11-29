@@ -45,6 +45,7 @@
                                 <tr>
                                     <th style="width: 3%;">No</th>
                                     <th style="width: 5%;">Kode</th>
+                                    <th style="width: 8%;">Sumber Order</th>
                                     <th style="width: 10%;">Tanggal</th>
                                     <th style="width: 8%;">Nama</th>
                                     <th style="width: 14%;">Jenis</th>
@@ -57,9 +58,10 @@
                                 <tr>
                                     <td>1</td>
                                     <td>00001</td>
+                                    <td>Marketplace</td>
                                     <td>02-09-2022 18:00 WIB</td>
                                     <td>Heru Rudiansah</td>
-                                    <td>Undangan Pernikahan Islami</td>
+                                    <td>Undangan Pernikahan Digital</td>
                                     <td>Special</td>
                                     <td>Model A</td>
                                     <td>
@@ -71,6 +73,14 @@
                     </div>
                 </div>
             </div>
+
+             <!-- Floating Button Add -->
+             <div class="floating-container">
+                <a href="<?= base_url('SuperAdmin/Pengorderan/tambahPengorderan') ?>">
+                    <div class="floating-button">+</div>
+                </a>
+            </div>
+            <!-- Floating Button Add End -->
         </div>
             <!-- ============================================================== -->
             <!-- End Container fluid  -->

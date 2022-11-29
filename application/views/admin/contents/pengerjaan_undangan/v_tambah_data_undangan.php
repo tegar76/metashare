@@ -92,7 +92,7 @@
                             <p>Catatan: File max 2mb format (SVG,PNG,JPG,JPEG), rekomendasi format SVG (270 x 378 pixels) </p>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="uploadCover">Upload Musik Backsound <span class="text-danger">*</span></label>
+                            <label for="uploadMusikBacksound">Upload Musik Backsound <span class="text-danger">*</span></label>
                             <div class="input-group">
                                 <div class="input-group-prepend h-75">
                                     <span class="input-group-text">Upload</span>
@@ -162,6 +162,19 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="form-group mb-3">
+                            <label for="uploadFotoMempelaiPria">Upload Foto Mempelai Pria <span class="text-danger">*</span></label>
+                            <div class="input-group">
+                                <div class="input-group-prepend h-75">
+                                    <span class="input-group-text">Upload</span>
+                                </div>
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="uploadFotoMempelaiPria">
+                                    <label class="custom-file-label">Choose file</label>
+                                </div>
+                            </div>
+                            <p>*File max 2mb dengan format PNG,JPEG,JPG </p>
+                        </div>
                         <p class="text-primary mb-2">Setting Data Mempelai Wanita</p>
                         <div class="row">
                             <div class="col-6 form-group mb-3">
@@ -203,6 +216,42 @@
                                 <label for="usernameIGWanita">Username Instagram <span class="text-danger">*</span></label>
                                 <div class="input-group">
                                     <input type="text" class="form-control" id="usernameIGWanita" placeholder="Masukan Username Instagram">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="uploadFotoMempelaiWanita">Upload Foto Mempelai Wanita <span class="text-danger">*</span></label>
+                            <div class="input-group">
+                                <div class="input-group-prepend h-75">
+                                    <span class="input-group-text">Upload</span>
+                                </div>
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="uploadFotoMempelaiWanita">
+                                    <label class="custom-file-label">Choose file</label>
+                                </div>
+                            </div>
+                            <p>*File max 2mb dengan format PNG,JPEG,JPG </p>
+                        </div>
+                        <p class="text-primary mb-2">Setting Waktu Pelaksanaan Tasyakuran</p>
+                        <div class="row">
+                            <div class="col-6 form-group mb-3">
+                                <label for="tanggalTasyakuran">Tanggal <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <input type="date" class="form-control" id="tanggalTasyakuran">
+                                </div>
+                            </div>
+                            <div class="col-6 form-group mb-3">
+                                <label for="jamTasyakuran">Jam <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <input type="time" class="form-control" id="jamTasyakuran">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 form-group mb-3">
+                                <label for="alamatLengkapTasyakuran">Alamat Lengkap <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <textarea class="form-control" id="alamatLengkapTasyakuran" placeholder="Masukan Alamat Lengkap"></textarea>
                                 </div>
                             </div>
                         </div>

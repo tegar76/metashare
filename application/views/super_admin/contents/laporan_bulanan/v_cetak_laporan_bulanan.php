@@ -174,14 +174,15 @@
 								<tr>
 									<th style="width: 5%;">No</th>
 									<th style="width: 7%;">Kode</th>
-									<th style="width: 10%;">Tanggal</th>
-									<th style="width: 12%;">Nama Kustomer</th>
-                                    <th style="width: 10%;">Jenis</th>
-                                    <th style="width: 9%;">Kategori</th>
+									<th style="width: 9%;">Tanggal</th>
+									<th style="width: 10%;">Sumber Order</th>
+									<th style="width: 11%;">Nama Kustomer</th>
+                                    <th style="width: 9%;">Jenis</th>
+                                    <th style="width: 10%;">Kategori</th>
                                     <th style="width: 8%;">Model</th>
                                     <th style="width: 8%;">Harga</th>
-                                    <th style="width: 11%;">Keterangan</th>
-                                    <th style="width: 7%;">Status</th>
+                                    <th style="width: 12%;">Keterangan</th>
+                                    <th style="width: 8%;">Status</th>
                                     <th style="width: 8%;">Admin</th>
 								</tr>
 							</thead>
@@ -191,8 +192,9 @@
                                     <td><?= $i?></td>
                                     <td>00001</td>
                                     <td>01-09-2022</td>
+									<td>Marketplace</td>
                                     <td>Heru Rudiansah</td>
-                                    <td>Undangan Pernikahan Islami</td>
+                                    <td>Undangan Pernikahan Digital</td>
                                     <td>Standard</td>
                                     <td>Model A</td>
                                     <td>150000</td>
@@ -231,7 +233,7 @@
                         </div> -->
                        <div class="keterangan">
                             <div>
-								<h4>Dari Jenis Undangan Pernikahan Islami </h4>
+								<h4>Dari Jenis Undangan Pernikahan Digital </h4>
 								<div class="row">
 									<div class="column">Total Kategori Spesial Yang Terorder</div>
 									<div class="column"> : 99</div>
@@ -242,13 +244,15 @@
 								</div>
 							</div>
 							<div style="margin-top: -10px;">
-								<h4>Dari Jenis Undangan Pernikahan Umum </h4>
+								<h4>Dari Sumber Order </h4>
 								<div class="row">
-									<div class="column">Total Kategori Spesial Yang Terorder</div>
+									<div class="column">Marketplace</div>
 									<div class="column"> : 99</div>
-									<div class="column">Total Kategori Standard Yang Terorder</div>
+									<div class="column">Shopee</div>
 									<div class="column"> : 99</div>
-									<div class="column">Total Kategori Basic Yang Terorder</div>
+									<div class="column">Lazada</div>
+									<div class="column"> : 99</div>
+									<div class="column">Tokopedia</div>
 									<div class="column"> : 99</div>
 								</div>
 							</div>

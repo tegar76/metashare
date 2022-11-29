@@ -9,6 +9,13 @@ class Pengorderan extends CI_Controller
 		$this->load->view('super_admin/layouts/wrapper', $data, FALSE);
 	}
 
+	public function tambahPengorderan()
+	{
+		$data['title'] = 'Tambah Pengorderan';
+		$data['content'] = 'super_admin/contents/pengorderan/v_tambah_pengorderan';
+		$this->load->view('super_admin/layouts/wrapper', $data, FALSE);
+	}
+
 	public function editPengorderan()
 	{
 		$data['title'] = 'Edit Pengorderan';

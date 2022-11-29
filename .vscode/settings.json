@@ -1,3 +1,5 @@
 {
-    "liveServer.settings.port": 5501
+    "liveServer.settings.port": 5501,
+    "synthwave84.brightness": 0.3,
+    "synthwave84.disableGlow": true
 }

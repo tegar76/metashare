@@ -58,7 +58,7 @@
                             </tr>
                             <tr>
                                 <th scope="row">Jenis Undangan</th>
-                                <td>Undangan Pernikahan</td>
+                                <td>Undangan Pernikahan Digital</td>
                             </tr>
                             <tr>
                                 <th scope="row">Kategori</th>
@@ -66,7 +66,7 @@
                             </tr>
                             <tr>
                                 <th scope="row">Model Undangan</th>
-                                <td><a target="_blank" href="<?= base_url('PreviewModelUndangan')?>" class="text-link-detail" data-toggle="tooltip" title="Lihat" data-placement="right">Flower Garden</a></td>
+                                <td><a target="_blank" href="<?= base_url('PreviewUndangan/demo')?>" class="text-link-detail" data-toggle="tooltip" title="Lihat" data-placement="right">Flower Garden</a></td>
                             </tr>
                             <tr>
                                 <th scope="row">Harga</th>
@@ -90,6 +90,10 @@
                                 <td><a target="_blank" href="<?= base_url('View/View/viewImg')?>"><img src="<?= base_url('assets/icons/icon_file_img.svg')?>" alt="" width="25" data-toggle="tooltip" title="Lihat" data-placement="right"></a></td>
                             </tr>
                             <tr>
+                                <th scope="row">Sumber Order</th>
+                                <td>Marketplace</td>
+                            </tr>
+                            <tr>
                                 <th scope="row" class="text-primary">Data Admin Yang Menangani</th>
                                 <td></td>
                             </tr>
@@ -110,9 +114,9 @@
                     <hr class="mt-n3">
                     <div class="d-flex mb-2">
                         <a href="<?= base_url('SuperAdmin/Penugasan') ?>" class="btn btn-sm btn-warning px-2 mr-4">Kembali</a>
-                        <a target="_blank" href="<?= base_url('wedding/runa-ratna')?>" class="btn btn-sm btn-outline-primary px-2">
+                        <a target="_blank" href="<?= base_url('PreviewUndangan/pratinjau')?>" class="btn btn-sm btn-outline-primary px-2">
                             <i class="fas fa-eye mr-1"></i>
-                            <span class="mb-1">Live Demo</span>
+                            <span class="mb-1">Pratinjau</span>
                         </a>
                     </div>
                 </div>

@@ -28,63 +28,74 @@
                     <form class="mt-4">
                         <p class="text-primary">Data Kustomer</p>
                         <div class="form-group mb-3">
-                            <label>Nama Kustomer</label>
+                            <label for="nama_kustomer">Nama Kustomer</label>
                             <div class="input-group">
-                                <input type="text" class="form-control" value="Heru" readonly>
+                                <input type="text" class="form-control" readonly value="" id="nama_kustomer">
                             </div>
                         </div>
                         <p class="text-primary">Data Transaksi</p>
                         <div class="form-group mb-3">
-                            <label>Kode</label>
+                            <label for="no_telp">Kode</label>
                             <div class="input-group">
-                                <input type="text" class="form-control" value="00001" readonly>
-                            </div>
-                        </div>
-                         <!-- Setelah admin memilih model undangan sesuai yang Customer pilih, maka munculkan value form jenis, kategori, harga sesuai data-->
-                        <div class="form-group mb-3">
-                            <label for="jenis">Jenis</label>
-                            <div class="input-group">
-                                <input type="text" class="form-control" id="jenis" value="Undangan Pernikahan Islami" readonly>
+                                <input type="number" class="form-control" readonly value="" id="no_telp">
                             </div>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="kategori">Kategori</label>
+                            <label for="jenis">Jenis Undangan</label>
                             <div class="input-group">
-                                <input type="text" class="form-control" id="kategori" value="Special" readonly>
+                                <input type="text" class="form-control" id="jenis" value="Undangan Pernikahan Digital" readonly>
                             </div>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="model">Model</label>
+                            <label for="kategori">Kategori Undangan</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="kategori" value="Basic" readonly>
+                            </div>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="model">Model Undangan</label>
                             <div class="input-group">
                                 <input type="text" class="form-control" id="model" value="Model A" readonly>
                             </div>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="uploadBuktiPembayaran">Upload Bukti Pembayaran <span class="text-danger">*</span></label>
+                            <label for="sumber_order">Sumber Order</label>
+                            <div class="input-group">
+                                 <input type="text" class="form-control" id="jenis" value="Marketplace" readonly>
+                            </div>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="sumber_order">Sumber Order</label>
+                            <div class="input-group">
+                                 <input type="text" class="form-control" id="jenis" value="Marketplace" readonly>
+                            </div>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="upload_bukti_bayar">Bukti Pembayaran <span class="text-danger">*</span></label>
                             <div class="input-group">
                                 <div class="input-group-prepend h-75">
                                     <span class="input-group-text">Upload</span>
                                 </div>
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="uploadBuktiPembayaran">
+                                    <input type="file" class="custom-file-input" id="upload_bukti_bayar">
                                     <label class="custom-file-label" for="uploadCover">Choose file</label>
                                 </div>
                             </div>
-                            <p>Catatan: File max 2mb format (PNG,JPG,JPEG) </p>
+                            <p>Catatan: File max 2mb format (PNG,JPG,JPEG)</p>
                         </div>
                         <p class="text-primary">Data Penugasan</p>
                         <div class="form-group mb-3">
-                            <label for="adminYangMenangani">Admin Yang Menangani <span class="text-danger">*</span></label>
+                            <label for="kategori">Admin Yang Menangani <span class="text-danger">*</span></label>
                             <div class="input-group">
-                                <select class="form-control" id="adminYangMenangani">
-                                    <option>Pilih Admin Yang Menangani</option>
-                                    <option>Tegar</option>
-                                    <option>Firman</option>
-                                    <option>Bayu</option>
+                                <select class="form-control" id="kategori">
+                                    <option selected>Pilih Admin Yang Menangani</option>
+                                    <option></option>
+                                    <option></option>
+                                    <option></option>
                                 </select>
                             </div>
                         </div>
-                        <div class="flex mt-3 mb-4">
+                        <div class="flex mt-4 mb-4">
                             <button type="submit" class="btn btn-sm btn-success px-3 py-2 mr-3">Update</button>
                             <button type="reset" class="btn btn-sm btn-secondary px-3 py-2">Reset</button>
                         </div>
@@ -95,3 +106,26 @@
             <!-- End Container fluid  -->
             <!-- ============================================================== -->
             <!-- ============================================================== -->
+            
+            <script>
+                // Show Toggle Password
+                const togglePassword = document.querySelector('#togglePassword');
+                const password = document.querySelector('#password');
+                togglePassword.addEventListener('click', function(e) {
+                    // toggle the type attribute
+                    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+                    password.setAttribute('type', type);
+                    // toggle the eye slash icon
+                    this.classList.toggle('fa-eye');
+                });
+                // Show Toggle Password baru
+                const togglePasswordConfirm = document.querySelector('#togglePasswordConfirm');
+                const passwordConfirm = document.querySelector('#passwordConfirm');
+                togglePasswordConfirm.addEventListener('click', function(e) {
+                    // toggle the type attribute
+                    const type = passwordConfirm.getAttribute('type') === 'password' ? 'text' : 'password';
+                    passwordConfirm.setAttribute('type', type);
+                    // toggle the eye slash icon
+                    this.classList.toggle('fa-eye');
+                });
+            </script>

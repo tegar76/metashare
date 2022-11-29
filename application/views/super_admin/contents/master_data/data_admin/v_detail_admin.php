@@ -73,6 +73,7 @@
                                         <th style="width: 3%;">No</th>
                                         <th style="width: 5%;">Kode</th>
                                         <th style="width: 9%;">Tanggal</th>
+                                        <th style="width: 9%;">Sumber Order</th>
                                         <th style="width: 8%;">Nama Kustomer</th>
                                         <th style="width: 8%;">Jenis</th>
                                         <th style="width: 7%;">Kategori</th>
@@ -87,8 +88,9 @@
                                         <td>1</td>
                                         <td>00003</td>
                                         <td>02-09-2022 18:00 WIB</td>
+                                        <td>Marketplace</td>
                                         <td>Heru Rudiansah</td>
-                                        <td>Undangan Pernikahan Islami</td>
+                                        <td>Undangan Pernikahan Digital</td>
                                         <td>Special</td>
                                         <td>Model A</td>
                                         <td>Tegar Kusuma</td>
@@ -99,8 +101,9 @@
                                         <td>2</td>
                                         <td>00002</td>
                                         <td>02-09-2022 18:00 WIB</td>
+                                        <td>Marketplace</td>
                                         <td>Heru Rudiansah</td>
-                                        <td>Undangan Pernikahan Islami</td>
+                                        <td>Undangan Pernikahan Digital</td>
                                         <td>Standard</td>
                                         <td>Model A</td>
                                         <td>Tegar Kusuma</td>
@@ -111,8 +114,9 @@
                                         <td>3</td>
                                         <td>00001</td>
                                         <td>02-09-2022 18:00 WIB</td>
+                                        <td>Marketplace</td>
                                         <td>Heru Rudiansah</td>
-                                        <td>Undangan Pernikahan Umum</td>
+                                        <td>Undangan Pernikahan Digital</td>
                                         <td>Basic</td>
                                         <td>Model A</td>
                                         <td>Tegar Kusuma</td>

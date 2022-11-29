@@ -55,7 +55,7 @@
                         <div class="form-group mb-3">
                             <label for="jenis">Jenis</label>
                             <div class="input-group">
-                                <input type="text" class="form-control" id="jenis" value="Undangan Pernikahan" readonly>
+                                <input type="text" class="form-control" id="jenis" value="Undangan Pernikahan Digital" readonly>
                             </div>
                         </div>
                         <div class="form-group mb-3">

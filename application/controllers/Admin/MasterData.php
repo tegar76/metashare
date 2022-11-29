@@ -85,7 +85,6 @@ class MasterData extends CI_Controller
 
 	public function detail_admin()
 	{
-
 		$code = $this->input->get('code');
 		$admin = $this->master->getAdminByCode($code);
 		if ($admin) {

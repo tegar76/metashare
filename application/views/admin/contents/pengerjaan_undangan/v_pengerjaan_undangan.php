@@ -62,7 +62,7 @@
 									<td>
 										<div class="flex">
 											<a href="<?= base_url('admin/invitation?code=' . $value['code']) ?>" class="btn btn-sm btn-primary mr-1"><i data-feather="search" class="feather-14" data-toggle="tooltip" title="Detail" data-placement="top"></i></a>
-											<a href="<?= base_url('admin/invitation/settings') ?>" class="btn btn-sm btn-success"><i data-feather="edit" class="feather-14" data-toggle="tooltip" title="Edit" data-placement="top"></i></a>
+											<a href="<?= base_url('admin/invitation/settings/' . $value['code']) ?>" class="btn btn-sm btn-success"><i data-feather="edit" class="feather-14" data-toggle="tooltip" title="Edit" data-placement="top"></i></a>
 										</div>
 									</td>
 								</tr>

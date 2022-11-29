@@ -114,7 +114,8 @@ $route['admin/master_data/(:any)/(:any)'] = 'Admin/MasterData/$1/$2';
 // 4. Pengerjaan Undangan
 $route['admin/invitation'] = 'Admin/PengerjaanUndangan';
 $route['admin/invitation/(:any)'] = 'Admin/PengerjaanUndangan/$1';
-$route['admin/invitation'] = 'Admin/PengerjaanUndangan';
+$route['admin/invitation/(:any)/(:any)'] = 'Admin/PengerjaanUndangan/$1/$2';
+$route['admin/invitation/(:any)/(:any)/(:any)'] = 'Admin/PengerjaanUndangan/$1/$2/$3';
 
 // 5. Profile Admin
 $route['admin/profile'] = 'Admin/Profile';

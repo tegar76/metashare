@@ -22,13 +22,13 @@ class InvitationModel extends CI_Model
 		return $this->db->get()->result();
 	}
 
-	public function getDetailInvitation($id)
+	public function getDetailInvitation($code)
 	{
 		$this->db->select("
 			slug,
 			invitation_id as id
 		");
-		$this->db->where("transaction_id", $id);
+		$this->db->where("code", $code);
 		return $this->db->get("invitation")->row();
 	}
 
@@ -62,5 +62,25 @@ class InvitationModel extends CI_Model
 			'invitation_id' => $data['invt_id']
 		);
 		$this->db->insert('message', $message);
+	}
+
+	public function checkDataUndangan($code)
+	{
+		$query = $this->db->get_where('invitation', array('code' => $code));
+		return $query->row();
+	}
+
+	public function insertTamuUndangan($guest, $invt_id)
+	{
+		$this->db->trans_start();
+		$result = array();
+		foreach ($guest as $key => $val) {
+			$result[] = array(
+				'name'   => $_POST['guest'][$key],
+				'invitation_id' => $invt_id
+			);
+		}
+		$this->db->insert_batch('invited_guest', $result);
+		$this->db->trans_complete();
 	}
 }

@@ -126,16 +126,6 @@
 	<!-- ============================================================== -->
 
 	<script>
-		function base_url() {
-			var pathparts = location.pathname.split("/");
-			if (location.host == "localhost:8080" || location.host == "localhost") {
-				var url = location.origin + "/" + pathparts[1].trim("/") + "/"; // http://localhost/metashare/
-			} else {
-				var url = location.origin + "/"; // http://localhost/
-			}
-			return url;
-		}
-		const BASEURL = base_url();
 		$("#change-category").change(function() {
 			var data = $("#change-category option:selected").val();
 			window.location = BASEURL + "admin/master_data/model_undangan?category=" + data;

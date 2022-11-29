@@ -99,19 +99,21 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td>1</td>
-								<td>Heru</td>
-								<td>15-08-2022 17:33 WIB </td>
-								<td>15-08-2022 17:33 WIB </td>
-								<td>
-									<div class="flex">
-										<a href="" class="btn btn-sm btn-outline-warning mr-1"><i data-feather="copy" class="feather-14" data-toggle="tooltip" title="Salin" data-placement="top"></i></a>
-										<a href="<?= base_url('admin/invitation/detailOrder') ?>" class="btn btn-sm btn-primary mr-1"><i data-feather="eye" class="feather-14" data-toggle="tooltip" title="Detail" data-placement="top"></i></a>
-										<a href="<?= base_url('admin/invitation/detailOrder') ?>" class="btn btn-sm btn-success"><i data-feather="edit" class="feather-14" data-toggle="tooltip" title="Setting" data-placement="top"></i></a>
-									</div>
-								</td>
-							</tr>
+							<?php foreach ($guest as $row) : ?>
+								<tr>
+									<td><?= $row['nomor'] ?></td>
+									<td><?= $row['name'] ?></td>
+									<td><?= $row['create'] ?></td>
+									<td><?= $row['update'] ?></td>
+									<td>
+										<div class="flex">
+											<a href="" class="btn btn-sm btn-outline-warning mr-1"><i data-feather="copy" class="feather-14" data-toggle="tooltip" title="Salin" data-placement="top"></i></a>
+											<a href="<?= base_url('admin/invitation/detailOrder') ?>" class="btn btn-sm btn-primary mr-1"><i data-feather="eye" class="feather-14" data-toggle="tooltip" title="Detail" data-placement="top"></i></a>
+											<a href="<?= base_url('admin/invitation/detailOrder') ?>" class="btn btn-sm btn-success"><i data-feather="edit" class="feather-14" data-toggle="tooltip" title="Setting" data-placement="top"></i></a>
+										</div>
+									</td>
+								</tr>
+							<?php endforeach; ?>
 						</tbody>
 					</table>
 				</div>

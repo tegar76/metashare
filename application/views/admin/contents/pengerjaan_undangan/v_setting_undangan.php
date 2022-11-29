@@ -50,7 +50,6 @@
 				</button>
 				<div class="dropdown-menu mr-3">
 					<a href="<?= base_url('admin/invitation/editDataUndangan') ?>" class="dropdown-item" type="button"><i data-feather="server" class="feather-14 mt-n1 mr-1"></i> Data undangan</a>
-					<a href="<?= base_url('admin/invitation/editTamuUndangan') ?>" class="dropdown-item" type="button"><i data-feather="user" class="feather-14 mt-n1 mr-1"></i> Tamu Undangan</a>
 					<a href="<?= base_url('admin/invitation/editFoto') ?>" class="dropdown-item" type="button"><i data-feather="image" class="feather-14 mt-n1 mr-1"></i> Foto Galeri</a>
 					<a href="<?= base_url('admin/invitation/editPerjalananCinta') ?>" class="dropdown-item" type="button"><i data-feather="message-circle" class="feather-14 mt-n1 mr-1"></i> Perjalanan Cinta</a>
 					<a href="<?= base_url('admin/invitation/editBerikanHadiah') ?>" class="dropdown-item" type="button"><i data-feather="credit-card" class="feather-14 mt-n1 mr-1"></i> Berikan Hadiah</a>
@@ -75,10 +74,105 @@
 					</div>
 				</div>
 			</div>
-			<a target="_blank" href="<?= base_url('wedding/runa-ratna') ?>" class="btn btn-sm btn-outline-warning px-2 d-flex align-items-center">
+			<!-- <a target="_blank" href="<?= base_url('wedding/runa-ratna') ?>" class="btn btn-sm btn-outline-warning px-2 d-flex align-items-center">
 				<i class="fas fa-eye mr-1"></i>
 				<span>Live Demo</span>
-			</a>
+			</a> -->
+		</div>
+
+		<div class="card py-2 px-4">
+			<table class="table">
+				<tbody>
+					<tr class="table-borderless">
+						<th scope="row" class="text-primary col-4">Data Konsumen</th>
+						<td></td>
+					</tr>
+					<tr class="table-borderless">
+						<th scope="row">Nama Konsumen</th>
+						<td>Heru Rudiansah</td>
+					</tr>
+					<tr>
+						<th scope="row">No Telepon</th>
+						<td>082322452311</td>
+					</tr>
+					<tr>
+						<th scope="row">Email</th>
+						<td>heru521@gmail.com</td>
+					</tr>
+					<tr>
+						<th scope="row" class="text-primary">Data Transaksi</th>
+						<td></td>
+					</tr>
+					<tr class="table-borderless">
+						<th scope="row">Tanggal</th>
+						<td>02-09-2022 18:00 WIB</td>
+					</tr>
+					<tr>
+						<th scope="row">Kode</th>
+						<td>00003</td>
+					</tr>
+					<tr>
+						<th scope="row">Jenis Undangan</th>
+						<td>Undangan Pernikahan Digital</td>
+					</tr>
+					<tr>
+						<th scope="row">Kategori</th>
+						<td>Special</td>
+					</tr>
+					<tr>
+						<th scope="row">Model Undangan</th>
+						<td><a target="_blank" href="<?= base_url('PreviewUndangan/demo') ?>" class="text-link-detail" data-toggle="tooltip" title="Lihat" data-placement="right">Flower Garden</a></td>
+					</tr>
+					<tr>
+						<th scope="row">Harga</th>
+						<td>150000</td>
+					</tr>
+					<tr>
+						<th scope="row">Masa Aktif</th>
+						<td>-</td>
+					</tr>
+					<tr>
+						<th scope="row">Keterangan</th>
+						<td class="text-danger">Belum Dikerjakan</td>
+						<!-- *** nama class : belum dikerjakan = text-danger, proses pengerjaan = text-warning, sudah dikerjakan = text-success -->
+					</tr>
+					<tr>
+						<th scope="row">Status</th>
+						<td>Tidak Aktif</td>
+					</tr>
+					<tr>
+						<th scope="row">Bukti Pembayaran</th>
+						<td><a target="_blank" href="<?= base_url('View/View/viewImg') ?>"><img src="<?= base_url('assets/icons/icon_file_img.svg') ?>" alt="" width="25" data-toggle="tooltip" title="Lihat" data-placement="right"></a></td>
+					</tr>
+					<tr>
+						<th scope="row">Sumber Order</th>
+						<td>Marketplace</td>
+					</tr>
+					<tr>
+						<th scope="row" class="text-primary">Data Admin Yang Menangani</th>
+						<td></td>
+					</tr>
+					<tr class="table-borderless">
+						<th scope="row">Kode</th>
+						<td>Adm003</td>
+					</tr>
+					<tr>
+						<th scope="row">Nama</th>
+						<td>Bayu Purnomo</td>
+					</tr>
+					<tr>
+						<th scope="row">No Telepon</th>
+						<td>085783682736</td>
+					</tr>
+				</tbody>
+			</table>
+			<hr class="mt-n3">
+			<div class="d-flex mb-2 ml-2">
+				<a target="_blank" href="<?= base_url('PreviewUndangan/pratinjau') ?>" class="btn btn-sm btn-outline-primary px-2">
+					<i class="fas fa-eye mr-1"></i>
+					<span class="mb-1">Pratinjau</span>
+				</a>
+			</div>
 		</div>
 
 		<div class="card col-10">
@@ -108,8 +202,8 @@
 									<td>
 										<div class="flex">
 											<a href="" class="btn btn-sm btn-outline-warning mr-1"><i data-feather="copy" class="feather-14" data-toggle="tooltip" title="Salin" data-placement="top"></i></a>
-											<a href="<?= base_url('admin/invitation/detailOrder') ?>" class="btn btn-sm btn-primary mr-1"><i data-feather="eye" class="feather-14" data-toggle="tooltip" title="Detail" data-placement="top"></i></a>
-											<a href="<?= base_url('admin/invitation/detailOrder') ?>" class="btn btn-sm btn-success"><i data-feather="edit" class="feather-14" data-toggle="tooltip" title="Setting" data-placement="top"></i></a>
+											<a href="<?= base_url('Admin/PengerjaanUndangan/detailOrder') ?>" class="btn btn-sm btn-primary mr-1"><i data-feather="eye" class="feather-14" data-toggle="tooltip" title="Detail" data-placement="top"></i></a>
+											<a href="<?= base_url('Admin/PengerjaanUndangan/detailOrder') ?>" class="btn btn-sm btn-success"><i data-feather="edit" class="feather-14" data-toggle="tooltip" title="Setting" data-placement="top"></i></a>
 										</div>
 									</td>
 								</tr>

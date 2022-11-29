@@ -99,7 +99,7 @@
 				<p>Catatan: File max 2mb format (SVG,PNG,JPG,JPEG), rekomendasi format SVG (270 x 378 pixels) </p>
 			</div>
 			<div class="form-group mb-3">
-				<label for="uploadCover">Upload Musik Backsound <span class="text-danger">*</span></label>
+				<label for="uploadMusikBacksound">Upload Musik Backsound <span class="text-danger">*</span></label>
 				<div class="input-group">
 					<div class="input-group-prepend h-75">
 						<span class="input-group-text">Upload</span>
@@ -193,6 +193,19 @@
 					</div>
 				</div>
 			</div>
+			<div class="form-group mb-3">
+				<label for="uploadFotoMempelaiPria">Upload Foto Mempelai Pria <span class="text-danger">*</span></label>
+				<div class="input-group">
+					<div class="input-group-prepend h-75">
+						<span class="input-group-text">Upload</span>
+					</div>
+					<div class="custom-file">
+						<input type="file" class="custom-file-input" id="uploadFotoMempelaiPria">
+						<label class="custom-file-label">Choose file</label>
+					</div>
+				</div>
+				<p>*File max 2mb dengan format PNG,JPEG,JPG </p>
+			</div>
 			<p class="text-primary mb-2">Setting Data Mempelai Wanita</p>
 			<div class="row">
 				<div class="col-6 form-group mb-3">
@@ -251,6 +264,60 @@
 						<input type="text" name="bride_ig" class="form-control <?= (form_error('bride_ig')) ? 'is-invalid' : '' ?>" value="<?= (set_value('bride_ig')) ? set_value('bride_ig') : '' ?>" id="usernameIGWanita" placeholder="Masukan Username Instagram">
 						<div id="bride_igFeedback" class="invalid-feedback">
 							<?= (form_error('bride_ig', '<small class="text-danger>"', '</small>')) ?>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="form-group mb-3">
+				<label for="uploadFotoMempelaiWanita">Upload Foto Mempelai Wanita <span class="text-danger">*</span></label>
+				<div class="input-group">
+					<div class="input-group-prepend h-75">
+						<span class="input-group-text">Upload</span>
+					</div>
+					<div class="custom-file">
+						<input type="file" class="custom-file-input" id="uploadFotoMempelaiWanita">
+						<label class="custom-file-label">Choose file</label>
+					</div>
+				</div>
+				<p>*File max 2mb dengan format PNG,JPEG,JPG </p>
+			</div>
+			<p class="text-primary mb-2">Setting Waktu Pelaksanaan Tasyakuran</p>
+			<div class="row">
+				<div class="col-6 form-group mb-3">
+					<label for="tanggalTasyakuran">Tanggal <span class="text-danger">*</span></label>
+					<div class="input-group">
+						<input type="date" name="tasyakur_date" class="form-control <?= (form_error('tasyakur_date')) ? 'is-invalid' : '' ?>" value="<?= (set_value('tasyakur_date')) ? set_value('tasyakur_date') : '' ?>" id="tanggalTasyakuran">
+						<div id="tasyakur_dateFeedback" class="invalid-feedback">
+							<?= (form_error('tasyakur_date', '<small class="text-danger>"', '</small>')) ?>
+						</div>
+					</div>
+				</div>
+				<div class="col-6 form-group mb-3">
+					<label for="jamTasyakuran">Jam <span class="text-danger">*</span></label>
+					<div class="input-group">
+						<input type="time" name="tasyakur_time" class="form-control <?= (form_error('tasyakur_time')) ? 'is-invalid' : '' ?>" value="<?= (set_value('tasyakur_time')) ? set_value('tasyakur_time') : '' ?>" id="jamTasyakuran">
+						<div id="tasyakur_timeFeedback" class="invalid-feedback">
+							<?= (form_error('tasyakur_time', '<small class="text-danger>"', '</small>')) ?>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-6 form-group mb-3">
+					<label for="alamatLengkapTasyakuran">Alamat Lengkap <span class="text-danger">*</span></label>
+					<div class="input-group">
+						<textarea name="tasyakur_address" class="form-control <?= (form_error('tasyakur_address')) ? 'is-invalid' : '' ?>" value="<?= (set_value('tasyakur_address')) ? set_value('tasyakur_address') : '' ?>" id="alamatLengkapTasyakuran" placeholder="Masukan Alamat Lengkap"></textarea>
+						<div id="tasyakur_addressFeedback" class="invalid-feedback">
+							<?= (form_error('tasyakur_address', '<small class="text-danger>"', '</small>')) ?>
+						</div>
+					</div>
+				</div>
+				<div class="col-6 form-group mb-3">
+					<label for="linkGoogleMapTasyakuran">Link google Map <span class="text-danger">*</span></label>
+					<div class="input-group">
+						<textarea name="tasyakur_maps" class="form-control <?= (form_error('tasyakur_maps')) ? 'is-invalid' : '' ?>" value="<?= (set_value('tasyakur_maps')) ? set_value('tasyakur_maps') : '' ?>" id="linkGoogleMapTasyakuran" placeholder="Masukan Link google Map"></textarea>
+						<div id="tasyakur_mapsFeedback" class="invalid-feedback">
+							<?= (form_error('tasyakur_maps', '<small class="text-danger>"', '</small>')) ?>
 						</div>
 					</div>
 				</div>
@@ -333,47 +400,6 @@
 						<textarea name="resepsi_maps" class="form-control <?= (form_error('resepsi_maps')) ? 'is-invalid' : '' ?>" value="<?= (set_value('resepsi_maps')) ? set_value('resepsi_maps') : '' ?>" id="linkGoogleMapresepsi" placeholder="Masukan Link google Map"></textarea>
 						<div id="resepsi_mapsFeedback" class="invalid-feedback">
 							<?= (form_error('resepsi_maps', '<small class="text-danger>"', '</small>')) ?>
-						</div>
-					</div>
-				</div>
-			</div>
-			<p class="text-primary mb-2">Setting Waktu Pelaksanaan Tasyakuran</p>
-			<div class="row">
-				<div class="col-6 form-group mb-3">
-					<label for="tanggalTasyakuran">Tanggal <span class="text-danger">*</span></label>
-					<div class="input-group">
-						<input type="date" name="tasyakur_date" class="form-control <?= (form_error('tasyakur_date')) ? 'is-invalid' : '' ?>" value="<?= (set_value('tasyakur_date')) ? set_value('tasyakur_date') : '' ?>" id="tanggalTasyakuran">
-						<div id="tasyakur_dateFeedback" class="invalid-feedback">
-							<?= (form_error('tasyakur_date', '<small class="text-danger>"', '</small>')) ?>
-						</div>
-					</div>
-				</div>
-				<div class="col-6 form-group mb-3">
-					<label for="jamTasyakuran">Jam <span class="text-danger">*</span></label>
-					<div class="input-group">
-						<input type="time" name="tasyakur_time" class="form-control <?= (form_error('tasyakur_time')) ? 'is-invalid' : '' ?>" value="<?= (set_value('tasyakur_time')) ? set_value('tasyakur_time') : '' ?>" id="jamTasyakuran">
-						<div id="tasyakur_timeFeedback" class="invalid-feedback">
-							<?= (form_error('tasyakur_time', '<small class="text-danger>"', '</small>')) ?>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-6 form-group mb-3">
-					<label for="alamatLengkapTasyakuran">Alamat Lengkap <span class="text-danger">*</span></label>
-					<div class="input-group">
-						<textarea name="tasyakur_address" class="form-control <?= (form_error('tasyakur_address')) ? 'is-invalid' : '' ?>" value="<?= (set_value('tasyakur_address')) ? set_value('tasyakur_address') : '' ?>" id="alamatLengkapTasyakuran" placeholder="Masukan Alamat Lengkap"></textarea>
-						<div id="tasyakur_addressFeedback" class="invalid-feedback">
-							<?= (form_error('tasyakur_address', '<small class="text-danger>"', '</small>')) ?>
-						</div>
-					</div>
-				</div>
-				<div class="col-6 form-group mb-3">
-					<label for="linkGoogleMapTasyakuran">Link google Map <span class="text-danger">*</span></label>
-					<div class="input-group">
-						<textarea name="tasyakur_maps" class="form-control <?= (form_error('tasyakur_maps')) ? 'is-invalid' : '' ?>" value="<?= (set_value('tasyakur_maps')) ? set_value('tasyakur_maps') : '' ?>" id="linkGoogleMapTasyakuran" placeholder="Masukan Link google Map"></textarea>
-						<div id="tasyakur_mapsFeedback" class="invalid-feedback">
-							<?= (form_error('tasyakur_maps', '<small class="text-danger>"', '</small>')) ?>
 						</div>
 					</div>
 				</div>

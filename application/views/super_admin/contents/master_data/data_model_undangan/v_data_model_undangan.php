@@ -24,21 +24,7 @@
 	<!-- Container fluid  -->
 	<!-- ============================================================== -->
 	<div class="container-fluid">
-		<div class="card shadow px-5 py-3">
-			<ul class="nav nav-tabs">
-				<li class="nav-item">
-					<a href="#pernikahanIslami" data-toggle="tab" aria-expanded="false" class="nav-link active">
-						<i class="mdi mdi-home-variant d-lg-none d-block mr-1"></i>
-						<span class="d-none d-lg-block">Pernikahan Islami</span>
-					</a>
-				</li>
-				<li class="nav-item">
-					<a href="#pernikahanUmum" data-toggle="tab" aria-expanded="true" class="nav-link">
-						<i class="mdi mdi-account-circle d-lg-none d-block mr-1"></i>
-						<span class="d-none d-lg-block">Pernikahan Umum</span>
-					</a>
-				</li>
-			</ul>
+		<div class="card shadow pl-5 py-3">
 
 			<div class="form-group col-4 mt-4">
 				<div class="input-group mb-2 ml-n3">
@@ -81,7 +67,7 @@
 								<div class="mt-2">
 									<a target="_blank" href="<?= base_url('preview?model=' . $value['view']) ?>" class="btn btn-sm btn-outline-info text-sm  px-2 mr-3">
 										<i class="fas fa-eye mr-1"></i>
-										<span class="mb-1">Preview</span>
+										<span class="mb-1">Demo</span>
 									</a>
 								</div>
 								<div class="text-xs mt-3 mb-n2">
@@ -106,18 +92,6 @@
 							<!-- Item Model End -->
 						<?php endforeach ?>
 					</div>
-				</div>
-				<div class="tab-pane" id="pernikahanUmum">
-					<p>Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim
-						justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis
-						eu pede mollis pretium. Integer tincidunt.Cras dapibus. Vivamus elementum
-						semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor
-						eu, consequat vitae, eleifend ac, enim.</p>
-					<p class="mb-0">Food truck quinoa dolor sit amet, consectetuer adipiscing elit.
-						Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus
-						et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,
-						ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa
-						quis enim.</p>
 				</div>
 			</div>
 

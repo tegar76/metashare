@@ -90,6 +90,10 @@
 						<td><a target="_blank" href="<?= base_url('views/view_img?code=' . $detail->t_code) ?>"><img src="<?= base_url('assets/icons/icon_file_img.svg') ?>" alt="" width="25" data-toggle="tooltip" title="Lihat" data-placement="right"></a></td>
 					</tr>
 					<tr>
+						<th scope="row">Sumber Order</th>
+						<td>Marketplace</td>
+					</tr>
+					<tr>
 						<th scope="row" class="text-primary">Data Admin Yang Menangani</th>
 						<td></td>
 					</tr>
@@ -112,7 +116,7 @@
 				<a href="<?= base_url('su-admin/penugasan') ?>" class="btn btn-sm btn-warning px-2 mr-4">Kembali</a>
 				<a target="_blank" href="<?= base_url('wedding/runa-ratna') ?>" class="btn btn-sm btn-outline-primary px-2">
 					<i class="fas fa-eye mr-1"></i>
-					<span class="mb-1">Live Demo</span>
+					<span class="mb-1">Pratinjau</span>
 				</a>
 			</div>
 		</div>

@@ -30,14 +30,7 @@
 			<div class="form-group mb-3">
 				<label for="jenisUndangan">Jenis Undangan <span class="text-danger">*</span></label>
 				<div class="input-group">
-					<select class="form-control <?= (form_error('type')) ? 'is-invalid' : '' ?>" id="jenisUndangan" name="type">
-						<option value="">Pilih Jenis Undangan</option>
-						<option value="islamic" <?= (set_value('type') == 'islamic') ? 'selected' : '' ?>>Undangan Pernikahan Islami</option>
-						<option value="umum" <?= (set_value('type') == 'umum') ? 'selected' : '' ?>>Undangan Pernikahan Umum</option>
-					</select>
-					<div class="invalid-feedback">
-						<?= form_error('type', '<div class="text-danger">', '</div>') ?>
-					</div>
+					<input type="text" class="form-control" readonly value="Undangan Pernikahan Digital" id="jenisUndangan">
 				</div>
 			</div>
 			<div class="form-group mb-3">

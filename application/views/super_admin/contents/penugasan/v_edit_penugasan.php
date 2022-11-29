@@ -54,19 +54,19 @@
 				</div>
 			</div>
 			<div class="form-group mb-3">
-				<label for="jenis">Jenis</label>
+				<label for="jenis">Jenis Undangan</label>
 				<div class="input-group">
-					<input type="text" class="form-control" id="jenis" value="Undangan Pernikahan <?= $detail->m_type ?>" readonly>
+					<input type="text" class="form-control" id="jenis" value="Undangan Pernikahan Digital" readonly>
 				</div>
 			</div>
 			<div class="form-group mb-3">
-				<label for="kategori">Kategori</label>
+				<label for="kategori">Kategori Undangan</label>
 				<div class="input-group">
 					<input type="text" class="form-control" id="kategori" value="<?= $detail->m_category ?>" readonly>
 				</div>
 			</div>
 			<div class="form-group mb-3">
-				<label for="model">Model</label>
+				<label for="model">Model Undangan</label>
 				<div class="input-group">
 					<input type="text" class="form-control" id="model" value="<?= $detail->m_name ?>" readonly>
 				</div>

@@ -73,6 +73,7 @@
 								<th style="width: 3%;">No</th>
 								<th style="width: 5%;">Kode</th>
 								<th style="width: 9%;">Tanggal</th>
+								<th style="width: 9%;">Sumber Order</th>
 								<th style="width: 8%;">Nama Kustomer</th>
 								<th style="width: 8%;">Jenis</th>
 								<th style="width: 7%;">Kategori</th>
@@ -90,6 +91,7 @@
 										<td><?= $nomor++ ?></td>
 										<td><?= $row['code'] ?></td>
 										<td><?= $row['date'] ?></td>
+										<td>-</td>
 										<td><?= $row['customer'] ?></td>
 										<td><?= $row['type'] ?></td>
 										<td><?= $row['category'] ?></td>

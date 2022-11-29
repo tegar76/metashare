@@ -46,6 +46,7 @@
 								<th style="width: 3%;">No</th>
 								<th style="width: 5%;">Kode</th>
 								<th style="width: 10%;">Tanggal</th>
+								<th style="width: 8%;">Sumber Order</th>
 								<th style="width: 8%;">Nama</th>
 								<th style="width: 14%;">Jenis</th>
 								<th style="width: 7%;">Kategori</th>
@@ -59,6 +60,7 @@
 									<td><?= $value['nomor'] ?></td>
 									<td><?= $value['code'] ?></td>
 									<td><?= $value['date'] ?></td>
+									<td>-</td>
 									<td><?= $value['customer'] ?></td>
 									<td>Undangan Pernikahan <?= $value['type'] ?></td>
 									<td><?= $value['category'] ?></td>
@@ -72,6 +74,12 @@
 					</table>
 				</div>
 			</div>
+		</div>
+		<!-- Floating Button Add -->
+		<div class="floating-container">
+			<a href="<?= base_url('SuperAdmin/Pengorderan/tambahPengorderan') ?>">
+				<div class="floating-button">+</div>
+			</a>
 		</div>
 	</div>
 	<!-- ============================================================== -->

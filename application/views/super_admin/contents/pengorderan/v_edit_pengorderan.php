@@ -43,21 +43,27 @@
 			</div>
 			<!-- Setelah admin memilih model undangan sesuai yang Customer pilih, maka munculkan value form jenis, kategori, harga sesuai data-->
 			<div class="form-group mb-3">
-				<label for="jenis">Jenis</label>
+				<label for="jenis">Jenis Undangan</label>
 				<div class="input-group">
 					<input type="text" class="form-control" id="jenis" value="Undangan Pernikahan <?= $order->type ?>" readonly>
 				</div>
 			</div>
 			<div class="form-group mb-3">
-				<label for="kategori">Kategori</label>
+				<label for="kategori">Kategori Undangan</label>
 				<div class="input-group">
 					<input type="text" class="form-control" id="kategori" value="<?= $order->category ?>" readonly>
 				</div>
 			</div>
 			<div class="form-group mb-3">
-				<label for="model">Model</label>
+				<label for="model">Model Undangan</label>
 				<div class="input-group">
 					<input type="text" class="form-control" id="model" value="<?= $order->model ?>" readonly>
+				</div>
+			</div>
+			<div class="form-group mb-3">
+				<label for="sumber_order">Sumber Order</label>
+				<div class="input-group">
+					<input type="text" class="form-control" id="jenis" value="Marketplace" readonly>
 				</div>
 			</div>
 			<div class="form-group mb-3">

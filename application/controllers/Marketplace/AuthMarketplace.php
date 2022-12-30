@@ -13,5 +13,4 @@ class AuthMarketplace extends CI_Controller
 		$data['title'] = 'Sign Up Marketplace';
 		$this->load->view('marketplace/contents/auth/v_signup', $data, FALSE);
 	}
-
 }

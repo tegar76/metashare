@@ -220,17 +220,8 @@ class MasterData extends CI_Controller
 			$data['model'] = $model;
 			$data['title'] = 'Edit Model Undangan';
 			$data['content'] = 'super_admin/contents/master_data/data_model_undangan/v_edit_model_undangan';
-			if (isset($_POST['update'])) {
+			if ($_REQUEST) {
 				$this->form_validation->set_rules([
-					[
-						'field' => 'type_update',
-						'label' => 'Jenis Undangan',
-						'rules' => 'trim|required|xss_clean',
-						'errors' => [
-							'required' => '{field} harus diisi',
-							'xss_clean' => 'cek kembali pada {field}'
-						]
-					],
 					[
 						'field' => 'category_update',
 						'label' => 'Kategori Undangan',

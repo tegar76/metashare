@@ -9,8 +9,8 @@
 				<div class="d-flex align-items-center">
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb m-0 p-0">
-							<li class="breadcrumb-item" aria-current="page"><a class="text-link" href="<?= base_url('admin/Dashboard') ?>">Dashboard</a></li>
-							<li class="breadcrumb-item" aria-current="page"><a class="text-link" href="<?= base_url('admin/invitation') ?>">Pengerjaan undangan</a></li>
+							<li class="breadcrumb-item" aria-current="page"><a class="text-link" href="<?= base_url('admin/dashboard') ?>">Dashboard</a></li>
+							<li class="breadcrumb-item" aria-current="page"><a class="text-link" href="<?= base_url('admin/undangan') ?>">Pengerjaan undangan</a></li>
 							<li class="breadcrumb-item active" aria-current="page"><?= $title ?></li>
 						</ol>
 					</nav>
@@ -35,11 +35,11 @@
 					<span class="ml-3"><i class="fa fa-caret-down"></i></span>
 				</button>
 				<div class="dropdown-menu">
-					<a href="<?= base_url('admin/invitation/tambahDataUndangan') ?>" class="dropdown-item" type="button"><i data-feather="server" class="feather-14 mt-n1 mr-1"></i> Data undangan</a>
-					<a href="<?= base_url('admin/invitation/tambahTamuUndangan') ?>" class="dropdown-item" type="button"><i data-feather="user" class="feather-14 mt-n1 mr-1"></i> Tamu Undangan</a>
-					<a href="<?= base_url('admin/invitation/tambahFoto') ?>" class="dropdown-item" type="button"><i data-feather="image" class="feather-14 mt-n1 mr-1"></i> Foto Galeri</a>
-					<a href="<?= base_url('admin/invitation/tambahPerjalananCinta') ?>" class="dropdown-item" type="button"><i data-feather="message-circle" class="feather-14 mt-n1 mr-1"></i> Perjalanan Cinta</a>
-					<a href="<?= base_url('admin/invitation/tambahBerikanHadiah') ?>" class="dropdown-item" type="button"><i data-feather="credit-card" class="feather-14 mt-n1 mr-1"></i> Berikan Hadiah</a>
+					<a href="<?= base_url('admin/undangan/create/' . $detail->t_code) ?>" class="dropdown-item" type="button"><i data-feather="server" class="feather-14 mt-n1 mr-1"></i> Data undangan</a>
+					<a href="<?= base_url('admin/undangan/tamu/create/' . $detail->t_code) ?>" class="dropdown-item" type="button"><i data-feather="user" class="feather-14 mt-n1 mr-1"></i> Tamu Undangan</a>
+					<a href="<?= base_url('admin/undangan/gallery/create/' . $detail->t_code) ?>" class="dropdown-item" type="button"><i data-feather="image" class="feather-14 mt-n1 mr-1"></i> Foto Galeri</a>
+					<a href="<?= base_url('admin/undangan/love-story/create/' . $detail->t_code) ?>" class="dropdown-item" type="button"><i data-feather="message-circle" class="feather-14 mt-n1 mr-1"></i> Perjalanan Cinta</a>
+					<a href="<?= base_url('admin/undangan/gifts/create/' . $detail->t_code) ?>" class="dropdown-item" type="button"><i data-feather="credit-card" class="feather-14 mt-n1 mr-1"></i> Berikan Hadiah</a>
 				</div>
 			</div>
 			<div class="btn-group mr-3">
@@ -49,10 +49,10 @@
 					<span class="ml-3"><i class="fa fa-caret-down"></i></span>
 				</button>
 				<div class="dropdown-menu mr-3">
-					<a href="<?= base_url('admin/invitation/editDataUndangan') ?>" class="dropdown-item" type="button"><i data-feather="server" class="feather-14 mt-n1 mr-1"></i> Data undangan</a>
-					<a href="<?= base_url('admin/invitation/editFoto') ?>" class="dropdown-item" type="button"><i data-feather="image" class="feather-14 mt-n1 mr-1"></i> Foto Galeri</a>
-					<a href="<?= base_url('admin/invitation/editPerjalananCinta') ?>" class="dropdown-item" type="button"><i data-feather="message-circle" class="feather-14 mt-n1 mr-1"></i> Perjalanan Cinta</a>
-					<a href="<?= base_url('admin/invitation/editBerikanHadiah') ?>" class="dropdown-item" type="button"><i data-feather="credit-card" class="feather-14 mt-n1 mr-1"></i> Berikan Hadiah</a>
+					<a href="<?= base_url('admin/undangan/update/' . $detail->t_code) ?>" class="dropdown-item" type="button"><i data-feather="server" class="feather-14 mt-n1 mr-1"></i> Data undangan</a>
+					<a href="<?= base_url('admin/undangan/gallery/detail/' . $detail->t_code) ?>" class="dropdown-item" type="button"><i data-feather="image" class="feather-14 mt-n1 mr-1"></i> Foto Galeri</a>
+					<a href="<?= base_url('admin/undangan/love-story/detail/' . $detail->t_code) ?>" class="dropdown-item" type="button"><i data-feather="message-circle" class="feather-14 mt-n1 mr-1"></i> Perjalanan Cinta</a>
+					<a href="<?= base_url('admin/undangan/gifts/detail/' . $detail->t_code) ?>" class="dropdown-item" type="button"><i data-feather="credit-card" class="feather-14 mt-n1 mr-1"></i> Berikan Hadiah</a>
 				</div>
 			</div>
 			<div class="btn-group mr-3">
@@ -89,15 +89,15 @@
 					</tr>
 					<tr class="table-borderless">
 						<th scope="row">Nama Konsumen</th>
-						<td>Heru Rudiansah</td>
+						<td><?= $detail->cs_name ?></td>
 					</tr>
 					<tr>
 						<th scope="row">No Telepon</th>
-						<td>082322452311</td>
+						<td><?= $detail->cs_phone ?></td>
 					</tr>
 					<tr>
 						<th scope="row">Email</th>
-						<td>heru521@gmail.com</td>
+						<td><?= $detail->cs_email ?></td>
 					</tr>
 					<tr>
 						<th scope="row" class="text-primary">Data Transaksi</th>
@@ -105,27 +105,27 @@
 					</tr>
 					<tr class="table-borderless">
 						<th scope="row">Tanggal</th>
-						<td>02-09-2022 18:00 WIB</td>
+						<td><?= date('d-m-Y H:i', strtotime($detail->t_date)) . " WIB" ?></td>
 					</tr>
 					<tr>
 						<th scope="row">Kode</th>
-						<td>00003</td>
+						<td><?= $detail->t_code ?></td>
 					</tr>
 					<tr>
 						<th scope="row">Jenis Undangan</th>
-						<td>Undangan Pernikahan Digital</td>
+						<td><?= $detail->m_type ?></td>
 					</tr>
 					<tr>
 						<th scope="row">Kategori</th>
-						<td>Special</td>
+						<td><?= $detail->m_category ?></td>
 					</tr>
 					<tr>
 						<th scope="row">Model Undangan</th>
-						<td><a target="_blank" href="<?= base_url('PreviewUndangan/demo') ?>" class="text-link-detail" data-toggle="tooltip" title="Lihat" data-placement="right">Flower Garden</a></td>
+						<td><a target="_blank" href="<?= base_url('preview?model=' . $detail->m_view) ?>" class="text-link-detail" data-toggle="tooltip" title="Lihat" data-placement="right"><?= $detail->m_name ?></a></td>
 					</tr>
 					<tr>
 						<th scope="row">Harga</th>
-						<td>150000</td>
+						<td>Rp. <?= $detail->m_price ?></td>
 					</tr>
 					<tr>
 						<th scope="row">Masa Aktif</th>
@@ -133,20 +133,20 @@
 					</tr>
 					<tr>
 						<th scope="row">Keterangan</th>
-						<td class="text-danger">Belum Dikerjakan</td>
+						<?= $desc ?>
 						<!-- *** nama class : belum dikerjakan = text-danger, proses pengerjaan = text-warning, sudah dikerjakan = text-success -->
 					</tr>
 					<tr>
 						<th scope="row">Status</th>
-						<td>Tidak Aktif</td>
+						<td><?= ($detail->t_status < 1) ? 'Tidak Aktif' : 'Aktif' ?></td>
 					</tr>
 					<tr>
 						<th scope="row">Bukti Pembayaran</th>
-						<td><a target="_blank" href="<?= base_url('View/View/viewImg') ?>"><img src="<?= base_url('assets/icons/icon_file_img.svg') ?>" alt="" width="25" data-toggle="tooltip" title="Lihat" data-placement="right"></a></td>
+						<td><a target="_blank" href="<?= base_url('views/view_img?code=' . $detail->t_code) ?>"><img src="<?= base_url('assets/icons/icon_file_img.svg') ?>" alt="" width="25" data-toggle="tooltip" title="Lihat" data-placement="right"></a></td>
 					</tr>
 					<tr>
 						<th scope="row">Sumber Order</th>
-						<td>Marketplace</td>
+						<td><?= $detail->t_source ?></td>
 					</tr>
 					<tr>
 						<th scope="row" class="text-primary">Data Admin Yang Menangani</th>
@@ -154,15 +154,15 @@
 					</tr>
 					<tr class="table-borderless">
 						<th scope="row">Kode</th>
-						<td>Adm003</td>
+						<td><?= $detail->adm_code ?></td>
 					</tr>
 					<tr>
 						<th scope="row">Nama</th>
-						<td>Bayu Purnomo</td>
+						<td><?= $detail->adm_name ?></td>
 					</tr>
 					<tr>
 						<th scope="row">No Telepon</th>
-						<td>085783682736</td>
+						<td><?= $detail->adm_phone ?></td>
 					</tr>
 				</tbody>
 			</table>
@@ -202,8 +202,8 @@
 									<td>
 										<div class="flex">
 											<a href="" class="btn btn-sm btn-outline-warning mr-1"><i data-feather="copy" class="feather-14" data-toggle="tooltip" title="Salin" data-placement="top"></i></a>
-											<a href="<?= base_url('Admin/PengerjaanUndangan/detailOrder') ?>" class="btn btn-sm btn-primary mr-1"><i data-feather="eye" class="feather-14" data-toggle="tooltip" title="Detail" data-placement="top"></i></a>
-											<a href="<?= base_url('Admin/PengerjaanUndangan/detailOrder') ?>" class="btn btn-sm btn-success"><i data-feather="edit" class="feather-14" data-toggle="tooltip" title="Setting" data-placement="top"></i></a>
+											<a href="" class="btn btn-sm btn-primary mr-1"><i data-feather="eye" class="feather-14" data-toggle="tooltip" title="Detail" data-placement="top"></i></a>
+											<a href="<?= base_url('admin/undangan/tamu/update/' . $row['id']) ?>" class="btn btn-sm btn-success"><i data-feather="edit" class="feather-14" data-toggle="tooltip" title="Setting" data-placement="top"></i></a>
 										</div>
 									</td>
 								</tr>

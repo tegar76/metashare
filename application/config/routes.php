@@ -49,7 +49,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'Marketplace';
+$route['default_controller'] = 'HomeController';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
@@ -112,20 +112,39 @@ $route['admin/master_data/(:any)'] = 'Admin/MasterData/$1';
 $route['admin/master_data/(:any)/(:any)'] = 'Admin/MasterData/$1/$2';
 
 // 4. Pengerjaan Undangan
-$route['admin/invitation'] = 'Admin/PengerjaanUndangan';
-$route['admin/invitation/(:any)'] = 'Admin/PengerjaanUndangan/$1';
-$route['admin/invitation/(:any)/(:any)'] = 'Admin/PengerjaanUndangan/$1/$2';
-$route['admin/invitation/(:any)/(:any)/(:any)'] = 'Admin/PengerjaanUndangan/$1/$2/$3';
+$route['admin/undangan'] = 'Admin/Undangan';
+$route['admin/undangan/detail/(:any)'] = 'Admin/Undangan/detail/$1';
+$route['admin/undangan/create/(:any)'] = 'Admin/Undangan/create_data_undangan/$1';
+$route['admin/undangan/update/(:any)'] = 'Admin/Undangan/update_data_undangan/$1';
+
+# Routing gallery preeweding 
+$route['admin/undangan/gallery'] = 'Admin/GalleryController';
+$route['admin/undangan/gallery/create/(:any)'] = 'Admin/GalleryController/create/$1';
+$route['admin/undangan/gallery/detail/(:any)'] = 'Admin/GalleryController/detail/$1';
+$route['admin/undangan/gallery/update/(:any)'] = 'Admin/GalleryController/update/$1';
+
+# Routing Tamu Undangan
+$route['admin/undangan/tamu'] = 'Admin/GuestInvitedController';
+$route['admin/undangan/tamu/create/(:any)'] = 'Admin/GuestInvitedController/create/$1';
+$route['admin/undangan/tamu/update/(:any)'] = 'Admin/GuestInvitedController/update/$1';
+
+# Routing Love Story
+$route['admin/undangan/love-story'] = 'Admin/LoveStoryController';
+$route['admin/undangan/love-story/create/(:any)'] = 'Admin/LoveStoryController/create/$1';
+$route['admin/undangan/love-story/update/(:any)'] = 'Admin/LoveStoryController/update/$1';
+$route['admin/undangan/love-story/detail/(:any)'] = 'Admin/LoveStoryController/detail/$1';
+
+# Routing Berikan Hadiah
+$route['admin/undangan/gifts'] = 'Admin/GiftsController';
+$route['admin/undangan/gifts/create/(:any)'] = 'Admin/GiftsController/create/$1';
+$route['admin/undangan/gifts/update/(:any)'] = 'Admin/GiftsController/update/$1';
+$route['admin/undangan/gifts/detail/(:any)'] = 'Admin/GiftsController/detail/$1';
+
 
 // 5. Profile Admin
 $route['admin/profile'] = 'Admin/Profile';
 $route['admin/profile/(:any)'] = 'Admin/Profile/$1';
 $route['admin/profile/(:any)/(:any)'] = 'Admin/Profile/$1/$2';
-
-$route['admin/undangan'] = 'Admin/Invitation';
-$route['admin/undangan/(:any)'] = 'Admin/Invitation/$1';
-$route['admin/undangan/(:any)/(:any)'] = 'Admin/Invitation/$1/$2';
-$route['admin/undangan/(:any)/(:any)/(:any)'] = 'Admin/Invitation/$1/$2/$3';
 
 $route['wedding'] = 'Admin/Invitation/wedding';
 $route['wedding/(:any)'] = 'Admin/Invitation/wedding/$1';
@@ -139,3 +158,23 @@ $route['wedding/(:any)/(:any)'] = 'Admin/Invitation/wedding/$1/$2';
 $route['preview'] = 'PreviewModelUndangan';
 $route['views'] = 'View/View';
 $route['views/(:any)'] = 'View/View/$1';
+
+/*
+| -------------------------------------------------------------------------
+| ROUTING USER
+| -------------------------------------------------------------------------
+*/
+$route['login'] = 'AuthController';
+$route['register'] = 'AuthController/register';
+$route['logout'] = 'AuthController/logout';
+$route['categories'] = 'CategoryController';
+$route['testimony'] = 'TestimonyController';
+$route['about'] = 'AboutController';
+$route['profile'] = 'ProfileController';
+$route['profile/update'] = 'ProfileController/update';
+$route['profile/update/do_upload'] = 'ProfileController/do_upload';
+$route['history'] = 'HistoryOrderController';
+$route['history/order'] = 'HistoryOrderController';
+$route['history/order/(:any)/detail'] = 'HistoryOrderController/detail/$1';
+$route['history/order/invited_guest'] = 'HistoryOrderController/invited_guest';
+$route['history/order/messages'] = 'HistoryOrderController/messages';

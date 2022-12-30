@@ -158,6 +158,7 @@
 		<!-- floating button End -->
 	</header>
 
+
 	<main>
 		<div id="cover" data-page="cover" class="cover onLoad w-screen h-screen bg-center bg-cover bg-no-repeat overflow-hidden" style="background-image: url('assets/bg_img/bg_simple_white.png'); position: fixed;">
 			<!-- Demo Watermark -->
@@ -219,15 +220,12 @@
 										<div class="font-mono leading-none text-[20px]" x-text="days">00</div>
 
 									</div>
-
 								</div>
 								<div class="  font-mono text-sm leading-none ">Hari</div>
 								<div class="w-12 h-10 px-2 py-1 border border-[#dddddd]   rounded-lg mb-4 flex items-center justify-center">
 									<div>
 										<div class="font-mono leading-none text-[20px]" x-text="minutes">00</div>
-
 									</div>
-
 								</div>
 								<div class="  font-mono text-sm leading-none">Jam</div>
 								<div class="w-12 h-10 px-2 py-1 border border-[#dddddd]   rounded-lg mb-4 flex items-center justify-center">
@@ -347,7 +345,7 @@
 						<div class="border-2 border-dashed border-slate-400/30 shadow-md shadow-slate-400/40 pt-8 pb-3 mt-12 px-5 lg:px-8 lg:pt-10 rounded-xl relative">
 							<img class="h-6 absolute right-1/4 -top-3 opacity-60 lg:h-8 lg:-top-4" src="<?= base_url('assets/icons/galeri_pin_foto.png') ?>" />
 							<img class="h-6 absolute left-1/4 -top-3 opacity-60 lg:h-8 lg:-top-4" src="<?= base_url('assets/icons/galeri_pin_foto.png') ?>" />
-							<?
+							<?php
 							$foto_landscape = [
 								base_url('assets/img/foto_landscape1.jpg'),
 								base_url('assets/img/foto_landscape2.jpg'),

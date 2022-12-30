@@ -10,5 +10,4 @@ class Kategori extends CI_Controller
 		];
 		$this->load->view('marketplace/layouts/wrapper', $data, FALSE);
 	}
-
 }

@@ -1,6 +1,6 @@
 <?php
 
-class PreviewModelUndangan extends CI_Controller
+class DemoDesign extends CI_Controller
 {
 	public function index()
 	{
@@ -10,7 +10,7 @@ class PreviewModelUndangan extends CI_Controller
 		} else {
 			$query = $this->db->get_where("model_invitation", ['view_model' => $_GET['model']])->row();
 			if ($query) {
-				$data['title'] = 'PreviewModelUndangan';
+				$data['title'] = 'Demo Model Undangan';
 				$view = 'preview_model_undangan/' . $query->view_model . '_preview';
 				if (file_exists(APPPATH . 'views/' . $view  . '.php')) {
 					$this->load->view($view, $data, FALSE);

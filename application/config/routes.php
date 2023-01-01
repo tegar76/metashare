@@ -155,7 +155,7 @@ $route['wedding/(:any)/(:any)'] = 'Admin/Invitation/wedding/$1/$2';
 | ROUTING Preview Model Undangan
 | -------------------------------------------------------------------------
 */
-$route['preview'] = 'PreviewModelUndangan';
+$route['demo'] = 'DemoDesign';
 $route['views'] = 'View/View';
 $route['views/(:any)'] = 'View/View/$1';
 

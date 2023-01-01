@@ -66,7 +66,7 @@
 					</tr>
 					<tr>
 						<th scope="row">Model Undangan</th>
-						<td><a target="_blank" href="<?= base_url('preview?model=' . $detail->m_view) ?>" class="text-link-detail" data-toggle="tooltip" title="Lihat" data-placement="right"><?= $detail->m_name ?></a></td>
+						<td><a target="_blank" href="<?= base_url('demo?model=' . $detail->m_view) ?>" class="text-link-detail" data-toggle="tooltip" title="Lihat" data-placement="right"><?= $detail->m_name ?></a></td>
 					</tr>
 					<tr>
 						<th scope="row">Harga</th>
@@ -91,7 +91,7 @@
 					</tr>
 					<tr>
 						<th scope="row">Sumber Order</th>
-						<td>Marketplace</td>
+						<td><?= $detail->t_source ?></td>
 					</tr>
 					<tr>
 						<th scope="row" class="text-primary">Data Admin Yang Menangani</th>

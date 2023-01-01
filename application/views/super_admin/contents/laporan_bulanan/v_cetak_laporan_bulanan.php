@@ -7,8 +7,8 @@
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url()?>/assets/icons/logo_metashare_small.png">
-        <title><?= $title?></title>
+		<link rel="icon" type="image/png" sizes="16x16" href="<?= base_url() ?>/assets/icons/logo_metashare_small.png">
+		<title><?= $title ?></title>
 
 		<!-- style -->
 		<style>
@@ -19,9 +19,9 @@
 				padding: 0;
 				font-size: 12pt;
 				background: rgb(204, 204, 204);
-                letter-spacing: 0.5px;
-                font-family: 'Times New Roman', Times, serif;
-                background-color: white;
+				letter-spacing: 0.5px;
+				font-family: 'Times New Roman', Times, serif;
+				background-color: white;
 			}
 
 			* {
@@ -79,7 +79,7 @@
 
 			.sub-title {
 				font: 13px;
-                color: #333333;
+				color: #333333;
 				padding-bottom: 5px;
 			}
 
@@ -96,10 +96,10 @@
 				margin-right: 140px;
 			}
 
-            table {
-	            table-layout: fixed;
-                width: 100%;
-            }
+			table {
+				table-layout: fixed;
+				width: 100%;
+			}
 
 			table,
 			th,
@@ -109,45 +109,47 @@
 				font-size: 12px;
 				color: #4b4b4b;
 				margin-top: 20px;
-                text-align: left;
+				text-align: left;
 			}
 
-            td, th {
-                padding: 3px 7px 3px 7px;
-                word-break: break-word; /* fit item */
-            }
+			td,
+			th {
+				padding: 3px 7px 3px 7px;
+				word-break: break-word;
+				/* fit item */
+			}
 
-            thead th {
-                background-color: #E3E7ED;
-            }
+			thead th {
+				background-color: #E3E7ED;
+			}
 
-            .footer-total {
-                background-color: #e6ffee;
-            }
+			.footer-total {
+				background-color: #e6ffee;
+			}
 
-            .column {
-            float: left;
-            width: 35%;
-            }
+			.column {
+				float: left;
+				width: 35%;
+			}
 
-            /* Clear floats after the columns */
-            .row:after {
-            content: "";
-            display: table;
-            clear: both;
-            }
+			/* Clear floats after the columns */
+			.row:after {
+				content: "";
+				display: table;
+				clear: both;
+			}
 
-            .keterangan h4 {
-                font-size: 14px;
-                font-weight: 400;
-                margin-bottom: 7px;
-            }
-            .keterangan .column {
-                font-size: 13px;
-                color: #333333;
-                margin-bottom: 5px;
-            }
+			.keterangan h4 {
+				font-size: 14px;
+				font-weight: 400;
+				margin-bottom: 7px;
+			}
 
+			.keterangan .column {
+				font-size: 13px;
+				color: #333333;
+				margin-bottom: 5px;
+			}
 		</style>
 
 	</head>
@@ -161,11 +163,11 @@
 				<div class="sub-page">
 					<div class="title-page">
 						<div class="title">LAPORAN BULANAN</div>
-						<div class="sub-title">Bulan September 2022</div>
+						<div class="sub-title">Bulan <?= $date_report ?></div>
 						<div class="address">Gang Bugenvile Karangmiri,Sumampir, Kec Purwokerto Utara, Kab. Banyumas, Jawa Tengah 53125 Telp.087899703471</div>
 					</div>
 					<div class="date">
-						<p>Tanggal Cetak : 01-10-2022 14:00 WIB</p>
+						<p>Tanggal Cetak : <?= $export_date ?> WIB</p>
 					</div>
 
 					<div>
@@ -177,97 +179,75 @@
 									<th style="width: 9%;">Tanggal</th>
 									<th style="width: 10%;">Sumber Order</th>
 									<th style="width: 11%;">Nama Kustomer</th>
-                                    <th style="width: 9%;">Jenis</th>
-                                    <th style="width: 10%;">Kategori</th>
-                                    <th style="width: 8%;">Model</th>
-                                    <th style="width: 8%;">Harga</th>
-                                    <th style="width: 12%;">Keterangan</th>
-                                    <th style="width: 8%;">Status</th>
-                                    <th style="width: 8%;">Admin</th>
+									<th style="width: 9%;">Jenis</th>
+									<th style="width: 10%;">Kategori</th>
+									<th style="width: 8%;">Model</th>
+									<th style="width: 8%;">Harga</th>
+									<th style="width: 12%;">Keterangan</th>
+									<th style="width: 8%;">Status</th>
+									<th style="width: 8%;">Admin</th>
 								</tr>
 							</thead>
 							<tbody>
-                                <?php for($i = 1; $i < 51; $i++) :?>
-                                <tr>
-                                    <td><?= $i?></td>
-                                    <td>00001</td>
-                                    <td>01-09-2022</td>
-									<td>Marketplace</td>
-                                    <td>Heru Rudiansah</td>
-                                    <td>Undangan Pernikahan Digital</td>
-                                    <td>Standard</td>
-                                    <td>Model A</td>
-                                    <td>150000</td>
-                                    <td>Belum Dikerjakan</td>
-                                    <td>Tidak Aktif</td>
-                                    <td>Tegar Kusuma</td>
-                                </tr>
-                                <?php endfor ?>
-                                <tr class="footer-total">
-                                    <th colspan="6" style="text-align: right; border-right : hidden">Jumlah Harga : </th>
-                                    <th colspan="4">Rp. 500000</th>
-                                </tr>
+								<?php foreach ($report as $item) : ?>
+									<tr>
+										<td><?= $item['nomor']; ?></td>
+										<td><?= $item['code']; ?></td>
+										<td><?= $item['date']; ?></td>
+										<td><?= $item['source']; ?></td>
+										<td><?= $item['customer']; ?></td>
+										<td><?= $item['type']; ?></td>
+										<td><?= $item['category']; ?></td>
+										<td><?= $item['model']; ?></td>
+										<td><?= $item['price']; ?></td>
+										<td><?= $item['desc']; ?></td>
+										<td><?= $item['status']; ?></td>
+										<td><?= $item['admin']; ?></td>
+									</tr>
+								<?php endforeach ?>
+									<th colspan="6" style="text-align: right; border-right : hidden">Jumlah Harga : </th>
+									<th colspan="4">Rp. <?php echo $total ?></th>
+								</tr>
 							</tbody>
 							<!-- Tampilkan Seluruh data -->
 						</table>
-                        <!-- <div class="keterangan">
-                            <h4>Keterangan : </h4>
-                            <p>Total Kategori Spesial Yang Terorder : 
-                                <span>99</span>
-                            </p>
-                            <p>Total Kategori Standard Yang Terorder : 
-                                <span>99</span>
-                            </p>
-                            <p>Total Kategori Basic Yang Terorde : 
-                                <span>99</span>
-                            </p>
-                            <p>Total Undangan  Belum Dikerjakan : 
-                                <span>99</span>
-                            </p>
-                            <p>Total Undangan Dalam Proses Pengerjaan : 
-                                <span>99</span>
-                            </p>
-                            <p>Total Undangan Sudah Dikerjakan : 
-                                <span>99</span>
-                            </p>
-                        </div> -->
-                       <div class="keterangan">
-                            <div>
+						<div class="keterangan">
+							<div>
 								<h4>Dari Jenis Undangan Pernikahan Digital </h4>
 								<div class="row">
 									<div class="column">Total Kategori Spesial Yang Terorder</div>
-									<div class="column"> : 99</div>
+									<div class="column"> : <?= $totalRow['special'] ?></div>
 									<div class="column">Total Kategori Standard Yang Terorder</div>
-									<div class="column"> : 99</div>
+									<div class="column"> : <?= $totalRow['standard'] ?></div>
 									<div class="column">Total Kategori Basic Yang Terorder</div>
-									<div class="column"> : 99</div>
+									<div class="column"> : <?= $totalRow['basic'] ?></div>
 								</div>
 							</div>
 							<div style="margin-top: -10px;">
 								<h4>Dari Sumber Order </h4>
 								<div class="row">
 									<div class="column">Marketplace</div>
-									<div class="column"> : 99</div>
+									<div class="column"> :  <?= $totalRow['marketplace'] ?></div>
 									<div class="column">Shopee</div>
-									<div class="column"> : 99</div>
+									<div class="column"> : <?= $totalRow['shopee'] ?></div>
 									<div class="column">Lazada</div>
-									<div class="column"> : 99</div>
+									<div class="column"> : <?= $totalRow['lazada'] ?></div>
 									<div class="column">Tokopedia</div>
-									<div class="column"> : 99</div>
+									<div class="column"> : <?= $totalRow['tokopedia'] ?></div>
 								</div>
 							</div>
 							<div>
 								<h4>Keterangan : </h4>
 								<div class="row">
 									<div class="column">Total Undangan Belum Dikerjakan</div>
-									<div class="column"> : 99</div>
+									<div class="column"> : <?= $totalRow['unprocessed'] ?></div>
 									<div class="column">Total Undangan Dalam Proses Pengerjaan</div>
-									<div class="column"> : 99</div>
+									<div class="column"> : <?= $totalRow['processed'] ?></div>
 									<div class="column">Total Undangan Sudah Dikerjakan</div>
-									<div class="column"> : 99</div>
+									<div class="column"> : <?= $totalRow['finished'] ?></div>
 								</div>
 							</div>
-                       </div>
+						</div>
 					</div>
 				</div>
 			</div>

@@ -318,7 +318,38 @@ class MasterModel extends Ci_Model
 		return $this->db->get()->result();
 	}
 
-	public function getReportMonthly()
+	public function getReportMonthly($month, $years, $where = null)
 	{
+		$this->db->select("
+			t.code,
+			t.date,
+			t.source_order as source,
+			t.desc,
+			t.status,
+			c.name as customer,
+			m.name as model,
+			m.type,
+			m.category,
+			m.price,
+			a.name as admin
+		");
+		$this->db->from('transaction as t');
+		$this->db->join('customer as c', 'c.cus_id=t.cus_id');
+		$this->db->join('model_invitation as m', 'm.model_id=t.model_id');
+		$this->db->join('admin as a', 'a.admin_id=t.admin_id');
+		$this->db->where("MONTH(t.date)", $month);
+		$this->db->where("YEAR(t.date)", $years);
+		if($where) {
+			$this->db->where($where);
+		}
+		return $this->db->get()->result();
+	}
+
+	public function getCountReportData($month, $years, array $where)
+	{
+		$this->db->where("MONTH(t.date)", $month);
+		$this->db->where("YEAR(t.date)", $years);
+		$this->db->where($where);
+		return $this->db->get()->num_rows();
 	}
 }

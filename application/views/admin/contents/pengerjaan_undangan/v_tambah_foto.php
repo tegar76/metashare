@@ -74,22 +74,24 @@
 			$("#btn-tambah-foto").click(function() {
 				var jumlah = parseInt($("#jumlah-form").val());
 				var nextform = jumlah + 1;
-				$("#next-form").append(
-					'<div class="form-group mb-3">' +
-					'<label for="uploadCover">Foto Ke-' + nextform + '</label>' +
-					'<div class="input-group">' +
-					'<div class="input-group-prepend h-75">' +
-					'<span class="input-group-text">Upload</span>' +
-					'</div>' +
-					'<div class="custom-file">' +
-					'<input type="file" name="photo[]" class="custom-file-input <?= (form_error('photo[]')) ? 'is-invalid' : '' ?>" id="uploadCover">' +
-					'<label class="custom-file-label" for="uploadCover">Choose file</label>' +
-					'<div id="photo[]Feedback" class="invalid-feedback"><?= form_error('photo[]') ?></div>' +
-					'</div>' +
-					'</div>' +
-					'<p>Catatan: File max 2mb format (SVG,PNG,JPG,JPEG) </p>' +
-					'</div>'
-				);
+				if (nextform <= 8) {
+					$("#next-form").append(
+						'<div class="form-group mb-3">' +
+						'<label for="uploadCover">Foto Ke-' + nextform + '</label>' +
+						'<div class="input-group">' +
+						'<div class="input-group-prepend h-75">' +
+						'<span class="input-group-text">Upload</span>' +
+						'</div>' +
+						'<div class="custom-file">' +
+						'<input type="file" name="photo[]" class="custom-file-input <?= (form_error('photo[]')) ? 'is-invalid' : '' ?>" id="uploadCover">' +
+						'<label class="custom-file-label" for="uploadCover">Choose file</label>' +
+						'<div id="photo[]Feedback" class="invalid-feedback"><?= form_error('photo[]') ?></div>' +
+						'</div>' +
+						'</div>' +
+						'<p>Catatan: File max 2mb format (SVG,PNG,JPG,JPEG) </p>' +
+						'</div>'
+					);
+				}
 				$('#jumlah-form').val(nextform);
 			});
 			$("#btn-reset-form").click(function() {

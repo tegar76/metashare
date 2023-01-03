@@ -52,6 +52,8 @@ class GuestInvitedController extends CI_Controller
 		$data['title'] = 'Edit Tamu Undangan';
 		$data['content'] = 'admin/contents/pengerjaan_undangan/v_edit_tamu_undangan';
 		$data['guest'] = $this->db->get_where('invited_guest', ['guest_id' => $id])->row();
+		$invtId = $data['guest']->invitation_id;
+		$data['code'] = $this->db->query("SELECT code FROM invitation WHERE invitation_id='$invtId'")->row();
 		if (isset($_POST['update'])) {
 			$this->form_validation->set_rules([
 				[

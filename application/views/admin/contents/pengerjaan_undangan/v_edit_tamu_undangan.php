@@ -9,9 +9,9 @@
 				<div class="d-flex align-items-center">
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb m-0 p-0">
-							<li class="breadcrumb-item" aria-current="page"><a class="text-link" href="<?= base_url('Admin/Dashboard') ?>">Dashboard</a></li>
-							<li class="breadcrumb-item" aria-current="page"><a class="text-link" href="<?= base_url('Admin/PengerjaanUndangan') ?>">Pengerjaan undangan</a></li>
-							<li class="breadcrumb-item" aria-current="page"><a class="text-link" href="<?= base_url('Admin/PengerjaanUndangan/settingUndangan') ?>">Setting Data Undangan</a></li>
+							<li class="breadcrumb-item" aria-current="page"><a class="text-link" href="<?= base_url('admin/dasboard') ?>">Dashboard</a></li>
+							<li class="breadcrumb-item" aria-current="page"><a class="text-link" href="<?= base_url('admin/undangan') ?>">Pengerjaan undangan</a></li>
+							<li class="breadcrumb-item" aria-current="page"><a class="text-link" href="<?= base_url('admin/undangan/detail/' . $code->code) ?>">Setting Data Undangan</a></li>
 							<li class="breadcrumb-item active" aria-current="page"><?= $title ?></li>
 						</ol>
 					</nav>

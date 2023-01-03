@@ -65,12 +65,13 @@
 					</div>
 				</div>
 				<p class="text-success mb-2">Setting Data Undangan</p>
-				<div class="form-group mb-3">
-					<label for="uploadSampul">Upload Sampul <span class="text-danger">*</span></label>
-					<div class="input-group">
-						<div class="input-group-prepend h-75">
-							<span class="input-group-text">Upload</span>
-						</div>
+				<?php if ($detail->m_category == 'special') : ?>
+					<div class="form-group mb-3">
+						<label for="uploadSampul">Upload Sampul <span class="text-danger">*</span></label>
+						<div class="input-group">
+							<div class="input-group-prepend h-75">
+								<span class="input-group-text">Upload</span>
+							</div>
 						<div class="custom-file">
 							<input type="file" class="custom-file-input" id="uploadSampul">
 							<label class="custom-file-label" for="uploadCover">Choose file</label>
@@ -78,6 +79,7 @@
 					</div>
 					<p>Catatan: File max 2mb format (SVG,PNG,JPG,JPEG), rekomendasi format SVG (270 x 378 pixels) </p>
 				</div>
+				<?php endif ?>
 				<div class="form-group mb-3">
 					<label for="uploadCover">Upload Cover <span class="text-danger">*</span></label>
 					<div class="input-group">

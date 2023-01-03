@@ -103,7 +103,6 @@ class InvitationModel extends CI_Model
 	public function insertGifts($gifts, $invt_id)
 	{
 		$this->db->trans_start();
-		$result = array();
 		// check folder exists 
 		if (!is_dir('storage/invitations/gifts')) {
 			mkdir('./storage/invitations/gifts', 0777, true);
@@ -113,6 +112,7 @@ class InvitationModel extends CI_Model
 		$conf['allowed_types'] = 'gif|jpg|png|jpeg|svg';
 		$conf['max_size']      = 2000;
 		$conf['overwrite']     = TRUE;
+		$conf['encrypt_name'] = true;
 		$this->load->library('upload', $conf);
 		$qr = count($_FILES['qr_code']['name']);
 		for ($i = 0; $i < $qr; $i++) {
@@ -123,16 +123,53 @@ class InvitationModel extends CI_Model
 			$_FILES['file']['size'] 	= $_FILES['qr_code']['size'][$i];
 			if ($this->upload->do_upload('file')) {
 				$qr_code = $this->upload->data('file_name');
-				$result[] = array(
+				$result = array(
 					'name' => $_POST['name'][$i],
 					'name_bank' => $_POST['bank'][$i],
 					'number_account' => $_POST['noRek'][$i],
 					'qr_code' => $qr_code,
 					'invitation_id' => $invt_id
 				);
+				$this->db->insert('gifts', $result);
 			}
 		}
-		$this->db->insert_batch('gifts', $result);
+		$this->db->trans_complete();
+	}
+
+
+	public function updateGift()
+	{
+		$this->db->trans_start();
+		// check folder exists 
+		if (!is_dir('storage/invitations/gifts')) {
+			mkdir('./storage/invitations/gifts', 0777, true);
+		}
+
+		$gift = $this->db->get_where('gifts', array('git_id' => $this->input->post('id')))->row();
+
+		$uploadQR = $_FILES['qr_code']['name'];
+		if ($uploadQR) {
+			$conf['upload_path']   = './storage/invitations/gifts/';
+			$conf['allowed_types'] = 'gif|jpg|png|jpeg|svg';
+			$conf['max_size']      = 2000;
+			$conf['overwrite']     = TRUE;
+			$conf['encrypt_name'] = true;
+			$this->load->library('upload', $conf);
+			if ($this->upload->do_upload('qr_code')) {
+				@unlink(FCPATH . './storage/invitations/gifts/' . $gift->qr_code);
+				$qr_code = $this->upload->data('file_name');
+				$this->db->set('qr_code', $qr_code);
+			}
+		}
+
+		$update = array(
+			'name' => $this->input->post('name', true),
+			'name_bank' => $this->input->post('bank', true),
+			'number_account' => $this->input->post('noRek', true),
+		);
+
+		$this->db->set($update);
+		$this->db->where('git_id', $this->input->post('id'))->update('gifts');
 		$this->db->trans_complete();
 	}
 
@@ -140,5 +177,18 @@ class InvitationModel extends CI_Model
 	{
 		$query = $this->db->get_where('invitation', array('code' => $code));
 		return $query->row();
+	}
+
+	public function getAcaraByUndangan($type, $id)
+	{
+		if ($type == 'tasyakur') {
+			$this->db->where('title', 'Tasyakuran');
+		} else if ($type == 'akad') {
+			$this->db->where('title', 'Akad Nikah');
+		} else if ($type == 'resepsi') {
+			$this->db->where('title', 'Resepsi Pernikahan');
+		}
+		$this->db->where('invitation_id', $id);
+		return $this->db->get('wedding')->row();
 	}
 }

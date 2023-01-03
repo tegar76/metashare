@@ -9,9 +9,9 @@
 				<div class="d-flex align-items-center">
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb m-0 p-0">
-							<li class="breadcrumb-item" aria-current="page"><a class="text-link" href="<?= base_url('Admin/Dashboard') ?>">Dashboard</a></li>
-							<li class="breadcrumb-item" aria-current="page"><a class="text-link" href="<?= base_url('Admin/PengerjaanUndangan') ?>">Pengerjaan undangan</a></li>
-							<li class="breadcrumb-item" aria-current="page"><a class="text-link" href="<?= base_url('Admin/PengerjaanUndangan/settingUndangan') ?>">Setting Data Undangan</a></li>
+							<li class="breadcrumb-item" aria-current="page"><a class="text-link" href="<?= base_url('admin/dashboard') ?>">Dashboard</a></li>
+							<li class="breadcrumb-item" aria-current="page"><a class="text-link" href="<?= base_url('admin/undangan') ?>">Pengerjaan undangan</a></li>
+							<li class="breadcrumb-item" aria-current="page"><a class="text-link" href="<?= base_url('admin/undangan/detail/' . $code) ?>">Setting Data Undangan</a></li>
 							<li class="breadcrumb-item active" aria-current="page"><?= $title ?></li>
 						</ol>
 					</nav>
@@ -30,9 +30,9 @@
 		<div class="card shadow-sm px-3">
 			<form class="mt-4">
 				<div class="form-group mb-3">
-					<label for="namaLengkapPria">Link Video Prewedding <span class="text-danger">*</span></label>
+					<label for="linkVideoPrewedding">Link Video Prewedding <span class="text-danger">*</span></label>
 					<div class="input-group">
-						<input type="text" class="form-control" id="namaLengkapPria" placeholder="Masukan Link Video Yang Bersumber Dari Google Drive">
+						<input type="text" class="form-control" name="link_video" id="linkVideoPrewedding" placeholder="Masukan Link Video Yang Bersumber Dari Google Drive">
 					</div>
 				</div>
 				<div class="flex mt-4 mb-4">
@@ -42,14 +42,17 @@
 			<hr>
 			<div class="row ml-0 mt-1 mb-3">
 				<!-- Item Model -->
-				<div class="card shadow-sm border p-2 mb-3 mr-4">
-					<img class="mx-auto" src="<?= base_url('assets/img/foto_1.png') ?>" alt="Foto Galery" style="width: 200px; height:200px;">
-					<p class="mt-3 mb-2 text-dark">Foto 1</p>
-					<div class="mx-auto">
-						<a href="<?= base_url('Admin/PengerjaanUndangan/editFotoDetail') ?>" class="btn btn-sm btn-success mr-1"><i data-feather="edit" class="feather-14" data-toggle="tooltip" title="Edit" data-placement="top"></i></a>
-						<a href="<?= base_url('Admin/PengerjaanUndangan/settingUndangan') ?>" class="btn btn-sm btn-danger"><i data-feather="trash-2" class="feather-14" data-toggle="tooltip" title="Hapus" data-placement="top"></i></a>
+				<?php $nomor = 1; ?>
+				<?php foreach ($photos as $item) : ?>
+					<div class="card shadow-sm border p-2 mb-3 mr-4">
+						<img class="mx-auto" src="<?= $item['img'] ?>" alt="Foto Galery" style="width: 200px; height:200px;">
+						<p class="mt-3 mb-2 text-dark">Foto <?= $nomor++; ?> </p>
+						<div class="mx-auto">
+							<a href="<?= base_url('admin/undangan/gallery/update/' . $item['id']) ?>" class="btn btn-sm btn-success mr-1"><i data-feather="edit" class="feather-14" data-toggle="tooltip" title="Edit" data-placement="top"></i></a>
+							<a href="#" class="btn btn-sm btn-danger delete-image" id="<?= $item['id']; ?>"><i data-feather="trash-2" class="feather-14" data-toggle="tooltip" title="Hapus" data-placement="top"></i></a>
+						</div>
 					</div>
-				</div>
+				<?php endforeach ?>
 				<!-- Item Model End -->
 			</div>
 		</div>
@@ -58,3 +61,69 @@
 	<!-- End Container fluid  -->
 	<!-- ============================================================== -->
 	<!-- ============================================================== -->
+
+	<script>
+		$(document).ready(function() {
+			$('.delete-image').click(function(e) {
+				e.preventDefault();
+				var id = $(e.currentTarget).attr('id');
+				if (id == '') return;
+				Swal.fire({
+					title: "Hapus Foto",
+					text: "Anda yakin ingin menghapus foto ini!",
+					icon: "warning",
+					showCancelButton: true,
+					confirmButtonColor: "#3085d6",
+					cancelButtonColor: "#d33",
+					confirmButtonText: "Ya, Hapus!",
+				}).then((result) => {
+
+					if (result.value) {
+						$.ajax({
+							type: "POST",
+							url: BASEURL + "admin/undangan/gallery/delete",
+							data: {
+								gallery_id: id
+							},
+							beforeSend: function() {
+								swal.fire({
+									imageUrl: BASEURL + "assets/logo/rolling.png",
+									title: "Menghapus Foto",
+									text: "Silahkan Tunggu",
+									showConfirmButton: false,
+									allowOutsideClick: false,
+								});
+							},
+							success: function(data) {
+								if (data.success == false) {
+									swal.fire({
+										icon: "error",
+										title: "Menghapus Foto",
+										text: data.message,
+										showConfirmButton: false,
+										timer: 1500,
+									});
+								} else {
+									swal.fire({
+										icon: "success",
+										title: "Menghapus Foto Berhasil",
+										text: data.message,
+										showConfirmButton: false,
+										timer: 1500,
+									});
+									window.location = "<?= base_url('admin/undangan/gallery/detail?code=' . $code . '&id=') ?>" + id;
+								}
+							},
+							error: function() {
+								swal.fire(
+									"Penghapusan Foto",
+									"Anda tidak dapat menghapus foto yang masih bertugas!!",
+									"error"
+								);
+							},
+						});
+					}
+				});
+			});
+		});
+	</script>

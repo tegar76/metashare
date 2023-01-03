@@ -116,11 +116,13 @@ $route['admin/undangan'] = 'Admin/Undangan';
 $route['admin/undangan/detail/(:any)'] = 'Admin/Undangan/detail/$1';
 $route['admin/undangan/create/(:any)'] = 'Admin/Undangan/create_data_undangan/$1';
 $route['admin/undangan/update/(:any)'] = 'Admin/Undangan/update_data_undangan/$1';
+$route['admin/undangan/update_processing'] = 'Admin/Undangan/update_processing';
 
 # Routing gallery preeweding 
 $route['admin/undangan/gallery'] = 'Admin/GalleryController';
+$route['admin/undangan/gallery/detail'] = 'Admin/GalleryController/detail';
+$route['admin/undangan/gallery/delete'] = 'Admin/GalleryController/delete';
 $route['admin/undangan/gallery/create/(:any)'] = 'Admin/GalleryController/create/$1';
-$route['admin/undangan/gallery/detail/(:any)'] = 'Admin/GalleryController/detail/$1';
 $route['admin/undangan/gallery/update/(:any)'] = 'Admin/GalleryController/update/$1';
 
 # Routing Tamu Undangan
@@ -132,13 +134,15 @@ $route['admin/undangan/tamu/update/(:any)'] = 'Admin/GuestInvitedController/upda
 $route['admin/undangan/love-story'] = 'Admin/LoveStoryController';
 $route['admin/undangan/love-story/create/(:any)'] = 'Admin/LoveStoryController/create/$1';
 $route['admin/undangan/love-story/update/(:any)'] = 'Admin/LoveStoryController/update/$1';
-$route['admin/undangan/love-story/detail/(:any)'] = 'Admin/LoveStoryController/detail/$1';
+$route['admin/undangan/love-story/detail'] = 'Admin/LoveStoryController/detail';
+$route['admin/undangan/love-story/delete'] = 'Admin/LoveStoryController/delete';
 
 # Routing Berikan Hadiah
 $route['admin/undangan/gifts'] = 'Admin/GiftsController';
 $route['admin/undangan/gifts/create/(:any)'] = 'Admin/GiftsController/create/$1';
 $route['admin/undangan/gifts/update/(:any)'] = 'Admin/GiftsController/update/$1';
-$route['admin/undangan/gifts/detail/(:any)'] = 'Admin/GiftsController/detail/$1';
+$route['admin/undangan/gifts/detail'] = 'Admin/GiftsController/detail';
+$route['admin/undangan/gifts/delete'] = 'Admin/GiftsController/delete';
 
 
 // 5. Profile Admin

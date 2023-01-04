@@ -122,6 +122,7 @@ $route['admin/undangan/update_processing'] = 'Admin/Undangan/update_processing';
 $route['admin/undangan/gallery'] = 'Admin/GalleryController';
 $route['admin/undangan/gallery/detail'] = 'Admin/GalleryController/detail';
 $route['admin/undangan/gallery/delete'] = 'Admin/GalleryController/delete';
+$route['admin/undangan/gallery/update_video'] = 'Admin/GalleryController/update_video';
 $route['admin/undangan/gallery/create/(:any)'] = 'Admin/GalleryController/create/$1';
 $route['admin/undangan/gallery/update/(:any)'] = 'Admin/GalleryController/update/$1';
 
@@ -159,7 +160,11 @@ $route['wedding/(:any)/(:any)'] = 'Admin/Invitation/wedding/$1/$2';
 | ROUTING Preview Model Undangan
 | -------------------------------------------------------------------------
 */
-$route['preview'] = 'PreviewModelUndangan';
+$route['demo'] = 'Invitations/demo';
+$route['preview/(:any)'] = 'Invitations/preview/$1';
+$route['undangan/submit_message'] = 'Invitations/submit_message';
+$route['undangan/get_message'] = 'Invitations/get_message';
+$route['undangan/view_photo'] = 'Invitations/view_photo';
 $route['views'] = 'View/View';
 $route['views/(:any)'] = 'View/View/$1';
 

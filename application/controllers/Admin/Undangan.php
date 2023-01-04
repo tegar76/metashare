@@ -418,13 +418,6 @@ class Undangan extends CI_Controller
 			} else {
 				$id = $this->process_data_undangan();
 				$this->insert_acara($id);
-				$this->upload_sampul($id);
-				$this->upload_music($id);
-				if ($_POST['kategori'] == 'special') {
-					$this->upload_cover($id);
-					$this->upload_groom_img($id);
-					$this->upload_bride_img($id);
-				}
 				sweetAlert("Berhasil", "Data undangan telah diinput", "success");
 				redirect('admin/undangan/detail/' . $this->input->post('code'));
 			}
@@ -435,6 +428,87 @@ class Undangan extends CI_Controller
 	public function process_data_undangan()
 	{
 		$this->db->trans_start();
+		// config upload image
+		$confImg['upload_path']   = './storage/invitations/uploads/';
+		$confImg['allowed_types'] = 'gif|jpg|png|jpeg|svg';
+		$confImg['max_size']      = 2000;
+		$confImg['overwrite']     = true;
+		$confImg['encrypt_name'] = true;
+		$this->load->library('upload', $confImg);
+		$this->upload->initialize($confImg);
+		$this->check_storage('uploads');
+		// cek  kategori model undangan special
+		if ($_POST['kategori'] == 'special') {
+			# upload foto sampul
+			if (!empty($_FILES['cover_img']['name'][1])) {
+				$_FILES['file']['name'] = $_FILES['cover_img']['name'][1];
+				$_FILES['file']['type'] 	= $_FILES['cover_img']['type'][1];
+				$_FILES['file']['tmp_name'] = $_FILES['cover_img']['tmp_name'][1];
+				$_FILES['file']['error'] 	= $_FILES['cover_img']['error'][1];
+				$_FILES['file']['size'] 	= $_FILES['cover_img']['size'][1];
+				if ($this->upload->do_upload('file')) {
+					$upload_img = $this->upload->data();
+					$this->db->set('cover_image_1', $upload_img['file_name']);
+				}
+			}
+
+			# upload foto mempelai pria
+			$groom_img = $_FILES['groom_img']['name'];
+			if (!empty($groom_img)) {
+				if ($this->upload->do_upload('groom_img')) {
+					$dataUpload = $this->upload->data();
+					$resolution = ['width' => 500, 'height' => 500];
+					$this->compreesImage('uploads', $dataUpload['file_name'], $resolution);
+					$this->db->set('groom_img', $dataUpload['file_name']);
+				}
+			}
+
+			# upload foto mempelai wanita
+			$bride_img = $_FILES['bride_img']['name'];
+			if (isset($bride_img)) {
+				if ($this->upload->do_upload('bride_img')) {
+					$dataUpload = $this->upload->data();
+					$resolution = ['width' => 500, 'height' => 500];
+					$this->compreesImage('uploads', $dataUpload['file_name'], $resolution);
+					$this->db->set('bride_img', $dataUpload['file_name']);
+				}
+			}
+		}
+
+		# upload foto sampul
+		if (!empty($_FILES['cover_img']['name'][1])) {
+			$_FILES['file']['name'] = $_FILES['cover_img']['name'][2];
+			$_FILES['file']['type'] = $_FILES['cover_img']['type'][2];
+			$_FILES['file']['tmp_name'] = $_FILES['cover_img']['tmp_name'][2];
+			$_FILES['file']['error'] = $_FILES['cover_img']['error'][2];
+			$_FILES['file']['size'] = $_FILES['cover_img']['size'][2];
+			if ($this->upload->do_upload('file')) {
+				$upload_img = $this->upload->data();
+				$this->db->set('cover_image_2', $upload_img['file_name']);
+			}
+		}
+
+		if (isset($_FILES['music_bg']['name'])) {
+			$music = $_FILES['music_bg']['name'];
+			$config['upload_path'] = './storage/invitations/uploads/';
+			$config['allowed_types'] = 'mp3|m4a|mpg|mpeg|ogg|mp4';
+			$config['max_size'] = 0;
+			$config['file_name'] = $music;
+			$this->load->library('upload', $config);
+			$this->upload->initialize($config);
+			if (!empty($_FILES['music_bg']['name'])) {
+				$_FILES['file']['name'] = $_FILES['music_bg']['name'];
+				$_FILES['file']['type'] 	= $_FILES['music_bg']['type'];
+				$_FILES['file']['tmp_name'] = $_FILES['music_bg']['tmp_name'];
+				$_FILES['file']['error'] 	= $_FILES['music_bg']['error'];
+				$_FILES['file']['size'] 	= $_FILES['music_bg']['size'];
+				if ($this->upload->do_upload('file')) {
+					$music = $this->upload->data('file_name');
+					$this->db->set('music_bg', $music);
+				}
+			}
+		}
+
 		$slug = $_POST['groom_nickname'] . ' ' . $_POST['bride_nickname'];
 		$slug = url_title($slug, 'dash', true);
 		$data = array(
@@ -456,7 +530,8 @@ class Undangan extends CI_Controller
 			'code' => $this->input->post('code', true)
 		);
 
-		$this->db->insert('invitation', $data);
+		$this->db->set($data);
+		$this->db->insert('invitation');
 		$invitation_id = $this->db->insert_id();
 
 		// update masa aktif undangan
@@ -470,105 +545,6 @@ class Undangan extends CI_Controller
 
 		$this->db->trans_complete();
 		return $invitation_id;
-	}
-
-	public function upload_cover($id)
-	{
-		$cover_img = $_FILES['cover_img']['name'][1];
-		if (isset($cover_img)) {
-			$this->imageConf('uploads');
-			$this->check_storage('uploads');
-			if (!empty($_FILES['cover_img']['name'][1])) {
-				$_FILES['file']['name'] = $_FILES['cover_img']['name'][1];
-				$_FILES['file']['type'] 	= $_FILES['cover_img']['type'][1];
-				$_FILES['file']['tmp_name'] = $_FILES['cover_img']['tmp_name'][1];
-				$_FILES['file']['error'] 	= $_FILES['cover_img']['error'][1];
-				$_FILES['file']['size'] 	= $_FILES['cover_img']['size'][1];
-				if ($this->upload->do_upload('file')) {
-					$upload_img = $this->upload->data();
-					$this->db->set('cover_image_1', $upload_img['file_name']);
-					$this->db->where('invitation_id', $id);
-					$this->db->update('invitation');
-				}
-			}
-		}
-	}
-
-	public function upload_sampul($id)
-	{
-		$cover_img = $_FILES['cover_img']['name'][2];
-		if (isset($cover_img)) {
-			$this->imageConf('uploads');
-			$this->check_storage('uploads');
-			if (!empty($_FILES['cover_img']['name'][1])) {
-				$_FILES['file']['name'] = $_FILES['cover_img']['name'][2];
-				$_FILES['file']['type'] = $_FILES['cover_img']['type'][2];
-				$_FILES['file']['tmp_name'] = $_FILES['cover_img']['tmp_name'][2];
-				$_FILES['file']['error'] = $_FILES['cover_img']['error'][2];
-				$_FILES['file']['size'] = $_FILES['cover_img']['size'][2];
-				if ($this->upload->do_upload('file')) {
-					$upload_img = $this->upload->data();
-					$this->db->set('cover_image_2', $upload_img['file_name']);
-					$this->db->where('invitation_id', $id);
-					$this->db->update('invitation');
-				}
-			}
-		}
-	}
-
-	public function upload_music($id)
-	{
-		$music_bg = $_FILES['music_bg']['name'];
-		if (isset($music_bg)) {
-			$this->imageConf('uploads');
-			if (!empty($_FILES['music_bg']['name'])) {
-				$_FILES['file']['name']	= $_FILES['music_bg']['name'];
-				$_FILES['file']['type']	= $_FILES['music_bg']['type'];
-				$_FILES['file']['tmp_name']	= $_FILES['music_bg']['tmp_name'];
-				$_FILES['file']['error'] = $_FILES['music_bg']['error'];
-				$_FILES['file']['size'] = $_FILES['music_bg']['size'];
-				if ($this->upload->do_upload('file')) {
-					$music = $this->upload->data('file_name');
-					$this->db->set('music_bg', $music);
-					$this->db->where('invitation_id', $id);
-					$this->db->update('invitation');
-				}
-			}
-		}
-	}
-
-	public function upload_groom_img($id)
-	{
-		$groom_img = $_FILES['groom_img']['name'];
-		if (isset($groom_img)) {
-			$this->imageConf('uploads');
-			$this->check_storage('uploads');
-			if ($this->upload->do_upload('groom_img')) {
-				$dataUpload = $this->upload->data();
-				$resolution = ['width' => 500, 'height' => 500];
-				$this->compreesImage('uploads', $dataUpload['file_name'], $resolution);
-				$this->db->set('groom_img', $dataUpload['file_name']);
-				$this->db->where('invitation_id', $id);
-				$this->db->update('invitation');
-			}
-		}
-	}
-
-	public function upload_bride_img($id)
-	{
-		$bride_img = $_FILES['bride_img']['name'];
-		if (isset($bride_img)) {
-			$this->imageConf('uploads');
-			$this->check_storage('uploads');
-			if ($this->upload->do_upload('bride_img')) {
-				$dataUpload = $this->upload->data();
-				$resolution = ['width' => 500, 'height' => 500];
-				$this->compreesImage('uploads', $dataUpload['file_name'], $resolution);
-				$this->db->set('bride_img', $dataUpload['file_name']);
-				$this->db->where('invitation_id', $id);
-				$this->db->update('invitation');
-			}
-		}
 	}
 
 	public function insert_acara($id)
@@ -941,31 +917,35 @@ class Undangan extends CI_Controller
 		$this->db->trans_start();
 		$code = $this->input->post('code');
 		$dataInvt = $this->invitation->getDataUndanganByCode($code);
+
+		// config upload image
+		$confImg['upload_path']   = './storage/invitations/uploads/';
+		$confImg['allowed_types'] = 'gif|jpg|png|jpeg|svg';
+		$confImg['max_size']      = 2000;
+		$confImg['overwrite']     = true;
+		$confImg['encrypt_name'] = true;
+		$this->load->library('upload', $confImg);
+		$this->upload->initialize($confImg);
+		$this->check_storage('uploads');
 		// aksi upload cover dan sampul
 		if ($_POST['kategori'] == 'special') {
-			if (isset($_FILES['cover_img_update']['name'][1])) {
-				$this->imageConf('uploads');
-				$this->check_storage('uploads');
-				if (!empty($_FILES['cover_img_update']['name'][1])) {
-					$_FILES['file']['name'] = $_FILES['cover_img_update']['name'][1];
-					$_FILES['file']['type'] 	= $_FILES['cover_img_update']['type'][1];
-					$_FILES['file']['tmp_name'] = $_FILES['cover_img_update']['tmp_name'][1];
-					$_FILES['file']['error'] 	= $_FILES['cover_img_update']['error'][1];
-					$_FILES['file']['size'] 	= $_FILES['cover_img_update']['size'][1];
-					if ($this->upload->do_upload('file')) {
-						if ($dataInvt->cover_image_1 != 'cover_image_1.svg	') {
-							@unlink(FCPATH . './storage/invitations/uploads/' . $dataInvt->cover_image_1);
-						}
-						$new_cover = $this->upload->data('file_name');
-						$this->db->set('cover_image_1', $new_cover);
+			if (!empty($_FILES['cover_img_update']['name'][1])) {
+				$_FILES['file']['name'] = $_FILES['cover_img_update']['name'][1];
+				$_FILES['file']['type'] 	= $_FILES['cover_img_update']['type'][1];
+				$_FILES['file']['tmp_name'] = $_FILES['cover_img_update']['tmp_name'][1];
+				$_FILES['file']['error'] 	= $_FILES['cover_img_update']['error'][1];
+				$_FILES['file']['size'] 	= $_FILES['cover_img_update']['size'][1];
+				if ($this->upload->do_upload('file')) {
+					if ($dataInvt->cover_image_1 != 'cover_image_1.svg	') {
+						@unlink(FCPATH . './storage/invitations/uploads/' . $dataInvt->cover_image_1);
 					}
+					$new_cover = $this->upload->data('file_name');
+					$this->db->set('cover_image_1', $new_cover);
 				}
 			}
 
 			// aksi upload foto mempelai pria
-			if (isset($_FILES['groom_img_update']['name'])) {
-				$this->imageConf('uploads');
-				$this->check_storage('uploads');
+			if (!empty($_FILES['groom_img_update']['name'])) {
 				if ($this->upload->do_upload('groom_img_update')) {
 					if ($dataInvt->groom_img != 'groom_img.png') {
 						@unlink(FCPATH . './storage/invitations/uploads/' . $dataInvt->groom_img);
@@ -978,9 +958,7 @@ class Undangan extends CI_Controller
 			}
 
 			// aksi upload foto mempelai wanita
-			if (isset($_FILES['bride_img_update']['name'])) {
-				$this->imageConf('uploads');
-				$this->check_storage('uploads');
+			if (!empty($_FILES['bride_img_update']['name'])) {
 				if ($this->upload->do_upload('bride_img_update')) {
 					if ($dataInvt->bride_img != 'bride_img.png') {
 						@unlink(FCPATH . './storage/invitations/uploads/' . $dataInvt->bride_img);
@@ -993,22 +971,18 @@ class Undangan extends CI_Controller
 			}
 		}
 
-		if (isset($_FILES['cover_img_update'])) {
-			$this->imageConf('uploads');
-			$this->check_storage('uploads');
-			if (!empty($_FILES['cover_img_update']['name'][2])) {
-				$_FILES['file']['name'] = $_FILES['cover_img_update']['name'][2];
-				$_FILES['file']['type'] = $_FILES['cover_img_update']['type'][2];
-				$_FILES['file']['tmp_name'] = $_FILES['cover_img_update']['tmp_name'][2];
-				$_FILES['file']['error'] = $_FILES['cover_img_update']['error'][2];
-				$_FILES['file']['size']	= $_FILES['cover_img_update']['size'][2];
-				if ($this->upload->do_upload('file')) {
-					if ($dataInvt->cover_image_2 != 'cover_image_2.svg') {
-						@unlink(FCPATH . './storage/invitations/uploads/' . $dataInvt->cover_image_2);
-					}
-					$new_cover = $this->upload->data('file_name');
-					$this->db->set('cover_image_2', $new_cover);
+		if (!empty($_FILES['cover_img_update']['name'][2])) {
+			$_FILES['file']['name'] = $_FILES['cover_img_update']['name'][2];
+			$_FILES['file']['type'] = $_FILES['cover_img_update']['type'][2];
+			$_FILES['file']['tmp_name'] = $_FILES['cover_img_update']['tmp_name'][2];
+			$_FILES['file']['error'] = $_FILES['cover_img_update']['error'][2];
+			$_FILES['file']['size']	= $_FILES['cover_img_update']['size'][2];
+			if ($this->upload->do_upload('file')) {
+				if ($dataInvt->cover_image_2 != 'cover_image_2.svg') {
+					@unlink(FCPATH . './storage/invitations/uploads/' . $dataInvt->cover_image_2);
 				}
+				$new_cover = $this->upload->data('file_name');
+				$this->db->set('cover_image_2', $new_cover);
 			}
 		}
 
@@ -1020,6 +994,7 @@ class Undangan extends CI_Controller
 			$config['max_size'] = 0;
 			$config['file_name'] = $music;
 			$this->load->library('upload', $config);
+			$this->upload->initialize($config);
 			if (!empty($_FILES['music_bg_update']['name'])) {
 				$_FILES['file']['name'] = $_FILES['music_bg_update']['name'];
 				$_FILES['file']['type'] 	= $_FILES['music_bg_update']['type'];
@@ -1120,9 +1095,9 @@ class Undangan extends CI_Controller
 	public function update_processing()
 	{
 		$desc = $this->input->post('desc', true);
-		if($desc == 1) {
+		if ($desc == 1) {
 			$this->db->set('desc', 2);
-		} elseif($desc == 2) {
+		} elseif ($desc == 2) {
 			$this->db->set('desc', 1);
 		}
 		$this->db->where('code', $this->input->post('code', true));
@@ -1140,11 +1115,12 @@ class Undangan extends CI_Controller
 	public function imageConf($dirName = null)
 	{
 		$conf['upload_path']   = './storage/invitations/' . $dirName . '/';
-		$conf['allowed_types'] = 'gif|jpg|png|jpeg|svg|mp3|m4a';
+		$conf['allowed_types'] = 'gif|jpg|png|jpeg|svg';
 		$conf['max_size']      = 2000;
 		$conf['overwrite']     = true;
 		$conf['encrypt_name'] = true;
 		$this->load->library('upload', $conf);
+		$this->image_lib->initialize($conf);
 	}
 
 	public function compreesImage($dirName, $fileName, $resolution)

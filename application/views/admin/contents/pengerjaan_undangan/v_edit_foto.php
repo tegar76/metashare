@@ -28,15 +28,17 @@
 	<div class="container-fluid">
 		<!-- Looping Card -->
 		<div class="card shadow-sm px-3">
-			<form class="mt-4">
+			<form action="<?= site_url('admin/undangan/gallery/update_video') ?>" method="POST" class="mt-4">
+			<input type="hidden" name="id" value="<?= $videos->id; ?>">
+			<input type="hidden" name="code" value="<?= $code ?>">
 				<div class="form-group mb-3">
 					<label for="linkVideoPrewedding">Link Video Prewedding <span class="text-danger">*</span></label>
 					<div class="input-group">
-						<input type="text" class="form-control" name="link_video" id="linkVideoPrewedding" placeholder="Masukan Link Video Yang Bersumber Dari Google Drive">
+						<input type="text" class="form-control" name="link_video" id="linkVideoPrewedding" placeholder="Masukan Link Video Yang Bersumber Dari Google Drive" value="<?= $videos->link ?>" required>
 					</div>
 				</div>
 				<div class="flex mt-4 mb-4">
-					<button type="submit" class="btn btn-sm btn-success px-3 py-2 mr-3">Update</button>
+					<button type="submit" name="update_video" class="btn btn-sm btn-success px-3 py-2 mr-3">Update</button>
 				</div>
 			</form>
 			<hr>

@@ -41,7 +41,7 @@ class InvitationModel extends CI_Model
 
 	public function getPhotoPreWedding($id)
 	{
-		$this->db->where('invitaion_id', $id);
+		$this->db->where('invitation_id', $id);
 		return $this->db->get('photo_gallery')->result();
 	}
 
@@ -190,5 +190,20 @@ class InvitationModel extends CI_Model
 		}
 		$this->db->where('invitation_id', $id);
 		return $this->db->get('wedding')->row();
+	}
+
+	public function getDesignUndangan($code)
+	{
+		$this->db->select('
+			design.name,
+			design.view_model as view,
+			design.category,
+			design.type,
+			trans.active
+		');
+		$this->db->from('model_invitation as design');
+		$this->db->join('transaction as trans', 'trans.model_id=design.model_id');
+		$this->db->where('code', $code);
+		return $this->db->get()->row();
 	}
 }

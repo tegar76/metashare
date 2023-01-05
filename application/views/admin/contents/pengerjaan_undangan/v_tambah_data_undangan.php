@@ -68,20 +68,25 @@
 
 			<!-- Setting Data Undangan -->
 			<p class="text-success mb-2">Setting Data Undangan</p>
-			<div class="form-group mb-3">
-				<label for="uploadSampul">Upload Sampul <span class="text-danger">*</span></label>
-				<div class="input-group">
-					<div class="input-group-prepend h-75">
-						<span class="input-group-text">Upload</span>
+
+			<!-- Upload foto sampul -->
+			<?php if ($detail->m_category == 'special') : ?>
+				<!-- TRUE -->
+				<div class="form-group mb-3">
+					<label for="uploadSampul">Upload Sampul <span class="text-danger">*</span></label>
+					<div class="input-group">
+						<div class="input-group-prepend h-75">
+							<span class="input-group-text">Upload</span>
+						</div>
+						<div class="custom-file">
+							<input type="file" name="cover_img[1]" class="custom-file-input <?= (form_error('cover_img[1]')) ? 'is-invalid' : '' ?>" id="uploadSampul" accept="image/*">
+							<label class="custom-file-label" for="uploadSampul">Choose file</label>
+							<div class="invalid-feedback"><?= form_error('cover_img[1]') ?></div>
+						</div>
 					</div>
-					<div class="custom-file">
-						<input type="file" name="cover_img[1]" class="custom-file-input <?= (form_error('cover_img[1]')) ? 'is-invalid' : '' ?>" id="uploadSampul" accept="image/*">
-						<label class="custom-file-label" for="uploadSampul">Choose file</label>
-						<div class="invalid-feedback"><?= form_error('cover_img[1]') ?></div>
-					</div>
+					<p>Catatan: File max 2mb format (SVG,PNG,JPG,JPEG), rekomendasi format SVG (270 x 378 pixels) </p>
 				</div>
-				<p>Catatan: File max 2mb format (SVG,PNG,JPG,JPEG), rekomendasi format SVG (270 x 378 pixels) </p>
-			</div>
+			<?php endif ?>
 			<div class="form-group mb-3">
 				<label for="uploadCover">Upload Cover <span class="text-danger">*</span></label>
 				<div class="input-group">
@@ -177,20 +182,24 @@
 					</div>
 				</div>
 			</div>
-			<div class="form-group mb-3">
-				<label for="uploadFotoMempelaiPria">Upload Foto Mempelai Pria <span class="text-danger">*</span></label>
-				<div class="input-group">
-					<div class="input-group-prepend h-75">
-						<span class="input-group-text">Upload</span>
+
+			<!-- upload foto mempelai pria -->
+			<?php if ($detail->m_category == 'special') : ?>
+				<div class="form-group mb-3">
+					<label for="uploadFotoMempelaiPria">Upload Foto Mempelai Pria <span class="text-danger">*</span></label>
+					<div class="input-group">
+						<div class="input-group-prepend h-75">
+							<span class="input-group-text">Upload</span>
+						</div>
+						<div class="custom-file">
+							<input type="file" name="groom_img" class="custom-file-input <?= (form_error('groom_img')) ? 'is-invalid' : '' ?>" id="uploadFotoMempelaiPria" accept="image/*">
+							<label class="custom-file-label">Choose file</label>
+							<div class="invalid-feedback"><?= form_error('groom_img') ?></div>
+						</div>
 					</div>
-					<div class="custom-file">
-						<input type="file" name="groom_img" class="custom-file-input <?= (form_error('groom_img')) ? 'is-invalid' : '' ?>" id="uploadFotoMempelaiPria" accept="image/*">
-						<label class="custom-file-label">Choose file</label>
-						<div class="invalid-feedback"><?= form_error('groom_img') ?></div>
-					</div>
+					<p>*File max 2mb dengan format PNG,JPEG,JPG </p>
 				</div>
-				<p>*File max 2mb dengan format PNG,JPEG,JPG </p>
-			</div>
+			<?php endif ?>
 			<p class="text-primary mb-2">Setting Data Mempelai Wanita</p>
 			<div class="row">
 				<div class="col-6 form-group mb-3">
@@ -226,9 +235,9 @@
 			</div>
 			<div class="row">
 				<div class="col-6 form-group mb-3">
-					<label for="putraKeWanita">Putra Ke- <span class="text-danger">*</span></label>
+					<label for="putriKeWanita">Putri Ke- <span class="text-danger">*</span></label>
 					<div class="input-group">
-						<input type="text" name="bride_daughter" class="form-control <?= (form_error('bride_daughter')) ? 'is-invalid' : '' ?>" value="<?= (set_value('bride_daughter')) ? set_value('bride_daughter') : '' ?>" id="putraKeWanita" placeholder="Masukan Putra Ke- (Berupa Huruf)">
+						<input type="text" name="bride_daughter" class="form-control <?= (form_error('bride_daughter')) ? 'is-invalid' : '' ?>" value="<?= (set_value('bride_daughter')) ? set_value('bride_daughter') : '' ?>" id="putriKeWanita" placeholder="Masukan Putra Ke- (Berupa Huruf)">
 						<div id="bride_daughterFeedback" class="invalid-feedback"><?= form_error('bride_daughter') ?></div>
 					</div>
 					<p class="mb-0">Contoh Penulisan: Kesatu</p>
@@ -241,20 +250,23 @@
 					</div>
 				</div>
 			</div>
-			<div class="form-group mb-3">
-				<label for="uploadFotoMempelaiWanita">Upload Foto Mempelai Wanita <span class="text-danger">*</span></label>
-				<div class="input-group">
-					<div class="input-group-prepend h-75">
-						<span class="input-group-text">Upload</span>
+
+			<?php if ($detail->m_category == 'special') : ?>
+				<div class="form-group mb-3">
+					<label for="uploadFotoMempelaiWanita">Upload Foto Mempelai Wanita <span class="text-danger">*</span></label>
+					<div class="input-group">
+						<div class="input-group-prepend h-75">
+							<span class="input-group-text">Upload</span>
+						</div>
+						<div class="custom-file">
+							<input type="file" name="bride_img" class="custom-file-input <?= (form_error('bride_img')) ? 'is-invalid' : '' ?>" id="uploadFotoMempelaiWanita" accept="image/*">
+							<label class="custom-file-label">Choose file</label>
+							<div class="invalid-feedback"><?= form_error('bride_img') ?></div>
+						</div>
 					</div>
-					<div class="custom-file">
-						<input type="file" name="bride_img" class="custom-file-input <?= (form_error('bride_img')) ? 'is-invalid' : '' ?>" id="uploadFotoMempelaiWanita" accept="image/*">
-						<label class="custom-file-label">Choose file</label>
-						<div class="invalid-feedback"><?= form_error('bride_img') ?></div>
-					</div>
+					<p>*File max 2mb dengan format PNG,JPEG,JPG </p>
 				</div>
-				<p>*File max 2mb dengan format PNG,JPEG,JPG </p>
-			</div>
+			<?php endif ?>
 			<p class="text-primary mb-2">Setting Waktu Pelaksanaan Tasyakuran</p>
 			<div class="row">
 				<div class="col-6 form-group mb-3">
@@ -367,10 +379,10 @@
 				</div>
 				<div class="col-6 form-group mb-3">
 					<label for="jamMasaAktif">Jam <span class="text-danger">*</span></label>
-					<!-- <div class="input-group"> -->
-					<input type="time" name="active_time" class="form-control <?= (form_error('active_time')) ? 'is-invalid' : '' ?>" value="<?= (set_value('active_time')) ? set_value('active_time') : '' ?>" id="jamMasaAktif">
-					<div id="active_timeFeedback" class="invalid-feedback"><?= form_error('active_time') ?></div>
-					<!-- </div> -->
+					<div class="input-group">
+						<input type="time" name="active_time" class="form-control <?= (form_error('active_time')) ? 'is-invalid' : '' ?>" value="<?= (set_value('active_time')) ? set_value('active_time') : '' ?>" id="jamMasaAktif">
+						<div id="active_timeFeedback" class="invalid-feedback"><?= form_error('active_time') ?></div>
+					</div>
 				</div>
 			</div>
 			<div class="flex mt-3 mb-4">

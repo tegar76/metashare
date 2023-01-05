@@ -2,7 +2,6 @@
 
 class Undangan extends CI_Controller
 {
-
 	public function __construct()
 	{
 		parent::__construct();
@@ -44,7 +43,7 @@ class Undangan extends CI_Controller
 
 		$data['title'] = 'Pengerjaan Undangan';
 		$data['content'] = 'admin/contents/pengerjaan_undangan/v_pengerjaan_undangan';
-		$this->load->view('admin/layouts/wrapper', $data, FALSE);
+		$this->load->view('admin/layouts/wrapper', $data, false);
 	}
 
 	public function detail($code = false)
@@ -71,6 +70,7 @@ class Undangan extends CI_Controller
 			if (!empty($invt)) {
 				// jika sudah ada, maka akan menampilkan data tamu undangan
 				$guest = $this->invitation->getInvitedGuest($invt->id);
+				$data['invtId'] = $invt->id;
 				$data['guest'] = array();
 				if ($guest) {
 					$no = 1;
@@ -86,12 +86,13 @@ class Undangan extends CI_Controller
 				}
 			} else {
 				// jika belum, maka akan data tamu undangan masih kosong
+				$data['invtId'] = null;
 				$data['guest'] = array();
 			}
 			$data['title'] = 'Setting Undangan';
 			$data['content'] = 'admin/contents/pengerjaan_undangan/v_setting_undangan';
 		}
-		$this->load->view('admin/layouts/wrapper', $data, FALSE);
+		$this->load->view('admin/layouts/wrapper', $data, false);
 	}
 
 	public function create_data_undangan($code = false)
@@ -103,10 +104,12 @@ class Undangan extends CI_Controller
 		if ($check->num_rows() > 0) {
 			sweetAlert("Peringatan", "Data undangan sudah diinput", "warning");
 			redirect('admin/undangan/detail/' . $this->input->post('code'));
+			die;
 		} else {
-			// Validasi Upload Sampul
-			if (empty($_FILES['cover_img']['name'][1])) {
-				$this->form_validation->set_rules('cover_img[1]', 'Foto Sampul', 'required', ['required' => 'Anda harus upload {field}']);
+			if ($data['detail']->m_category == 'special') {
+				if (empty($_FILES['cover_img']['name'][1])) {
+					$this->form_validation->set_rules('cover_img[1]', 'Foto Sampul', 'required', ['required' => 'Anda harus upload {field}']);
+				}
 			}
 
 			// Validasi Upload Cover
@@ -117,16 +120,6 @@ class Undangan extends CI_Controller
 			// Validasi Upload Cover
 			if (empty($_FILES['music_bg']['name'])) {
 				$this->form_validation->set_rules('music_bg', 'Music', 'required', ['required' => 'Anda harus upload {field}']);
-			}
-
-			// Validasi foto mempelai pria
-			if (empty($_FILES['groom_img']['name'])) {
-				$this->form_validation->set_rules('groom_img', 'Foto Mempelai Pria', 'required', ['required' => 'Anda harus upload {field}']);
-			}
-
-			// validasi foto mempelai wanita
-			if (empty($_FILES['bride_img']['name'])) {
-				$this->form_validation->set_rules('bride_img', 'Foto Mempelai Wanita', 'required', ['required' => 'Anda harus upload {field}']);
 			}
 
 			$this->form_validation->set_rules([
@@ -421,26 +414,32 @@ class Undangan extends CI_Controller
 
 			]);
 			if ($this->form_validation->run() == false) {
-				$this->load->view('admin/layouts/wrapper', $data, FALSE);
+				$this->load->view('admin/layouts/wrapper', $data, false);
 			} else {
-
 				$id = $this->process_data_undangan();
 				$this->insert_acara($id);
 				sweetAlert("Berhasil", "Data undangan telah diinput", "success");
 				redirect('admin/undangan/detail/' . $this->input->post('code'));
 			}
 		}
-		$this->load->view('admin/layouts/wrapper', $data, FALSE);
+		$this->load->view('admin/layouts/wrapper', $data, false);
 	}
 
 	public function process_data_undangan()
 	{
 		$this->db->trans_start();
-		// aksi upload cover dan sampul
-		$cover_img = $_FILES['cover_img']['name'][1];
-		if ($cover_img) {
-			$this->imageConf('images');
-			$this->check_storage('images');
+		// config upload image
+		$confImg['upload_path']   = './storage/invitations/uploads/';
+		$confImg['allowed_types'] = 'gif|jpg|png|jpeg|svg';
+		$confImg['max_size']      = 2000;
+		$confImg['overwrite']     = true;
+		$confImg['encrypt_name'] = true;
+		$this->load->library('upload', $confImg);
+		$this->upload->initialize($confImg);
+		$this->check_storage('uploads');
+		// cek  kategori model undangan special
+		if ($_POST['kategori'] == 'special') {
+			# upload foto sampul
 			if (!empty($_FILES['cover_img']['name'][1])) {
 				$_FILES['file']['name'] = $_FILES['cover_img']['name'][1];
 				$_FILES['file']['type'] 	= $_FILES['cover_img']['type'][1];
@@ -452,34 +451,51 @@ class Undangan extends CI_Controller
 					$this->db->set('cover_image_1', $upload_img['file_name']);
 				}
 			}
-		}
 
-		$cover_img = $_FILES['cover_img']['name'][2];
-		if ($cover_img) {
-			$this->imageConf('images');
-			$this->check_storage('images');
-			if (!empty($_FILES['cover_img']['name'][1])) {
-				$_FILES['file']['name'] = $_FILES['cover_img']['name'][2];
-				$_FILES['file']['type'] 	= $_FILES['cover_img']['type'][2];
-				$_FILES['file']['tmp_name'] = $_FILES['cover_img']['tmp_name'][2];
-				$_FILES['file']['error'] 	= $_FILES['cover_img']['error'][2];
-				$_FILES['file']['size'] 	= $_FILES['cover_img']['size'][2];
-				if ($this->upload->do_upload('file')) {
-					$upload_img = $this->upload->data();
-					$this->db->set('cover_image_2', $upload_img['file_name']);
+			# upload foto mempelai pria
+			$groom_img = $_FILES['groom_img']['name'];
+			if (!empty($groom_img)) {
+				if ($this->upload->do_upload('groom_img')) {
+					$dataUpload = $this->upload->data();
+					$resolution = ['width' => 500, 'height' => 500];
+					$this->compreesImage('uploads', $dataUpload['file_name'], $resolution);
+					$this->db->set('groom_img', $dataUpload['file_name']);
+				}
+			}
+
+			# upload foto mempelai wanita
+			$bride_img = $_FILES['bride_img']['name'];
+			if (isset($bride_img)) {
+				if ($this->upload->do_upload('bride_img')) {
+					$dataUpload = $this->upload->data();
+					$resolution = ['width' => 500, 'height' => 500];
+					$this->compreesImage('uploads', $dataUpload['file_name'], $resolution);
+					$this->db->set('bride_img', $dataUpload['file_name']);
 				}
 			}
 		}
 
-		// aksi upload backgroun music
-		$music_bg = $_FILES['music_bg']['name'];
-		if ($music_bg) {
-			$config['upload_path'] = './storage/invitations/music/';
-			$config['allowed_types'] = 'mp3';
-			$config['max_size'] = 50000;
-			$config['file_name'] = $music_bg;
-			$this->check_storage('music');
+		# upload foto sampul
+		if (!empty($_FILES['cover_img']['name'][1])) {
+			$_FILES['file']['name'] = $_FILES['cover_img']['name'][2];
+			$_FILES['file']['type'] = $_FILES['cover_img']['type'][2];
+			$_FILES['file']['tmp_name'] = $_FILES['cover_img']['tmp_name'][2];
+			$_FILES['file']['error'] = $_FILES['cover_img']['error'][2];
+			$_FILES['file']['size'] = $_FILES['cover_img']['size'][2];
+			if ($this->upload->do_upload('file')) {
+				$upload_img = $this->upload->data();
+				$this->db->set('cover_image_2', $upload_img['file_name']);
+			}
+		}
+
+		if (isset($_FILES['music_bg']['name'])) {
+			$music = $_FILES['music_bg']['name'];
+			$config['upload_path'] = './storage/invitations/uploads/';
+			$config['allowed_types'] = 'mp3|m4a|mpg|mpeg|ogg|mp4';
+			$config['max_size'] = 0;
+			$config['file_name'] = $music;
 			$this->load->library('upload', $config);
+			$this->upload->initialize($config);
 			if (!empty($_FILES['music_bg']['name'])) {
 				$_FILES['file']['name'] = $_FILES['music_bg']['name'];
 				$_FILES['file']['type'] 	= $_FILES['music_bg']['type'];
@@ -490,32 +506,6 @@ class Undangan extends CI_Controller
 					$music = $this->upload->data('file_name');
 					$this->db->set('music_bg', $music);
 				}
-			}
-		}
-
-		// aksi upload foto mempelai pria
-		$groom_img = $_FILES['groom_img']['name'];
-		if ($groom_img) {
-			$this->imageConf('images');
-			$this->check_storage('images');
-			if ($this->upload->do_upload('groom_img')) {
-				$dataUpload = $this->upload->data();
-				$resolution = ['width' => 500, 'height' => 500];
-				$this->compreesImage('images', $dataUpload['file_name'], $resolution);
-				$this->db->set('groom_img',  $dataUpload['file_name']);
-			}
-		}
-
-		// aksi upload foto mempelai wanita
-		$bride_img = $_FILES['bride_img']['name'];
-		if ($bride_img) {
-			$this->imageConf('images');
-			$this->check_storage('images');
-			if ($this->upload->do_upload('bride_img')) {
-				$dataUpload = $this->upload->data();
-				$resolution = ['width' => 500, 'height' => 500];
-				$this->compreesImage('images', $dataUpload['file_name'], $resolution);
-				$this->db->set('bride_img',  $dataUpload['file_name']);
 			}
 		}
 
@@ -540,7 +530,8 @@ class Undangan extends CI_Controller
 			'code' => $this->input->post('code', true)
 		);
 
-		$this->db->insert('invitation', $data);
+		$this->db->set($data);
+		$this->db->insert('invitation');
 		$invitation_id = $this->db->insert_id();
 
 		// update masa aktif undangan
@@ -559,7 +550,6 @@ class Undangan extends CI_Controller
 	public function insert_acara($id)
 	{
 		$this->db->trans_start();
-		
 		$acara = $this->input->post();
 		if ($acara['tanggalAcara']['tasyakur']) {
 			$tasyakur = array(
@@ -571,6 +561,7 @@ class Undangan extends CI_Controller
 				'invitation_id' => $id
 			);
 			$this->db->set($tasyakur);
+			$this->db->insert('wedding');
 		}
 
 		if ($acara['tanggalAcara']['akad']) {
@@ -583,6 +574,7 @@ class Undangan extends CI_Controller
 				'invitation_id' => $id
 			);
 			$this->db->set($akad);
+			$this->db->insert('wedding');
 		}
 
 		if ($acara['tanggalAcara']['resepsi']) {
@@ -595,351 +587,540 @@ class Undangan extends CI_Controller
 				'invitation_id' => $id
 			);
 			$this->db->set($resepsi);
+			$this->db->insert('wedding');
 		}
-		$this->db->insert('wedding');
 		$this->db->trans_complete();
 	}
 
 	public function update_data_undangan($code)
 	{
-		$data['title'] = 'Edit Data Undangan';
-		$data['content'] = 'admin/contents/pengerjaan_undangan/v_edit_data_undangan';
-		$data['invt'] = $this->invitation->getDataUndanganByCode($code);
-		$data['detail'] = $this->master->getDetailPenugasan($code);
-		// var_dump($data);
-		// die;
-		if (isset($_POST['update'])) {
-			if (empty($_FILES['cover_img_update']['name'][1])) {
-				$this->form_validation->set_rules('cover_img_update[1]', 'Foto Sampul', 'required', ['required' => 'Anda harus upload {field}']);
+		$check = $this->db->get_where('invitation', ['code' => $code]);
+		if (empty($check->num_rows())) {
+			sweetAlert("Peringatan", "Data undangan belum diinput", "warning");
+			redirect('admin/undangan/detail/' . $code);
+			die;
+		} else {
+			$data['title'] = 'Edit Data Undangan';
+			$data['content'] = 'admin/contents/pengerjaan_undangan/v_update_data_undangan';
+			$data['invt'] = $this->invitation->getDataUndanganByCode($code);
+			$data['detail'] = $this->master->getDetailPenugasan($code);
+			$data['acara_tasyakur'] = $this->invitation->getAcaraByUndangan('tasyakur', $data['invt']->invitation_id);
+			$data['acara_akad'] = $this->invitation->getAcaraByUndangan('akad', $data['invt']->invitation_id);
+			$data['acara_resepsi'] = $this->invitation->getAcaraByUndangan('resepsi', $data['invt']->invitation_id);
+			if (isset($_POST['update'])) {
+				$this->form_validation->set_rules([
+					// Validasi Nama Panggilan Mempelai Pria dan Wanita
+					[
+						'field' => 'groom_nickname_update',
+						'label' => 'Nama Panggilan Mempelai Pria',
+						'rules' => 'trim|required|xss_clean|max_length[15]',
+						'errors' => [
+							'required' => '{field} harus diisi',
+							'xss_clean' => 'cek kembali pada {field}',
+							'max_length' => '{field} terlalu panjang (maksimal 15 karakter)',
+						]
+					],
+					[
+						'field' => 'bride_nickname_update',
+						'label' => 'Nama Panggilan Mempelai Wanita',
+						'rules' => 'trim|required|xss_clean|max_length[15]',
+						'errors' => [
+							'required' => '{field} harus diisi',
+							'xss_clean' => 'cek kembali pada {field}',
+							'max_length' => '{field} terlalu panjang (maksimal 15 karakter)',
+						]
+					],
+					// Validasi Data Mempelai Pria
+					[
+						'field' => 'groom_name_update',
+						'label' => 'Nama Mempelai Pria',
+						'rules' => 'trim|required|xss_clean|max_length[45]',
+						'errors' => [
+							'required' => '{field} harus diisi',
+							'xss_clean' => 'cek kembali pada {field}',
+							'max_length' => '{field} terlalu panjang (maksimal 45 karakter)',
+						]
+					],
+					[
+						'field' => 'groom_address_update',
+						'label' => 'Alamat Mempelai Pria',
+						'rules' => 'trim|required|xss_clean|max_length[75]|min_length[8]',
+						'errors' => [
+							'required' => '{field} harus diisi',
+							'xss_clean' => 'cek kembali pada {field}',
+							'min_length' => '{field} terlalu pendek (minimal 8 karakter)',
+							'max_length' => '{field} terlalu panjang (maksimal 75 karakter)',
+						]
+					],
+					[
+						'field' => 'groom_father_update',
+						'label' => 'Ayah Mempelai Pria',
+						'rules' => 'trim|required|xss_clean|max_length[45]',
+						'errors' => [
+							'required' => '{field} harus diisi',
+							'xss_clean' => 'cek kembali pada {field}',
+							'max_length' => '{field} terlalu panjang (maksimal 45 karakter)',
+						]
+					],
+					[
+						'field' => 'groom_mother_update',
+						'label' => 'Ibu Mempelai Pria',
+						'rules' => 'trim|required|xss_clean|max_length[45]',
+						'errors' => [
+							'required' => '{field} harus diisi',
+							'xss_clean' => 'cek kembali pada {field}',
+							'max_length' => '{field} terlalu panjang (maksimal 45 karakter)',
+						]
+					],
+					[
+						'field' => 'groom_son_update',
+						'label' => 'Putra Ke-',
+						'rules' => 'trim|required|xss_clean|max_length[12]',
+						'errors' => [
+							'required' => '{field} harus diisi',
+							'xss_clean' => 'cek kembali pada {field}',
+							'max_length' => '{field} terlalu panjang (maksimal 12 karakter)',
+						]
+					],
+					[
+						'field' => 'groom_ig_update',
+						'label' => 'Instagram Mempelai Pria',
+						'rules' => 'trim|required|xss_clean|max_length[45]',
+						'errors' => [
+							'required' => '{field} harus diisi',
+							'xss_clean' => 'cek kembali pada {field}',
+							'max_length' => '{field} terlalu panjang (maksimal 45 karakter)',
+						]
+					],
+					// Validasi Data Mempelai Wanita
+					[
+						'field' => 'bride_name_update',
+						'label' => 'Nama Mempelai Wanita',
+						'rules' => 'trim|required|xss_clean|max_length[45]',
+						'errors' => [
+							'required' => '{field} harus diisi',
+							'xss_clean' => 'cek kembali pada {field}',
+							'max_length' => '{field} terlalu panjang (maksimal 45 karakter)',
+						]
+					],
+					[
+						'field' => 'bride_address_update',
+						'label' => 'Alamat Mempelai Wanita',
+						'rules' => 'trim|required|xss_clean|max_length[75]|min_length[8]',
+						'errors' => [
+							'required' => '{field} harus diisi',
+							'xss_clean' => 'cek kembali pada {field}',
+							'min_length' => '{field} terlalu pendek (minimal 8 karakter)',
+							'max_length' => '{field} terlalu panjang (maksimal 75 karakter)',
+						]
+					],
+					[
+						'field' => 'bride_father_update',
+						'label' => 'Ayah Mempelai Wanita',
+						'rules' => 'trim|required|xss_clean|max_length[45]',
+						'errors' => [
+							'required' => '{field} harus diisi',
+							'xss_clean' => 'cek kembali pada {field}',
+							'max_length' => '{field} terlalu panjang (maksimal 45 karakter)',
+						]
+					],
+					[
+						'field' => 'bride_mother_update',
+						'label' => 'Ibu Mempelai Wanita',
+						'rules' => 'trim|required|xss_clean|max_length[45]',
+						'errors' => [
+							'required' => '{field} harus diisi',
+							'xss_clean' => 'cek kembali pada {field}',
+							'max_length' => '{field} terlalu panjang (maksimal 45 karakter)',
+						]
+					],
+					[
+						'field' => 'bride_daughter_update',
+						'label' => 'Putri Ke-',
+						'rules' => 'trim|required|xss_clean|max_length[12]',
+						'errors' => [
+							'required' => '{field} harus diisi',
+							'xss_clean' => 'cek kembali pada {field}',
+							'max_length' => '{field} terlalu panjang (maksimal 12 karakter)',
+						]
+					],
+					[
+						'field' => 'bride_ig_update',
+						'label' => 'Instagram Mempelai Wanita',
+						'rules' => 'trim|required|xss_clean|max_length[45]',
+						'errors' => [
+							'required' => '{field} harus diisi',
+							'xss_clean' => 'cek kembali pada {field}',
+							'max_length' => '{field} terlalu panjang (maksimal 45 karakter)',
+						]
+					],
+
+					// Validasi Pelaksanaan Tasyakuran
+					[
+						'field' => 'tanggalAcaraUpdate[tasyakur]',
+						'label' => 'Tanggal Tasyakuran',
+						'rules' => 'trim|required|xss_clean',
+						'errors' => [
+							'required' => '{field} harus diisi',
+							'xss_clean' => 'cek kembali pada {field}',
+						]
+					],
+					[
+						'field' => 'jamAcaraUpdate[tasyakur]',
+						'label' => 'Waktu Tasyakuran',
+						'rules' => 'trim|required|xss_clean',
+						'errors' => [
+							'required' => '{field} harus diisi',
+							'xss_clean' => 'cek kembali pada {field}',
+						]
+					],
+					[
+						'field' => 'alamatAcaraUpdate[tasyakur]',
+						'label' => 'Alamat Pelaksanaan Tasyakuran',
+						'rules' => 'trim|required|xss_clean|max_length[100]|min_length[10]',
+						'errors' => [
+							'required' => '{field} harus diisi',
+							'xss_clean' => 'cek kembali pada {field}',
+							'min_length' => '{field} terlalu pendek (minimal 10 karakter)',
+							'max_length' => '{field} terlalu panjang (maksimal 100 karakter)',
+						]
+					],
+					[
+						'field' => 'mapsAcaraUpdate[tasyakur]',
+						'label' => 'Link Google Maps Pelaksanaan Tasyakuran',
+						'rules' => 'trim|required|xss_clean|max_length[225]|valid_url',
+						'errors' => [
+							'required' => '{field} harus diisi',
+							'xss_clean' => 'cek kembali pada {field}',
+							'max_length' => '{field} terlalu panjang (maksimal 225 karakter)',
+							'valid_url' => '{field} harus valid'
+						]
+					],
+					// Validasi Waktu Pelaksanaan Akad
+					[
+						'field' => 'tanggalAcaraUpdate[akad]',
+						'label' => 'Tanggal Akad Nikah',
+						'rules' => 'trim|required|xss_clean',
+						'errors' => [
+							'required' => '{field} harus diisi',
+							'xss_clean' => 'cek kembali pada {field}',
+						]
+					],
+					[
+						'field' => 'jamAcaraUpdate[akad]',
+						'label' => 'Waktu AKad Nikah',
+						'rules' => 'trim|required|xss_clean',
+						'errors' => [
+							'required' => '{field} harus diisi',
+							'xss_clean' => 'cek kembali pada {field}',
+						]
+					],
+					[
+						'field' => 'alamatAcaraUpdate[akad]',
+						'label' => 'Alamat Pelaksanaan Akad Nikah',
+						'rules' => 'trim|required|xss_clean|max_length[100]|min_length[10]',
+						'errors' => [
+							'required' => '{field} harus diisi',
+							'xss_clean' => 'cek kembali pada {field}',
+							'min_length' => '{field} terlalu pendek (minimal 10 karakter)',
+							'max_length' => '{field} terlalu panjang (maksimal 100 karakter)',
+						]
+					],
+					[
+						'field' => 'mapsAcaraUpdate[akad]',
+						'label' => 'Link Google Maps Pelaksanaan Akad Nikah',
+						'rules' => 'trim|required|xss_clean|max_length[225]|valid_url',
+						'errors' => [
+							'required' => '{field} harus diisi',
+							'xss_clean' => 'cek kembali pada {field}',
+							'max_length' => '{field} terlalu panjang (maksimal 225 karakter)',
+							'valid_url' => '{field} harus valid'
+						]
+					],
+					// Validasi Waktu Pelaksanaan Resepsi
+					[
+						'field' => 'tanggalAcaraUpdate[resepsi]',
+						'label' => 'Tanggal Resepsi Pernikahan',
+						'rules' => 'trim|required|xss_clean',
+						'errors' => [
+							'required' => '{field} harus diisi',
+							'xss_clean' => 'cek kembali pada {field}',
+						]
+					],
+					[
+						'field' => 'jamAcaraUpdate[resepsi]',
+						'label' => 'Waktu Resepsi Pernikahan',
+						'rules' => 'trim|required|xss_clean',
+						'errors' => [
+							'required' => '{field} harus diisi',
+							'xss_clean' => 'cek kembali pada {field}',
+						]
+					],
+					[
+						'field' => 'alamatAcaraUpdate[resepsi]',
+						'label' => 'Alamat Pelaksanaan Resepsi Pernikahan',
+						'rules' => 'trim|required|xss_clean|max_length[100]|min_length[10]',
+						'errors' => [
+							'required' => '{field} harus diisi',
+							'xss_clean' => 'cek kembali pada {field}',
+							'min_length' => '{field} terlalu pendek (minimal 10 karakter)',
+							'max_length' => '{field} terlalu panjang (maksimal 100 karakter)',
+						]
+					],
+					[
+						'field' => 'mapsAcaraUpdate[resepsi]',
+						'label' => 'Link Google Maps Pelaksanaan Resepsi Pernikahan',
+						'rules' => 'trim|required|xss_clean|max_length[225]|valid_url',
+						'errors' => [
+							'required' => '{field} harus diisi',
+							'xss_clean' => 'cek kembali pada {field}',
+							'max_length' => '{field} terlalu panjang (maksimal 225 karakter)',
+							'valid_url' => '{field} harus valid'
+						]
+					],
+					// Settings Masa Aktif Undangan
+					[
+						'field' => 'active_date_update',
+						'label' => 'Tanggal Masa Aktif',
+						'rules' => 'trim|required|xss_clean',
+						'errors' => [
+							'required' => '{field} harus diisi',
+							'xss_clean' => 'cek kembali pada {field}',
+						]
+					],
+					[
+						'field' => 'active_time_update',
+						'label' => 'Jam Masa Aktif',
+						'rules' => 'trim|required|xss_clean',
+						'errors' => [
+							'required' => '{field} harus diisi',
+							'xss_clean' => 'cek kembali pada {field}',
+						]
+					],
+
+				]);
+				if ($this->form_validation->run() == false) {
+					$this->load->view('admin/layouts/wrapper', $data, false);
+				} else {
+					$this->do_update();
+					$this->update_acara();
+					sweetAlert("Berhasil", "Data undangan telah diupdate", "success");
+					redirect('admin/undangan/detail/' . $this->input->post('code'));
+				}
+			}
+			$this->load->view('admin/layouts/wrapper', $data, false);
+		}
+	}
+
+	public function do_update()
+	{
+		$this->db->trans_start();
+		$code = $this->input->post('code');
+		$dataInvt = $this->invitation->getDataUndanganByCode($code);
+
+		// config upload image
+		$confImg['upload_path']   = './storage/invitations/uploads/';
+		$confImg['allowed_types'] = 'gif|jpg|png|jpeg|svg';
+		$confImg['max_size']      = 2000;
+		$confImg['overwrite']     = true;
+		$confImg['encrypt_name'] = true;
+		$this->load->library('upload', $confImg);
+		$this->upload->initialize($confImg);
+		$this->check_storage('uploads');
+		// aksi upload cover dan sampul
+		if ($_POST['kategori'] == 'special') {
+			if (!empty($_FILES['cover_img_update']['name'][1])) {
+				$_FILES['file']['name'] = $_FILES['cover_img_update']['name'][1];
+				$_FILES['file']['type'] 	= $_FILES['cover_img_update']['type'][1];
+				$_FILES['file']['tmp_name'] = $_FILES['cover_img_update']['tmp_name'][1];
+				$_FILES['file']['error'] 	= $_FILES['cover_img_update']['error'][1];
+				$_FILES['file']['size'] 	= $_FILES['cover_img_update']['size'][1];
+				if ($this->upload->do_upload('file')) {
+					if ($dataInvt->cover_image_1 != 'cover_image_1.svg	') {
+						@unlink(FCPATH . './storage/invitations/uploads/' . $dataInvt->cover_image_1);
+					}
+					$new_cover = $this->upload->data('file_name');
+					$this->db->set('cover_image_1', $new_cover);
+				}
 			}
 
-			// Validasi Upload Cover
-			if (empty($_FILES['cover_img_update']['name'][2])) {
-				$this->form_validation->set_rules('cover_img_update[2]', 'Foto Sampul', 'required', ['required' => 'Anda harus upload {field}']);
+			// aksi upload foto mempelai pria
+			if (!empty($_FILES['groom_img_update']['name'])) {
+				if ($this->upload->do_upload('groom_img_update')) {
+					if ($dataInvt->groom_img != 'groom_img.png') {
+						@unlink(FCPATH . './storage/invitations/uploads/' . $dataInvt->groom_img);
+					}
+					$new_image = $this->upload->data('file_name');
+					$resolution = ['width' => 500, 'height' => 500];
+					$this->compreesImage('uploads', $new_image, $resolution);
+					$this->db->set('groom_img', $new_image);
+				}
 			}
 
-			// Validasi Upload Cover
-			if (empty($_FILES['music_bg_update']['name'])) {
-				$this->form_validation->set_rules('music_bg_update', 'Music', 'required', ['required' => 'Anda harus upload {field}']);
-			}
-
-			// Validasi foto mempelai pria
-			if (empty($_FILES['groom_img_update']['name'])) {
-				$this->form_validation->set_rules('groom_img_update', 'Foto Mempelai Pria', 'required', ['required' => 'Anda harus upload {field}']);
-			}
-
-			// validasi foto mempelai wanita
-			if (empty($_FILES['bride_img_update']['name'])) {
-				$this->form_validation->set_rules('bride_img_update', 'Foto Mempelai Wanita', 'required', ['required' => 'Anda harus upload {field}']);
-			}
-
-			$this->form_validation->set_rules([
-				// Validasi Nama Panggilan Mempelai Pria dan Wanita
-				[
-					'field' => 'groom_nickname_update',
-					'label' => 'Nama Panggilan Mempelai Pria',
-					'rules' => 'trim|required|xss_clean|max_length[15]',
-					'errors' => [
-						'required' => '{field} harus diisi',
-						'xss_clean' => 'cek kembali pada {field}',
-						'max_length' => '{field} terlalu panjang (maksimal 15 karakter)',
-					]
-				],
-				[
-					'field' => 'bride_nickname_update',
-					'label' => 'Nama Panggilan Mempelai Wanita',
-					'rules' => 'trim|required|xss_clean|max_length[15]',
-					'errors' => [
-						'required' => '{field} harus diisi',
-						'xss_clean' => 'cek kembali pada {field}',
-						'max_length' => '{field} terlalu panjang (maksimal 15 karakter)',
-					]
-				],
-				// Validasi Data Mempelai Pria
-				[
-					'field' => 'groom_name_update',
-					'label' => 'Nama Mempelai Pria',
-					'rules' => 'trim|required|xss_clean|max_length[45]',
-					'errors' => [
-						'required' => '{field} harus diisi',
-						'xss_clean' => 'cek kembali pada {field}',
-						'max_length' => '{field} terlalu panjang (maksimal 45 karakter)',
-					]
-				],
-				[
-					'field' => 'groom_address_update',
-					'label' => 'Alamat Mempelai Pria',
-					'rules' => 'trim|required|xss_clean|max_length[75]|min_length[8]',
-					'errors' => [
-						'required' => '{field} harus diisi',
-						'xss_clean' => 'cek kembali pada {field}',
-						'min_length' => '{field} terlalu pendek (minimal 8 karakter)',
-						'max_length' => '{field} terlalu panjang (maksimal 75 karakter)',
-					]
-				],
-				[
-					'field' => 'groom_father_update',
-					'label' => 'Ayah Mempelai Pria',
-					'rules' => 'trim|required|xss_clean|max_length[45]',
-					'errors' => [
-						'required' => '{field} harus diisi',
-						'xss_clean' => 'cek kembali pada {field}',
-						'max_length' => '{field} terlalu panjang (maksimal 45 karakter)',
-					]
-				],
-				[
-					'field' => 'groom_mother_update',
-					'label' => 'Ibu Mempelai Pria',
-					'rules' => 'trim|required|xss_clean|max_length[45]',
-					'errors' => [
-						'required' => '{field} harus diisi',
-						'xss_clean' => 'cek kembali pada {field}',
-						'max_length' => '{field} terlalu panjang (maksimal 45 karakter)',
-					]
-				],
-				[
-					'field' => 'groom_son_update',
-					'label' => 'Putra Ke-',
-					'rules' => 'trim|required|xss_clean|max_length[12]',
-					'errors' => [
-						'required' => '{field} harus diisi',
-						'xss_clean' => 'cek kembali pada {field}',
-						'max_length' => '{field} terlalu panjang (maksimal 12 karakter)',
-					]
-				],
-				[
-					'field' => 'groom_ig_update',
-					'label' => 'Instagram Mempelai Pria',
-					'rules' => 'trim|required|xss_clean|max_length[45]',
-					'errors' => [
-						'required' => '{field} harus diisi',
-						'xss_clean' => 'cek kembali pada {field}',
-						'max_length' => '{field} terlalu panjang (maksimal 45 karakter)',
-					]
-				],
-				// Validasi Data Mempelai Wanita
-				[
-					'field' => 'bride_name_update',
-					'label' => 'Nama Mempelai Wanita',
-					'rules' => 'trim|required|xss_clean|max_length[45]',
-					'errors' => [
-						'required' => '{field} harus diisi',
-						'xss_clean' => 'cek kembali pada {field}',
-						'max_length' => '{field} terlalu panjang (maksimal 45 karakter)',
-					]
-				],
-				[
-					'field' => 'bride_address_update',
-					'label' => 'Alamat Mempelai Wanita',
-					'rules' => 'trim|required|xss_clean|max_length[75]|min_length[8]',
-					'errors' => [
-						'required' => '{field} harus diisi',
-						'xss_clean' => 'cek kembali pada {field}',
-						'min_length' => '{field} terlalu pendek (minimal 8 karakter)',
-						'max_length' => '{field} terlalu panjang (maksimal 75 karakter)',
-					]
-				],
-				[
-					'field' => 'bride_father_update',
-					'label' => 'Ayah Mempelai Wanita',
-					'rules' => 'trim|required|xss_clean|max_length[45]',
-					'errors' => [
-						'required' => '{field} harus diisi',
-						'xss_clean' => 'cek kembali pada {field}',
-						'max_length' => '{field} terlalu panjang (maksimal 45 karakter)',
-					]
-				],
-				[
-					'field' => 'bride_mother_update',
-					'label' => 'Ibu Mempelai Wanita',
-					'rules' => 'trim|required|xss_clean|max_length[45]',
-					'errors' => [
-						'required' => '{field} harus diisi',
-						'xss_clean' => 'cek kembali pada {field}',
-						'max_length' => '{field} terlalu panjang (maksimal 45 karakter)',
-					]
-				],
-				[
-					'field' => 'bride_daughter_update',
-					'label' => 'Putri Ke-',
-					'rules' => 'trim|required|xss_clean|max_length[12]',
-					'errors' => [
-						'required' => '{field} harus diisi',
-						'xss_clean' => 'cek kembali pada {field}',
-						'max_length' => '{field} terlalu panjang (maksimal 12 karakter)',
-					]
-				],
-				[
-					'field' => 'bride_ig_update',
-					'label' => 'Instagram Mempelai Wanita',
-					'rules' => 'trim|required|xss_clean|max_length[45]',
-					'errors' => [
-						'required' => '{field} harus diisi',
-						'xss_clean' => 'cek kembali pada {field}',
-						'max_length' => '{field} terlalu panjang (maksimal 45 karakter)',
-					]
-				],
-
-				// Validasi Pelaksanaan Tasyakuran
-				[
-					'field' => 'tanggalAcaraUpdate[tasyakur]',
-					'label' => 'Tanggal Tasyakuran',
-					'rules' => 'trim|required|xss_clean',
-					'errors' => [
-						'required' => '{field} harus diisi',
-						'xss_clean' => 'cek kembali pada {field}',
-					]
-				],
-				[
-					'field' => 'jamAcaraUpdate[tasyakur]',
-					'label' => 'Waktu Tasyakuran',
-					'rules' => 'trim|required|xss_clean',
-					'errors' => [
-						'required' => '{field} harus diisi',
-						'xss_clean' => 'cek kembali pada {field}',
-					]
-				],
-				[
-					'field' => 'alamatAcaraUpdate[tasyakur]',
-					'label' => 'Alamat Pelaksanaan Tasyakuran',
-					'rules' => 'trim|required|xss_clean|max_length[100]|min_length[10]',
-					'errors' => [
-						'required' => '{field} harus diisi',
-						'xss_clean' => 'cek kembali pada {field}',
-						'min_length' => '{field} terlalu pendek (minimal 10 karakter)',
-						'max_length' => '{field} terlalu panjang (maksimal 100 karakter)',
-					]
-				],
-				[
-					'field' => 'mapsAcaraUpdate[tasyakur]',
-					'label' => 'Link Google Maps Pelaksanaan Tasyakuran',
-					'rules' => 'trim|required|xss_clean|max_length[225]|valid_url',
-					'errors' => [
-						'required' => '{field} harus diisi',
-						'xss_clean' => 'cek kembali pada {field}',
-						'max_length' => '{field} terlalu panjang (maksimal 225 karakter)',
-						'valid_url' => '{field} harus valid'
-					]
-				],
-				// Validasi Waktu Pelaksanaan Akad
-				[
-					'field' => 'tanggalAcaraUpdate[akad]',
-					'label' => 'Tanggal Akad Nikah',
-					'rules' => 'trim|required|xss_clean',
-					'errors' => [
-						'required' => '{field} harus diisi',
-						'xss_clean' => 'cek kembali pada {field}',
-					]
-				],
-				[
-					'field' => 'jamAcaraUpdate[akad]',
-					'label' => 'Waktu AKad Nikah',
-					'rules' => 'trim|required|xss_clean',
-					'errors' => [
-						'required' => '{field} harus diisi',
-						'xss_clean' => 'cek kembali pada {field}',
-					]
-				],
-				[
-					'field' => 'alamatAcaraUpdate[akad]',
-					'label' => 'Alamat Pelaksanaan Akad Nikah',
-					'rules' => 'trim|required|xss_clean|max_length[100]|min_length[10]',
-					'errors' => [
-						'required' => '{field} harus diisi',
-						'xss_clean' => 'cek kembali pada {field}',
-						'min_length' => '{field} terlalu pendek (minimal 10 karakter)',
-						'max_length' => '{field} terlalu panjang (maksimal 100 karakter)',
-					]
-				],
-				[
-					'field' => 'mapsAcaraUpdate[akad]',
-					'label' => 'Link Google Maps Pelaksanaan Akad Nikah',
-					'rules' => 'trim|required|xss_clean|max_length[225]|valid_url',
-					'errors' => [
-						'required' => '{field} harus diisi',
-						'xss_clean' => 'cek kembali pada {field}',
-						'max_length' => '{field} terlalu panjang (maksimal 225 karakter)',
-						'valid_url' => '{field} harus valid'
-					]
-				],
-				// Validasi Waktu Pelaksanaan Resepsi
-				[
-					'field' => 'tanggalAcaraUpdate[resepsi]',
-					'label' => 'Tanggal Resepsi Pernikahan',
-					'rules' => 'trim|required|xss_clean',
-					'errors' => [
-						'required' => '{field} harus diisi',
-						'xss_clean' => 'cek kembali pada {field}',
-					]
-				],
-				[
-					'field' => 'jamAcaraUpdate[resepsi]',
-					'label' => 'Waktu Resepsi Pernikahan',
-					'rules' => 'trim|required|xss_clean',
-					'errors' => [
-						'required' => '{field} harus diisi',
-						'xss_clean' => 'cek kembali pada {field}',
-					]
-				],
-				[
-					'field' => 'alamatAcaraUpdate[resepsi]',
-					'label' => 'Alamat Pelaksanaan Resepsi Pernikahan',
-					'rules' => 'trim|required|xss_clean|max_length[100]|min_length[10]',
-					'errors' => [
-						'required' => '{field} harus diisi',
-						'xss_clean' => 'cek kembali pada {field}',
-						'min_length' => '{field} terlalu pendek (minimal 10 karakter)',
-						'max_length' => '{field} terlalu panjang (maksimal 100 karakter)',
-					]
-				],
-				[
-					'field' => 'mapsAcaraUpdate[resepsi]',
-					'label' => 'Link Google Maps Pelaksanaan Resepsi Pernikahan',
-					'rules' => 'trim|required|xss_clean|max_length[225]|valid_url',
-					'errors' => [
-						'required' => '{field} harus diisi',
-						'xss_clean' => 'cek kembali pada {field}',
-						'max_length' => '{field} terlalu panjang (maksimal 225 karakter)',
-						'valid_url' => '{field} harus valid'
-					]
-				],
-				// Settings Masa Aktif Undangan
-				[
-					'field' => 'active_date_update',
-					'label' => 'Tanggal Masa Aktif',
-					'rules' => 'trim|required|xss_clean',
-					'errors' => [
-						'required' => '{field} harus diisi',
-						'xss_clean' => 'cek kembali pada {field}',
-					]
-				],
-				[
-					'field' => 'active_time_update',
-					'label' => 'Jam Masa Aktif',
-					'rules' => 'trim|required|xss_clean',
-					'errors' => [
-						'required' => '{field} harus diisi',
-						'xss_clean' => 'cek kembali pada {field}',
-					]
-				],
-
-			]);
-			if ($this->form_validation->run() == false) {
-			} else {
+			// aksi upload foto mempelai wanita
+			if (!empty($_FILES['bride_img_update']['name'])) {
+				if ($this->upload->do_upload('bride_img_update')) {
+					if ($dataInvt->bride_img != 'bride_img.png') {
+						@unlink(FCPATH . './storage/invitations/uploads/' . $dataInvt->bride_img);
+					}
+					$new_image = $this->upload->data('file_name');
+					$resolution = ['width' => 500, 'height' => 500];
+					$this->compreesImage('uploads', $new_image, $resolution);
+					$this->db->set('bride_img', $new_image);
+				}
 			}
 		}
-		$this->load->view('admin/layouts/wrapper', $data, FALSE);
+
+		if (!empty($_FILES['cover_img_update']['name'][2])) {
+			$_FILES['file']['name'] = $_FILES['cover_img_update']['name'][2];
+			$_FILES['file']['type'] = $_FILES['cover_img_update']['type'][2];
+			$_FILES['file']['tmp_name'] = $_FILES['cover_img_update']['tmp_name'][2];
+			$_FILES['file']['error'] = $_FILES['cover_img_update']['error'][2];
+			$_FILES['file']['size']	= $_FILES['cover_img_update']['size'][2];
+			if ($this->upload->do_upload('file')) {
+				if ($dataInvt->cover_image_2 != 'cover_image_2.svg') {
+					@unlink(FCPATH . './storage/invitations/uploads/' . $dataInvt->cover_image_2);
+				}
+				$new_cover = $this->upload->data('file_name');
+				$this->db->set('cover_image_2', $new_cover);
+			}
+		}
+
+		// aksi upload backgroun music
+		if (isset($_FILES['music_bg_update']['name'])) {
+			$music = $_FILES['music_bg_update']['name'];
+			$config['upload_path'] = './storage/invitations/uploads/';
+			$config['allowed_types'] = 'mp3|m4a|mpg|mpeg|ogg|mp4';
+			$config['max_size'] = 0;
+			$config['file_name'] = $music;
+			$this->load->library('upload', $config);
+			$this->upload->initialize($config);
+			if (!empty($_FILES['music_bg_update']['name'])) {
+				$_FILES['file']['name'] = $_FILES['music_bg_update']['name'];
+				$_FILES['file']['type'] 	= $_FILES['music_bg_update']['type'];
+				$_FILES['file']['tmp_name'] = $_FILES['music_bg_update']['tmp_name'];
+				$_FILES['file']['error'] 	= $_FILES['music_bg_update']['error'];
+				$_FILES['file']['size'] 	= $_FILES['music_bg_update']['size'];
+				if ($this->upload->do_upload('file')) {
+					if ($dataInvt->music_bg != 'default_music.mp3') {
+						@unlink(FCPATH . './storage/invitations/uploads/' . $dataInvt->music_bg);
+					}
+					$music_new = $this->upload->data('file_name');
+					$this->db->set('music_bg', $music_new);
+				}
+			}
+		}
+
+		$slug = $_POST['groom_nickname_update'] . ' ' . $_POST['bride_nickname_update'];
+		$slug = url_title($slug, 'dash', true);
+		$data = array(
+			'groom_name' => $this->input->post('groom_name_update', true),
+			'groom_nickname' => $this->input->post('groom_nickname_update', true),
+			'groom_address' => $this->input->post('groom_address_update', true),
+			'groom_father' => $this->input->post('groom_father_update', true),
+			'groom_mother' => $this->input->post('groom_mother_update', true),
+			'groom_ig' => $this->input->post('groom_ig_update', true),
+			'groom_son' => $this->input->post('groom_son_update', true),
+			'bride_name' => $this->input->post('bride_name_update', true),
+			'bride_nickname' => $this->input->post('bride_nickname_update', true),
+			'bride_address' => $this->input->post('bride_address_update', true),
+			'bride_father' => $this->input->post('bride_father_update', true),
+			'bride_mother' => $this->input->post('bride_mother_update', true),
+			'bride_ig' => $this->input->post('bride_ig_update', true),
+			'bride_daughter' => $this->input->post('bride_daughter_update', true),
+			'slug' => $slug,
+			'code' => $this->input->post('code', true)
+		);
+
+		$this->db->set($data);
+		$this->db->where('invitation_id', $this->input->post('invitationId'));
+		$this->db->update('invitation');
+
+		// update masa aktif undangan
+		$active_date = $this->input->post('active_date_update', true);
+		$active_time = $this->input->post('active_time_update', true);
+		if ($active_date and $active_time) {
+			$active = $active_date . ' ' . $active_time;
+			$this->db->where('code', $this->input->post('code', true));
+			$this->db->update('transaction', ['active' => $active]);
+		}
+		$this->db->trans_complete();
+	}
+
+	public function update_acara()
+	{
+		$this->db->trans_start();
+		$acara = $this->input->post();
+		if ($acara['tanggalAcaraUpdate']['tasyakur']) {
+			$tasyakur = array(
+				'title' => 'Tasyakuran',
+				'date' => $acara['tanggalAcaraUpdate']['tasyakur'],
+				'address' => $acara['alamatAcaraUpdate']['tasyakur'],
+				'time' => $acara['jamAcaraUpdate']['tasyakur'],
+				'maps' => $acara['mapsAcaraUpdate']['tasyakur'],
+			);
+			$this->db->set($tasyakur);
+			$this->db->where('wedding_id', $_POST['tasyakur_id']);
+			$this->db->update('wedding');
+		}
+
+		if ($acara['tanggalAcaraUpdate']['akad']) {
+			$akad = array(
+				'title' => 'Akad Nikah',
+				'date' => $acara['tanggalAcaraUpdate']['akad'],
+				'address' => $acara['alamatAcaraUpdate']['akad'],
+				'time' => $acara['jamAcaraUpdate']['akad'],
+				'maps' => $acara['mapsAcaraUpdate']['akad'],
+			);
+			$this->db->set($akad);
+			$this->db->where('wedding_id', $_POST['akad_id']);
+			$this->db->update('wedding');
+		}
+
+		if ($acara['tanggalAcaraUpdate']['resepsi']) {
+			$resepsi = array(
+				'title' => 'Resepsi Pernikahan',
+				'date' => $acara['tanggalAcaraUpdate']['resepsi'],
+				'address' => $acara['alamatAcaraUpdate']['resepsi'],
+				'time' => $acara['jamAcaraUpdate']['resepsi'],
+				'maps' => $acara['mapsAcaraUpdate']['resepsi'],
+			);
+			$this->db->set($resepsi);
+			$this->db->where('wedding_id', $_POST['resepsi_id']);
+			$this->db->update('wedding');
+		}
+		$this->db->trans_complete();
+	}
+
+	public function update_processing()
+	{
+		$desc = $this->input->post('desc', true);
+		if ($desc == 1) {
+			$this->db->set('desc', 2);
+		} elseif ($desc == 2) {
+			$this->db->set('desc', 1);
+		}
+		$this->db->where('code', $this->input->post('code', true));
+		$this->db->update('transaction');
+		$response = array(
+			'csrfName' => $this->security->get_csrf_token_name(),
+			'csrfHash' => $this->security->get_csrf_hash(),
+			'message' => 'Anda telah mengupdate proses pengerjaan undangan',
+			'success' => true
+		);
+		echo json_encode($response);
 	}
 
 	// config upload image
-	public function imageConf($dirName = NULL)
+	public function imageConf($dirName = null)
 	{
 		$conf['upload_path']   = './storage/invitations/' . $dirName . '/';
 		$conf['allowed_types'] = 'gif|jpg|png|jpeg|svg';
 		$conf['max_size']      = 2000;
-		$conf['overwrite']     = TRUE;
-		$conf['encrypt_name'] = TRUE;
+		$conf['overwrite']     = true;
+		$conf['encrypt_name'] = true;
 		$this->load->library('upload', $conf);
+		$this->image_lib->initialize($conf);
 	}
 
 	public function compreesImage($dirName, $fileName, $resolution)
@@ -947,8 +1128,8 @@ class Undangan extends CI_Controller
 		$this->load->library('image_lib');
 		$config['image_library'] = 'gd2';
 		$config['source_image'] = './storage/invitations/' . $dirName . '/' . $fileName;
-		$config['create_thumb'] = FALSE;
-		$config['maintain_ratio'] = TRUE;
+		$config['create_thumb'] = false;
+		$config['maintain_ratio'] = true;
 		$config['width']     = $resolution['width'];
 		$config['height']   = $resolution['height'];
 

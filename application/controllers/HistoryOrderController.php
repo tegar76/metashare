@@ -65,21 +65,28 @@ class HistoryOrderController extends CI_Controller
 				$data['guest'] = $this->db->get_where('invited_guest', ['invitation_id' => $invt->id])->num_rows();
 				$data['message'] =  $this->db->get_where('message', ['invitation_id' => $invt->id])->num_rows();
 				$data['invtId'] = $invt->id;
+				$data['invt'] = $invt;
+			} else {
+				$data['guest'] = 0;
+				$data['message'] = 0;
+				$data['invtId'] = null;
+				$data['invt'] = null;
 			}
+
 			$data['testimony'] = $this->db->get_where('testimony', array(
 				'cus_id' => $this->session->userdata('id'),
 				'model_id' => $detail->m_id
 			))->row();
 		}
 
-		if($_REQUEST) {
+		if ($_REQUEST) {
 			$testimony = array(
 				'message' => $_POST['testimony'],
 				'cus_id' => $_POST['customer'],
 				'model_id' => $_POST['model'],
 			);
 			$this->db->insert('testimony', $testimony);
-			return redirect('history/order/'. $code . '/detail');
+			return redirect('history/order/' . $code . '/detail');
 		}
 		$data['title'] = 'Detail Order';
 		$data['content'] = 'marketplace/contents/riwayat_order/v_detail_order';
@@ -95,6 +102,7 @@ class HistoryOrderController extends CI_Controller
 			$data['guest'] = $guest;
 			$data['nomor'] = 1;
 		}
+		$data['code'] = $_GET['code'];
 		$data['title'] = 'Data Tamu Undangan';
 		$data['content'] = 'marketplace/contents/riwayat_order/v_tamu_undangan';
 		$this->load->view('marketplace/layouts/wrapper', $data, false);
@@ -106,16 +114,18 @@ class HistoryOrderController extends CI_Controller
 		if ($_REQUEST) {
 			$id = $_GET['id'];
 			$message = $this->db->order_by('create_time', 'desc')->get_where('message', array('invitation_id' => $id));
-			foreach ($message->result() as $key => $val) {
-				$inisial = substr($val->name, 0, 1);
-				if ($val->status == 2) {
-					$bgcolor = 'text-success';
-				} elseif ($val->status == 1) {
-					$bgcolor = 'text-danger';
-				} elseif ($val->status == 0) {
-					$bgcolor = 'text-warning';
-				}
-				$output[$key] = '
+			$output = array();
+			if (!empty($message)) {
+				foreach ($message->result() as $key => $val) {
+					$inisial = substr($val->name, 0, 1);
+					if ($val->status == 2) {
+						$bgcolor = 'text-success';
+					} elseif ($val->status == 1) {
+						$bgcolor = 'text-danger';
+					} elseif ($val->status == 0) {
+						$bgcolor = 'text-warning';
+					}
+					$output[$key] = '
 					<div class="mr-3 flex items-center">
                         <div class="flex w-9 h-9 font-semibold border border-slate-300 shadow-lg ' . $bgcolor . ' text-center rounded-full items-center justify-center">' . $inisial . '</div>
                     </div>
@@ -124,15 +134,31 @@ class HistoryOrderController extends CI_Controller
                             <p class="tracking-wide text-base-sm lg:text-base-md text-slate-500 mb-1">' . $val->name . '</p>
                             <p class="text-xs text-slate-400 mb-1">' . date('d-m-Y H:i', strtotime($val->create_time)) . '</p>
                             <p class="text-base-xs tracking-wide text-slate-500/80 text-justify mr-2">' . $val->message . '</p>
-                        </div>
-                    </div>
-				';
+							</div>
+							</div>
+							';
+				}
+				$data['message'] = $output;
 			}
-			$data['message'] = $output;
 			$data['rowMessage'] = $message->num_rows();
 		}
+		$data['code'] = $_GET['code'];
 		$data['title'] = 'Pesan Bahagia';
 		$data['content'] = 'marketplace/contents/riwayat_order/v_pesan_bahagia';
 		$this->load->view('marketplace/layouts/wrapper', $data, false);
+	}
+
+	public function order_now()
+	{
+		if ($_REQUEST) {
+			$code = $this->home->createCodeTransaksi();
+			$order = array(
+				'code' => $code,
+				'cus_id' => $this->session->userdata('id'),
+				'model_id' => $this->input->post('model_id')
+			);
+			$this->db->insert('transaction', $order);
+			redirect('history/order');
+		}
 	}
 }

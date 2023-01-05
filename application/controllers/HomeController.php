@@ -16,8 +16,6 @@ class HomeController extends CI_Controller
 		$data['basic'] = $this->home->getDesginByCategory('basic', 8);
 		$data['title'] = 'Metashare Marketplace';
 		$data['content'] = 'marketplace/contents/home/v_home';
-		// var_dump($data);
-		// die;
 		$this->load->view('marketplace/layouts/wrapper', $data, FALSE);
 	}
 }

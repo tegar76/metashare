@@ -48,8 +48,15 @@
 								<p class="text-base-xs xl:text-xs text-slate-400">Undangan Pernikahan Digital/<?= $item->category ?></p>
 							</div>
 							<div class="flex mb-4 justify-center">
-								<a target="_blank" href="<?= base_url('preview?model=' . $item->view_model) ?>" class="text-base-xs xl:text-sm border text-primary-blue-cyan/70 border-primary-blue-cyan/70 px-3 py-1 rounded-lg hover:bg-primary-blue-cyan hover:text-white hover:border-white mr-3"> <i class="fa fa-eye"></i> Demo</a>
-								<a href="" class="text-base-xs xl:text-sm border text-white border-success bg-success px-3 py-1 rounded-lg hover:bg-success-hover hover:border-success-hover hover:text-white"> <i class="fa-brands fa-whatsapp fa-lg"></i> Order</a>
+								<a target="_blank" href="<?= base_url('demo?model=' . $item->view_model) ?>" class="text-base-xs xl:text-sm border text-primary-blue-cyan/70 border-primary-blue-cyan/70 px-3 py-1 rounded-lg hover:bg-primary-blue-cyan hover:text-white hover:border-white mr-3"> <i class="fa fa-eye"></i> Demo</a>
+								<?php if ($this->session->userdata('logged_in') == true and $this->session->userdata('level') == 'customer') : ?>
+									<form action="<?= site_url('history/order_now') ?>" method="post">
+										<input type="hidden" name="model_id" value="<?= $item->model_id; ?>">
+										<button type="submit" class="text-base-xs xl:text-sm border text-white border-success bg-success px-3 py-1 rounded-lg hover:bg-success-hover hover:border-success-hover hover:text-white"> <i class="fa-brands fa-whatsapp fa-lg"></i> Order</button>
+									</form>
+								<?php else : ?>
+									<a href="<?= base_url('login') ?>" class="text-base-xs xl:text-sm border text-white border-success bg-success px-3 py-1 rounded-lg hover:bg-success-hover hover:border-success-hover hover:text-white"> <i class="fa-brands fa-whatsapp fa-lg"></i> Order</a>
+								<?php endif ?>
 							</div>
 						</div>
 					</div>

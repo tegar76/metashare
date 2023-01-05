@@ -37,8 +37,11 @@
 				<div class="dropdown-menu">
 					<a href="<?= base_url('admin/undangan/create/' . $detail->t_code) ?>" class="dropdown-item" type="button"><i data-feather="server" class="feather-14 mt-n1 mr-1"></i> Data undangan</a>
 					<a href="<?= base_url('admin/undangan/tamu/create/' . $detail->t_code) ?>" class="dropdown-item" type="button"><i data-feather="user" class="feather-14 mt-n1 mr-1"></i> Tamu Undangan</a>
-					<a href="<?= base_url('admin/undangan/gallery/create/' . $detail->t_code) ?>" class="dropdown-item" type="button"><i data-feather="image" class="feather-14 mt-n1 mr-1"></i> Foto Galeri</a>
-					<a href="<?= base_url('admin/undangan/love-story/create/' . $detail->t_code) ?>" class="dropdown-item" type="button"><i data-feather="message-circle" class="feather-14 mt-n1 mr-1"></i> Perjalanan Cinta</a>
+					<?php if ($detail->m_category == 'special' or $detail->m_category == 'standard') : ?>
+						<!-- TRUE -->
+						<a href="<?= base_url('admin/undangan/gallery/create/' . $detail->t_code) ?>" class="dropdown-item" type="button"><i data-feather="image" class="feather-14 mt-n1 mr-1"></i> Foto Galeri</a>
+						<a href="<?= base_url('admin/undangan/love-story/create/' . $detail->t_code) ?>" class="dropdown-item" type="button"><i data-feather="message-circle" class="feather-14 mt-n1 mr-1"></i> Perjalanan Cinta</a>
+					<?php endif ?>
 					<a href="<?= base_url('admin/undangan/gifts/create/' . $detail->t_code) ?>" class="dropdown-item" type="button"><i data-feather="credit-card" class="feather-14 mt-n1 mr-1"></i> Berikan Hadiah</a>
 				</div>
 			</div>
@@ -50,9 +53,11 @@
 				</button>
 				<div class="dropdown-menu mr-3">
 					<a href="<?= base_url('admin/undangan/update/' . $detail->t_code) ?>" class="dropdown-item" type="button"><i data-feather="server" class="feather-14 mt-n1 mr-1"></i> Data undangan</a>
-					<a href="<?= base_url('admin/undangan/gallery/detail/' . $detail->t_code) ?>" class="dropdown-item" type="button"><i data-feather="image" class="feather-14 mt-n1 mr-1"></i> Foto Galeri</a>
-					<a href="<?= base_url('admin/undangan/love-story/detail/' . $detail->t_code) ?>" class="dropdown-item" type="button"><i data-feather="message-circle" class="feather-14 mt-n1 mr-1"></i> Perjalanan Cinta</a>
-					<a href="<?= base_url('admin/undangan/gifts/detail/' . $detail->t_code) ?>" class="dropdown-item" type="button"><i data-feather="credit-card" class="feather-14 mt-n1 mr-1"></i> Berikan Hadiah</a>
+					<?php if ($detail->m_category == 'special' or $detail->m_category == 'standard') : ?>
+						<a href="<?= base_url('admin/undangan/gallery/detail?code=' . $detail->t_code . '&id=' . $invtId) ?>" class="dropdown-item" type="button"><i data-feather="image" class="feather-14 mt-n1 mr-1"></i> Foto Galeri</a>
+						<a href="<?= base_url('admin/undangan/love-story/detail?code=' . $detail->t_code . '&id=' . $invtId) ?>" class="dropdown-item" type="button"><i data-feather="message-circle" class="feather-14 mt-n1 mr-1"></i> Perjalanan Cinta</a>
+					<?php endif ?>
+					<a href="<?= base_url('admin/undangan/gifts/detail?code=' . $detail->t_code . '&id=' . $invtId) ?>" class="dropdown-item" type="button"><i data-feather="credit-card" class="feather-14 mt-n1 mr-1"></i> Berikan Hadiah</a>
 				</div>
 			</div>
 			<div class="btn-group mr-3">
@@ -62,11 +67,12 @@
 					<span class="ml-3"><i class="fa fa-caret-down"></i></span>
 				</button>
 				<div class="dropdown-menu mr-3">
+					<input id="status_code" type="hidden" name="id" value="<?= $detail->t_code; ?>">
 					<div class="d-flex align-items-center">
 						<span class="dropdown-item disabled">Proses Pengerjaan</span>
 						<div>
 							<label class="switch dropdown-item mt-2">
-								<input type="checkbox" checked>
+								<input id="update_keterangan" type="checkbox" value="<?= $detail->t_desc ?>" <?= ($detail->t_desc == 2) ? 'checked' : '' ?> >
 								<span class="slider round"></span>
 							</label>
 						</div>
@@ -121,7 +127,7 @@
 					</tr>
 					<tr>
 						<th scope="row">Model Undangan</th>
-						<td><a target="_blank" href="<?= base_url('preview?model=' . $detail->m_view) ?>" class="text-link-detail" data-toggle="tooltip" title="Lihat" data-placement="right"><?= $detail->m_name ?></a></td>
+						<td><a target="_blank" href="<?= base_url('demo?model=' . $detail->m_view) ?>" class="text-link-detail" data-toggle="tooltip" title="Lihat" data-placement="right"><?= $detail->m_name ?></a></td>
 					</tr>
 					<tr>
 						<th scope="row">Harga</th>
@@ -218,3 +224,32 @@
 	<!-- End Container fluid  -->
 	<!-- ============================================================== -->
 	<!-- ============================================================== -->
+
+	<script>
+		$(document).ready(function() {
+			$("#update_keterangan").click(function(e) {
+				e.preventDefault();
+				var desc = $(e.currentTarget).attr('value');
+				var code = $("#status_code").val();
+				var dataJson = {
+					desc: desc,
+					code: code
+				}
+				$.ajax({
+					type: "POST",
+					url: BASEURL + "admin/undangan/update_processing",
+					data: dataJson,
+					success: function(data) {
+						swal.fire({
+							icon: "success",
+							title: "Keterangan Berhasil Diperbarui",
+							text: data.message,
+							showConfirmButton: false,
+							timer: 1500,
+						});
+						window.location = BASEURL + "admin/undangan/detail/" + code;
+					}
+				});
+			});
+		});
+	</script>

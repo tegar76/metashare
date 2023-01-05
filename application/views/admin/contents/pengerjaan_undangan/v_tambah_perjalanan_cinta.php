@@ -35,9 +35,9 @@
 				<div class="input-group">
 					<select name="title[]" id="tahap" class="form-control <?= (form_error('title[]')) ? 'is-invalid' : '' ?>">
 						<option selected>Pilih Tahap</option>
-						<option value="tahap_1">Tahap 1</option>
-						<option value="tahap_2">Tahap 2</option>
-						<option value="tahap_3">Tahap 3</option>
+						<option value="Tahap 1">Tahap 1</option>
+						<option value="Tahap 2">Tahap 2</option>
+						<option value="Tahap 3">Tahap 3</option>
 					</select>
 					<div class="invalid-feedback"><?= form_error('title[]') ?></div>
 				</div>
@@ -62,7 +62,7 @@
 		<div id="next-form"></div>
 		<div class="flex mt-3 mb-4">
 			<button type="submit" class="btn btn-sm btn-primary px-3 py-2 mr-3">Simpan</button>
-			<button type="reset" class="btn btn-sm btn-secondary px-3 py-2">Reset</button>
+			<button type="reset" id="btn-reset-form" class="btn btn-sm btn-secondary px-3 py-2">Reset</button>
 		</div>
 		<?= form_close() ?>
 	</div>
@@ -84,34 +84,36 @@
 			$("#btn-add-form").click(function() {
 				var jumlah = parseInt($("#count-form").val());
 				var nextform = jumlah + 1;
-				$("#next-form").append(
-					'<div class="card shadow-sm px-3 pb-2">' +
-					'<div class="form-group mb-3">' +
-					'<h6 class="text-dark">Data Ke- ' + nextform + '</h6>' +
-					'<label for="tahap">Tahap <span class="text-danger">*</span></label>' +
-					'<div class="input-group">' +
-					'<select name="title[]" id="tahap" class="form-control">' +
-					'<option selected>Pilih Tahap</option>' +
-					'<option value="tahap_1">Tahap 1</option>' +
-					'<option value="tahap_2">Tahap 2</option>' +
-					'<option value="tahap_3">Tahap 3</option>' +
-					'</select>' +
-					'</div>' +
-					'</div>' +
-					'<div class="form-group mb-3">' +
-					'<label for="tanggal">Tanggal <span class="text-danger">*</span></label>' +
-					'<div class="input-group">' +
-					'<input type="date" name="date[]" class="form-control" id="tanggal">' +
-					'</div>' +
-					'</div>' +
-					'<div class="form-group mb-3">' +
-					'<label for="cerita">Cerita <span class="text-danger">*</span></label>' +
-					'<div class="input-group">' +
-					'<textarea name="text[]" id="cerita" placeholder="Masukan Cerita" class="form-control"></textarea>' +
-					'</div>' +
-					'</div>' +
-					'</div>'
-				);
+				if (nextform <= 3) {
+					$("#next-form").append(
+						'<div class="card shadow-sm px-3 pb-2">' +
+						'<div class="form-group mb-3">' +
+						'<h6 class="text-dark">Data Ke- ' + nextform + '</h6>' +
+						'<label for="tahap">Tahap <span class="text-danger">*</span></label>' +
+						'<div class="input-group">' +
+						'<select name="title[]" id="tahap" class="form-control">' +
+						'<option selected>Pilih Tahap</option>' +
+						'<option value="tahap_1">Tahap 1</option>' +
+						'<option value="tahap_2">Tahap 2</option>' +
+						'<option value="tahap_3">Tahap 3</option>' +
+						'</select>' +
+						'</div>' +
+						'</div>' +
+						'<div class="form-group mb-3">' +
+						'<label for="tanggal">Tanggal <span class="text-danger">*</span></label>' +
+						'<div class="input-group">' +
+						'<input type="date" name="date[]" class="form-control" id="tanggal">' +
+						'</div>' +
+						'</div>' +
+						'<div class="form-group mb-3">' +
+						'<label for="cerita">Cerita <span class="text-danger">*</span></label>' +
+						'<div class="input-group">' +
+						'<textarea name="text[]" id="cerita" placeholder="Masukan Cerita" class="form-control"></textarea>' +
+						'</div>' +
+						'</div>' +
+						'</div>'
+					);
+				}
 				$('#count-form').val(nextform);
 			});
 			$("#btn-reset-form").click(function() {

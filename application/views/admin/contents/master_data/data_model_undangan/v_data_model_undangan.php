@@ -62,9 +62,9 @@
 						<h5 class="text-black mt-4">Model <?= $value['name'] ?></h5>
 						<p>Undangan Pernikahan <?= $value['type'] ?> / <?= $value['category'] ?></p>
 						<div>
-							<a target="_blank" href="<?= base_url('PreviewModelUndangan') ?>" class="btn btn-sm btn-outline-info text-sm  px-2 mr-3">
+							<a target="_blank" href="<?= base_url('demo?model=' . $value['view']) ?>" class="btn btn-sm btn-outline-info text-sm  px-2 mr-3">
 								<i class="fas fa-eye mr-1"></i>
-								<span class="mb-1">Preview</span>
+								<span class="mb-1">Demo</span>
 							</a>
 						</div>
 						<div class="text-xs mt-3 mb-n2">

@@ -35,9 +35,10 @@
 				<div class="input-group">
 					<select name="bank[]" id="nama_bank" class="form-control <?= (form_error('bank[]')) ? 'is-invalid' : '' ?>">
 						<option selected>Pilih Bank</option>
-						<option value="BCA">BCA</option>
-						<option value="BRI">BRI</option>
-						<option value="BNI">BNI</option>
+						<option class="bank" value="BCA">BCA</option>
+						<option class="bank" value="BRI">BRI</option>
+						<option class="bank" value="BNI">BNI</option>
+						<option class="bank" value="MANDIRI">MANDIRI</option>
 						<div class="invalid-feedback"><?= form_error('bank[]') ?></div>
 					</select>
 				</div>
@@ -95,48 +96,51 @@
 		$(document).ready(function() {
 			$("#btn-add-form").click(function() {
 				var jumlah = parseInt($("#count-form").val());
+				var bank = $("#nama_bank .bank").length;
 				var nextform = jumlah + 1;
-				var newRows =
-					'<div class="card shadow-sm px-3 pb-2">' +
-					'<div class="form-group mb-3">' +
-					'<h6 class="text-dark">Data Ke- ' + nextform + '</h6>' +
-					'<label for="tahap">Bank <span class="text-danger">*</span></label>' +
-					'<div class="input-group">' +
-					'<select name="bank[]" id="nama_bank" class="form-control">' +
-					'<option selected>Pilih Bank</option>' +
-					'<option value="BCA">BCA</option>' +
-					'<option value="BRI">BRI</option>' +
-					'<option value="BNI">BNI</option>' +
-					'</select>' +
-					'</div>' +
-					'</div>' +
-					'<div class="form-group mb-3">' +
-					'<label for="noRek">No Rekening <span class="text-danger">*</span></label>' +
-					'<div class="input-group">' +
-					'<input type="number" class="form-control" name="noRek[]" id="noRek" placeholder="Masukan No Rekening">' +
-					'</div>' +
-					'</div>' +
-					'<div class="form-group mb-3">' +
-					'<label for="penerima">Penerima <span class="text-danger">*</span></label>' +
-					'<div class="input-group">' +
-					'<input type="text" class="form-control" name="name[]" id="penerima" placeholder="Masukan Penerima">' +
-					'</div>' +
-					'</div>' +
-					'<div class="form-group mb-3">' +
-					'<label for="uploadQrCode">Upload QR Code</label>' +
-					'<div class="input-group">' +
-					'<div class="input-group-prepend h-75">' +
-					'<span class="input-group-text">Upload</span>' +
-					'</div>' +
-					'<div class="custom-file">' +
-					'<input type="file" name="qr_code[]" class="custom-file-input" id="uploadQr Code">' +
-					'<label class="custom-file-label" for="uploadCover">Choose file</label>' +
-					'</div>' +
-					'</div>' +
-					'<p>Catatan: File max 2mb format (SVG,PNG,JPG,JPEG) </p>' +
-					'</div>' +
-					'</div>';
-				$("#next-form").append(newRows);
+				if (nextform <= bank) {
+					var newRows =
+						'<div class="card shadow-sm px-3 pb-2">' +
+						'<div class="form-group mb-3">' +
+						'<h6 class="text-dark">Data Ke- ' + nextform + '</h6>' +
+						'<label for="tahap">Bank <span class="text-danger">*</span></label>' +
+						'<div class="input-group">' +
+						'<select name="bank[]" id="nama_bank" class="form-control">' +
+						'<option selected>Pilih Bank</option>' +
+						'<option value="BCA">BCA</option>' +
+						'<option value="BRI">BRI</option>' +
+						'<option value="BNI">BNI</option>' +
+						'</select>' +
+						'</div>' +
+						'</div>' +
+						'<div class="form-group mb-3">' +
+						'<label for="noRek">No Rekening <span class="text-danger">*</span></label>' +
+						'<div class="input-group">' +
+						'<input type="number" class="form-control" name="noRek[]" id="noRek" placeholder="Masukan No Rekening">' +
+						'</div>' +
+						'</div>' +
+						'<div class="form-group mb-3">' +
+						'<label for="penerima">Penerima <span class="text-danger">*</span></label>' +
+						'<div class="input-group">' +
+						'<input type="text" class="form-control" name="name[]" id="penerima" placeholder="Masukan Penerima">' +
+						'</div>' +
+						'</div>' +
+						'<div class="form-group mb-3">' +
+						'<label for="uploadQrCode">Upload QR Code</label>' +
+						'<div class="input-group">' +
+						'<div class="input-group-prepend h-75">' +
+						'<span class="input-group-text">Upload</span>' +
+						'</div>' +
+						'<div class="custom-file">' +
+						'<input type="file" name="qr_code[]" class="custom-file-input" id="uploadQr Code">' +
+						'<label class="custom-file-label" for="uploadCover">Choose file</label>' +
+						'</div>' +
+						'</div>' +
+						'<p>Catatan: File max 2mb format (SVG,PNG,JPG,JPEG) </p>' +
+						'</div>' +
+						'</div>';
+					$("#next-form").append(newRows);
+				}
 				$('#count-form').val(nextform);
 			});
 

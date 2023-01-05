@@ -66,7 +66,7 @@
 			<div class="col-span-4 border-b border-b-slate-400/30 mb-2"></div>
 
 			<p class="text-slate-600">Model</p>
-			<a target="_blank" href="<?= base_url('preview?model=' . $detail->m_view) ?>" class="col-span-2 text-primary-blue-cyan underline decoration-primary-blue-cyan hover:text-primary-blue-cyan-hover hover:decoration-primary-blue-cyan-hover"><?= $detail->m_name ?></a>
+			<a target="_blank" href="<?= base_url('demo?model=' . $detail->m_view) ?>" class="col-span-2 text-primary-blue-cyan underline decoration-primary-blue-cyan hover:text-primary-blue-cyan-hover hover:decoration-primary-blue-cyan-hover"><?= $detail->m_name ?></a>
 			<div class="col-span-4 border-b border-b-slate-400/30 mb-2"></div>
 
 			<p class="text-slate-600">Harga</p>
@@ -112,14 +112,14 @@
 		<!-- TRUE -->
 		<div class="block sm:flex mt-6">
 			<?php if ($detail->t_desc == 2) : ?>
-				<a target="_blank" href="<?= base_url('PreviewUndangan/pratinjau') ?>" class="border border-primary-blue-cyan flex items-center justify-center px-6 py-2.5 text-primary-blue-cyan rounded-lg sm:mr-3 mb-3 sm:mb-0 hover:bg-primary-blue-cyan/20"><i class="fa fa-eye mr-2"></i>Pratinjau</a>
+				<a target="_blank" href="<?= base_url('preview') ?>" class="border border-primary-blue-cyan flex items-center justify-center px-6 py-2.5 text-primary-blue-cyan rounded-lg sm:mr-3 mb-3 sm:mb-0 hover:bg-primary-blue-cyan/20"><i class="fa fa-eye mr-2"></i>Pratinjau</a>
 			<?php endif ?>
-			<a href="<?= base_url('history/order/invited_guest?id=' . $invtId) ?>" class="inline-flex items-center justify-between text-primary-blue-cyan border border-primary-blue-cyan px-8 sm:px-2 lg:px-5 py-2 rounded-lg mb-3 sm:mb-0 w-full sm:w-fit sm:mr-3 hover:bg-primary-blue-cyan/20">
+			<a href="<?= base_url('history/order/invited_guest?id=' . $invtId . '&code=' . $detail->t_code) ?>" class="inline-flex items-center justify-between text-primary-blue-cyan border border-primary-blue-cyan px-8 sm:px-2 lg:px-5 py-2 rounded-lg mb-3 sm:mb-0 w-full sm:w-fit sm:mr-3 hover:bg-primary-blue-cyan/20">
 				<i class="fa fa-users mr-3"></i>
 				<p>Tamu Undangan</p>
 				<div class="inline-flex justify-center items-center ml-2 text-base-2xs sm:text-base-1xs font-semibold px-1.5 py-[1px] text-white bg-orange-400/90 rounded-full"><?= $guest ?></div>
 			</a>
-			<a href="<?= base_url('history/order/messages?id=' . $invtId) ?>" class="inline-flex items-center justify-between text-primary-blue-cyan border border-primary-blue-cyan px-8 sm:px-2 lg:px-5 py-2 rounded-lg w-full sm:w-fit hover:bg-primary-blue-cyan/20">
+			<a href="<?= base_url('history/order/messages?id=' . $invtId . '&code=' . $detail->t_code) ?>" class="inline-flex items-center justify-between text-primary-blue-cyan border border-primary-blue-cyan px-8 sm:px-2 lg:px-5 py-2 rounded-lg w-full sm:w-fit hover:bg-primary-blue-cyan/20">
 				<i class="fa fa-message mr-3"></i>
 				<p>Pesan Bahagia</p>
 				<div class="inline-flex justify-center items-center ml-2 text-base-2xs sm:text-base-1xs font-semibold px-1.5 py-[1px] text-white bg-orange-400/90 rounded-full"><?= $message ?></div>

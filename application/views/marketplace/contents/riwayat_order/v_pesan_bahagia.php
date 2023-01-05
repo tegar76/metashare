@@ -22,7 +22,7 @@
 				</li>
 				<li aria-current="page">
 					<i class="fa fa-angle-right opacity-50"></i>
-					<a href="<?= base_url('Marketplace/RiwayatOrder/detailOrder') ?>" class="ml-2 inline-flex items-center text-sm font-medium text-primary-blue-cyan hover:text-primary-blue-cyan-hover">Detail Order</a>
+					<a href="<?= base_url('history/order/'. $code . '/detail') ?>" class="ml-2 inline-flex items-center text-sm font-medium text-primary-blue-cyan hover:text-primary-blue-cyan-hover">Detail Order</a>
 				</li>
 				<li aria-current="page" class="text-gray-600">
 					<i class="fa fa-angle-right opacity-50"></i>

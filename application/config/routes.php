@@ -187,3 +187,4 @@ $route['history/order'] = 'HistoryOrderController';
 $route['history/order/(:any)/detail'] = 'HistoryOrderController/detail/$1';
 $route['history/order/invited_guest'] = 'HistoryOrderController/invited_guest';
 $route['history/order/messages'] = 'HistoryOrderController/messages';
+$route['history/order_now'] = 'HistoryOrderController/order_now';

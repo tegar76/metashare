@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>0102|GreenShades|Demo</title>
 	<!--Style CSS-->
-	<link rel="stylesheet" href="<?= base_url() ?>assets/st_0001/css/style_.css">
+	<link rel="stylesheet" href="<?= base_url() ?>assets/st_0001/css/style.css">
 	<!--Lightbox CSS-->
 	<link rel="stylesheet" href="<?= base_url() ?>assets/st_0001/vendor/lightbox.css">
 	<!--CCS ANIMATE-->
@@ -937,7 +937,7 @@
 	<!--Lightbox CSS-->
 	<script src="<?= base_url() ?>assets/st_0001/vendor/lightbox-plus-jquery.js"></script>
 
-	<script src="<?= base_url() ?>assets/st_0001/js/script_.js"></script>
+	<script src="<?= base_url() ?>assets/st_0001/js/script.js"></script>
 	<!--AOS Animate on scroll library-->
 	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 	<!--Initialize AOS-->

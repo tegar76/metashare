@@ -23,7 +23,7 @@ class AuthController extends CI_Controller
 	public function index()
 	{
 		$this->checkToken();
-		if ($_REQUEST) {
+		if ($_POST) {
 			$this->login();
 		} else {
 			$data['title'] = 'Login Marketplace';

@@ -850,7 +850,7 @@ body::-webkit-scrollbar {
 
 /*-------------Nav Waktu---------------i*/
 .content #waktu {
-	background-image: url("../../sp_0001/image/bg-waktu.svg");
+	background-image: url("../../st_0001/image/bg-waktu.svg");
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
@@ -1133,7 +1133,7 @@ body::-webkit-scrollbar {
 	justify-content: center;
 	flex-direction: row;
 	flex-wrap: wrap;
-	background-image: url("../../sp_0001/image/bg-pesan.svg");
+	background-image: url("../../st_0001/image/bg-pesan.svg");
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;

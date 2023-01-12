@@ -5,5 +5,5 @@
 <title><?= $title ?></title>
 
 <div class="container my-5">
-	<img src="<?= base_url('storage/bukti_pembayaran/bukti_heru.jpg') ?>" class="img-responsive d-block mx-auto" alt="Responsive image" style=" height:900px">
+	<img src="<?= $image ?>" class="img-responsive d-block mx-auto" alt="Responsive image" style=" height:900px">
 </div>

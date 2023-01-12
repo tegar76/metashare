@@ -2,16 +2,41 @@
 
 class AuthModel extends CI_Model
 {
+
+	public function getSuperAdmin($username)
+	{
+		$this->db->where('code', $username);
+		$this->db->where('level', 'su-admin');
+		return $this->db->get('admin')->row();
+	}
+
+	public function getAdminByCode($code)
+	{
+		$this->db->where('code', $code);
+		return $this->db->get('admin')->row();
+	}
+
 	public function getAdminByEmail($email)
 	{
 		$this->db->where('email', $email);
-		return $this->db->get('admin')->row_object();
+		return $this->db->get('admin')->row();
 	}
 
-	public function getCustomerByUsername($username)
+	public function getCustomerByEmail($email)
 	{
-		$this->db->where('username', $username);
+		$this->db->where('email', $email);
 		return $this->db->get('customer')->row_object();
+	}
+
+	public function registerCustomer($data)
+	{
+		$regist = array(
+			'name' => $data['name'],
+			'email' => $data['email'],
+			'phone' => $data['phone'],
+			'password' => password_hash($data['password'], PASSWORD_DEFAULT),
+		);
+		$this->db->insert('customer', $regist);
 	}
 
 	public function checkToken($access_token)

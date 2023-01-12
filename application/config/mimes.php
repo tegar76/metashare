@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------
@@ -62,7 +62,7 @@ return array(
 	'midi'	=>	'audio/midi',
 	'mpga'	=>	'audio/mpeg',
 	'mp2'	=>	'audio/mpeg',
-	'mp3'	=>	array('audio/mpeg', 'audio/mpg', 'audio/mpeg3', 'audio/mp3'),
+	'mp3'	=>	array('audio/mpeg', 'audio/mpeg3', 'audio/mpg', 'audio/x-mpeg', 'audio/mp3', 'application/force-download', 'application/octet-stream'),
 	'aif'	=>	array('audio/x-aiff', 'audio/aiff'),
 	'aiff'	=>	array('audio/x-aiff', 'audio/aiff'),
 	'aifc'	=>	'audio/x-aiff',

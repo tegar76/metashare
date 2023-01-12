@@ -59,20 +59,20 @@
 							<img src="<?= base_url('assets/icons/logo_metashare.png') ?>" alt="Metashare Logo" width="150">
 							<hr>
 							<h4 class="text-black">Super Admin</h4>
-							<?php if ($this->session->flashdata('message')) : ?>
-								<div class="alert alert-warning alert-login" role="alert">
-									<?= $this->session->flashdata('message') ?>
-								</div>
-							<?php endif ?>
 						</div>
-						<?= form_open('admin/login', ['class' => 'mt-4']) ?>
+						<?php if ($this->session->flashdata('message')) : ?>
+							<div class="alert alert-warning alert-login" role="alert">
+								<?= $this->session->flashdata('message') ?>
+							</div>
+						<?php endif ?>
+						<?= form_open('su-admin/login') ?>
 						<div class="row">
 							<div class="col-lg-12 mb-1">
 								<div class="form-group">
 									<div class="input-group rounded shadow-sm">
 										<span><label for="username" class="far fa-regular fa-user mt-2 pl-3 text-primary"></label></span>
-										<input class="form-control border-0 <?= form_error('username') ? 'is-invalid' : '' ?> " id="username" name="username" type="text" placeholder="Masukan Username">
-										<div class="invalid-feedback">
+										<input name="username" class="form-control border-0 <?= (form_error('username')) ? 'is-invalid' : '' ?>" id="username" type="text" placeholder="Masukan Username" value="<?= set_value('username') ?>">
+										<div id="usernameFeedback" class="invalid-feedback">
 											<?= form_error('username', '<div class="text-danger">', '</div>') ?>
 										</div>
 									</div>
@@ -82,8 +82,8 @@
 								<div class="form-group">
 									<div class="input-group rounded shadow-sm">
 										<span><label for="password" class="icon-key mt-2 pl-3 text-primary"></label></span>
-										<input class="form-control border-0 <?= form_error('password') ? 'is-invalid' : '' ?>" id="password" name="password" type="password" placeholder="Masukan password" autocomplete="current-password" id="id_password"><span role="button" class="d-flex"><i class="fas fa-eye fa-xs mr-2 my-auto" id="togglePassword"></i></span>
-										<div class="invalid-feedback">
+										<input name="password" class="form-control border-0 <?= (form_error('password')) ? 'is-invalid' : '' ?>"" id=" password" type="password" placeholder="Masukan password" autocomplete="current-password" id="id_password"><span role="button" class="d-flex"><i class="fas fa-eye fa-xs mr-2 my-auto" id="togglePassword"></i></span>
+										<div id="passwordFeedback" class="invalid-feedback">
 											<?= form_error('password', '<div class="text-danger">', '</div>') ?>
 										</div>
 									</div>
@@ -130,9 +130,7 @@
 			// toggle the eye slash icon
 			this.classList.toggle('fa-eye-slash');
 		});
-	</script>
 
-	<script>
 		$(function() {
 			var title = '<?= $this->session->flashdata("title") ?>';
 			var text = '<?= $this->session->flashdata("text") ?>';

@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "BacktoBlack";
+  src: url("../../../assets/fonts/BacktoBlack.ttf");
+}
+
+@font-face {
+  font-family: "GreatVibes";
+  src: url("../../../assets/fonts/GreatVibes-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("../../../assets/fonts/MontserratAlternates-Light.ttf");
+}
+
+@font-face {
+  font-family: "MontserratBold";
+  src: url("../../../assets/fonts/MontserratAlternates-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("../../../assets/fonts/Poppins-Regular.ttf");
+}
+
+@layer utilities {
+    .selected {
+        opacity: 1;
+        filter: drop-shadow(0 0 0.25rem #76A8FF);
+    }
+
+    /* For Webkit-based browsers (Chrome, Safari and Opera) */
+    .scrollbar-hide::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* For IE, Edge and Firefox */
+    .scrollbar-hide {
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+    }
+
+    /* For Webkit-based browsers (Chrome, Safari and Opera) */
+    .scrollbar-show::-webkit-scrollbar {
+      background: #ddd;
+      display: block;
+      width: 14px;
+      height: 4px;
+    }
+    .scrollbar-show::-webkit-scrollbar-thumb {
+      background: #bbb;
+      border-radius: 3px;
+      height: 4px;
+    }
+
+    /* For IE, Edge and Firefox */
+    .scrollbar-show {
+      -ms-overflow-style: auto;  /* IE and Edge */
+      scrollbar-width: auto;  /* Firefox */
+    }
+}
+

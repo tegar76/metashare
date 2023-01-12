@@ -49,32 +49,143 @@ defined('BASEPATH') or exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'Login';
+$route['default_controller'] = 'HomeController';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 
-// Routing super admin
-# routing login super admin
-$route['su-admin/login'] = 'SuperAdmin/Login/index';
-# routing dashboard super admin
+/*
+| -------------------------------------------------------------------------
+| ROUTING USER SUPER ADMINISTATOR
+| -------------------------------------------------------------------------
+*/
+// 1. Authentication 
+$route['su-admin/login'] = 'SuperAdmin/Auth';
+$route['su-admin/logout'] = 'SuperAdmin/Auth/logout';
+
+// 2. Dahsboard
+$route['su-admin'] = 'SuperAdmin/Dashboard';
 $route['su-admin/dashboard'] = 'SuperAdmin/Dashboard';
-# routing master data
-$route['su-admin/master-data'] = 'SuperAdmin/MasterData';
-$route['su-admin/master-data/(:any)'] = 'SuperAdmin/MasterData/$1';
-$route['su-admin/master-data/(:any)/(:any)'] = 'SuperAdmin/MasterData/$1/$2';
+
+// 3. Master Data
+$route['su-admin/master'] = 'SuperAdmin/MasterData';
+$route['su-admin/master/(:any)'] = 'SuperAdmin/MasterData/$1';
+$route['su-admin/master/(:any)/(:any)'] = 'SuperAdmin/MasterData/$1/$2';
 
 $route['su-admin/customer'] = 'SuperAdmin/DataKustomer';
 $route['su-admin/customer/(:any)'] = 'SuperAdmin/DataKustomer/$1';
 $route['su-admin/customer/(:any)/'] = 'SuperAdmin/DataKustomer/$1/$2';
 
-$route['admin/login'] = 'Login';
-$route['admin/logout'] = 'Login/logout';
-$route['admin/undangan'] = 'Admin/Invitation';
-$route['admin/undangan/(:any)'] = 'Admin/Invitation/$1';
-$route['admin/undangan/(:any)/(:any)'] = 'Admin/Invitation/$1/$2';
-$route['admin/undangan/(:any)/(:any)/(:any)'] = 'Admin/Invitation/$1/$2/$3';
+// 4. Pengorderan
+$route['su-admin/order'] = 'SuperAdmin/Pengorderan';
+$route['su-admin/order/(:any)'] = 'SuperAdmin/Pengorderan/$1';
+$route['su-admin/order/(:any)/(:any)'] = 'SuperAdmin/Pengorderan/$1/$2';
+
+
+// 5. Penugasan
+$route['su-admin/penugasan'] = 'SuperAdmin/Penugasan';
+$route['su-admin/penugasan/(:any)'] = 'SuperAdmin/Penugasan/$1';
+$route['su-admin/penugasan/(:any)/(:any)'] = 'SuperAdmin/Penugasan/$1/$2';
+
+// 6. Laporan Bulanan
+$route['su-admin/laporan_bulanan'] = 'SuperAdmin/LaporanBulanan';
+$route['su-admin/laporan_bulanan/(:any)'] = 'SuperAdmin/LaporanBulanan/$1';
+$route['su-admin/laporan_bulanan/(:any)/(:any)'] = 'SuperAdmin/LaporanBulanan/$1/$2';
+
+/*
+| -------------------------------------------------------------------------
+| ROUTING USER ADMINISTATOR
+| -------------------------------------------------------------------------
+*/
+// 1. Authentication Admin
+$route['admin/login'] = 'Admin/Auth';
+$route['admin/logout'] = 'Admin/Auth/logout';
+
+// 2. Dashboard Admin
+$route['admin'] = 'Admin/Dashboard';
+$route['admin/dashboard'] = 'Admin/Dashboard';
+$route['admin/dashboard/(:any)'] = 'Admin/Dashboard/$1';
+
+// 3. Master Data
+$route['admin/master_data'] = 'Admin/MasterData';
+$route['admin/master_data/(:any)'] = 'Admin/MasterData/$1';
+$route['admin/master_data/(:any)/(:any)'] = 'Admin/MasterData/$1/$2';
+
+// 4. Pengerjaan Undangan
+$route['admin/undangan'] = 'Admin/Undangan';
+$route['admin/undangan/detail/(:any)'] = 'Admin/Undangan/detail/$1';
+$route['admin/undangan/create/(:any)'] = 'Admin/Undangan/create_data_undangan/$1';
+$route['admin/undangan/update/(:any)'] = 'Admin/Undangan/update_data_undangan/$1';
+$route['admin/undangan/update_processing'] = 'Admin/Undangan/update_processing';
+
+# Routing gallery preeweding 
+$route['admin/undangan/gallery'] = 'Admin/GalleryController';
+$route['admin/undangan/gallery/detail'] = 'Admin/GalleryController/detail';
+$route['admin/undangan/gallery/delete'] = 'Admin/GalleryController/delete';
+$route['admin/undangan/gallery/update_video'] = 'Admin/GalleryController/update_video';
+$route['admin/undangan/gallery/create/(:any)'] = 'Admin/GalleryController/create/$1';
+$route['admin/undangan/gallery/update/(:any)'] = 'Admin/GalleryController/update/$1';
+
+# Routing Tamu Undangan
+$route['admin/undangan/tamu'] = 'Admin/GuestInvitedController';
+$route['admin/undangan/tamu/create/(:any)'] = 'Admin/GuestInvitedController/create/$1';
+$route['admin/undangan/tamu/update/(:any)'] = 'Admin/GuestInvitedController/update/$1';
+
+# Routing Love Story
+$route['admin/undangan/love-story'] = 'Admin/LoveStoryController';
+$route['admin/undangan/love-story/create/(:any)'] = 'Admin/LoveStoryController/create/$1';
+$route['admin/undangan/love-story/update/(:any)'] = 'Admin/LoveStoryController/update/$1';
+$route['admin/undangan/love-story/detail'] = 'Admin/LoveStoryController/detail';
+$route['admin/undangan/love-story/delete'] = 'Admin/LoveStoryController/delete';
+
+# Routing Berikan Hadiah
+$route['admin/undangan/gifts'] = 'Admin/GiftsController';
+$route['admin/undangan/gifts/create/(:any)'] = 'Admin/GiftsController/create/$1';
+$route['admin/undangan/gifts/update/(:any)'] = 'Admin/GiftsController/update/$1';
+$route['admin/undangan/gifts/detail'] = 'Admin/GiftsController/detail';
+$route['admin/undangan/gifts/delete'] = 'Admin/GiftsController/delete';
+
+
+// 5. Profile Admin
+$route['admin/profile'] = 'Admin/Profile';
+$route['admin/profile/(:any)'] = 'Admin/Profile/$1';
+$route['admin/profile/(:any)/(:any)'] = 'Admin/Profile/$1/$2';
 
 $route['wedding'] = 'Admin/Invitation/wedding';
 $route['wedding/(:any)'] = 'Admin/Invitation/wedding/$1';
 $route['wedding/(:any)/(:any)'] = 'Admin/Invitation/wedding/$1/$2';
+
+/*
+| -------------------------------------------------------------------------
+| ROUTING Preview Model Undangan
+| -------------------------------------------------------------------------
+*/
+$route['demo'] = 'Invitations/demo';
+$route['preview/(:any)/(:any)'] = 'Invitations/preview/$1/$2';
+$route['wedding/(:any)/(:any)'] = 'Invitations/preview/$1/$2';
+$route['undangan/submit_message'] = 'Invitations/submit_message';
+$route['undangan/get_message'] = 'Invitations/get_message';
+$route['undangan/view_photo'] = 'Invitations/view_photo';
+
+$route['view/bukti_pembayaran'] = 'ViewController/view_proof';
+
+/*
+| -------------------------------------------------------------------------
+| ROUTING USER
+| -------------------------------------------------------------------------
+*/
+$route['login'] = 'AuthController';
+$route['register'] = 'AuthController/register';
+$route['logout'] = 'AuthController/logout';
+$route['categories'] = 'CategoryController';
+$route['testimony'] = 'TestimonyController';
+$route['about'] = 'AboutController';
+$route['profile'] = 'ProfileController';
+$route['profile/update'] = 'ProfileController/update';
+$route['profile/update/do_upload'] = 'ProfileController/do_upload';
+$route['history'] = 'HistoryOrderController';
+$route['history/order'] = 'HistoryOrderController';
+$route['history/order/(:any)/detail'] = 'HistoryOrderController/detail/$1';
+$route['history/order/invited_guest'] = 'HistoryOrderController/invited_guest';
+$route['history/order/messages'] = 'HistoryOrderController/messages';
+$route['history/order_now'] = 'HistoryOrderController/order_now';

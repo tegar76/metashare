@@ -1,0 +1,17 @@
+<svg width="19" height="24" viewBox="0 0 19 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="in in-padlock-small" clip-path="url(#clip0_28_232)">
+<g id="Group 8">
+<g id="g1006">
+<path id="path967" d="M9.92308 15C10.4329 15 10.8462 14.5523 10.8462 14C10.8462 13.4477 10.4329 13 9.92308 13C9.41328 13 9 13.4477 9 14C9 14.5523 9.41328 15 9.92308 15Z" stroke="#1A262D" stroke-opacity="0.7804" stroke-width="0.9" stroke-miterlimit="0" stroke-linecap="round" stroke-linejoin="bevel"/>
+<path id="rect969" d="M9.92308 15.45C10.1233 15.45 10.289 15.4783 10.3962 15.5134V17.4866C10.289 17.5217 10.1233 17.55 9.92308 17.55C9.72284 17.55 9.5572 17.5217 9.45 17.4866V15.5134C9.5572 15.4783 9.72284 15.45 9.92308 15.45Z" stroke="#1A262D" stroke-opacity="0.7804" stroke-width="0.9" stroke-miterlimit="0" stroke-linecap="round" stroke-linejoin="bevel"/>
+<path id="rect953" d="M15.8843 9.45C16.7741 9.45 17.55 10.2356 17.55 11.2744V20.7256C17.55 21.7644 16.7741 22.55 15.8843 22.55H3.11573C2.22587 22.55 1.45 21.7644 1.45 20.7256V11.2744C1.45 10.2356 2.22587 9.45 3.11573 9.45H9.5H15.8843Z" stroke="#1A262D" stroke-opacity="0.7804" stroke-width="0.9" stroke-miterlimit="0" stroke-linecap="round" stroke-linejoin="bevel"/>
+</g>
+</g>
+<path id="path949" d="M14.1806 9.47874C14.8716 8.77181 15.5638 7.347 15.7021 6.46179C15.883 5.30366 15.5271 4.09442 14.6918 3.13126C13.8565 2.1681 12.5444 1.46359 11.0938 1.22683C9.46323 0.960681 7.68922 1.30159 6.39663 2.12947C5.10405 2.95735 3.85236 5.16898 3.85076 6.48052" stroke="#1A262D" stroke-opacity="0.7804" stroke-width="0.9" stroke-miterlimit="0" stroke-linecap="round"/>
+</g>
+<defs>
+<clipPath id="clip0_28_232">
+<rect width="19" height="24" fill="white"/>
+</clipPath>
+</defs>
+</svg>

@@ -1,0 +1,9 @@
+<svg width="1365" height="350" viewBox="0 0 1365 350" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path id="bg-waktu" d="M0 0H1365V350H0V0Z" fill="url(#paint0_radial_205_7)"/>
+<defs>
+<radialGradient id="paint0_radial_205_7" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(683 165.5) rotate(90) scale(168.5 657.15)">
+<stop stop-color="#84A98C" stop-opacity="0.4"/>
+<stop offset="1" stop-color="#84A98C" stop-opacity="0"/>
+</radialGradient>
+</defs>
+</svg>

@@ -150,44 +150,44 @@
 					<a href="<?= base_url() ?>" class="w-full justify-center inline-block text-center pt-3 pb-3">
 						<div class="flex">
 							<?php
-							echo ($this->uri->segment(2) == "") ? $iconNav['homeActive'] : $iconNav['home'];
+							echo ($this->uri->segment(1) == "") ? $iconNav['homeActive'] : $iconNav['home'];
 							?>
 						</div>
-						<p class="text-base-2xs tracking-wide mt-1  <?= ($this->uri->segment(2) == "Home") ? 'text-primary-blue-cyan' : '' ?>">Home</p>
+						<p class="text-base-2xs tracking-wide mt-1  <?= ($this->uri->segment(1) == "") ? 'text-primary-blue-cyan' : '' ?>">Home</p>
 					</a>
 					<a href="<?= base_url('categories') ?>" class="w-full justify-center inline-block text-center pt-3 pb-3">
 						<div class="flex">
 							<?php
-							echo ($this->uri->segment(2) == "categories") ? $iconNav['kategoriActive'] : $iconNav['kategori'];
+							echo ($this->uri->segment(1) == "categories") ? $iconNav['kategoriActive'] : $iconNav['kategori'];
 							?>
 						</div>
-						<p class="text-base-2xs tracking-wide mt-1  <?= ($this->uri->segment(2) == "Kategori") ? 'text-primary-blue-cyan' : '' ?>">Kategori</p>
+						<p class="text-base-2xs tracking-wide mt-1  <?= ($this->uri->segment(1) == "categories") ? 'text-primary-blue-cyan' : '' ?>">Kategori</p>
 					</a>
 					<a href="<?= base_url('testimony') ?>" class="w-full justify-center inline-block text-center pt-3 pb-3">
 						<div class="flex">
 							<?php
-							echo ($this->uri->segment(2) == "testimony") ? $iconNav['testimoniActive'] : $iconNav['testimoni'];
+							echo ($this->uri->segment(1) == "testimony") ? $iconNav['testimoniActive'] : $iconNav['testimoni'];
 							?>
 						</div>
-						<p class="text-base-2xs tracking-wide mt-1  <?= ($this->uri->segment(2) == "Testimoni") ? 'text-primary-blue-cyan' : '' ?>">Testimoni</p>
+						<p class="text-base-2xs tracking-wide mt-1  <?= ($this->uri->segment(2) == "testimony") ? 'text-primary-blue-cyan' : '' ?>">Testimoni</p>
 					</a>
 					<a href="<?= base_url('about') ?>" class="w-full justify-center inline-block text-center pt-3 pb-3">
 						<div class="flex">
 							<?php
-							echo ($this->uri->segment(2) == "about") ? $iconNav['tentangActive'] : $iconNav['tentang'];
+							echo ($this->uri->segment(1) == "about") ? $iconNav['tentangActive'] : $iconNav['tentang'];
 							?>
 						</div>
-						<p class="text-base-2xs tracking-wide mt-1  <?= ($this->uri->segment(2) == "Tentang") ? 'text-primary-blue-cyan' : '' ?>">Tentang</p>
+						<p class="text-base-2xs tracking-wide mt-1  <?= ($this->uri->segment(1) == "about") ? 'text-primary-blue-cyan' : '' ?>">Tentang</p>
 					</a>
 					<?php if ($this->session->userdata('logged_in') == true and $this->session->userdata('level') == 'customer') : ?>
 						<!-- TRUE -->
 						<a href="<?= base_url('profile') ?>" class="w-full justify-center inline-block text-center pt-3 pb-3">
 							<div class="flex">
 								<?php
-								echo ($this->uri->segment(2) == "profile") ? $iconNav['profileActive'] : $iconNav['profile'];
+								echo ($this->uri->segment(1) == "profile") ? $iconNav['profileActive'] : $iconNav['profile'];
 								?>
 							</div>
-							<p class="text-base-2xs tracking-wide mt-1  <?= ($this->uri->segment(2) == "profile") ? 'text-primary-blue-cyan' : '' ?>">Profile</p>
+							<p class="text-base-2xs tracking-wide mt-1  <?= ($this->uri->segment(1) == "profile") ? 'text-primary-blue-cyan' : '' ?>">Profile</p>
 						</a>
 					<?php else : ?>
 						<!-- FALSE -->

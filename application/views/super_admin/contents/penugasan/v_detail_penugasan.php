@@ -114,10 +114,13 @@
 			<hr class="mt-n3">
 			<div class="d-flex mb-2">
 				<a href="<?= base_url('su-admin/penugasan') ?>" class="btn btn-sm btn-warning px-2 mr-4">Kembali</a>
-				<a target="_blank" href="<?= base_url('wedding/runa-ratna') ?>" class="btn btn-sm btn-outline-primary px-2">
-					<i class="fas fa-eye mr-1"></i>
-					<span class="mb-1">Pratinjau</span>
-				</a>
+				<?php if ($detail->t_desc == 2) : ?>
+					<!-- TRUE -->
+					<a target="_blank" href="<?= base_url('preview/' . $invite . '/' . $slug) ?>" class="btn btn-sm btn-outline-primary px-2">
+						<i class="fas fa-eye mr-1"></i>
+						<span class="mb-1">Pratinjau</span>
+					</a>
+				<?php endif ?>
 			</div>
 		</div>
 	</div>

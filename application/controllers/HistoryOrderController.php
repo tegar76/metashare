@@ -48,6 +48,7 @@ class HistoryOrderController extends CI_Controller
 	{
 		$detail = $this->master->getDetailPenugasan($code);
 		if ($code == false or empty($detail)) {
+			sweetAlert('Oppss', 'Kamu belum melakukan pembayaran, segera hubungi admin untuk proses pembayaran', 'warning');
 			return redirect('history/order');
 		} else {
 			if ($detail) {
@@ -79,7 +80,7 @@ class HistoryOrderController extends CI_Controller
 			))->row();
 		}
 
-		if ($_REQUEST) {
+		if ($_POST) {
 			$testimony = array(
 				'message' => $_POST['testimony'],
 				'cus_id' => $_POST['customer'],

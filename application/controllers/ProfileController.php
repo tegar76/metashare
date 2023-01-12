@@ -147,7 +147,7 @@ class ProfileController extends CI_Controller
 		);
 
 		$cutomer = $this->db->get_where('customer', ['email' => $this->session->userdata('email')])->row();
-		$conf['upload_path']   = './storage/profile_customer/';
+		$conf['upload_path']   = './storage/profiles/';
 		$conf['allowed_types'] = 'gif|jpg|png|jpeg';
 		$conf['max_size']      = 2048;
 		$conf['overwrite']     = true;
@@ -155,13 +155,13 @@ class ProfileController extends CI_Controller
 		$this->load->library('upload', $conf);
 		if ($this->upload->do_upload('userfile', true)) {
 			if ($cutomer->image != 'default.jpg') {
-				@unlink(FCPATH . './storage/profile_customer/' . $cutomer->image);
+				@unlink(FCPATH . './storage/profiles/' . $cutomer->image);
 			}
 			$newProfile = $this->upload->data('file_name');
 			$this->db->set('image', $newProfile);
 			$this->db->where(['email' => $cutomer->email]);
 			$this->db->update('customer');
-			$file_path =  base_url() .  'storage/profile_customer/' . $newProfile;
+			$file_path =  base_url() .  'storage/profiles/' . $newProfile;
 			echo $file_path;
 		}
 	}

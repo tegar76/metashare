@@ -30,9 +30,10 @@
 		<!-- Looping Card -->
 		<div class="card shadow-sm px-3">
 			<?= form_open_multipart($this->uri->uri_string(), ['class' => 'mt-4']) ?>
-			<input type="hidden" name="id" value="<?= $gift->git_id ?>">
+			<input type="hidden" name="id" value="<?= $gift->id ?>">
+			<input type="hidden" name="digit" value="<?= $gift->digit ?>">
 			<div class="form-group mb-3">
-				<h6 class="text-dark">Data Bank <?= $gift->name_bank ?></h6>
+				<h6 class="text-dark">Data Bank <?= $gift->bank ?></h6>
 				<label for="bankName">Bank <span class="text-danger">*</span></label>
 				<div class="input-group">
 					<!-- <select name="" id="tahap" class="form-control">
@@ -41,20 +42,20 @@
 						<option value="">BCA</option>
 						<option value="">BCA</option>
 					</select> -->
-					<input type="text" name="bank" class="form-control" id="bankName" value="<?= $gift->name_bank ?>" readonly placeholder="Masukan No Rekening">
+					<input type="text" name="bank" class="form-control" id="bankName" value="<?= $gift->bank ?>" readonly placeholder="Masukan No Rekening">
 				</div>
 			</div>
 			<div class="form-group mb-3">
 				<label for="noRek">No Rekening <span class="text-danger">*</span></label>
 				<div class="input-group">
-					<input type="number" name="noRek" class="form-control <?= (form_error('noRek')) ? 'is-invalid' : '' ?>" id="noRek" placeholder="Masukan No Rekening" value="<?= (set_value('noRek')) ? set_value('noRek') : $gift->number_account ?>">
+					<input type="number" name="noRek" class="form-control <?= (form_error('noRek')) ? 'is-invalid' : '' ?>" id="noRek" placeholder="Masukan No Rekening" value="<?= (set_value('noRek')) ? set_value('noRek') : $gift->account ?>">
 					<div class="invalid-feedback"><?= form_error('noRek') ?></div>
 				</div>
 			</div>
 			<div class="form-group mb-3">
 				<label for="penerima">Penerima <span class="text-danger">*</span></label>
 				<div class="input-group">
-					<input type="text" name="name" class="form-control <?= (form_error('name')) ? 'is-invalid' : '' ?>" id="penerima" placeholder="Masukan Penerima" value="<?= (set_value('name')) ? set_value('name') : $gift->name ?>">
+					<input type="text" name="name" class="form-control <?= (form_error('name')) ? 'is-invalid' : '' ?>" id="penerima" placeholder="Masukan Penerima" value="<?= (set_value('name')) ? set_value('name') : $gift->recipient ?>">
 					<div class="invalid-feedback"><?= form_error('name') ?></div>
 				</div>
 			</div>

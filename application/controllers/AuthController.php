@@ -54,7 +54,7 @@ class AuthController extends CI_Controller
 					];
 					$this->session->set_userdata($sess_);
 					$this->auth->registToken($forToken = ['access_token' => $sess_['backToken']]);
-					sweetAlert("Selamat Datang $user->name", "Semoga hari anda menyenangkan :)", "success");
+					sweetAlert("Selamat Datang $user->name", "", "success");
 					redirect(base_url());
 				}
 			} else {

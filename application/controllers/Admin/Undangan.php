@@ -66,7 +66,7 @@ class Undangan extends CI_Controller
 			}
 
 			// cek apakah data undangan sudah diinput atau belum
-			$invt = $this->db->query("SELECT invitation_id as id FROM invitation WHERE code='$detail->t_code'")->row();
+			$invt = $this->db->query("SELECT invitation_id as id, slug FROM invitation WHERE code='$detail->t_code'")->row();
 			if (!empty($invt)) {
 				// jika sudah ada, maka akan menampilkan data tamu undangan
 				$guest = $this->invitation->getInvitedGuest($invt->id);
@@ -84,8 +84,10 @@ class Undangan extends CI_Controller
 					}
 					$data['guest'] = $result;
 				}
+				$data['slug'] = $invt->slug;
 			} else {
 				// jika belum, maka akan data tamu undangan masih kosong
+				$data['slug'] = null;
 				$data['invtId'] = null;
 				$data['guest'] = array();
 			}
@@ -1094,20 +1096,42 @@ class Undangan extends CI_Controller
 
 	public function update_processing()
 	{
-		$desc = $this->input->post('desc', true);
-		if ($desc == 1) {
-			$this->db->set('desc', 2);
-		} elseif ($desc == 2) {
-			$this->db->set('desc', 1);
+		$update = $this->input->get('update');
+		if ($update == 'desc') {
+			$desc = $this->input->post('desc', true);
+			if ($desc == 1) {
+				$this->db->set('desc', 2);
+				$message = 'Sudah Dikerjakan';
+			} elseif ($desc == 2) {
+				$this->db->set('desc', 1);
+				$message = 'Dalam Proses Pengerjaan';
+			}
+			$this->db->where('code', $this->input->post('code', true));
+			$this->db->update('transaction');
+			$response = array(
+				'csrfName' => $this->security->get_csrf_token_name(),
+				'csrfHash' => $this->security->get_csrf_hash(),
+				'message' => $message,
+				'success' => true
+			);
+		} else if ($update == 'status') {
+			$status = $this->input->post('status', true);
+			if ($status == 0) {
+				$this->db->set('status', 1);
+				$message = 'Aktif';
+			} else if ($status > 0) {
+				$this->db->set('status', 0);
+				$message = 'Tidak Aktif';
+			}
+			$this->db->where('code', $this->input->post('code', true));
+			$this->db->update('transaction');
+			$response = array(
+				'csrfName' => $this->security->get_csrf_token_name(),
+				'csrfHash' => $this->security->get_csrf_hash(),
+				'message' => $message,
+				'success' => true
+			);
 		}
-		$this->db->where('code', $this->input->post('code', true));
-		$this->db->update('transaction');
-		$response = array(
-			'csrfName' => $this->security->get_csrf_token_name(),
-			'csrfHash' => $this->security->get_csrf_hash(),
-			'message' => 'Anda telah mengupdate proses pengerjaan undangan',
-			'success' => true
-		);
 		echo json_encode($response);
 	}
 

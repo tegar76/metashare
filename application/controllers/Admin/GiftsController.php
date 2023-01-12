@@ -15,6 +15,7 @@ class GiftsController extends CI_Controller
 	{
 		$data['code'] = $code;
 		$data['title'] = 'Tambah Berikan hadiah';
+		$data['banks'] = $this->db->get('banks')->result();
 		$data['content'] = 'admin/contents/pengerjaan_undangan/v_tambah_berikan_hadiah';
 		$check = $this->invitation->checkDataUndangan($code);
 		if (empty($check)) {
@@ -22,11 +23,28 @@ class GiftsController extends CI_Controller
 			redirect('admin/undangan/detail/' . $code);
 		} else {
 			if (empty($_FILES['qr_code']['name'])) {
-				$this->form_validation->set_rules('qr_code[]', 'QR Code  ', 'trim|required|xss_clean');
+				$this->form_validation->set_rules('qr_code', 'QR Code  ', 'trim|required|xss_clean');
 			}
-			$this->form_validation->set_rules('bank[]', 'Jenis Bank', 'trim|required|xss_clean');
-			$this->form_validation->set_rules('noRek[]', 'Nomor Rekening', 'trim|required|xss_clean|numeric');
-			$this->form_validation->set_rules('name[]', 'Nama Penerima', 'trim|required|xss_clean');
+
+			if (isset($_POST['bank'])) {
+				$bank = $this->db->get_where('banks', ['id' => $this->input->post('bank')])->row();
+				if (!empty($bank)) {
+					$rules = "trim|required|xss_clean|numeric|max_length[$bank->digit]|min_length[$bank->digit]";
+					$max = '{field} harus valid sesuai jenis ' . $bank->name;
+					$min = '{field} harus valid sesuai jenis ' . $bank->name;
+				} else {
+					$rules = "trim|required|xss_clean|numeric";
+					$max = '';
+					$min = '';
+				}
+				$this->form_validation->set_rules("rekening", 'Nomor Rekening', $rules, [
+					'required' => '{field} tidak boleh kosong',
+					'max_length' => $max,
+					'min_length' => $min,
+				]);
+				$this->form_validation->set_rules('bank', 'Jenis Bank', 'trim|required|xss_clean');
+				$this->form_validation->set_rules('name', 'Nama Penerima', 'trim|required|xss_clean');
+			}
 			if ($this->form_validation->run() === false) {
 				$this->load->view('admin/layouts/wrapper', $data, false);
 			} else {
@@ -43,17 +61,18 @@ class GiftsController extends CI_Controller
 	{
 		if (isset($_GET['code']) and isset($_GET['id'])) {
 			$id = $this->input->get('id');
-			$gifts = $this->db->get_where('gifts', array('invitation_id' => $id))->result();
+			$gifts = $this->invitation->getJoinGiftBank(['invitation_id' => $id])->result();
 			$data['gifts'] = array();
 			if ($gifts) {
 				$number = 1;
 				foreach ($gifts as $gift) {
 					$row['number'] = $number++;
-					$row['bank'] = $gift->name_bank;
-					$row['account_number'] = $gift->number_account;
-					$row['name'] = $gift->name;
-					$row['qr_code'] =  base_url('storage/invitations/gifts/') . $gift->qr_code;
-					$row['id'] = $gift->git_id;
+					$row['bank'] = $gift->bank;
+					$row['account'] = $gift->account;
+					$row['name'] = $gift->recipient;
+					$row['qr_code'] =  base_url('storage/invitations/gifts/') . $gift->qr;
+					$row['logo'] = base_url('storage/') . $gift->icon;
+					$row['id'] = $gift->id;
 					$result[] = $row;
 				}
 				$data['gifts'] = $result;
@@ -72,12 +91,17 @@ class GiftsController extends CI_Controller
 	{
 		$data['title'] = 'Edit Berikan Hadiah Detail';
 		$data['content'] = 'admin/contents/pengerjaan_undangan/v_edit_berikan_hadiah_detail';
-		$data['gift'] = $this->db->get_where('gifts', array('git_id' => $id))->row();
+		$data['gift'] = $this->invitation->getJoinGiftBank(array('gifts.id' => $id))->row();
 		$invtId = $data['gift']->invitation_id;
 		$data['code'] = $this->db->query("SELECT code FROM invitation WHERE invitation_id='$invtId'")->row();
-		if(isset($_POST['update'])) {
+		if (isset($_POST['update'])) {
+			$digit = $this->input->post('digit');
 			$this->form_validation->set_rules('bank', 'Jenis Bank', 'trim|required|xss_clean');
-			$this->form_validation->set_rules('noRek', 'Nomor Rekening', 'trim|required|xss_clean|numeric');
+			$this->form_validation->set_rules('noRek', 'Nomor Rekening', "trim|required|xss_clean|numeric|min_length[$digit]|max_length[$digit]", [
+				'required' => '{field} tidak boleh kosong',
+				'max_length' => '{field} harus valid sesuai jenis ' . $this->input->post('bank'),
+				'min_length' => '{field} harus valid sesuai jenis ' . $this->input->post('bank'),
+			]);
 			$this->form_validation->set_rules('name', 'Nama Penerima', 'trim|required|xss_clean');
 			if ($this->form_validation->run() === false) {
 				$this->load->view('admin/layouts/wrapper', $data, false);
@@ -102,5 +126,4 @@ class GiftsController extends CI_Controller
 		);
 		echo json_encode($response);
 	}
-	
 }

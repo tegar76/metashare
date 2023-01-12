@@ -19,8 +19,8 @@ class MasterData extends CI_Controller
 			if (!empty($model)) {
 				foreach ($model as $key => $value) {
 					$val['id'] = $value->model_id;
-					$val['cover_1'] = base_url('storage/model_undangan_sampul/') . $value->cover_1;
-					$val['cover_2'] = base_url('storage/model_undangan_sampul/') . $value->cover_2;
+					$val['cover_1'] = base_url('storage/designs/cover/') . $value->cover_1;
+					$val['cover_2'] = base_url('storage/designs/cover/') . $value->cover_2;
 					$val['name'] = $value->name;
 					$val['type'] = $value->type;
 					$val['category'] = $value->category;
@@ -39,8 +39,8 @@ class MasterData extends CI_Controller
 			if (!empty($model)) {
 				foreach ($model as $key => $value) {
 					$val['id'] = $value->model_id;
-					$val['cover_1'] = base_url('storage/model_undangan_sampul/') . $value->cover_1;
-					$val['cover_2'] = base_url('storage/model_undangan_sampul/') . $value->cover_2;
+					$val['cover_1'] = base_url('storage/designs/cover/') . $value->cover_1;
+					$val['cover_2'] = base_url('storage/designs/cover/') . $value->cover_2;
 					$val['name'] = $value->name;
 					$val['type'] = $value->type;
 					$val['category'] = $value->category;
@@ -97,6 +97,7 @@ class MasterData extends CI_Controller
 					$result['nomor'] = $nomor++;
 					$result['code'] = $row->t_code;
 					$result['date'] = date('d-m-Y H:i', strtotime($row->t_date));
+					$result['source'] = $row->t_source;
 					$result['customer'] = $row->cs_name;
 					$result['type'] = $row->m_type;
 					$result['category'] = $row->m_category;

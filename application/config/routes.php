@@ -161,12 +161,13 @@ $route['wedding/(:any)/(:any)'] = 'Admin/Invitation/wedding/$1/$2';
 | -------------------------------------------------------------------------
 */
 $route['demo'] = 'Invitations/demo';
-$route['preview/(:any)'] = 'Invitations/preview/$1';
+$route['preview/(:any)/(:any)'] = 'Invitations/preview/$1/$2';
+$route['wedding/(:any)/(:any)'] = 'Invitations/preview/$1/$2';
 $route['undangan/submit_message'] = 'Invitations/submit_message';
 $route['undangan/get_message'] = 'Invitations/get_message';
 $route['undangan/view_photo'] = 'Invitations/view_photo';
-$route['views'] = 'View/View';
-$route['views/(:any)'] = 'View/View/$1';
+
+$route['view/bukti_pembayaran'] = 'ViewController/view_proof';
 
 /*
 | -------------------------------------------------------------------------

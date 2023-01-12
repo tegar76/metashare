@@ -129,6 +129,32 @@ class MasterModel extends Ci_Model
 		}
 	}
 
+	public function createCodeDesign($category)
+	{
+		$this->db->select('RIGHT(model_invitation.view_model,4) as code', FALSE);
+		$this->db->order_by('code', 'DESC');
+		$this->db->limit(1);
+		$query = $this->db->get('model_invitation');
+		if ($query->num_rows() <> 0) {
+			$data = $query->row();
+			$code = intval($data->code) + 1;
+		} else {
+			$code = 1;
+		}
+
+		if ($category == 'special') {
+			$categoryCode = 'SP_';
+		} elseif ($category == 'standard') {
+			$categoryCode = 'ST_';
+		} elseif ($category == 'basic') {
+			$categoryCode = 'BC_';
+		}
+
+		$limit = str_pad($code, 4, "0", STR_PAD_LEFT);
+		$resultcode = $categoryCode . $limit;
+		return $resultcode;
+	}
+
 	public function getDataPenugasan()
 	{
 		$this->db->select("
@@ -215,6 +241,7 @@ class MasterModel extends Ci_Model
 			transaction.date as t_date,
 			transaction.desc as t_desc,
 			transaction.status as t_status,
+			transaction.source_order as t_source,
 			model.name as m_name,
 			model.type as m_type,
 			model.category as m_category,
@@ -269,6 +296,7 @@ class MasterModel extends Ci_Model
 		$this->db->select("
 			transaction.code,
 			transaction.date,
+			transaction.source_order as source,
 			customer.name as customer,
 			model.type,
 			model.category,
@@ -288,6 +316,7 @@ class MasterModel extends Ci_Model
 			transaction.id,
 			transaction.code,
 			transaction.date,
+			transaction.source_order as source,
 			customer.name as customer,
 			model.type,
 			model.category,
@@ -305,6 +334,7 @@ class MasterModel extends Ci_Model
 		$this->db->select("
 			transaction.code,
 			transaction.date,
+			transaction.source_order as source,
 			customer.name as customer,
 			model.type,
 			model.category,
@@ -339,7 +369,7 @@ class MasterModel extends Ci_Model
 		$this->db->join('admin as a', 'a.admin_id=t.admin_id');
 		$this->db->where("MONTH(t.date)", $month);
 		$this->db->where("YEAR(t.date)", $years);
-		if($where) {
+		if ($where) {
 			$this->db->where($where);
 		}
 		return $this->db->get()->result();
@@ -351,5 +381,69 @@ class MasterModel extends Ci_Model
 		$this->db->where("YEAR(t.date)", $years);
 		$this->db->where($where);
 		return $this->db->get()->num_rows();
+	}
+
+
+	public function getDataModelUndangan($category, $search)
+	{
+		$this->db->select('
+			model_id as id,
+			name,
+			view_model as code,
+		');
+		$this->db->from('model_invitation');
+		$this->db->where('category', $category);
+		if ($search) {
+			$this->db->like('name', $search);
+		}
+		$this->db->order_by('name', 'ASC');
+		$query	= $this->db->get();
+		if ($query->num_rows() == null) {
+			return 0;
+		}
+		return $query->result();
+	}
+
+	public function createCodeTransaksi($user)
+	{
+		$this->db->select('RIGHT(transaction.code,3) as code', FALSE);
+		$this->db->order_by('code', 'DESC');
+		$this->db->limit(1);
+		$query = $this->db->get('transaction');
+		if ($query->num_rows() <> 0) {
+			$data = $query->row();
+			$code = intval($data->code) + 1;
+		} else {
+			$code = 1;
+		}
+		$date = date('Ymd');
+		$limit = str_pad($code, 3, "0", STR_PAD_LEFT);
+		$resultcode = "META" . $user . $date . $limit;
+		return $resultcode;
+	}
+
+
+	public function addOrderCustomer()
+	{
+		$password = $this->input->post('password');
+		$password = password_hash($password, PASSWORD_DEFAULT);
+
+		$user = array(
+			'name' => $this->input->post('customer_name', true),
+			'phone' => $this->input->post('customer_phone', true),
+			'email' => $this->input->post('customer_email', true),
+			'password' => $password
+		);
+		$this->db->insert('customer', $user);
+		$id = $this->db->insert_id();
+
+		$code = $this->createCodeTransaksi($id);
+		$order = array(
+			'code' => $code,
+			'cus_id' => $id,
+			'source_order' => $this->input->post('source_order', true),
+			'model_id' => $this->input->post('name_design', true),
+		);
+		$this->db->insert('transaction', $order);
 	}
 }

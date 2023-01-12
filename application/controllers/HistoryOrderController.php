@@ -60,7 +60,7 @@ class HistoryOrderController extends CI_Controller
 				}
 				$data['detail'] = $detail;
 			}
-			$invt = $this->db->query("SELECT invitation_id as id FROM invitation WHERE code='$detail->t_code'")->row();
+			$invt = $this->db->query("SELECT slug, invitation_id as id FROM invitation WHERE code='$detail->t_code'")->row();
 			if (!empty($invt)) {
 				$data['guest'] = $this->db->get_where('invited_guest', ['invitation_id' => $invt->id])->num_rows();
 				$data['message'] =  $this->db->get_where('message', ['invitation_id' => $invt->id])->num_rows();
@@ -86,6 +86,7 @@ class HistoryOrderController extends CI_Controller
 				'model_id' => $_POST['model'],
 			);
 			$this->db->insert('testimony', $testimony);
+			sweetAlert('Success', 'Terima kasih atas masukan anda', 'success');
 			return redirect('history/order/' . $code . '/detail');
 		}
 		$data['title'] = 'Detail Order';
@@ -99,6 +100,8 @@ class HistoryOrderController extends CI_Controller
 		if ($_REQUEST) {
 			$id = $_GET['id'];
 			$guest = $this->db->query("SELECT * FROM invited_guest WHERE invitation_id='$id'")->result();
+			$invt = $this->db->query("SELECT slug FROM invitation WHERE invitation_id='$id'")->row();
+			$data['slug'] = $invt->slug;
 			$data['guest'] = $guest;
 			$data['nomor'] = 1;
 		}
@@ -158,7 +161,18 @@ class HistoryOrderController extends CI_Controller
 				'model_id' => $this->input->post('model_id')
 			);
 			$this->db->insert('transaction', $order);
-			redirect('history/order');
+			$model = $this->db->get_where('model_invitation', ['model_id' => $this->input->post('model_id')])->row();
+			$message = "Saya tertarik dan saya ingin mengorder model undangan pernikahan digital, dengan spesifikasinya sbb : %0A
+				Model : $model->name %0A
+				Jenis  : $model->type %0A
+				Kategori : $model->category %0A
+				Harga : Rp. $model->price";
+			$response = [
+				'success' => true,
+				'message' => $message
+			];
+
+			echo json_encode($response);
 		}
 	}
 }

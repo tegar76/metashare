@@ -14,7 +14,7 @@
 		</div>
 	</div>
 	<div class="text-base-2xs xl:text-base-xs text-center pb-16 pt-1 xl:px-12 xl:py-2 bg-[#1C2D46] xl:flex xl:items-center sm:justify-between">
-		<span class="text-slate-400 xl:text-center dark:text-slate-400">© 2022 <a href="" class="hover:underline">Metashare</a> by Paralogy Team
+		<span class="text-slate-400 xl:text-center dark:text-slate-400">© <?= date('Y') ?> <a href="" class="hover:underline">Metashare</a> by Paralogy Team
 		</span>
 		<div class="hidden xl:flex mt-4 text-sm space-x-6 xl:justify-center xl:mt-0">
 			<!-- Icon -->
@@ -108,8 +108,67 @@
 			});
 		});
 	});
+
+	$(function() {
+		var title = '<?= $this->session->flashdata("title") ?>';
+		var text = '<?= $this->session->flashdata("text") ?>';
+		var type = '<?= $this->session->flashdata("type") ?>';
+		if (title) {
+			swal.fire({
+				icon: type,
+				title: title,
+				text: text,
+				type: type,
+				button: true,
+			});
+		};
+	});
 </script>
 
+<script>
+	$('#order-now').submit(function(e) {
+		e.preventDefault();
+		var form = this;
+		var formdata = new FormData(form);
+		$.ajax({
+			url: "<?= base_url('history/order_now'); ?>",
+			type: 'POST',
+			data: formdata,
+			processData: false,
+			contentType: false,
+			dataType: 'json',
+			beforeSend: function() {
+				swal.fire({
+					imageUrl: "<?= base_url() ?>assets/logo/rolling.png",
+					title: "Pesanan Sedang Diproses",
+					text: "Silahkan Tunggu",
+					showConfirmButton: false,
+					allowOutsideClick: false,
+				});
+			},
+			success: function(response) {
+				if (response.success == true) {
+					window.open(
+						'https://api.whatsapp.com/send/?phone=6287899703471&text=' + response.message,
+						'_blank'
+					);
+					swal.fire({
+						icon: 'success',
+						title: 'Pemesanan Undangan Berhasil',
+						text: 'Silahkan lanjutkan tahap pembayaran melaui WhatsApp',
+						showConfirmButton: true,
+					}).then((result) => {
+						if (result.value) {
+							location.href = '<?= base_url('history/order') ?>';
+						}
+					});
+				}
+			}
+
+		})
+
+	});
+</script>
 
 </body>
 

@@ -60,9 +60,9 @@
 									<td><?= $value['nomor'] ?></td>
 									<td><?= $value['code'] ?></td>
 									<td><?= $value['date'] ?></td>
-									<td>-</td>
+									<td><?= $value['source'] ?></td>
 									<td><?= $value['customer'] ?></td>
-									<td>Undangan Pernikahan <?= $value['type'] ?></td>
+									<td><?= $value['type'] ?></td>
 									<td><?= $value['category'] ?></td>
 									<td><?= $value['model'] ?></td>
 									<td>
@@ -77,7 +77,7 @@
 		</div>
 		<!-- Floating Button Add -->
 		<div class="floating-container">
-			<a href="<?= base_url('SuperAdmin/Pengorderan/tambahPengorderan') ?>">
+			<a href="<?= base_url('su-admin/order/tambah_order') ?>">
 				<div class="floating-button">+</div>
 			</a>
 		</div>

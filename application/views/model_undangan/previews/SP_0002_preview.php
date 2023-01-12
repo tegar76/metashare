@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-
+	<title>Wedding <?= $invitation->groom_nickname . ' & ' . $invitation->bride_nickname ?></title>
 	<!-- Favicon -->
 	<link rel="icon" type="image/png" sizes="16x16" href="<?= base_url() ?>/assets/icons/logo_metashare_small.png">
 
@@ -138,7 +138,7 @@
 			<div class="cover-content block w-full h-full content-center">
 				<div class="w-[250px]  mx-auto">
 					<!-- <img src="<?= base_url('assets/img/cover_250x250.png') ?>" class="mx-auto mt-14 rounded-full shadow-lg border-b-8 border-slate-800/30" alt="" style="width: 140px; height: 140px;"> -->
-					<img src="<?= base_url('storage/invitations/uploads/' . $invitation->cover_image_1) ?>" class="mx-auto mt-14 rounded-full shadow-lg border-b-8 border-slate-800/30" alt="" style="width: 140px; height: 140px;">	
+					<img src="<?= base_url('storage/invitations/uploads/' . $invitation->cover_image_1) ?>" class="mx-auto mt-14 rounded-full shadow-lg border-b-8 border-slate-800/30" alt="" style="width: 140px; height: 140px;">
 				</div>
 				<div class="text-center mt-8 font-BacktoBlack tracking-wide text-3xl text-[#e7a528] contrast-[1.3]">
 					<p class=""><?= $invitation->groom_nickname; ?> <span class="mr-2">&</span><span><?= $invitation->bride_nickname ?></span></p>
@@ -235,7 +235,7 @@
 										Maha Suci Allah SWT yang telah menciptakan Mahluknya berpasang-pasangan, ya Alloh semoga ridho-mu tercurah mengiringi pernikahan putra-putri kami :
 									</p>
 									<div class="flex">
-										<img src="<?= base_url('storage/invitations/uploads/'. $invitation->groom_img) ?>" alt="" class="w-[120px] lg:w-[130px] xl:w-[140px] mx-auto mt-3">
+										<img src="<?= base_url('storage/invitations/uploads/' . $invitation->groom_img) ?>" alt="" class="w-[120px] lg:w-[130px] xl:w-[140px] mx-auto mt-3">
 									</div>
 									<div class="text-center font-semibold mt-5 font-BacktoBlack tracking-widest text-2xl lg:text-3xl text-[#e7a528]">
 										<p class=""><?= $invitation->groom_name ?></p>
@@ -250,7 +250,7 @@
 									</p>
 									<p class="font-MontserratBold text-tiny opacity-70 mt-5 lg:text-xl text-center">dengan</p>
 									<div class="flex">
-										<img src="<?= base_url('storage/invitations/uploads/'. $invitation->bride_img) ?>" alt="" class="mx-auto mt-3 w-[120px] lg:w-[130px] xl:w-[140px]">
+										<img src="<?= base_url('storage/invitations/uploads/' . $invitation->bride_img) ?>" alt="" class="mx-auto mt-3 w-[120px] lg:w-[130px] xl:w-[140px]">
 									</div>
 									<div class="text-center font-semibold mt-5 font-BacktoBlack tracking-widest text-2xl lg:text-3xl text-[#e7a528]">
 										<p class=""><?= $invitation->bride_name ?></p>
@@ -363,11 +363,11 @@
 
 							<div class="mb-2">
 								<div class="flex justify-center content-center mt-1 cursor-pointer">
-                                    <img class=" h-[20px] xs:h-[30] lg:h-[35px] opacity-70" src="<?= base_url('assets/icons/galeri_antena_video.svg') ?>" alt="photo">
+									<img class=" h-[20px] xs:h-[30] lg:h-[35px] opacity-70" src="<?= base_url('assets/icons/galeri_antena_video.svg') ?>" alt="photo">
 								</div>
 								<div class="flex justify-center content-center ">
-									<video class="gdriveVideo md:h-72 rounded-2xl view-photo cursor-pointer" preload="auto" controls poster="<?= base_url('assets/img/foto_tumbnail_video.jpg') ?>">
-										<source src="https://drive.google.com/uc?export=download&id=1-zNYEW_2Hoc7CIhmqbZuxi3HPiAjwh4S" type='video/mp4'>
+									<video class="gdriveVideo md:h-72 rounded-2xl view-photo cursor-pointer" preload="auto" controls poster="<?= $photos[1]['img'] ?>">
+										<source src="<?= $invitation->link_video ?>" type='video/mp4'>
 									</video>
 								</div>
 							</div>
@@ -376,74 +376,55 @@
 						</div>
 					</div>
 				</section>
-				<!-- <section class="mb-5 xl:bg-perjalanan-cinta-xl xl:bg-cover">
-                    <div class="mb-5 pt-12 xl:mr-10 xl:ml-28" id="perjalananCinta">
-                        <div class="mx-5">
-                            <div class="relative">
-                                <img class="mx-auto w-[140px] h-[16px] opacity-70 lg:h-[20px] lg:w-[170px]" src="<?= base_url('assets/bg_img/bg_title_foto.png') ?>" />
-                                <h1 class="absolute font-BacktoBlack text-2xl lg:text-3xl top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-70">
-                                    Perjalanan Cinta</h1>
-                            </div>
-                            <div class="absolute right-5 opacity-60 w-20 xl:hidden">
-                                <img src="<?= base_url('assets/icons/percin_ilustrasi.svg') ?>" alt="">
-                            </div>
-                        </div>
+				<section class="mb-5 xl:bg-perjalanan-cinta-xl xl:bg-cover">
+					<div class="mb-5 pt-12 xl:mr-10 xl:ml-28" id="perjalananCinta">
+						<div class="mx-5">
+							<div class="relative">
+								<img class="mx-auto w-[140px] h-[16px] opacity-70 lg:h-[20px] lg:w-[170px]" src="<?= base_url('assets/bg_img/bg_title_foto.png') ?>" />
+								<h1 class="absolute font-BacktoBlack text-2xl lg:text-3xl top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-70">
+									Perjalanan Cinta</h1>
+							</div>
+							<div class="absolute right-5 opacity-60 w-20 xl:hidden">
+								<img src="<?= base_url('assets/icons/percin_ilustrasi.svg') ?>" alt="">
+							</div>
+						</div>
 
-                        <div class="pt-8 pb-8 mt-5 lg:pt-10 relative ">
-                            <div class="xl:flex mx-5">
-                                <div class="xl:mr-8 xl:w-2/3">
-                                    <ol class="relative border-l border-pink-600 border-opacity-30 ml-2">
-                                        <li class="mb-10 ml-4">
-                                            <div class="relative border border-sky-800 border-opacity-30 bg-yellow-50/20 ml-3 rounded-xl">
-                                                <div class="absolute border bg-pink-100 border-sky-800 border-opacity-30 text-base-sm text-slate-500 tracking-widest font-semibold px-3 py-1 rounded-3xl left-1/2 transform -translate-x-1/2 -translate-y-1/2 -top-1">Kisah 1</div>
-                                                <div class="mt-3">
-                                                    <div class="absolute w-7 h-7 text-white bg-gradient-to-b from-sky-400 to-blue-200 rounded-full -left-11 border border-white  opacity-70">
-                                                        <p class="font-MontserratBold font-bold">1</p>
-                                                    </div>
-                                                    <div class="story mx-3">
-                                                        <time class="my-2 text-sm font-normal leading-none text-slate-600 ">February 2022</time>
-                                                        <p class="mb-4 text-sm lg:text-base font-normal text-slate-800 text-justify">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates praesentium voluptatem cupiditate repellendus quis, modi facilis dignissimos. Earum perspiciatis quam iure amet recusandae veniam officia, natus eaque rem nobis cupiditate?</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="mb-10 ml-4">
-                                            <div class="relative border border-sky-800 border-opacity-30 bg-yellow-50/20 ml-3 rounded-xl">
-                                                <div class="absolute border bg-pink-100 border-sky-800 border-opacity-30 text-base-sm text-slate-500 tracking-widest font-semibold px-3 py-1 rounded-3xl left-1/2 transform -translate-x-1/2 -translate-y-1/2 -top-1">Kisah 2</div>
-                                                <div class="mt-3">
-                                                    <div class="absolute w-7 h-7 text-white bg-gradient-to-b from-sky-400 to-blue-200 rounded-full -left-11 border border-white  opacity-70">
-                                                        <p class="font-MontserratBold font-bold">2</p>
-                                                    </div>
-                                                    <div class="story mx-3">
-                                                        <time class="my-2 text-sm font-normal leading-none text-slate-600 ">February 2022</time>
-                                                        <p class="mb-4 text-sm lg:text-base font-normal text-slate-800 text-justify">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates praesentium voluptatem cupiditate repellendus quis, modi facilis dignissimos. Earum perspiciatis quam iure amet recusandae veniam officia, natus eaque rem nobis cupiditate?</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="ml-4">
-                                            <div class="relative border border-sky-800 border-opacity-30 bg-yellow-50/20 ml-3 rounded-xl">
-                                                <div class="absolute border bg-pink-100 border-sky-800 border-opacity-30 text-base-sm text-slate-500 tracking-widest font-semibold px-3 py-1 rounded-3xl left-1/2 transform -translate-x-1/2 -translate-y-1/2 -top-1">Kisah 3</div>
-                                                <div class="mt-3">
-                                                    <div class="absolute w-7 h-7 text-white bg-gradient-to-b from-sky-400 to-blue-200 rounded-full -left-11 border border-white  opacity-70">
-                                                        <p class="font-MontserratBold font-bold">3</p>
-                                                    </div>
-                                                    <div class="story mx-3">
-                                                        <time class="my-2 text-sm font-normal leading-none text-slate-600 ">February 2022</time>
-                                                        <p class="mb-4 text-sm lg:text-base font-normal text-slate-800 text-justify">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates praesentium voluptatem cupiditate repellendus quis, modi facilis dignissimos. Earum perspiciatis quam iure amet recusandae veniam officia, natus eaque rem nobis cupiditate?</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ol>
-                                </div>
-                                <div class="hidden xl:block opacity-90">
-                                    <img src="<?= base_url('assets/icons/percin_ilustrasi_lg.svg') ?>" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section> -->
+						<div class="pt-8 pb-8 mt-5 lg:pt-10 relative ">
+							<div class="xl:flex mx-5">
+								<div class="xl:mr-8 xl:w-2/3">
+									<ol class="relative border-l border-pink-600 border-opacity-30 ml-2">
+										<?php $storyIncrement = 1; ?>
+										<?php $increment = 1; ?>
+										<?php foreach ($loveStories as $story) : ?>
+											<li class="mb-10 ml-4">
+												<div class="relative border border-sky-800 border-opacity-30 bg-yellow-50/20 ml-3 rounded-xl">
+													<div class="absolute border bg-pink-100 border-sky-800 border-opacity-30 text-base-sm text-slate-500 tracking-widest font-semibold px-3 py-1 rounded-3xl left-1/2 transform -translate-x-1/2 -translate-y-1/2 -top-1">Kisah <?= $storyIncrement++ ?></div>
+													<div class="mt-3">
+														<div class="absolute w-7 h-7 text-white bg-gradient-to-b from-sky-400 to-blue-200 rounded-full -left-11 border border-white  opacity-70">
+															<p class="font-MontserratBold font-bold"><?= $increment++ ?></p>
+														</div>
+														<div class="story mx-3">
+															<?php
+															$dateObj = DateTime::createFromFormat('!m', date('m', strtotime($story->date)));
+															$month = $dateObj->format('F');
+															$newDate = $month . ' ' . date('Y', strtotime($story->date));
+															?>
+															<time class="my-2 text-sm font-normal leading-none text-slate-600 "><?= $newDate; ?></time>
+															<p class="mb-4 text-sm lg:text-base font-normal text-slate-800 text-justify"><?= $story->story ?></p>
+														</div>
+													</div>
+												</div>
+											</li>
+										<?php endforeach ?>
+									</ol>
+								</div>
+								<div class="hidden xl:block opacity-90">
+									<img src="<?= base_url('assets/icons/percin_ilustrasi_lg.svg') ?>" alt="">
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
 				<section id="pesanBahagia" class="xl:ml-28 pt-5">
 					<div>
 						<div class="relative my-4 lg:my-12">
@@ -514,7 +495,7 @@
 										<h1 class="font-GreatVibes tracking-widest text-2xl mb-1 lg:mb-3 opacity-95 lg:text-4xl text-center ">Terima Kasih</h1>
 										<p class="text-sm lg:text-base lg:leading-6">Telah datang ke pernikahan kami</p>
 										<div class="text-center mt-8 font-BacktoBlack tracking-wide text-2xl lg:text-3xl text-[#e7a528]">
-											<p class=""><?= $invitation->groom_nickname ?> & <?=  $invitation->bride_nickname ?></p>
+											<p class=""><?= $invitation->groom_nickname ?> & <?= $invitation->bride_nickname ?></p>
 										</div>
 										<div class="flex opacity-70 my-10"><img src="<?= base_url('assets/icons/pes_bahagia_flower_thx_bottom.svg') ?>" class="mx-auto mb-4 w-[180px] lg:w-[250px]" alt=""></div>
 									</div>
@@ -559,161 +540,33 @@
 				</div>
 				<div class="modal-body relative p-4 text-md text-slate-900 font-medium mb-3">
 					<!-- content card -->
-					<div class="border border-sky-800/30 border-dashed rounded-md p-4 mt-5 mx-10">
-						<div class="px-2 py-3">
-							<div class=""><img class="h-5" src="<?= base_url('assets/icons/gift_card_va_bca.svg') ?>" alt="bca"></div>
-							<div class="flex mt-4">
+					<?php foreach ($gifts as $gift) : ?>
+						<div class="border border-sky-800/30 border-dashed rounded-md p-4 mt-5 mx-10">
+							<div class="px-2 py-3">
+								<div class=""><img class="h-5" src="<?= base_url('storage/' . $gift->icon) ?>" alt="bca"></div>
+								<div class="flex mt-4">
+									<div>
+										<p class="font-semibold text-base-sm tracking-widest mr-3 text-slate-600" id="<?= $gift->account ?>"><?= $gift->account ?></p>
+									</div>
+									<button class="hover:shadow-lg focus:shadow-xl active:shadow-xl transition duration-100 ease-in-out"><img class="h-4" src="<?= base_url('assets/icons/copy.svg') ?>" alt="Copy" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Salin" onclick="CopyToClipboard('<?= $gift->account ?>'); return false;"></button>
+								</div>
 								<div>
-									<p class="font-semibold text-base-sm tracking-widest mr-3 text-slate-600" id="noBca">1342179716</p>
+									<p class="text-base-md text-slate-600">a.n. <span class="text-slate-900"><?= $gift->recipient ?></span></p>
 								</div>
-								<button class="hover:shadow-lg focus:shadow-xl active:shadow-xl transition duration-100 ease-in-out"><img class="h-4" src="<?= base_url('assets/icons/copy.svg') ?>" alt="Copy" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Salin" onclick="CopyToClipboard('noBca'); return false;"></button>
-							</div>
-							<div>
-								<p class="text-base-md text-slate-600">a.n. <span class="text-slate-900">Runa Vha Ningit </span></p>
-							</div>
-							<div class="flex items-center justify-center mt-4">
-								<button class="px-4 py-1 font-Montserrat font-semibold bg-[#2989A8] bg-opacity-80 mx-auto hover:bg-opacity-100 transition delay-150 rounded-md text-white text-base-xs" data-bs-toggle="collapse" data-bs-target="#collapseQcBca" aria-expanded="false" aria-controls="collapseQcBca">QR Code</button>
-							</div>
-							<div class="collapse mt-5" id="collapseQcBca">
-								<div class="flex items-center justify-center">
-									<img class="h-32" src="<?= base_url('storage/barcode/bca_runa.png') ?>" alt="">
+								<div class="flex items-center justify-center mt-4">
+									<button class="px-4 py-1 font-Montserrat font-semibold bg-[#2989A8] bg-opacity-80 mx-auto hover:bg-opacity-100 transition delay-150 rounded-md text-white text-base-xs" data-bs-toggle="collapse" data-bs-target="#collapseQcBca" aria-expanded="false" aria-controls="collapseQcBca">QR Code</button>
 								</div>
-								<!-- <div class="flex items-center justify-center mt-3">
+								<div class="collapse mt-5" id="collapseQcBca">
+									<div class="flex items-center justify-center">
+										<img class="h-32" src="<?= base_url('storage/invitations/gifts/' . $gift->qr) ?>" alt="...">
+									</div>
+									<!-- <div class="flex items-center justify-center mt-3">
                                     <button class="px-3 py-1 font-Montserrat font-semibold border border-blue-400 text-blue-400 mx-auto hover:border-blue-500 hover:text-blue-500  transition delay-150 rounded-md text-base-1xs">Simpan</button>
                                 </div> -->
-							</div>
-						</div>
-					</div>
-					<!-- content card -->
-					<!-- <div class="border border-sky-800/30 rounded-md p-4 mt-5 mx-10">
-                        <div class="px-2 py-3">
-                            <div class=""><img class="h-5" src="<?= base_url('assets/icons/gift_card_va_bri.svg') ?>" alt="bri"></div>
-                            <div class="flex mt-4">
-                                <div>
-                                    <p class="font-semibold text-base-sm tracking-widest mr-3 text-slate-600" id="noBri">121326327117638</p>
-                                </div>
-                                <button class="hover:shadow-lg focus:shadow-xl active:shadow-xl transition duration-100 ease-in-out"><img class="h-4" src="<?= base_url('assets/icons/copy.svg') ?>" alt="Copy" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Salin" onclick="CopyToClipboard('noBri'); return false;"></button>
-                            </div>
-                            <div>
-                                <p class="text-base-md text-slate-600">a.n. <span class="text-slate-900">Romeo Danteria Sah </span></p>
-                            </div>
-                            <div class="flex items-center justify-center mt-4">
-                                <button class="px-4 py-1 font-Montserrat font-semibold bg-[#2989A8] bg-opacity-80 mx-auto hover:bg-opacity-100 transition delay-150 rounded-md text-white text-base-xs" data-bs-toggle="collapse" data-bs-target="#collapseQcBri" aria-expanded="false" aria-controls="collapseQcBri">QR Code</button>
-                            </div>
-                            <div class="collapse mt-5" id="collapseQcBri">
-                                <div class="flex items-center justify-center">
-                                    <img class="h-32" src="<?= base_url('assets/icons/gift_card_va_barcode.png') ?>" alt="">
-                                </div>
-                                <div class="flex items-center justify-center mt-3">
-                                    <button class="px-3 py-1 font-Montserrat font-semibold border border-blue-400 text-blue-400 mx-auto hover:border-blue-500 hover:text-blue-500  transition delay-150 rounded-md text-base-1xs">Simpan</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
-					<!-- content card -->
-					<div class="border border-sky-800/30 border-dashed rounded-md p-4 mt-5 mx-10">
-						<div class="px-2 py-3">
-							<div class=""><img class="h-4" src="<?= base_url('assets/icons/gift_card_va_bni.svg') ?>" alt="bsi"></div>
-							<div class="flex mt-4">
-								<div>
-									<p class="font-semibold text-base-sm tracking-widest mr-3 text-slate-600" id="noBsi">0902454767</p>
 								</div>
-								<button class="hover:shadow-lg focus:shadow-xl active:shadow-xl transition duration-100 ease-in-out"><img class="h-4" src="<?= base_url('assets/icons/copy.svg') ?>" alt="Copy" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Salin" onclick="CopyToClipboard('noBsi'); return false;"></button>
 							</div>
-							<div>
-								<p class="text-base-md text-slate-600">a.n. <span class="text-slate-900">Ratna Sari Astuti </span></p>
-							</div>
-							<!-- <div class="flex items-center justify-center mt-4">
-                                <button class="px-4 py-1 font-Montserrat font-semibold bg-[#2989A8] bg-opacity-80 mx-auto hover:bg-opacity-100 transition delay-150 rounded-md text-white text-base-xs" data-bs-toggle="collapse" data-bs-target="#collapseQcBsi" aria-expanded="false" aria-controls="collapseQcBsi">QR Code</button>
-                            </div>
-                            <div class="collapse mt-5" id="collapseQcBsi">
-                                <div class="flex items-center justify-center">
-                                    <img class="h-32" src="<?= base_url('assets/icons/gift_card_va_barcode.png') ?>" alt="">
-                                </div>
-                                <div class="flex items-center justify-center mt-3">
-                                    <button class="px-3 py-1 font-Montserrat font-semibold border border-blue-400 text-blue-400 mx-auto hover:border-blue-500 hover:text-blue-500  transition delay-150 rounded-md text-base-1xs">Simpan</button>
-                                </div>
-                            </div> -->
 						</div>
-					</div>
-					<!-- content card -->
-					<!-- <div class="border border-sky-800/30 rounded-md p-4 mt-5 mx-10">
-                        <div class="px-2 py-3">
-                            <div class=""><img class="h-5" src="<?= base_url('assets/icons/gift_card_va_bsi.svg') ?>" alt="bsi"></div>
-                            <div class="flex mt-4">
-                                <div>
-                                    <p class="font-semibold text-base-sm tracking-widest mr-3 text-slate-600" id="noBsi">0089263271</p>
-                                </div>
-                                <button class="hover:shadow-lg focus:shadow-xl active:shadow-xl transition duration-100 ease-in-out"><img class="h-4" src="<?= base_url('assets/icons/copy.svg') ?>" alt="Copy" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Salin" onclick="CopyToClipboard('noBsi'); return false;"></button>
-                            </div>
-                            <div>
-                                <p class="text-base-md text-slate-600">a.n. <span class="text-slate-900">Romeo Danteria Sah </span></p>
-                            </div>
-                            <div class="flex items-center justify-center mt-4">
-                                <button class="px-4 py-1 font-Montserrat font-semibold bg-[#2989A8] bg-opacity-80 mx-auto hover:bg-opacity-100 transition delay-150 rounded-md text-white text-base-xs" data-bs-toggle="collapse" data-bs-target="#collapseQcBsi" aria-expanded="false" aria-controls="collapseQcBsi">QR Code</button>
-                            </div>
-                            <div class="collapse mt-5" id="collapseQcBsi">
-                                <div class="flex items-center justify-center">
-                                    <img class="h-32" src="<?= base_url('assets/icons/gift_card_va_barcode.png') ?>" alt="">
-                                </div>
-                                <div class="flex items-center justify-center mt-3">
-                                    <button class="px-3 py-1 font-Montserrat font-semibold border border-blue-400 text-blue-400 mx-auto hover:border-blue-500 hover:text-blue-500  transition delay-150 rounded-md text-base-1xs">Simpan</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
-					<!-- content card -->
-					<!-- <div class="border border-sky-800/30 rounded-md p-4 mt-5 mx-10">
-                        <div class="px-2 py-3">
-                            <div class=""><img class="h-5" src="<?= base_url('assets/icons/gift_card_va_cimbniaga.svg') ?>" alt="cimb niaga"></div>
-                            <div class="flex mt-4">
-                                <div>
-                                    <p class="font-semibold text-base-sm tracking-widest mr-3 text-slate-600" id="noCimbNiaga">23728372632712</p>
-                                </div>
-                                <button class="hover:shadow-lg focus:shadow-xl active:shadow-xl transition duration-100 ease-in-out"><img class="h-4" src="<?= base_url('assets/icons/copy.svg') ?>" alt="Copy" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Salin" onclick="CopyToClipboard('noCimbNiaga'); return false;"></button>
-                            </div>
-                            <div>
-                                <p class="text-base-md text-slate-600">a.n. <span class="text-slate-900">Romeo Danteria Sah </span></p>
-                            </div>
-                            <div class="flex items-center justify-center mt-4">
-                                <button class="px-4 py-1 font-Montserrat font-semibold bg-[#2989A8] bg-opacity-80 mx-auto hover:bg-opacity-100 transition delay-150 rounded-md text-white text-base-xs" data-bs-toggle="collapse" data-bs-target="#collapseCimbNiaga" aria-expanded="false" aria-controls="collapseCimbNiaga">QR Code</button>
-                            </div>
-                            <div class="collapse mt-5" id="collapseCimbNiaga">
-                                <div class="flex items-center justify-center">
-                                    <img class="h-32" src="<?= base_url('assets/icons/gift_card_va_barcode.png') ?>" alt="">
-                                </div>
-                                <div class="flex items-center justify-center mt-3">
-                                    <button class="px-3 py-1 font-Montserrat font-semibold border border-blue-400 text-blue-400 mx-auto hover:border-blue-500 hover:text-blue-500  transition delay-150 rounded-md text-base-1xs">Simpan</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
-					<!-- content card -->
-					<!-- <div class="border border-sky-800/30 rounded-md p-4 mt-5 mx-10">
-                        <div class="px-2 py-3">
-                            <div class=""><img class="h-5" src="<?= base_url('assets/icons/gift_card_va_dana.svg') ?>" alt="dana"></div>
-                            <div class="flex mt-4">
-                                <div>
-                                    <p class="font-semibold text-base-sm tracking-widest mr-3 text-slate-600" id="noDana">0812738495785</p>
-                                </div>
-                                <button class="hover:shadow-lg focus:shadow-xl active:shadow-xl transition duration-100 ease-in-out"><img class="h-4" src="<?= base_url('assets/icons/copy.svg') ?>" alt="Copy" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Salin" onclick="CopyToClipboard('noDana'); return false;"></button>
-                            </div>
-                            <div>
-                                <p class="text-base-md text-slate-600">a.n. <span class="text-slate-900">Romeo Danteria Sah </span></p>
-                            </div>
-                            <div class="flex items-center justify-center mt-4">
-                                <button class="px-4 py-1 font-Montserrat font-semibold bg-[#2989A8] bg-opacity-80 mx-auto hover:bg-opacity-100 transition delay-150 rounded-md text-white text-base-xs" data-bs-toggle="collapse" data-bs-target="#collapseDana" aria-expanded="false" aria-controls="collapseDana">QR Code</button>
-                            </div>
-                            <div class="collapse mt-5" id="collapseDana">
-                                <div class="flex items-center justify-center">
-                                    <img class="h-32" src="<?= base_url('assets/icons/gift_card_va_barcode.png') ?>" alt="">
-                                </div>
-                                <div class="flex items-center justify-center mt-3">
-                                    <button class="px-3 py-1 font-Montserrat font-semibold border border-blue-400 text-blue-400 mx-auto hover:border-blue-500 hover:text-blue-500  transition delay-150 rounded-md text-base-1xs">Simpan</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
+					<?php endforeach ?>
 				</div>
 				<div class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-sky-800/30 rounded-b-md">
 					<button type="button" class="mx-auto inline-block font-medium  leading-tight uppercase  shadow-md hover:shadow-lg focus:bg-red-200 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-200 active:shadow-lg transition duration-150 ease-in-out text-red-600 text-sm border border-red-600 rounded-md px-6 py-1.5 opacity-50 hover:bg-yellow-100" data-bs-dismiss="modal">
@@ -995,7 +848,7 @@
 				days: '00',
 				distance: 0,
 				countdown: null,
-				countdownTime: new Date('october 23, 2022 10:00:00').getTime(),
+				countdownTime: new Date('<?= $countdown ?>').getTime(),
 				now: new Date().getTime(),
 				start: function() {
 					this.countdown = setInterval(() => {

@@ -18,6 +18,7 @@
 					<img src="<?= $item['img'] ?>" class="flex rounded-full items-center justify-center w-9 h-9 mr-3"></img>
 					<div>
 						<p class="tracking-wide text-base-sm lg:text-base-md text-slate-500 mb-1"><?= $item['name'] ?></p>
+						<p class="text-base-xs tracking-wide text-slate-500/80 text-justify mr-2">Saya Telah Memesan <?= $item['type']; ?> Kategori <?= $item['category']; ?> dengan model <?= $item['model'] ?></p>
 						<p class="text-base-xs tracking-wide text-slate-500/80 text-justify mr-2"><?= $item['text'] ?></p>
 					</div>
 				</div>

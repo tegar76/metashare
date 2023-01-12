@@ -36,10 +36,10 @@
 								</div>
 								<div class=" carousel-inner relative w-full overflow-hidden">
 									<div class="carousel-item active float-left w-full border rounded-xl">
-										<img src="<?= base_url('storage/model_undangan_sampul/' . $item->cover_1) ?>" class="w-[330px] h-[438px] sm-[300px] sm:h-[308px] md:w-[310px] md:h-[418px] lg:w-[290px] lg:h-[398px] rounded-xl object-cover" alt="Sampul" />
+										<img src="<?= base_url('storage/designs/cover/' . $item->cover_1) ?>" class="w-[330px] h-[438px] sm-[300px] sm:h-[308px] md:w-[310px] md:h-[418px] lg:w-[290px] lg:h-[398px] rounded-xl object-cover" alt="Sampul" />
 									</div>
 									<div class="carousel-item float-left w-full border rounded-xl">
-										<img src="<?= base_url('storage/model_undangan_sampul/' . $item->cover_2) ?>" class="w-[330px] h-[438px] sm-[300px] sm:h-[308px] md:w-[310px] md:h-[418px] lg:w-[290px] lg:h-[398px]  rounded-xl object-cover" alt="Sampul" />
+										<img src="<?= base_url('storage/designs/cover/' . $item->cover_2) ?>" class="w-[330px] h-[438px] sm-[300px] sm:h-[308px] md:w-[310px] md:h-[418px] lg:w-[290px] lg:h-[398px]  rounded-xl object-cover" alt="Sampul" />
 									</div>
 								</div>
 							</div>
@@ -50,10 +50,10 @@
 							<div class="flex mb-4 justify-center">
 								<a target="_blank" href="<?= base_url('demo?model=' . $item->view_model) ?>" class="text-base-xs xl:text-sm border text-primary-blue-cyan/70 border-primary-blue-cyan/70 px-3 py-1 rounded-lg hover:bg-primary-blue-cyan hover:text-white hover:border-white mr-3"> <i class="fa fa-eye"></i> Demo</a>
 								<?php if ($this->session->userdata('logged_in') == true and $this->session->userdata('level') == 'customer') : ?>
-									<form action="<?= site_url('history/order_now') ?>" method="post">
-										<input type="hidden" name="model_id" value="<?= $item->model_id; ?>">
-										<button type="submit" class="text-base-xs xl:text-sm border text-white border-success bg-success px-3 py-1 rounded-lg hover:bg-success-hover hover:border-success-hover hover:text-white"> <i class="fa-brands fa-whatsapp fa-lg"></i> Order</button>
-									</form>
+									<?= form_open('#', ['id' => 'order-now']) ?>
+									<input type="hidden" name="model_id" value="<?= $item->model_id; ?>">
+									<button type="submit" class="text-base-xs xl:text-sm border text-white border-success bg-success px-3 py-1 rounded-lg hover:bg-success-hover hover:border-success-hover hover:text-white"> <i class="fa-brands fa-whatsapp fa-lg"></i> Order</button>
+									<?= form_close() ?>
 								<?php else : ?>
 									<a href="<?= base_url('login') ?>" class="text-base-xs xl:text-sm border text-white border-success bg-success px-3 py-1 rounded-lg hover:bg-success-hover hover:border-success-hover hover:text-white"> <i class="fa-brands fa-whatsapp fa-lg"></i> Order</a>
 								<?php endif ?>

@@ -63,7 +63,7 @@
 			<div class="form-group mb-3">
 				<label for="sumber_order">Sumber Order</label>
 				<div class="input-group">
-					<input type="text" class="form-control" id="jenis" value="Marketplace" readonly>
+					<input type="text" class="form-control" id="jenis" value="<?= $order->source; ?>" readonly>
 				</div>
 			</div>
 			<div class="form-group mb-3">

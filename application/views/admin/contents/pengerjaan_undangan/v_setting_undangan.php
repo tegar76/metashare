@@ -72,11 +72,22 @@
 						<span class="dropdown-item disabled">Proses Pengerjaan</span>
 						<div>
 							<label class="switch dropdown-item mt-2">
-								<input id="update_keterangan" type="checkbox" value="<?= $detail->t_desc ?>" <?= ($detail->t_desc == 2) ? 'checked' : '' ?> >
+								<input id="update_keterangan" type="checkbox" value="<?= $detail->t_desc ?>" <?= ($detail->t_desc == 2) ? 'checked' : '' ?>>
 								<span class="slider round"></span>
 							</label>
 						</div>
 						<span class="dropdown-item disabled">Sudah Dikerjakan</span>
+					</div>
+					<input id="status_code" type="hidden" name="id" value="<?= $detail->t_code; ?>">
+					<div class="d-flex align-items-center">
+						<span class="dropdown-item disabled">Tidak Aktif</span>
+						<div>
+							<label class="switch dropdown-item mt-2">
+								<input id="update_status" type="checkbox" value="<?= $detail->t_status ?>" <?= ($detail->t_status > 0) ? 'checked' : '' ?>>
+								<span class="slider round"></span>
+							</label>
+						</div>
+						<span class="dropdown-item disabled">Aktif</span>
 					</div>
 				</div>
 			</div>
@@ -135,7 +146,7 @@
 					</tr>
 					<tr>
 						<th scope="row">Masa Aktif</th>
-						<td>-</td>
+						<td><?= ($detail->t_active != null) ? date('d-m-Y H:i', strtotime($detail->t_active)) . ' WIB' : '-' ?></td>
 					</tr>
 					<tr>
 						<th scope="row">Keterangan</th>
@@ -173,12 +184,15 @@
 				</tbody>
 			</table>
 			<hr class="mt-n3">
-			<div class="d-flex mb-2 ml-2">
-				<a target="_blank" href="<?= base_url('PreviewUndangan/pratinjau') ?>" class="btn btn-sm btn-outline-primary px-2">
-					<i class="fas fa-eye mr-1"></i>
-					<span class="mb-1">Pratinjau</span>
-				</a>
-			</div>
+			<?php if ($slug) : ?>
+				<!-- TRUE -->
+				<div class="d-flex mb-2 ml-2">
+					<a target="_blank" href="<?= base_url('preview/' . $invtId . '/' . $slug) ?>" class="btn btn-sm btn-outline-primary px-2">
+						<i class="fas fa-eye mr-1"></i>
+						<span class="mb-1">Pratinjau</span>
+					</a>
+				</div>
+			<?php endif ?>
 		</div>
 
 		<div class="card col-10">
@@ -207,8 +221,8 @@
 									<td><?= $row['update'] ?></td>
 									<td>
 										<div class="flex">
-											<a href="" class="btn btn-sm btn-outline-warning mr-1"><i data-feather="copy" class="feather-14" data-toggle="tooltip" title="Salin" data-placement="top"></i></a>
-											<a href="" class="btn btn-sm btn-primary mr-1"><i data-feather="eye" class="feather-14" data-toggle="tooltip" title="Detail" data-placement="top"></i></a>
+											<button link="<?= base_url('wedding/' . $invtId . '/' . $slug . '?to=' . $row['name']) ?>" class="btn btn-sm btn-outline-warning mr-1 btn-copy-link"><i data-feather="copy" class="feather-14" data-toggle="tooltip" title="Salin" data-placement="top"></i></button>
+											<a href="<?= base_url('wedding/' . $invtId . '/' . $slug . '?to=' . $row['name']) ?>" class="btn btn-sm btn-primary mr-1"><i data-feather="eye" class="feather-14" data-toggle="tooltip" title="Detail" data-placement="top"></i></a>
 											<a href="<?= base_url('admin/undangan/tamu/update/' . $row['id']) ?>" class="btn btn-sm btn-success"><i data-feather="edit" class="feather-14" data-toggle="tooltip" title="Setting" data-placement="top"></i></a>
 										</div>
 									</td>
@@ -237,18 +251,65 @@
 				}
 				$.ajax({
 					type: "POST",
-					url: BASEURL + "admin/undangan/update_processing",
+					url: BASEURL + "admin/undangan/update_processing?update=desc",
 					data: dataJson,
-					success: function(data) {
+					dataType: 'json',
+					success: function(response) {
 						swal.fire({
 							icon: "success",
-							title: "Keterangan Berhasil Diperbarui",
-							text: data.message,
+							title: 'Berhasil',
+							text: 'Keterangan Undangan ' + response.message,
 							showConfirmButton: false,
-							timer: 1500,
+							timer: 2000,
 						});
 						window.location = BASEURL + "admin/undangan/detail/" + code;
 					}
+				});
+			});
+
+			$("#update_status").click(function(e) {
+				e.preventDefault();
+				var status = $(e.currentTarget).attr('value');
+				var code = $("#status_code").val();
+				var dataJson = {
+					status: status,
+					code: code
+				}
+				$.ajax({
+					type: "POST",
+					url: BASEURL + "admin/undangan/update_processing?update=status",
+					data: dataJson,
+					dataType: 'json',
+					success: function(response) {
+						swal.fire({
+							icon: "success",
+							title: "Berhasil",
+							text: 'Status Undangan ' + response.message,
+							showConfirmButton: false,
+							timer: 2000,
+						});
+						window.location = BASEURL + "admin/undangan/detail/" + code;
+					}
+				});
+			});
+		});
+	</script>
+
+	<script>
+		$(document).ready(function() {
+			$('.btn-copy-link').on("click", function(e) {
+				e.preventDefault();
+				var link = $(e.currentTarget).attr("link");
+				document.addEventListener('copy', function(e) {
+					e.clipboardData.setData('text/plain', link);
+					e.preventDefault();
+				}, true);
+				document.execCommand('copy');
+				var html = '<a target="_blank" href="' + link + '">' + link + '</a>';
+				swal.fire({
+					title: "Link Undangan Berhasil disalin",
+					html: html,
+					showConfirmButton: true,
 				});
 			});
 		});

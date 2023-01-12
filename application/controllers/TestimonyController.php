@@ -18,9 +18,11 @@ class TestimonyController extends CI_Controller
 		if ($testimony) {
 			foreach ($testimony as $test) {
 				$row['name'] = $test->name;
-				$row['img'] = ($test->image == 'default.jpg') ?  base_url('assets/icons/icons_super_admin/default_foto_profil_kustomer.svg') : base_url('storage/profile_customer/' . $test->image);
+				$row['img'] = ($test->image == 'default.jpg') ?  base_url('assets/icons/icons_super_admin/default_foto_profil_kustomer.svg') : base_url('storage/profiles/' . $test->image);
 				$row['text'] = $test->message;
 				$row['model'] = $test->model;
+				$row['type'] = $test->type;
+				$row['category'] = $test->category;
 				$row['date'] = date('Y-m-d H:i:s');
 				$row['id'] = $test->id;
 				$new[] = $row;

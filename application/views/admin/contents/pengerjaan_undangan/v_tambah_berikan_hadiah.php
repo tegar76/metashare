@@ -33,28 +33,27 @@
 				<h6 class="text-dark">Data Ke- 1</h6>
 				<label for="tahap">Bank <span class="text-danger">*</span></label>
 				<div class="input-group">
-					<select name="bank[]" id="nama_bank" class="form-control <?= (form_error('bank[]')) ? 'is-invalid' : '' ?>">
-						<option selected>Pilih Bank</option>
-						<option class="bank" value="BCA">BCA</option>
-						<option class="bank" value="BRI">BRI</option>
-						<option class="bank" value="BNI">BNI</option>
-						<option class="bank" value="MANDIRI">MANDIRI</option>
-						<div class="invalid-feedback"><?= form_error('bank[]') ?></div>
+					<select name="bank" id="nama_bank" class="form-control <?= (form_error('bank')) ? 'is-invalid' : '' ?>">
+						<option value="" selected>Pilih Bank</option>
+						<?php foreach ($banks as $bank) : ?>
+							<option class="bank" value="<?= $bank->id ?>" <?= (set_value('bank') == $bank->id) ? 'selected' : '' ?>><?= $bank->name ?></option>
+						<?php endforeach ?>
+						<div class="invalid-feedback"><?= form_error('bank') ?></div>
 					</select>
 				</div>
 			</div>
 			<div class="form-group mb-3">
 				<label for="noRek">No Rekening <span class="text-danger">*</span></label>
 				<div class="input-group">
-					<input type="number" class="form-control <?= (form_error('noRek[]')) ?>" name="noRek[]" id="noRek" placeholder="Masukan No Rekening">
-					<div class="invalid-feedback"><?= form_error('noRek[]') ?></div>
+					<input type="number" name="rekening" class="form-control <?= (form_error('rekening')) ? 'is-invalid' : '' ?>" id="noRek" placeholder="Masukan No Rekening" value="<?= set_value('rekening') ?>">
+					<div class="invalid-feedback"><?= form_error('rekening') ?></div>
 				</div>
 			</div>
 			<div class="form-group mb-3">
 				<label for="penerima">Penerima <span class="text-danger">*</span></label>
 				<div class="input-group">
-					<input type="text" class="form-control <?= (form_error('name[]')) ? 'is-invalid' : '' ?>" name="name[]" id="penerima" placeholder="Masukan Penerima">
-					<div class="invalid-feedback"><?= form_error('name[]') ?></div>
+					<input type="text" class="form-control <?= (form_error('name')) ? 'is-invalid' : '' ?>" name="name" id="penerima" placeholder="Masukan Penerima" value="<?= set_value('name') ?>">
+					<div class="invalid-feedback"><?= form_error('name') ?></div>
 				</div>
 			</div>
 			<div class="form-group mb-3">
@@ -64,16 +63,16 @@
 						<span class="input-group-text">Upload</span>
 					</div>
 					<div class="custom-file">
-						<input type="file" name="qr_code[]" class="custom-file-input <?= (form_error('qr_code[]') ? 'is-invalid' : '') ?>" id="uploadQr Code">
+						<input type="file" name="qr_code" class="custom-file-input <?= (form_error('qr_code') ? 'is-invalid' : '') ?>" id="uploadQr Code">
 						<label class="custom-file-label" for="uploadCover">Choose file</label>
-						<div class="invalid-feedback"><?= form_error('qr_code[]') ?></div>
+						<div class="invalid-feedback"><?= form_error('qr_code') ?></div>
 					</div>
 				</div>
 				<p>Catatan: File max 2mb format (SVG,PNG,JPG,JPEG) </p>
 			</div>
 		</div>
-		<div id="next-form"></div>
-		<input type="hidden" id="count-form" name="count_form" value="1">
+		<!-- <div id="next-form"></div> -->
+		<!-- <input type="hidden" id="count-form" name="count_form" value="1"> -->
 		<div class="flex mt-3 mb-4">
 			<button type="submit" class="btn btn-sm btn-primary px-3 py-2 mr-3">Simpan</button>
 			<button type="reset" id="btn-reset-form" class="btn btn-sm btn-secondary px-3 py-2">Reset</button>
@@ -86,11 +85,11 @@
 	<!-- ============================================================== -->
 
 	<!-- Floating Button Add -->
-	<div class="floating-container">
+	<!-- <div class="floating-container">
 		<a href="#">
 			<div id="btn-add-form" class="floating-button">+</div>
 		</a>
-	</div>
+	</div> -->
 	<!-- Floating Button Add End -->
 	<script>
 		$(document).ready(function() {

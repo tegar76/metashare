@@ -8,7 +8,7 @@
 		<div class="hidden lg:flex lg:w-[30%] border-slate-600/20 shadow rounded-xl lg:rounded-l-3xl lg:rounded-r-none bg-gradient-to-b from-[#5C9CF0] to-[#8671EA] justify-center border border-r-0 border-b-4 py-20 opacity-70">
 			<!-- Big profile image for side bar (desktop) -->
 			<div>
-				<img src="<?= ($customer->image == 'default.jpg') ? base_url('assets/icons/icons_super_admin/default_foto_profil_kustomer.svg') : base_url('storage/profile_customer/' . $customer->image) ?>" class="hidden lg:flex w-36 border-2 border-white-50 rounded-full">
+				<img src="<?= ($customer->image == 'default.jpg') ? base_url('assets/icons/icons_super_admin/default_foto_profil_kustomer.svg') : base_url('storage/profiles/' . $customer->image) ?>" class="hidden lg:flex w-36 border-2 border-white-50 rounded-full">
 				<p class="mt-8 text-center text-white font-semibold tracking-wide hidden lg:block">Total Order : <?= $totalOrder ?></p>
 			</div>
 		</div>

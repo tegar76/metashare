@@ -58,6 +58,7 @@
 			</div>
 			<div id="next-form"></div>
 			<input type="hidden" id="jumlah-form" name="jumlah_form" value="1">
+			<input type="hidden" id="category" name="category" value="<?= $category ?>">
 			<div class="flex mt-4 mb-4">
 				<button type="submit" class="btn btn-sm btn-primary px-3 py-2 mr-3">Simpan</button>
 				<button type="reset" class="btn btn-sm btn-secondary px-3 py-2">Reset</button>
@@ -73,8 +74,18 @@
 		$(document).ready(function() {
 			$("#btn-tambah-foto").click(function() {
 				var jumlah = parseInt($("#jumlah-form").val());
+				var category = $("#category").val();
 				var nextform = jumlah + 1;
-				if (nextform <= 8) {
+
+				if (category == 'special') {
+					var jumlahFoto = 8;
+				} else if (category == 'standard') {
+					var jumlahFoto = 6;
+				} else {
+					var jumlahFoto = 0;
+				}
+
+				if (nextform <= jumlahFoto) {
 					$("#next-form").append(
 						'<div class="form-group mb-3">' +
 						'<label for="uploadCover">Foto Ke-' + nextform + '</label>' +

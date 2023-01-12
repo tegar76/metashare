@@ -60,7 +60,7 @@
 						</div>
 						<!-- <img class="img-cover mx-auto" src="<?= base_url('storage/cover_model_undangan/cover_a.svg') ?>" alt="Cover"> -->
 						<h5 class="text-black mt-4">Model <?= $value['name'] ?></h5>
-						<p>Undangan Pernikahan <?= $value['type'] ?> / <?= $value['category'] ?></p>
+						<p><?= $value['type'] ?> / <?= $value['category'] ?></p>
 						<div>
 							<a target="_blank" href="<?= base_url('demo?model=' . $value['view']) ?>" class="btn btn-sm btn-outline-info text-sm  px-2 mr-3">
 								<i class="fas fa-eye mr-1"></i>

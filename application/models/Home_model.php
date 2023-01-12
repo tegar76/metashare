@@ -55,7 +55,9 @@ class Home_model extends CI_Model
 			test.date,
 			customer.name,
 			customer.image,
-			design.name as model
+			design.name as model,
+			design.category,
+			design.type
 		');
 		$this->db->from('testimony as test');
 		$this->db->join('customer', 'customer.cus_id=test.cus_id');

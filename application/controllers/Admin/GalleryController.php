@@ -20,6 +20,7 @@ class GalleryController extends CI_Controller
 		$data['code'] = $code;
 		$check = $this->invitation->checkDataUndangan($code);
 		$data['invt'] = $check;
+		$data['category'] = $this->invitation->getCategoriByCode($code)->category;
 		if (empty($check)) {
 			sweetAlert("Warning!", "Data Undangan harus diinput terlebih dahulu", "warning");
 			redirect('admin/undangan/detail/' . $code);
@@ -144,7 +145,7 @@ class GalleryController extends CI_Controller
 		}
 	}
 
-	public function update($id) 
+	public function update($id)
 	{
 		$data['title'] = 'Edit Foto Detail';
 		$data['content'] = 'admin/contents/pengerjaan_undangan/v_edit_foto_detail';

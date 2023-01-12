@@ -50,7 +50,7 @@
 								<tr>
 									<td><?= $item['number'] ?></td>
 									<td><?= $item['bank'] ?></td>
-									<td><?= $item['account_number'] ?></td>
+									<td><?= $item['account'] ?></td>
 									<td><?= $item['name'] ?></td>
 									<td><img src="<?= $item['qr_code'] ?>" alt="IMG Default QR Code" width="100px"></td>
 									<td>
@@ -71,7 +71,7 @@
 	<!-- End Container fluid  -->
 	<!-- ============================================================== -->
 	<!-- ============================================================== -->
-	
+
 	<script>
 		$(document).ready(function() {
 			var csrfName = $(".csrf_token").attr("name");
@@ -82,7 +82,7 @@
 				var id = $(e.currentTarget).attr("id");
 				var dataJson = {
 					[csrfName]: csrfHash,
-					id : id,
+					id: id,
 				};
 				Swal.fire({
 					title: "Hapus Nomor Rekening",
@@ -124,7 +124,7 @@
 										showConfirmButton: false,
 										timer: 1500,
 									});
-									window.location = BASEURL + "admin/undangan/gifts/detail?code=<?= $_GET['code'] ?>"  + "&id=<?= $_GET['id'] ?>";
+									window.location = BASEURL + "admin/undangan/gifts/detail?code=<?= $_GET['code'] ?>" + "&id=<?= $_GET['id'] ?>";
 								}
 							},
 							error: function() {

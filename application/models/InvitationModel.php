@@ -45,8 +45,9 @@ class InvitationModel extends CI_Model
 		return $this->db->get('photo_gallery')->result();
 	}
 
-	public function getInvitationBySlug($slug)
+	public function getInvitationBySlug($id, $slug)
 	{
+		$this->db->where("invitation_id", $id);
 		$this->db->where("slug", $slug);
 		return $this->db->get("invitation")->row();
 	}
@@ -114,24 +115,22 @@ class InvitationModel extends CI_Model
 		$conf['overwrite']     = TRUE;
 		$conf['encrypt_name'] = true;
 		$this->load->library('upload', $conf);
-		$qr = count($_FILES['qr_code']['name']);
-		for ($i = 0; $i < $qr; $i++) {
-			$_FILES['file']['name'] = $_FILES['qr_code']['name'][$i];
-			$_FILES['file']['type'] 	= $_FILES['qr_code']['type'][$i];
-			$_FILES['file']['tmp_name'] = $_FILES['qr_code']['tmp_name'][$i];
-			$_FILES['file']['error'] 	= $_FILES['qr_code']['error'][$i];
-			$_FILES['file']['size'] 	= $_FILES['qr_code']['size'][$i];
-			if ($this->upload->do_upload('file')) {
-				$qr_code = $this->upload->data('file_name');
-				$result = array(
-					'name' => $_POST['name'][$i],
-					'name_bank' => $_POST['bank'][$i],
-					'number_account' => $_POST['noRek'][$i],
-					'qr_code' => $qr_code,
-					'invitation_id' => $invt_id
-				);
-				$this->db->insert('gifts', $result);
-			}
+		$this->upload->initialize($conf);
+		$_FILES['file']['name'] = $_FILES['qr_code']['name'];
+		$_FILES['file']['type'] 	= $_FILES['qr_code']['type'];
+		$_FILES['file']['tmp_name'] = $_FILES['qr_code']['tmp_name'];
+		$_FILES['file']['error'] 	= $_FILES['qr_code']['error'];
+		$_FILES['file']['size'] 	= $_FILES['qr_code']['size'];
+		if ($this->upload->do_upload('file')) {
+			$qr_code = $this->upload->data('file_name');
+			$result = array(
+				'name' => $this->input->post('name'),
+				'number_account' =>  $this->input->post('rekening'),
+				'qr_code' => $qr_code,
+				'invitation_id' => $invt_id,
+				'bank_id' => $this->input->post('bank')
+			);
+			$this->db->insert('gifts', $result);
 		}
 		$this->db->trans_complete();
 	}
@@ -145,7 +144,7 @@ class InvitationModel extends CI_Model
 			mkdir('./storage/invitations/gifts', 0777, true);
 		}
 
-		$gift = $this->db->get_where('gifts', array('git_id' => $this->input->post('id')))->row();
+		$gift = $this->db->get_where('gifts', array('id' => $this->input->post('id')))->row();
 
 		$uploadQR = $_FILES['qr_code']['name'];
 		if ($uploadQR) {
@@ -164,12 +163,11 @@ class InvitationModel extends CI_Model
 
 		$update = array(
 			'name' => $this->input->post('name', true),
-			'name_bank' => $this->input->post('bank', true),
 			'number_account' => $this->input->post('noRek', true),
 		);
 
 		$this->db->set($update);
-		$this->db->where('git_id', $this->input->post('id'))->update('gifts');
+		$this->db->where('id', $this->input->post('id'))->update('gifts');
 		$this->db->trans_complete();
 	}
 
@@ -205,5 +203,34 @@ class InvitationModel extends CI_Model
 		$this->db->join('transaction as trans', 'trans.model_id=design.model_id');
 		$this->db->where('code', $code);
 		return $this->db->get()->row();
+	}
+
+	public function getCategoriByCode($code)
+	{
+		$this->db->select('
+			model.category
+		');
+		$this->db->from('model_invitation as model');
+		$this->db->join('transaction', 'transaction.model_id=model.model_id');
+		$this->db->where('code', $code);
+		return $this->db->get()->row();
+	}
+
+	public function getJoinGiftBank($where)
+	{
+		$this->db->select('
+			gifts.id,
+			gifts.name as recipient,
+			gifts.number_account as account,
+			gifts.qr_code as qr,
+			gifts.invitation_id,
+			banks.name as bank,
+			banks.icon,
+			banks.digit
+		');
+		$this->db->from('gifts');
+		$this->db->join('banks', 'banks.id=gifts.bank_id');
+		$this->db->where($where);
+		return $this->db->get();
 	}
 }

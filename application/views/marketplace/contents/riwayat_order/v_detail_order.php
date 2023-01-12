@@ -86,7 +86,7 @@
 			<div class="col-span-4 border-b border-b-slate-400/30 mb-2"></div>
 
 			<p class="text-slate-600">Bukti Pembayaran</p>
-			<a target="_blank" href="<?= base_url('views/view_img?code=' . $detail->t_code) ?>" class="col-span-2 text-slate-500"><img src="<?= base_url('assets/icons/icon_file_img.svg') ?>" alt="Img Bukti Bayar" class="w-6 lg:w-8"></a>
+			<a target="_blank" href="<?= base_url('view/bukti_pembayaran?code=' . $detail->t_code) ?>" class="col-span-2 text-slate-500"><img src="<?= base_url('assets/icons/icon_file_img.svg') ?>" alt="Img Bukti Bayar" class="w-6 lg:w-8"></a>
 			<div class="col-span-4 border-b border-b-slate-400/30 mb-2"></div>
 
 			<p class="text-slate-600">Sumber Order</p>
@@ -112,18 +112,18 @@
 		<!-- TRUE -->
 		<div class="block sm:flex mt-6">
 			<?php if ($detail->t_desc == 2) : ?>
-				<a target="_blank" href="<?= base_url('preview') ?>" class="border border-primary-blue-cyan flex items-center justify-center px-6 py-2.5 text-primary-blue-cyan rounded-lg sm:mr-3 mb-3 sm:mb-0 hover:bg-primary-blue-cyan/20"><i class="fa fa-eye mr-2"></i>Pratinjau</a>
-			<?php endif ?>
-			<a href="<?= base_url('history/order/invited_guest?id=' . $invtId . '&code=' . $detail->t_code) ?>" class="inline-flex items-center justify-between text-primary-blue-cyan border border-primary-blue-cyan px-8 sm:px-2 lg:px-5 py-2 rounded-lg mb-3 sm:mb-0 w-full sm:w-fit sm:mr-3 hover:bg-primary-blue-cyan/20">
-				<i class="fa fa-users mr-3"></i>
-				<p>Tamu Undangan</p>
-				<div class="inline-flex justify-center items-center ml-2 text-base-2xs sm:text-base-1xs font-semibold px-1.5 py-[1px] text-white bg-orange-400/90 rounded-full"><?= $guest ?></div>
-			</a>
-			<a href="<?= base_url('history/order/messages?id=' . $invtId . '&code=' . $detail->t_code) ?>" class="inline-flex items-center justify-between text-primary-blue-cyan border border-primary-blue-cyan px-8 sm:px-2 lg:px-5 py-2 rounded-lg w-full sm:w-fit hover:bg-primary-blue-cyan/20">
-				<i class="fa fa-message mr-3"></i>
-				<p>Pesan Bahagia</p>
-				<div class="inline-flex justify-center items-center ml-2 text-base-2xs sm:text-base-1xs font-semibold px-1.5 py-[1px] text-white bg-orange-400/90 rounded-full"><?= $message ?></div>
-			</a>
+				<a target="_blank" href="<?= base_url('wedding/' . $invtId . '/' . $invt->slug) ?>" class="border border-primary-blue-cyan flex items-center justify-center px-6 py-2.5 text-primary-blue-cyan rounded-lg sm:mr-3 mb-3 sm:mb-0 hover:bg-primary-blue-cyan/20"><i class="fa fa-eye mr-2"></i>Pratinjau</a>
+				<a href="<?= base_url('history/order/invited_guest?id=' . $invtId . '&code=' . $detail->t_code) ?>" class="inline-flex items-center justify-between text-primary-blue-cyan border border-primary-blue-cyan px-8 sm:px-2 lg:px-5 py-2 rounded-lg mb-3 sm:mb-0 w-full sm:w-fit sm:mr-3 hover:bg-primary-blue-cyan/20">
+					<i class="fa fa-users mr-3"></i>
+					<p>Tamu Undangan</p>
+					<div class="inline-flex justify-center items-center ml-2 text-base-2xs sm:text-base-1xs font-semibold px-1.5 py-[1px] text-white bg-orange-400/90 rounded-full"><?= $guest ?></div>
+				</a>
+				<a href="<?= base_url('history/order/messages?id=' . $invtId . '&code=' . $detail->t_code) ?>" class="inline-flex items-center justify-between text-primary-blue-cyan border border-primary-blue-cyan px-8 sm:px-2 lg:px-5 py-2 rounded-lg w-full sm:w-fit hover:bg-primary-blue-cyan/20">
+					<i class="fa fa-message mr-3"></i>
+					<p>Pesan Bahagia</p>
+					<div class="inline-flex justify-center items-center ml-2 text-base-2xs sm:text-base-1xs font-semibold px-1.5 py-[1px] text-white bg-orange-400/90 rounded-full"><?= $message ?></div>
+				</a>
+			<?php endif	?>
 		</div>
 		<!-- FALSE -->
 	</div>
@@ -149,7 +149,7 @@
 
 		<div class="flex justify-end mt-5">
 			<!-- This button is used to close the dialog -->
-			<button id="close" type="reset" class="text-xs lg:text-sm tracking-wide mr-5 text-primary-blue-cyan/70 hover:text-primary-blue-cyan-hover/80">Abaikan Pesan Ini !</button>
+			<button id="close" name="" type="submit" class="text-xs lg:text-sm tracking-wide mr-5 text-primary-blue-cyan/70 hover:text-primary-blue-cyan-hover/80">Abaikan Pesan Ini !</button>
 			<button id="submit" type="submit" class="focus:ring-2 focus:ring-offset-2 focus:ring-primary-blue-cyan font-semibold leading-none text-white focus:outline-none bg-primary-blue-cyan border border-primary-blue-cyan rounded-lg hover:bg-primary-blue-cyan-hover py-2 px-4 lg:px-6 transition duration-500 text-xs lg:text-sm tracking-wide">
 				Kirim
 			</button>

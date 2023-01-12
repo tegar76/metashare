@@ -8,6 +8,7 @@ class Invitations extends CI_Controller
 		parent::__construct();
 		$this->load->model('InvitationModel', 'invitation', true);
 		$this->bulan = array(1 => "Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember");
+		$this->months = array(1 => "january", "february", "march", "april", "may", "june", "juli", "august", "september", "october", "november", "december");
 		$this->hari = array("Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu");
 	}
 
@@ -38,73 +39,83 @@ class Invitations extends CI_Controller
 		}
 	}
 
-	
-	public function preview($slug = null)
+
+	public function preview($id, $slug = null)
 	{
-		$invitation = $this->invitation->getInvitationBySlug($slug);
+		$invitation = $this->invitation->getInvitationBySlug($id, $slug);
 		if (empty($slug) and empty($invitation)) {
 			$data['title'] = '404 Not Found';
 			$this->load->view('errors/contents/v_error_404', $data, FALSE);
 		} else {
-			// query untuk mengambil data model undangan dan masa aktif undangan
-			$design = $this->invitation->getDesignUndangan($invitation->code);
+			$dateNow = date('Y-m-d H:i:s');
+			$active = $this->db->query("SELECT active, status FROM transaction WHERE code='$invitation->code'")->row();
+			if (strtotime($dateNow) <= strtotime($active->active) and $active->status > 0) {
 
-			// untuk menambi nama tamu undangan menggunakan method get
-			if (isset($_GET['to'])) {
-				$data['guest'] = $this->input->get('to');
+				// query untuk mengambil data model undangan dan masa aktif undangan
+				$design = $this->invitation->getDesignUndangan($invitation->code);
+
+				// untuk menambi nama tamu undangan menggunakan method get
+				if (isset($_GET['to'])) {
+					$data['guest'] = $this->input->get('to');
+				} else {
+					$data['guest'] = '';
+				}
+
+				// untuk mengambil data foto prewedding
+				$photos	= $this->invitation->getPhotoPreWedding($invitation->invitation_id);
+				foreach ($photos as $photo) {
+					$img['id'] = $photo->gallery_id;
+					$img['img'] = 	base_url('storage/invitations/gallery/' .  $photo->photo);
+					$imgs[] = $img;
+				}
+				$data['photos'] = $imgs;
+				$data['invitation']	= $invitation; // untuk menampilkan data undangan
+				$data['message'] = $this->db->get_where('message', ['invitation_id' => $invitation->invitation_id])->num_rows(); // untuk menghitung jumlah pesan bahagia yang masuk
+
+				$tasyakur = $this->invitation->getAcaraByUndangan('tasyakur', $invitation->invitation_id);
+				$akad = $this->invitation->getAcaraByUndangan('akad', $invitation->invitation_id);
+				$resepsi = $this->invitation->getAcaraByUndangan('resepsi', $invitation->invitation_id);
+				$acara = [
+					'tasyakur' => [
+						'nama' => $tasyakur->title,
+						'tanggal' => $this->dateConvert($tasyakur->date),
+						'waktu' =>  date('H:i', strtotime($tasyakur->time)) . ' WIB',
+						'alamat' => $tasyakur->address,
+						'maps' => $tasyakur->maps
+					],
+					'akad' => [
+						'nama' => $akad->title,
+						'tanggal' => $this->dateConvert($akad->date),
+						'waktu' =>  date('H:i', strtotime($akad->time)) . ' WIB',
+						'alamat' => $akad->address,
+						'maps' => $akad->maps
+					],
+					'resepsi' => [
+						'nama' => $resepsi->title,
+						'tanggal' => $this->dateConvert($resepsi->date),
+						'waktu' =>  date('H:i', strtotime($resepsi->time)) . ' WIB',
+						'alamat' => $resepsi->address,
+						'maps' => $resepsi->maps
+					],
+				];
+				$data['acara'] = $acara;
+				$data['countdown'] = $this->dateConvertCountDown($akad->date, $akad->time);
+				$data['loveStories'] = $this->db->get_where('love_story', ['invitation_id' => $invitation->invitation_id])->result();
+				$data['gifts'] = $this->invitation->getJoinGiftBank(['invitation_id' => $invitation->invitation_id])->result();
+
+				// kondisi untuk mengecek apakah ada file model undangan tersebut atau tidak
+				$view = 'model_undangan/previews/' . $design->view . '_preview';
+				if (file_exists(APPPATH . 'views/' . $view  . '.php')) {
+					// jika ada maka akan ditampilkan beserta data-data undangan
+					$this->load->view($view, $data, false);
+				} else {
+					// jika tidak maka akan tampil halaman notfound 4040
+					$data['title'] = '404 Not Found';
+					$this->load->view('errors/contents/v_error_404', $data, false);
+				}
 			} else {
-				$data['guest'] = '';
-			}
-
-			 // untuk mengambil data foto prewedding
-			$photos	= $this->invitation->getPhotoPreWedding($invitation->invitation_id);
-			foreach ($photos as $photo) {
-				$img['id'] = $photo->gallery_id;
-				$img['img'] = 	base_url('storage/invitations/gallery/' .  $photo->photo);
-				$imgs[] = $img;
-			}
-			$data['photos'] = $imgs;
-			$data['invitation']	= $invitation; // untuk menampilkan data undangan
-			$data['message'] = $this->db->get_where('message', ['invitation_id' => $invitation->invitation_id])->num_rows(); // untuk menghitung jumlah pesan bahagia yang masuk
-			
-			$tasyakur = $this->invitation->getAcaraByUndangan('tasyakur', $invitation->invitation_id); 
-			$akad = $this->invitation->getAcaraByUndangan('akad', $invitation->invitation_id); 
-			$resepsi = $this->invitation->getAcaraByUndangan('resepsi', $invitation->invitation_id);
-			$acara = [
-				'tasyakur' => [
-					'nama' => $tasyakur->title,
-					'tanggal' => $this->dateConvert($tasyakur->date),
-					'waktu' =>  date('H:i', strtotime($tasyakur->time)) . ' WIB',
-					'alamat' => $tasyakur->address,
-					'maps' => $tasyakur->maps
-				],
-				'akad' => [
-					'nama' => $akad->title,
-					'tanggal' => $this->dateConvert($akad->date),
-					'waktu' =>  date('H:i', strtotime($akad->time)) . ' WIB',
-					'alamat' => $akad->address,
-					'maps' => $akad->maps
-				],
-				'resepsi' => [
-					'nama' => $resepsi->title,
-					'tanggal' => $this->dateConvert($resepsi->date),
-					'waktu' =>  date('H:i', strtotime($resepsi->time)) . ' WIB',
-					'alamat' => $resepsi->address,
-					'maps' => $resepsi->maps
-				],
-			];
-			$data['acara'] = $acara;
-			
-
-			// kondisi untuk mengecek apakah ada file model undangan tersebut atau tidak
-			$view = 'model_undangan/previews/' . $design->view . '_preview';
-			if (file_exists(APPPATH . 'views/' . $view  . '.php')) {
-				// jika ada maka akan ditampilkan beserta data-data undangan
-				$this->load->view($view, $data, false);
-			} else {
-				// jika tidak maka akan tampil halaman notfound 4040
 				$data['title'] = '404 Not Found';
-				$this->load->view('errors/contents/v_error_404', $data, false);
+				$this->load->view('errors/contents/v_error_404', $data, FALSE);
 			}
 		}
 	}
@@ -117,6 +128,15 @@ class Invitations extends CI_Controller
 		$tahun = date('Y', strtotime($date));
 		$result = $hari . ', ' . $tanggal . ' ' . $bulan . ' ' . $tahun;
 		return $result;
+	}
+
+	public function dateConvertCountDown($dates, $time)
+	{
+		$date = date('d', strtotime($dates));
+		$month = $this->months[(int)date('m', strtotime($dates))];
+		$year = date('Y', strtotime($dates));
+		$time = date('H:i:s', strtotime($time));
+		return $month . ' ' . $date . ', ' . $year . ' ' . $time;
 	}
 
 	public function get_message()

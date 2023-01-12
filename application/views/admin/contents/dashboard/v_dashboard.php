@@ -178,7 +178,7 @@
 								showConfirmButton: false,
 								timer: 1500,
 							});
-							window.location = BASEURL + "admin/invitation";
+							window.location = BASEURL + "admin/undangan";
 						}
 					},
 					error: function() {

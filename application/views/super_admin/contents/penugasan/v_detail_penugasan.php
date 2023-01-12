@@ -74,7 +74,7 @@
 					</tr>
 					<tr>
 						<th scope="row">Masa Aktif</th>
-						<td>-</td>
+						<td><?= ($detail->t_active != null) ? date('d-m-Y H:i', strtotime($detail->t_active)) . ' WIB' : '-' ?></td>
 					</tr>
 					<tr>
 						<th scope="row">Keterangan</th>
@@ -87,7 +87,7 @@
 					</tr>
 					<tr>
 						<th scope="row">Bukti Pembayaran</th>
-						<td><a target="_blank" href="<?= base_url('views/view_img?code=' . $detail->t_code) ?>"><img src="<?= base_url('assets/icons/icon_file_img.svg') ?>" alt="" width="25" data-toggle="tooltip" title="Lihat" data-placement="right"></a></td>
+						<td><a target="_blank" href="<?= base_url('view/bukti_pembayaran?code=' . $detail->t_code) ?>"><img src="<?= base_url('assets/icons/icon_file_img.svg') ?>" alt="" width="25" data-toggle="tooltip" title="Lihat" data-placement="right"></a></td>
 					</tr>
 					<tr>
 						<th scope="row">Sumber Order</th>

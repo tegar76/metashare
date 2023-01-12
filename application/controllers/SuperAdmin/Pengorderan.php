@@ -27,6 +27,7 @@ class Pengorderan extends CI_Controller
 					$ord['type'] = $row->type;
 					$ord['category'] = $row->category;
 					$ord['model'] = $row->model;
+					$ord['source'] = $row->source;
 					$neword[] = $ord;
 				}
 				$data['order'] = $neword;
@@ -44,6 +45,7 @@ class Pengorderan extends CI_Controller
 					$ord['type'] = $row->type;
 					$ord['category'] = $row->category;
 					$ord['model'] = $row->model;
+					$ord['source'] = $row->source;
 					$neword[] = $ord;
 				}
 				$data['order'] = $neword;
@@ -54,11 +56,111 @@ class Pengorderan extends CI_Controller
 		$this->load->view('super_admin/layouts/wrapper', $data, FALSE);
 	}
 
-	public function tambahPengorderan()
+	public function tambah_order()
 	{
 		$data['title'] = 'Tambah Pengorderan';
 		$data['content'] = 'super_admin/contents/pengorderan/v_tambah_pengorderan';
+		$this->form_validation->set_rules([
+			[
+				'field' => 'customer_name',
+				'label' => 'Nama Customer',
+				'rules' => 'trim|required|xss_clean|min_length[3]',
+				'errors' => [
+					'required' => '{field} tidak boleh kosong',
+					'min_length' => '{field} minimal 3 karakter',
+				]
+			],
+			[
+				'field' => 'customer_email',
+				'label' => 'Email Customer',
+				'rules' => 'trim|required|xss_clean|is_unique[customer.email]',
+				'errors' => [
+					'required' => '{field} tidak boleh kosong',
+					'min_length' => '{field} minimal 3 karakter',
+					'is_unique' => '{field} sudah terdaftar, gunakan email lain!'
+				]
+			],
+			[
+				'field' => 'customer_phone',
+				'label' => 'Nomor Telepon',
+				'rules' => 'trim|required|numeric|min_length[8]|max_length[18]',
+				'errors' => [
+					'required' => '{field} tidak boleh kosong!',
+					'numeric' => '{field} harus berupa angka!',
+					'min_length' => '{field} minimal 8 karakter!',
+					'max_length' => '{field} maximum 18 karakter!'
+				]
+			],
+			[
+				'field' => 'password',
+				'label' => 'Password',
+				'rules' => 'trim|required|xss_clean|min_length[8]',
+				'errors' => [
+					'required' => '{field} tidak boleh kosong',
+					'min_length' => '{field} minimal 8 karakter',
+				]
+			],
+			[
+				'field' => 'password_conf',
+				'label' => 'Konfirmasi Password',
+				'rules' => 'trim|required|min_length[8]|matches[password]',
+				'errors' => [
+					'required' => '{field} tidak boleh kosong',
+					'min_length' => '{field} minimal 8 karakter',
+					'matches' => '{field} tidak sesuai!'
+				]
+			],
+			[
+				'field' => 'category_design',
+				'label' => 'Kategori Undangan',
+				'rules' => 'trim|required|xss_clean',
+				'errors' => [
+					'required' => '{field} tidak boleh kosong',
+				]
+			],
+			[
+				'field' => 'name_design',
+				'label' => 'Model Undangan',
+				'rules' => 'trim|required|xss_clean',
+				'errors' => [
+					'required' => '{field} tidak boleh kosong',
+				]
+			],
+			[
+				'field' => 'source_order',
+				'label' => 'Sumber Order',
+				'rules' => 'trim|required|xss_clean',
+				'errors' => [
+					'required' => '{field} tidak boleh kosong',
+				]
+			],
+		]);
+
+		if ($this->form_validation->run() === false) {
+			$this->load->view('super_admin/layouts/wrapper', $data, FALSE);
+		} else {
+			$this->master->addOrderCustomer();
+			sweetAlert("Berhasil", "Pengorderan customer berhasil ditambahkan", "success");
+			redirect('su-admin/order');
+		}
 		$this->load->view('super_admin/layouts/wrapper', $data, FALSE);
+	}
+
+
+	public function get_model_undangan()
+	{
+		$category = $this->input->get('category');
+		$search = $this->input->get('search');
+		if (!empty($search) or !empty($category)) {
+			$models = $this->master->getDataModelUndangan($category, $search);
+			foreach ($models as $model) {
+				$result[] = [
+					'id'	=> $model->id,
+					'text'	=> $model->name
+				];
+			}
+			echo json_encode($result);
+		}
 	}
 
 	public function update($code = false)
@@ -114,15 +216,15 @@ class Pengorderan extends CI_Controller
 		$this->db->trans_start();
 		$upload = $_FILES['bukti_bayar']['name'];
 		if ($upload) {
-			$this->imageConf('bukti_pembayaran');
-			$this->check_storage('bukti_pembayaran');
+			$this->imageConf('proof_payment');
+			$this->check_storage('proof_payment');
 			if (!$this->upload->do_upload('bukti_bayar')) :
 				sweetAlert('Oopppsss', $this->upload->display_errors(), 'error');
 				redirect('su-admin/order/update/' . $this->input->post('code'));
 			else :
 				$dataUpload = $this->upload->data();
 				$resolution = ['width' => 270, 'height' => 378];
-				$this->compreesImage('bukti_pembayaran', $dataUpload['file_name'], $resolution);
+				$this->compreesImage('proof_payment', $dataUpload['file_name'], $resolution);
 				$this->db->set('proof',  $dataUpload['file_name']);
 			endif;
 		}
@@ -140,6 +242,7 @@ class Pengorderan extends CI_Controller
 		$conf['overwrite']     = TRUE;
 		$conf['encrypt_name'] = TRUE;
 		$this->load->library('upload', $conf);
+		$this->upload->initialize($conf);
 	}
 
 	public function compreesImage($dirName, $fileName, $resolution)

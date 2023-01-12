@@ -72,7 +72,7 @@ class LoveStoryController extends CI_Controller
 		if (isset($_GET['code']) and isset($_GET['id'])) {
 			$id = $this->input->get('id');
 			$stories = $this->db->get_where('love_story', ['invitation_id' => $id])->result();
-			$data['story'] = array();
+			$data['stories'] = array();
 			if ($stories) {
 				$nomor = 1;
 				foreach ($stories as $story) {
@@ -101,11 +101,11 @@ class LoveStoryController extends CI_Controller
 		$data['content'] = 'admin/contents/pengerjaan_undangan/v_edit_perjalanan_cinta_detail';
 		$data['detail'] = $this->db->get_where('love_story', ['story_id' => $id])->row();
 		$data['code'] = $this->db->select('code')->from('invitation')->where('invitation_id', $data['detail']->invitation_id)->get()->row();
-		if(isset($_POST['update'])) {
+		if (isset($_POST['update'])) {
 			$this->form_validation->set_rules('title', 'Tahapan', 'trim|required|xss_clean');
-			$this->form_validation->set_rules('date', 'Tanggal'. 'trim|required|xss_clean');
+			$this->form_validation->set_rules('date', 'Tanggal' . 'trim|required|xss_clean');
 			$this->form_validation->set_rules('story', 'Cerita', 'trim|required|xss_clean');
-			if($this->form_validation->run() ==  false) {
+			if ($this->form_validation->run() ==  false) {
 				$this->load->view('admin/layouts/wrapper', $data, FALSE);
 			} else {
 				$update = array(

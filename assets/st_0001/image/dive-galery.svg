@@ -1,0 +1,9 @@
+<svg width="1365" height="49" viewBox="0 0 1365 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path id="dive-waktu" fill-rule="evenodd" clip-rule="evenodd" d="M0 6.91802L195.439 27.6721L389.854 20.7541L585.292 0L721.383 9.68523L916.822 23.5213L1068.77 7.31334L1365 34.5901V48.4262H1169.56H975.146H779.708H585.292H389.854H195.439H0V6.91802Z" fill="url(#paint0_radial_205_9)"/>
+<defs>
+<radialGradient id="paint0_radial_205_9" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(682.5 24.2131) rotate(90) scale(24.2131 682.5)">
+<stop stop-color="#84A98C" stop-opacity="0.4"/>
+<stop offset="1" stop-color="#84A98C" stop-opacity="0"/>
+</radialGradient>
+</defs>
+</svg>

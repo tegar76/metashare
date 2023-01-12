@@ -1,0 +1,13 @@
+<svg width="19" height="24" viewBox="0 0 19 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="in in-date-small">
+<g id="Group 9">
+<g id="Group 4">
+<path id="Rectangle 3" d="M5 2.80803H14C15.9606 2.80803 17.55 4.39742 17.55 6.35803V19C17.55 20.9606 15.9606 22.55 14 22.55H5C3.03939 22.55 1.45 20.9606 1.45 19V6.35803C1.45 4.39742 3.03939 2.80803 5 2.80803Z" stroke="#1A262D" stroke-opacity="0.7804" stroke-width="0.9"/>
+<path id="path3570" d="M9.54769 17.9529C9.3126 18.2394 8.87661 18.2464 8.63248 17.9676L6.59813 15.6443C5.92132 14.62 5.812 13.6439 6.30536 12.7096C6.32622 12.6701 6.35268 12.633 6.38342 12.6006C7.09873 11.8464 8.0387 11.847 8.75268 12.355C9.1259 12.6206 9.72047 12.6149 10.0807 12.3319C10.7147 11.8337 11.4202 11.9518 12.1276 12.5898C12.1522 12.6119 12.1754 12.6372 12.195 12.6639C12.9632 13.7093 12.1067 14.6288 11.5303 15.5371L9.54769 17.9529Z" stroke="#1A262D" stroke-opacity="0.780392" stroke-width="0.9" stroke-miterlimit="8.7" stroke-linecap="round" stroke-linejoin="bevel"/>
+<line id="Line 1" x1="1.74988" y1="7.88325" x2="17.2962" y2="7.88325" stroke="#1A262D" stroke-opacity="0.7804" stroke-width="0.9"/>
+</g>
+<line id="Line 5" x1="5.45" y1="1.45" x2="5.45" y2="4.55" stroke="#1A262D" stroke-opacity="0.7804" stroke-width="0.9" stroke-linecap="round"/>
+<line id="Line 6" x1="13.45" y1="1.45" x2="13.45" y2="4.55" stroke="#1A262D" stroke-opacity="0.7804" stroke-width="0.9" stroke-linecap="round"/>
+</g>
+</g>
+</svg>

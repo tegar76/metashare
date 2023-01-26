@@ -1,5 +1,11 @@
 {
     "liveServer.settings.port": 5501,
     "synthwave84.brightness": 0.3,
-    "synthwave84.disableGlow": true
+    "synthwave84.disableGlow": true,
+    "tailwindCSS.emmetCompletions": true,
+    "editor.inlineSuggest.enabled": true,
+    "editor.quickSuggestions": {
+    "strings": true
+    },
+    "css.validate": false,
 }

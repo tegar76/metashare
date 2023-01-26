@@ -10,7 +10,7 @@
             <div>
                 <img src="<?= base_url('assets/icons/icons_super_admin/default_foto_profil_kustomer.svg')?>" class="w-20 lg:w-36 border-2 border-white-50 rounded-full mx-auto">
                 <form action="" class="mx-8 lg:mx-1">
-                    <label class="block mb-2 mt-4 text-base-md font-medium text-black contrast-200 saturate-200" for="small_size">Foto Profile</label>
+                    <label class="block mb-2 mt-4 text-base-md font-semibold font-MontserratBold text-black contrast-200 saturate-200" for="small_size">Foto Profile</label>
                     <input class="block mb-5 w-full text-xs text-slate-900 bg-gray-50 rounded-lg border border-gray-400 cursor-pointer focus:outline-none opacity-90" id="small_size" type="file">
                 </form>
             </div>
@@ -26,20 +26,20 @@
                 <form action="">
                     <p class="text-primary-blue-cyan text-base-md mb-3">Settings Profile</p>
                     <div>
-                        <label for="namaLengkap" class="text-slate-700">Nama Lengkap</label>
+                        <label for="namaLengkap">Nama Lengkap</label>
                         <input id="namaLengkap" aria-labelledby="namaLengkap" type="text" class="bg-gray-50 rounded-md text-xs font-medium leading-none placeholder-gray-800 text-gray-800 py-3 w-full pl-3 mt-2 p-2 border-b-2 border-b-gray-400 border-gray-300 outline-none opacity-80 focus:border-primary-blue-cyan/10" value="Jason" />
                     </div>
                     <div class="mt-4 w-full">
-                    <label for="noTelp" class="text-slate-700">No Telepon</label>
+                    <label for="noTelp">No Telepon</label>
                         <input id="noTelp" aria-labelledby="noTelp" type="number" class="bg-gray-50 rounded-md text-xs font-medium leading-none placeholder-gray-800 text-gray-800 py-3 w-full pl-3 mt-2 p-2 border-b-2 border-b-gray-400 border-gray-300 outline-none opacity-80 focus:border-primary-blue-cyan/10" value="0873839478485" />
                     </div>
                     <div class="mt-4 w-full">
-                        <label for="noTelp" class="text-slate-700">Email</label>
+                        <label for="noTelp">Email</label>
                         <input id="email" aria-labelledby="email" type="email" class="bg-gray-50 rounded-md text-xs font-medium leading-none placeholder-gray-800 text-gray-800 py-3 w-full pl-3 mt-2 p-2 border-b-2 border-b-gray-400 border-gray-300 outline-none opacity-80 focus:border-primary-blue-cyan/10" value="jason344@gmail.com" />
                     </div>
                     <p class="text-primary-blue-cyan text-base-md mt-5">Settings Password</p>
                     <div class="mt-3 w-full">
-                        <label for="inputOldPassword" class="text-slate-700">Password Lama</label>
+                        <label for="inputOldPassword">Password Lama</label>
                         <div class="relative flex items-center justify-center">
                             <input id="inputOldPassword" type="password" class="bg-gray-50 rounded-md text-xs font-medium leading-none placeholder-gray-800 text-gray-800 py-3 w-full pl-3 mt-2 p-2 border-b-2 border-b-gray-400 border-gray-300 outline-none opacity-80 focus:border-primary-blue-cyan/10 placeholder:text-gray-500" placeholder="Masukan Password Lama"/>
                             <div class="absolute right-0 mt-2 mr-3 cursor-pointer" onclick="showOldPassword()">
@@ -53,7 +53,7 @@
                         </div>
                     </div>
                     <div class="mt-4 w-full">
-                        <label for="inputNewPassword" class="text-slate-700">Password Baru</label>
+                        <label for="inputNewPassword">Password Baru</label>
                         <div class="relative flex items-center justify-center">
                             <input id="inputNewPassword" type="password" class="bg-gray-50 rounded-md text-xs font-medium leading-none placeholder-gray-800 text-gray-800 py-3 w-full pl-3 mt-2 p-2 border-b-2 border-b-gray-400 border-gray-300 outline-none opacity-80 focus:border-primary-blue-cyan/10 placeholder:text-gray-500" placeholder="Masukan Password Baru"/>
                             <div class="absolute right-0 mt-2 mr-3 cursor-pointer" onclick="showNewPassword()">
@@ -67,7 +67,7 @@
                         </div>
                     </div>
                     <div class="mt-4 w-full">
-                        <label for="inputConfirmPassword" class="text-slate-700">Konfirmasi Password</label>
+                        <label for="inputConfirmPassword">Konfirmasi Password</label>
                         <div class="relative flex items-center justify-center">
                             <input id="inputConfirmPassword" type="password" class="bg-gray-50 rounded-md text-xs font-medium leading-none placeholder-gray-800 text-gray-800 py-3 w-full pl-3 mt-2 p-2 border-b-2 border-b-gray-400 border-gray-300 outline-none opacity-80 focus:border-primary-blue-cyan/10 placeholder:text-gray-500" placeholder="Masukan Konfirmasi Password"/>
                             <div class="absolute right-0 mt-2 mr-3 cursor-pointer" onclick="showConfirmPassword()">

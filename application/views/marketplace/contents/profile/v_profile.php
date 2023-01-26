@@ -26,14 +26,14 @@
                     <h1 class="text-xl font-bold hidden pt-0 lg:block mb-6">Profile</h1>
                     
                     <div class="grid grid-cols-2 lg:grid-cols-3 gap-3">
-                        <p class="text-slate-700 font-normal">Nama Lengkap</p>
-                        <p class="col-span-2 text-slate-500">Jason</p>
+                        <p class="font-normal">Nama Lengkap</p>
+                        <p class="col-span-2 opacity-80">Jason</p>
                         <div class="col-span-3 border-b border-b-slate-400/30 mb-2"></div>
-                        <p class="text-slate-700 font-normal">No Telepon</p>
-                        <p class="col-span-2 text-slate-500">489540860568048</p>
+                        <p class="font-normal">No Telepon</p>
+                        <p class="col-span-2 opacity-80">489540860568048</p>
                         <div class="col-span-3 border-b border-b-slate-400/30 mb-2"></div>
-                        <p class="text-slate-700 font-normal">Email</p>
-                        <p class="col-span-2 text-slate-500">jason76@gmail.com</p>
+                        <p class="font-normal">Email</p>
+                        <p class="col-span-2 opacity-80">jason76@gmail.com</p>
                         <div class="col-span-3 border-b border-b-slate-400/30 mb-2"></div>
                     </div>
 
@@ -43,7 +43,6 @@
                                 <p class="my-1.5 mx-3 md:my-2 xl:mx-5"> Edit Profile</p>
                             </div>
                         </a>
-                        <a href="<?= base_url('')?>" role="button" class="focus:ring-2 focus:ring-offset-2 focus:ring-danger text-sm font-semibold leading-none text-white focus:outline-none bg-danger border border-danger rounded-lg hover:bg-danger-hover py-2 px-3 md:px-6 transition duration-500 text-base-1xs md:text-xs lg:text-sm xl:text-base-sm">Logout</a>
                     </div>
 
                 </div>

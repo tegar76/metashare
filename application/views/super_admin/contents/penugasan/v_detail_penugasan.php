@@ -66,7 +66,7 @@
 					</tr>
 					<tr>
 						<th scope="row">Model Undangan</th>
-						<td><a target="_blank" href="<?= base_url('preview?model=' . $detail->m_view) ?>" class="text-link-detail" data-toggle="tooltip" title="Lihat" data-placement="right"><?= $detail->m_name ?></a></td>
+						<td><a target="_blank" href="<?= base_url('demo?model=' . $detail->m_view) ?>" class="text-link-detail" data-toggle="tooltip" title="Lihat" data-placement="right"><?= $detail->m_name ?></a></td>
 					</tr>
 					<tr>
 						<th scope="row">Harga</th>
@@ -74,7 +74,7 @@
 					</tr>
 					<tr>
 						<th scope="row">Masa Aktif</th>
-						<td>-</td>
+						<td><?= ($detail->t_active != null) ? date('d-m-Y H:i', strtotime($detail->t_active)) . ' WIB' : '-' ?></td>
 					</tr>
 					<tr>
 						<th scope="row">Keterangan</th>
@@ -87,11 +87,11 @@
 					</tr>
 					<tr>
 						<th scope="row">Bukti Pembayaran</th>
-						<td><a target="_blank" href="<?= base_url('views/view_img?code=' . $detail->t_code) ?>"><img src="<?= base_url('assets/icons/icon_file_img.svg') ?>" alt="" width="25" data-toggle="tooltip" title="Lihat" data-placement="right"></a></td>
+						<td><a target="_blank" href="<?= base_url('view/bukti_pembayaran?code=' . $detail->t_code) ?>"><img src="<?= base_url('assets/icons/icon_file_img.svg') ?>" alt="" width="25" data-toggle="tooltip" title="Lihat" data-placement="right"></a></td>
 					</tr>
 					<tr>
 						<th scope="row">Sumber Order</th>
-						<td>Marketplace</td>
+						<td><?= $detail->t_source ?></td>
 					</tr>
 					<tr>
 						<th scope="row" class="text-primary">Data Admin Yang Menangani</th>
@@ -114,10 +114,13 @@
 			<hr class="mt-n3">
 			<div class="d-flex mb-2">
 				<a href="<?= base_url('su-admin/penugasan') ?>" class="btn btn-sm btn-warning px-2 mr-4">Kembali</a>
-				<a target="_blank" href="<?= base_url('wedding/runa-ratna') ?>" class="btn btn-sm btn-outline-primary px-2">
-					<i class="fas fa-eye mr-1"></i>
-					<span class="mb-1">Pratinjau</span>
-				</a>
+				<?php if ($detail->t_desc == 2) : ?>
+					<!-- TRUE -->
+					<a target="_blank" href="<?= base_url('preview/' . $invite . '/' . $slug) ?>" class="btn btn-sm btn-outline-primary px-2">
+						<i class="fas fa-eye mr-1"></i>
+						<span class="mb-1">Pratinjau</span>
+					</a>
+				<?php endif ?>
 			</div>
 		</div>
 	</div>

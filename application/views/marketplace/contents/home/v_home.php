@@ -582,100 +582,110 @@
 </section>
 
 <script>
-  // slider Kategori Special
-  let sliderKategoriSpecial = document.getElementById("sliderKategoriSpecial");
-  let defaultTransformSpecialMobile = 0;
-  function goNextKategoriSpecialMobile() {
-      defaultTransformSpecialMobile = defaultTransformSpecialMobile - 86;
-      if (Math.abs(defaultTransformSpecialMobile) >= 86 * <?= count ($cards_category)?>) defaultTransformSpecialMobile = 0;
-      sliderKategoriSpecial.style.transform = "translateX(" + defaultTransformSpecialMobile + "vw)";
-  }
-  let defaultTransformSpecialXl = 0;
-  function goNextKategoriSpecialXl() {
-      defaultTransformSpecialXl = defaultTransformSpecialXl - 320;
-      if (Math.abs(defaultTransformSpecialXl) >= sliderKategoriSpecial.scrollWidth) defaultTransformSpecialXl = 0;
-      sliderKategoriSpecial.style.transform = "translateX(" + defaultTransformSpecialXl + "px)";
-  }
-  nextKategoriSpecialMobile.addEventListener("click", goNextKategoriSpecialMobile);
-  nextKategoriSpecialXl.addEventListener("click", goNextKategoriSpecialXl);
-  
-  function goPrevKategoriSpecialMobile() {
-      if (Math.abs(defaultTransformSpecialMobile) < 86) defaultTransformSpecialMobile = 0;
-      else defaultTransformSpecialMobile = defaultTransformSpecialMobile + 86;
-      sliderKategoriSpecial.style.transform = "translateX(" + defaultTransformSpecialMobile + "vw)";
-  }
+	// slider Kategori Special
+	let sliderKategoriSpecial = document.getElementById("sliderKategoriSpecial");
+	let defaultTransformSpecialMobile = 0;
 
-  function goPrevKategoriSpecialXl() {
-      if (Math.abs(defaultTransformSpecialXl) < 320) defaultTransformSpecialXl = 0;
-      else defaultTransformSpecialXl = defaultTransformSpecialXl + 320;
-      sliderKategoriSpecial.style.transform = "translateX(" + defaultTransformSpecialXl + "px)";
-  }
-  prevKategoriSpecialMobile.addEventListener("click", goPrevKategoriSpecialMobile);
-  prevKategoriSpecialXl.addEventListener("click", goPrevKategoriSpecialXl)
-  // Slider Kategori Special End
-  
-  // slider Kategori Standard
-  let sliderKategoriStandard = document.getElementById("sliderKategoriStandard");
-  let defaultTransformStandardMobile = 0;
-  function goNextKategoriStandardMobile() {
-      defaultTransformStandardMobile = defaultTransformStandardMobile - 86;
-      if (Math.abs(defaultTransformStandardMobile) >= 86 * <?= count ($cards_category)?>) defaultTransformStandardMobile = 0;
-      sliderKategoriStandard.style.transform = "translateX(" + defaultTransformStandardMobile + "vw)";
-  }
-  let defaultTransformStandardXl = 0;
-  function goNextKategoriStandardXl() {
-      defaultTransformStandardXl = defaultTransformStandardXl - 320;
-      if (Math.abs(defaultTransformStandardXl) >= sliderKategoriStandard.scrollWidth) defaultTransformStandardXl = 0;
-      sliderKategoriStandard.style.transform = "translateX(" + defaultTransformStandardXl + "px)";
-  }
-  nextKategoriStandardMobile.addEventListener("click", goNextKategoriStandardMobile);
-  nextKategoriStandardXl.addEventListener("click", goNextKategoriStandardXl);
-  
-  function goPrevKategoriStandardMobile() {
-      if (Math.abs(defaultTransformStandardMobile) < 86) defaultTransformStandardMobile = 0;
-      else defaultTransformStandardMobile = defaultTransformStandardMobile + 86;
-      sliderKategoriStandard.style.transform = "translateX(" + defaultTransformStandardMobile + "vw)";
-  }
+	function goNextKategoriSpecialMobile() {
+		defaultTransformSpecialMobile = defaultTransformSpecialMobile - 86;
+		if (Math.abs(defaultTransformSpecialMobile) >= 86 * <?=
+															($special) ?>) defaultTransformSpecialMobile = 0;
+		sliderKategoriSpecial.style.transform = "translateX(" + defaultTransformSpecialMobile + "vw)";
+	}
+	let defaultTransformSpecialXl = 0;
 
-  function goPrevKategoriStandardXl() {
-      if (Math.abs(defaultTransformStandardXl) < 320) defaultTransformStandardXl = 0;
-      else defaultTransformStandardXl = defaultTransformStandardXl + 320;
-      sliderKategoriStandard.style.transform = "translateX(" + defaultTransformStandardXl + "px)";
-  }
-  prevKategoriStandardMobile.addEventListener("click", goPrevKategoriStandardMobile);
-  prevKategoriStandardXl.addEventListener("click", goPrevKategoriStandardXl)
-  // Slider Kategori Standard End
+	function goNextKategoriSpecialXl() {
+		defaultTransformSpecialXl = defaultTransformSpecialXl - 320;
+		if (Math.abs(defaultTransformSpecialXl) >= sliderKategoriSpecial.scrollWidth) defaultTransformSpecialXl = 0;
+		sliderKategoriSpecial.style.transform = "translateX(" + defaultTransformSpecialXl + "px)";
+	}
+	nextKategoriSpecialMobile.addEventListener("click", goNextKategoriSpecialMobile);
+	nextKategoriSpecialXl.addEventListener("click", goNextKategoriSpecialXl);
 
-    // slider Kategori Basic
-    let sliderKategoriBasic = document.getElementById("sliderKategoriBasic");
-  let defaultTransformBasicMobile = 0;
-  function goNextKategoriBasicMobile() {
-      defaultTransformBasicMobile = defaultTransformBasicMobile - 86;
-      if (Math.abs(defaultTransformBasicMobile) >= 86 * <?= count ($cards_category)?>) defaultTransformBasicMobile = 0;
-      sliderKategoriBasic.style.transform = "translateX(" + defaultTransformBasicMobile + "vw)";
-  }
-  let defaultTransformBasicXl = 0;
-  function goNextKategoriBasicXl() {
-      defaultTransformBasicXl = defaultTransformBasicXl - 320;
-      if (Math.abs(defaultTransformBasicXl) >= sliderKategoriBasic.scrollWidth) defaultTransformBasicXl = 0;
-      sliderKategoriBasic.style.transform = "translateX(" + defaultTransformBasicXl + "px)";
-  }
-  nextKategoriBasicMobile.addEventListener("click", goNextKategoriBasicMobile);
-  nextKategoriBasicXl.addEventListener("click", goNextKategoriBasicXl);
-  
-  function goPrevKategoriBasicMobile() {
-      if (Math.abs(defaultTransformBasicMobile) < 86) defaultTransformBasicMobile = 0;
-      else defaultTransformBasicMobile = defaultTransformBasicMobile + 86;
-      sliderKategoriBasic.style.transform = "translateX(" + defaultTransformBasicMobile + "vw)";
-  }
+	function goPrevKategoriSpecialMobile() {
+		if (Math.abs(defaultTransformSpecialMobile) < 86) defaultTransformSpecialMobile = 0;
+		else defaultTransformSpecialMobile = defaultTransformSpecialMobile + 86;
+		sliderKategoriSpecial.style.transform = "translateX(" + defaultTransformSpecialMobile + "vw)";
+	}
 
-  function goPrevKategoriBasicXl() {
-      if (Math.abs(defaultTransformBasicXl) < 320) defaultTransformBasicXl = 0;
-      else defaultTransformBasicXl = defaultTransformBasicXl + 320;
-      sliderKategoriBasic.style.transform = "translateX(" + defaultTransformBasicXl + "px)";
-  }
-  prevKategoriBasicMobile.addEventListener("click", goPrevKategoriBasicMobile);
-  prevKategoriBasicXl.addEventListener("click", goPrevKategoriBasicXl)
-  // Slider Kategori Basic End
+	function goPrevKategoriSpecialXl() {
+		if (Math.abs(defaultTransformSpecialXl) < 320) defaultTransformSpecialXl = 0;
+		else defaultTransformSpecialXl = defaultTransformSpecialXl + 320;
+		sliderKategoriSpecial.style.transform = "translateX(" + defaultTransformSpecialXl + "px)";
+	}
+	prevKategoriSpecialMobile.addEventListener("click", goPrevKategoriSpecialMobile);
+	prevKategoriSpecialXl.addEventListener("click", goPrevKategoriSpecialXl)
+	// Slider Kategori Special End
+
+	// slider Kategori Standard
+	let sliderKategoriStandard = document.getElementById("sliderKategoriStandard");
+	let defaultTransformStandardMobile = 0;
+
+	function goNextKategoriStandardMobile() {
+		defaultTransformStandardMobile = defaultTransformStandardMobile - 86;
+		if (Math.abs(defaultTransformStandardMobile) >= 86 * <?= count($standard) ?>) defaultTransformStandardMobile = 0;
+		sliderKategoriStandard.style.transform = "translateX(" + defaultTransformStandardMobile + "vw)";
+	}
+	let defaultTransformStandardXl = 0;
+
+	function goNextKategoriStandardXl() {
+		defaultTransformStandardXl = defaultTransformStandardXl - 320;
+		if (Math.abs(defaultTransformStandardXl) >= sliderKategoriStandard.scrollWidth) defaultTransformStandardXl = 0;
+		sliderKategoriStandard.style.transform = "translateX(" + defaultTransformStandardXl + "px)";
+	}
+	nextKategoriStandardMobile.addEventListener("click", goNextKategoriStandardMobile);
+	nextKategoriStandardXl.addEventListener("click", goNextKategoriStandardXl);
+
+	function goPrevKategoriStandardMobile() {
+		if (Math.abs(defaultTransformStandardMobile) < 86) defaultTransformStandardMobile = 0;
+		else defaultTransformStandardMobile = defaultTransformStandardMobile + 86;
+		sliderKategoriStandard.style.transform = "translateX(" + defaultTransformStandardMobile + "vw)";
+	}
+
+	function goPrevKategoriStandardXl() {
+		if (Math.abs(defaultTransformStandardXl) < 320) defaultTransformStandardXl = 0;
+		else defaultTransformStandardXl = defaultTransformStandardXl + 320;
+		sliderKategoriStandard.style.transform = "translateX(" + defaultTransformStandardXl + "px)";
+	}
+	prevKategoriStandardMobile.addEventListener("click", goPrevKategoriStandardMobile);
+	prevKategoriStandardXl.addEventListener("click", goPrevKategoriStandardXl)
+	// Slider Kategori Standard End
+
+	// slider Kategori Basic
+	let sliderKategoriBasic = document.getElementById("sliderKategoriBasic");
+	let defaultTransformBasicMobile = 0;
+
+	function goNextKategoriBasicMobile() {
+		defaultTransformBasicMobile = defaultTransformBasicMobile - 86;
+		if (Math.abs(defaultTransformBasicMobile) >= 86 * <?= count($basic) ?>) defaultTransformBasicMobile = 0;
+		sliderKategoriBasic.style.transform = "translateX(" + defaultTransformBasicMobile + "vw)";
+	}
+	let defaultTransformBasicXl = 0;
+
+	function goNextKategoriBasicXl() {
+		defaultTransformBasicXl = defaultTransformBasicXl - 320;
+		if (Math.abs(defaultTransformBasicXl) >= sliderKategoriBasic.scrollWidth) defaultTransformBasicXl = 0;
+		sliderKategoriBasic.style.transform = "translateX(" + defaultTransformBasicXl + "px)";
+	}
+	nextKategoriBasicMobile.addEventListener("click", goNextKategoriBasicMobile);
+	nextKategoriBasicXl.addEventListener("click", goNextKategoriBasicXl);
+
+	function goPrevKategoriBasicMobile() {
+		if (Math.abs(defaultTransformBasicMobile) < 86) defaultTransformBasicMobile = 0;
+		else defaultTransformBasicMobile = defaultTransformBasicMobile + 86;
+		sliderKategoriBasic.style.transform = "translateX(" + defaultTransformBasicMobile + "vw)";
+	}
+
+	function goPrevKategoriBasicXl() {
+		if (Math.abs(defaultTransformBasicXl) < 320) defaultTransformBasicXl = 0;
+		else defaultTransformBasicXl = defaultTransformBasicXl + 320;
+		sliderKategoriBasic.style.transform = "translateX(" + defaultTransformBasicXl + "px)";
+	}
+	prevKategoriBasicMobile.addEventListener("click", goPrevKategoriBasicMobile);
+	prevKategoriBasicXl.addEventListener("click", goPrevKategoriBasicXl)
+	// Slider Kategori Basic End
+</script>
+
+<script>
 
 </script>

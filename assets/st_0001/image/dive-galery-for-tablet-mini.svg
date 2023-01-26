@@ -1,0 +1,9 @@
+<svg width="698" height="28" viewBox="0 0 698 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path id="dive-waktu-for-tablet-mini" fill-rule="evenodd" clip-rule="evenodd" d="M0 3.99999L99.9388 16L199.354 12L299.292 0L368.883 5.59999L468.822 13.6L546.521 4.22857L698 20V28H598.061H498.646H398.708H299.292H199.354H99.9388H0V3.99999Z" fill="url(#paint0_radial_218_7)"/>
+<defs>
+<radialGradient id="paint0_radial_218_7" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(349 14) rotate(90) scale(14 349)">
+<stop stop-color="#84A98C" stop-opacity="0.4"/>
+<stop offset="1" stop-color="#84A98C" stop-opacity="0"/>
+</radialGradient>
+</defs>
+</svg>

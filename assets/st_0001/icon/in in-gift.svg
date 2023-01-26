@@ -1,0 +1,34 @@
+<svg width="47" height="54" viewBox="0 0 47 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="in in-gift">
+<g id="in in-gift_2">
+<g id="Group 18">
+<rect id="Rectangle 11" x="28.2269" y="0.656624" width="44" height="30" rx="4.5" transform="rotate(66.7813 28.2269 0.656624)" stroke="url(#paint0_linear_55_7)"/>
+</g>
+</g>
+<g id="in in-gift_3">
+<g id="Group 18_2">
+<rect id="Rectangle 11_2" x="0.5" y="13.5" width="44" height="30" rx="4.5" fill="url(#paint1_linear_55_7)" stroke="white"/>
+<path id="path3570" d="M37.5535 39.1997C37.3182 39.4916 36.8758 39.4987 36.6314 39.2144L33.7916 35.9119C32.8909 34.5237 32.7496 33.2012 33.415 31.9357C33.4356 31.8964 33.4618 31.8591 33.4918 31.8264C34.5271 30.6985 35.9245 30.7981 36.8956 31.6843C37.2371 31.9959 37.8348 31.9965 38.1589 31.6668C39.062 30.7479 40.0909 30.8522 41.1224 31.8063C41.1466 31.8287 41.1697 31.8543 41.1892 31.881C42.2234 33.2957 41.0848 34.5392 40.3196 35.7674L37.5535 39.1997Z" stroke="white" stroke-miterlimit="8.7" stroke-linecap="round" stroke-linejoin="bevel"/>
+<line id="Line 7" x1="1" y1="21.5" x2="44" y2="21.5" stroke="white"/>
+<line id="Line 8" x1="0.900024" y1="27.5" x2="44.1" y2="27.5" stroke="white"/>
+<line id="Line 9" x1="3.80945" y1="38.7825" x2="24.6477" y2="38.7825" stroke="white" stroke-linecap="round"/>
+<line id="Line 10" x1="3.80945" y1="36.0872" x2="8.10357" y2="36.0872" stroke="white" stroke-linecap="round"/>
+<line id="Line 11" x1="11.0883" y1="36.0872" x2="20.0147" y2="36.0872" stroke="white" stroke-linecap="round"/>
+</g>
+</g>
+<g id="Group 23">
+<path id="Vector 5" d="M5.82239 26C5.82239 26 13.1135 18.3591 13.5186 17.8134C13.9237 17.2677 13.9237 16.176 13.5186 15.6302C13.1135 15.0844 12.3034 14.5386 11.4933 15.6303C10.0758 17.5403 9.46796 22.1796 9.46796 22.1796" stroke="white" stroke-opacity="0.87" stroke-miterlimit="16" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector 6" d="M13.3308 25.4595C13.3308 25.4595 6.03002 16.3706 5.51694 15.8716C5.00385 15.3726 4.03574 15.4263 3.58081 15.9789C3.12589 16.5315 2.70014 17.6099 3.72651 18.6079C5.52241 20.354 9.68046 20.915 9.68046 20.915" stroke="white" stroke-opacity="0.87" stroke-miterlimit="16" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+<defs>
+<linearGradient id="paint0_linear_55_7" x1="50.9893" y1="0" x2="50.9893" y2="31" gradientUnits="userSpaceOnUse">
+<stop stop-color="#4C81F5"/>
+<stop offset="1" stop-color="#67CA97"/>
+</linearGradient>
+<linearGradient id="paint1_linear_55_7" x1="0.999999" y1="26" x2="27.5" y2="46" gradientUnits="userSpaceOnUse">
+<stop stop-color="#4A7AFF"/>
+<stop offset="1" stop-color="#4ACA7B" stop-opacity="0.79"/>
+</linearGradient>
+</defs>
+</svg>

@@ -1,22 +1,22 @@
 <!-- Title Mobile -->
 <div class="lg:hidden text-base-md tracking-wide xl:text-lg text-slate-700 font-medium bg-gray-400/5 border-b  drop-shadow-sm border-b-gray-400/20 xl:border-0 pl-2 py-2 mb-8 absolute top-0 left-0 w-full">
-    <div class="flex items-center  py-2 px-3 ">
-        <h1><?= $title?></h1>
-    </div>
+	<div class="flex items-center  py-2 px-3 ">
+		<h1><?= $title ?></h1>
+	</div>
 </div>
 <!-- Title Mobile End -->
 <div class="mt-14 lg:mt-0 lg:mb-0 pt-2 sm:px-10 lg:px-24 rounded-md min-h-[50vh]">
-     <div class="flex justify-center items-center">
+	<!-- <div class="flex justify-center items-center">
           <section>
-               <img src="<?= base_url('assets/icons/icons_super_admin/default_foto_profil_kustomer.svg')?>" alt="foto founder" class=" rounded-full h-16 w-16 sm:h-24 sm:w-24 lg:h-28 lg:w-28 mx-5 sm:mx-10 lg:mx-16 mt-8">
+               <img src="<?= base_url('assets/icons/icons_super_admin/default_foto_profil_kustomer.svg') ?>" alt="foto founder" class=" rounded-full h-16 w-16 sm:h-24 sm:w-24 lg:h-28 lg:w-28 mx-5 sm:mx-10 lg:mx-16 mt-8">
                <p class="flex justify-center mt-3">Co-Founder</p>
           </section>
           <section>
-               <img src="<?= base_url('assets/icons/icons_super_admin/default_foto_profil_kustomer.svg')?>" alt="foto founder" class=" rounded-full h-20 w-20 sm:h-28 sm:w-28 lg:h-32 lg:w-32 -mt-4">
+               <img src="<?= base_url('assets/icons/icons_super_admin/default_foto_profil_kustomer.svg') ?>" alt="foto founder" class=" rounded-full h-20 w-20 sm:h-28 sm:w-28 lg:h-32 lg:w-32 -mt-4">
                <p class="flex justify-center mt-3">Founder</p>
           </section>
           <section>
-               <img src="<?= base_url('assets/icons/icons_super_admin/default_foto_profil_kustomer.svg')?>" alt="foto founder" class=" rounded-full h-16 w-16 sm:h-24 sm:w-24 lg:h-28 lg:w-28 mx-5 sm:mx-10 lg:mx-16 mt-8">
+               <img src="<?= base_url('assets/icons/icons_super_admin/default_foto_profil_kustomer.svg') ?>" alt="foto founder" class=" rounded-full h-16 w-16 sm:h-24 sm:w-24 lg:h-28 lg:w-28 mx-5 sm:mx-10 lg:mx-16 mt-8">
                <p class="flex justify-center mt-3">Co-Founder</p>
           </section>
      </div>

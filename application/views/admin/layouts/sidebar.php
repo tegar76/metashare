@@ -17,7 +17,7 @@
 					</ul>
 				</li>
 				<li class="list-divider"></li>
-				<li class="sidebar-item <?= ($this->uri->segment(2) == "invitation") ? 'selected' : '' ?>"> <a class="sidebar-link sidebar-link" href="<?= base_url('admin/invitation') ?>" aria-expanded="false"><i data-feather="settings" class="feather-icon"></i><span class="hide-menu">Pengerjaan Undangan</span></a></li>
+				<li class="sidebar-item <?= ($this->uri->segment(2) == "undangan") ? 'selected' : '' ?>"> <a class="sidebar-link sidebar-link" href="<?= base_url('admin/undangan') ?>" aria-expanded="false"><i data-feather="settings" class="feather-icon"></i><span class="hide-menu">Pengerjaan Undangan</span></a></li>
 				<li class="list-divider"></li>
 			</ul>
 		</nav>

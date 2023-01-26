@@ -74,3 +74,7 @@ class Dashboard extends CI_Controller
 		}
 	}
 }
+
+
+/* End of file Dashboard.php */
+/* Location: ./application/controllers/SuperAdmin/Dashboard.php */

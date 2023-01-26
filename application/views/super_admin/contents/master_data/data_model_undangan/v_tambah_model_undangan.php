@@ -26,11 +26,11 @@
 	<!-- ============================================================== -->
 	<div class="container-fluid">
 		<div class="card shadow px-3">
-			<?= form_open_multipart('su-admin/master/tambah_model', ['class' => 'mt-4']) ?>
+			<?= form_open_multipart($this->uri->uri_string(), ['class' => 'mt-4']) ?>
 			<div class="form-group mb-3">
 				<label for="jenisUndangan">Jenis Undangan <span class="text-danger">*</span></label>
 				<div class="input-group">
-					<input type="text" class="form-control" readonly value="Undangan Pernikahan Digital" id="jenisUndangan">
+					<input type="text" name="type" class="form-control" readonly value="Undangan Pernikahan Digital" id="jenisUndangan">
 				</div>
 			</div>
 			<div class="form-group mb-3">
@@ -53,7 +53,6 @@
 				<div class="input-group">
 					<input type="text" name="show_price" id="showPriceModel" class="form-control" placeholder="Harga Undangan" id="harga" value="<?= (set_value('show_price')) ? set_value('show_price') : '-' ?>" readonly>
 					<input type="hidden" name="price" id="priceModel" value="<?= (set_value('price')) ? set_value('price') : 0 ?>">
-					<input type="hidden" name="code_model" id="codeModel" value="<?= (set_value('code_model')) ? set_value('code_model') : '' ?>">
 				</div>
 			</div>
 			<div class="form-group mb-3">
@@ -61,7 +60,7 @@
 				<div class="input-group">
 					<input type="text" name="model_name" class="form-control <?= (form_error('model_name')) ? 'is-invalid' : '' ?>" placeholder="Masukan Nama Model Undangan" id="modelUndangan" value="<?= set_value('model_name') ?>">
 					<div class="invalid-feedback">
-						<?= form_error('model_name', '<div class="text-danger">', '</div>') ?>
+						<?= form_error('model_name', '<p class="text-danger">', '</p>') ?>
 					</div>
 				</div>
 			</div>
@@ -76,7 +75,7 @@
 						<label class="custom-file-label" for="uploadCover">Choose file</label>
 					</div>
 					<div class="invalid-feedback">
-						<?= form_error('cover01', '<div class="text-danger">', '</div>') ?>
+						<?= form_error('cover01', '<p class="text-danger">', '</p>') ?>
 					</div>
 				</div>
 				<p>Catatan: File max 2mb format (SVG,PNG,JPG,JPEG), rekomendasi format SVG (270 x 378 pixels) </p>
@@ -92,7 +91,7 @@
 						<label class="custom-file-label" for="uploadCover">Choose file</label>
 					</div>
 					<div class="invalid-feedback">
-						<?= form_error('cover02', '<div class="text-danger">', '</div>') ?>
+						<?= form_error('cover02', '<p class="text-danger">', '</p>') ?>
 					</div>
 				</div>
 				<p>Catatan: File max 2mb format (SVG,PNG,JPG,JPEG), rekomendasi format SVG (270 x 378 pixels) </p>
@@ -115,19 +114,15 @@
 				if (category == 'special') {
 					$("#showPriceModel").val('Rp. 150.000');
 					$("#priceModel").val(150000);
-					$("#codeModel").val('sp_');
 				} else if (category == 'standard') {
 					$("#showPriceModel").val('Rp. 130.000');
 					$("#priceModel").val(130000);
-					$("#codeModel").val('st_');
 				} else if (category == 'basic') {
 					$("#showPriceModel").val('Rp. 100.000');
 					$("#priceModel").val(100000);
-					$("#codeModel").val('bs_');
 				} else {
 					$("#showPriceModel").val('-');
 					$("#priceModel").val(0);
-					$("#codeModel").val('');
 				}
 			});
 		});

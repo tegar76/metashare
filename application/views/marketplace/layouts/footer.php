@@ -61,5 +61,111 @@
     </div>
 </footer>
 
+<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+	$(document).ready(function() {
+		$('.logout-button').click(function(e) {
+			e.preventDefault();
+			Swal.fire({
+				title: "Anda Yakin Keluar?",
+				text: "Anda yakin ingin keluar dari METASHARE?",
+				icon: "warning",
+				showConfirmButton: true,
+				confirmButtonColor: "#3085d6",
+				cancelButtonColor: "#d33",
+				confirmButtonText: "Logout",
+			}).then((result) => {
+				if (result.value) {
+					$.ajax({
+						url: '<?php echo base_url('logout'); ?>',
+						type: 'POST',
+						beforeSend: function() {
+							swal.fire({
+								imageUrl: "<?php echo base_url() ?>" + "assets/logo/rolling.png",
+								title: "Logging Out",
+								text: "silahkan tunggu...",
+								showConfirmButton: false,
+								allowOutsideClick: false,
+							});
+						},
+						success: function(data) {
+							swal.fire({
+								icon: "success",
+								title: "Logout",
+								text: "Silahkan login kembali untuk melanjutkan :)",
+								showConfirmButton: false,
+								allowOutsideClick: false,
+							});
+							window.location.href = "<?php echo base_url('login') ?>";
+						},
+					});
+				}
+			});
+		});
+	});
+
+	$(function() {
+		var title = '<?= $this->session->flashdata("title") ?>';
+		var text = '<?= $this->session->flashdata("text") ?>';
+		var type = '<?= $this->session->flashdata("type") ?>';
+		if (title) {
+			swal.fire({
+				icon: type,
+				title: title,
+				text: text,
+				type: type,
+				button: true,
+			});
+		};
+	});
+</script>
+
+<script>
+	$('#order-now').submit(function(e) {
+		e.preventDefault();
+		var form = this;
+		var formdata = new FormData(form);
+		$.ajax({
+			url: "<?= base_url('history/order_now'); ?>",
+			type: 'POST',
+			data: formdata,
+			processData: false,
+			contentType: false,
+			dataType: 'json',
+			beforeSend: function() {
+				swal.fire({
+					imageUrl: "<?= base_url() ?>assets/logo/rolling.png",
+					title: "Pesanan Sedang Diproses",
+					text: "Silahkan Tunggu",
+					showConfirmButton: false,
+					allowOutsideClick: false,
+				});
+			},
+			success: function(response) {
+				if (response.success == true) {
+					window.open(
+						'https://api.whatsapp.com/send/?phone=6287899703471&text=' + response.message,
+						'_blank'
+					);
+					swal.fire({
+						icon: 'success',
+						title: 'Pemesanan Undangan Berhasil',
+						text: 'Silahkan lanjutkan tahap pembayaran melaui WhatsApp',
+						showConfirmButton: true,
+					}).then((result) => {
+						if (result.value) {
+							location.href = '<?= base_url('history/order') ?>';
+						}
+					});
+				}
+			}
+
+		})
+
+	});
+</script>
+
 </body>
+
 </html>

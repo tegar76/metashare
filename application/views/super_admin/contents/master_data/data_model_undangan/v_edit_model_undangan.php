@@ -26,7 +26,7 @@
 	<!-- ============================================================== -->
 	<div class="container-fluid">
 		<div class="card shadow px-3">
-			<?= form_open_multipart('su-admin/master/update_model/' . $model->model_id, ['class' => 'mt-4']) ?>
+			<?= form_open_multipart($this->uri->uri_string(), ['class' => 'mt-4']) ?>
 			<input type="hidden" name="id" value="<?= $model->model_id ?>">
 			<div class="form-group mb-3">
 				<label for="jenisUndangan">Jenis Undangan <span class="text-danger">*</span></label>
@@ -44,7 +44,7 @@
 						<option value="basic" <?= ($model->category == 'basic') ? 'selected' : '' ?>>Basic</option>
 					</select>
 					<div class="invalid-feedback">
-						<?= form_error('category_update', '<div class="text-danger">', '</div>') ?>
+						<?= form_error('category_update', '<p class="text-danger">', '</p>') ?>
 					</div>
 				</div>
 			</div>
@@ -61,7 +61,7 @@
 				<div class="input-group">
 					<input type="text" name="model_name_update" class="form-control <?= (form_error('model_name_update')) ? 'is-invalid' : '' ?>" placeholder="Masukan Nama Model Undangan" id="modelUndangan" value="<?= $model->name ?>">
 					<div class="invalid-feedback">
-						<?= form_error('model_name_update', '<div class="text-danger">', '</div>') ?>
+						<?= form_error('model_name_update', '<p class="text-danger">', '</p>') ?>
 					</div>
 				</div>
 			</div>
@@ -73,10 +73,10 @@
 					</div>
 					<div class="custom-file">
 						<input type="file" name="cover01_update" class="custom-file-input <?= (form_error('cover01_update')) ? 'is-invalid' : '' ?>" id=" uploadSampul">
+						<div class="invalid-feedback">
+							<?= form_error('cover01_update', '<p class="text-danger">', '</p>') ?>
+						</div>
 						<label class="custom-file-label" for="uploadCover">Choose file</label>
-					</div>
-					<div class="invalid-feedback">
-						<?= form_error('cover01_update', '<div class="text-danger">', '</div>') ?>
 					</div>
 				</div>
 				<p>Catatan: File max 2mb format (SVG,PNG,JPG,JPEG), rekomendasi format SVG (270 x 378 pixels) </p>
@@ -89,10 +89,10 @@
 					</div>
 					<div class="custom-file">
 						<input type="file" name="cover02_update" class="custom-file-input <?= (form_error('cover02_update')) ? 'is-invalid' : '' ?>" id="uploadCover">
+						<div class="invalid-feedback">
+							<?= form_error('cover02_update', '<p class="text-danger">', '</p>') ?>
+						</div>
 						<label class="custom-file-label" for="uploadCover">Choose file</label>
-					</div>
-					<div class="invalid-feedback">
-						<?= form_error('cover02_update', '<div class="text-danger">', '</div>') ?>
 					</div>
 				</div>
 				<p>Catatan: File max 2mb format (SVG,PNG,JPG,JPEG), rekomendasi format SVG (270 x 378 pixels) </p>

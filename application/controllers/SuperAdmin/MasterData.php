@@ -19,8 +19,8 @@ class MasterData extends CI_Controller
 			if (!empty($model)) {
 				foreach ($model as $key => $value) {
 					$val['id'] = $value->model_id;
-					$val['cover_1'] = base_url('storage/model_undangan_sampul/') . $value->cover_1;
-					$val['cover_2'] = base_url('storage/model_undangan_sampul/') . $value->cover_2;
+					$val['cover_1'] = base_url('storage/designs/cover/') . $value->cover_1;
+					$val['cover_2'] = base_url('storage/designs/cover/') . $value->cover_2;
 					$val['name'] = $value->name;
 					$val['type'] = $value->type;
 					$val['category'] = $value->category;
@@ -39,8 +39,8 @@ class MasterData extends CI_Controller
 			if (!empty($model)) {
 				foreach ($model as $key => $value) {
 					$val['id'] = $value->model_id;
-					$val['cover_1'] = base_url('storage/model_undangan_sampul/') . $value->cover_1;
-					$val['cover_2'] = base_url('storage/model_undangan_sampul/') . $value->cover_2;
+					$val['cover_1'] = base_url('storage/designs/cover/') . $value->cover_1;
+					$val['cover_2'] = base_url('storage/designs/cover/') . $value->cover_2;
 					$val['name'] = $value->name;
 					$val['type'] = $value->type;
 					$val['category'] = $value->category;
@@ -131,30 +131,30 @@ class MasterData extends CI_Controller
 		$this->db->trans_start();
 		$uploadCover01 = $_FILES['cover01']['name'];
 		if ($uploadCover01) {
-			$this->imageConf('model_undangan_sampul');
-			$this->check_storage('model_undangan_sampul');
+			$this->imageConf('cover');
+			$this->check_storage('cover');
 			if (!$this->upload->do_upload('cover01')) :
 				sweetAlert('Oopppsss', $this->upload->display_errors(), 'error');
 				redirect('su-admin/master/tambah_model');
 			else :
 				$dataUpload = $this->upload->data();
 				$resolution = ['width' => 270, 'height' => 378];
-				$this->compreesImage('model_undangan_sampul', $dataUpload['file_name'], $resolution);
+				$this->compreesImage('cover', $dataUpload['file_name'], $resolution);
 				$this->db->set('cover_1',  $dataUpload['file_name']);
 			endif;
 		}
 
 		$uploadCover02 = $_FILES['cover02']['name'];
 		if ($uploadCover02) {
-			$this->imageConf('model_undangan_sampul');
-			$this->check_storage('model_undangan_sampul');
+			$this->imageConf('cover');
+			$this->check_storage('cover');
 			if (!$this->upload->do_upload('cover02')) :
 				sweetAlert('Oopppsss', $this->upload->display_errors(), 'error');
 				redirect('su-admin/master/tambah_model');
 			else :
 				$dataUpload = $this->upload->data();
 				$resolution = ['width' => 270, 'height' => 378];
-				$this->compreesImage('model_undangan_sampul', $dataUpload['file_name'], $resolution);
+				$this->compreesImage('cover', $dataUpload['file_name'], $resolution);
 				$this->db->set('cover_2', $dataUpload['file_name']);
 			endif;
 		}
@@ -164,7 +164,7 @@ class MasterData extends CI_Controller
 			'type' => htmlspecialchars($this->input->post('type', true)),
 			'category' => htmlspecialchars($this->input->post('category', true)),
 			'price' => htmlspecialchars($this->input->post('price', true)),
-			'view_model' => htmlspecialchars($this->input->post('code_model')) . rand(1, 99999),
+			'view_model' => $this->master->createCodeDesign($this->input->post('category', true)),
 		);
 		$this->db->set($insertData);
 		$this->db->insert('model_invitation');
@@ -173,19 +173,20 @@ class MasterData extends CI_Controller
 
 	public function imageConf($dirName = NULL)
 	{
-		$conf['upload_path']   = './storage/' . $dirName . '/';
+		$conf['upload_path']   = './storage/designs/' . $dirName . '/';
 		$conf['allowed_types'] = 'gif|jpg|png|jpeg|svg';
 		$conf['max_size']      = 2000;
 		$conf['overwrite']     = TRUE;
 		$conf['encrypt_name'] = TRUE;
 		$this->load->library('upload', $conf);
+		$this->upload->initialize($conf);
 	}
 
 	public function compreesImage($dirName, $fileName, $resolution)
 	{
 		$this->load->library('image_lib');
 		$config['image_library'] = 'gd2';
-		$config['source_image'] = './storage/' . $dirName . '/' . $fileName;
+		$config['source_image'] = './storage/designs/' . $dirName . '/' . $fileName;
 		$config['create_thumb'] = FALSE;
 		$config['maintain_ratio'] = TRUE;
 		$config['width']     = $resolution['width'];
@@ -203,8 +204,8 @@ class MasterData extends CI_Controller
 		}
 
 		$dir_exist = true;
-		if (!is_dir('storage/' . $dir)) {
-			mkdir('./storage/' . $dir, 0777, true);
+		if (!is_dir('storage/designs/' . $dir)) {
+			mkdir('./storage/designs/' . $dir, 0777, true);
 			$dir_exist = false; // dir not exist
 		}
 		return $dir_exist;
@@ -220,17 +221,8 @@ class MasterData extends CI_Controller
 			$data['model'] = $model;
 			$data['title'] = 'Edit Model Undangan';
 			$data['content'] = 'super_admin/contents/master_data/data_model_undangan/v_edit_model_undangan';
-			if (isset($_POST['update'])) {
+			if ($_REQUEST) {
 				$this->form_validation->set_rules([
-					[
-						'field' => 'type_update',
-						'label' => 'Jenis Undangan',
-						'rules' => 'trim|required|xss_clean',
-						'errors' => [
-							'required' => '{field} harus diisi',
-							'xss_clean' => 'cek kembali pada {field}'
-						]
-					],
 					[
 						'field' => 'category_update',
 						'label' => 'Kategori Undangan',
@@ -271,17 +263,17 @@ class MasterData extends CI_Controller
 		$this->db->trans_start();
 		$updateCover01 = $_FILES['cover01_update']['name'];
 		if ($updateCover01) {
-			$this->imageConf('model_undangan_sampul');
-			$this->check_storage('model_undangan_sampul');
+			$this->imageConf('cover');
+			$this->check_storage('cover');
 			if (!$this->upload->do_upload('cover01_update')) :
 				sweetAlert('Oopppsss', $this->upload->display_errors(), 'error');
 				redirect('su-admin/master/update_model/' . $id);
 			else :
 				$dataUpload = $this->upload->data();
 				$resolution = ['width' => 270, 'height' => 378];
-				$this->compreesImage('model_undangan_sampul', $dataUpload['file_name'], $resolution);
+				$this->compreesImage('cover', $dataUpload['file_name'], $resolution);
 				if ($model->cover_1 != 'default_1.svg') {
-					@unlink(FCPATH . './storage/model_undangan_sampul/' . $model->cover_1);
+					@unlink(FCPATH . './storage/designs/cover/' . $model->cover_1);
 				}
 				$this->db->set('cover_1',  $dataUpload['file_name']);
 			endif;
@@ -289,17 +281,17 @@ class MasterData extends CI_Controller
 
 		$updateCover02 = $_FILES['cover02_update']['name'];
 		if ($updateCover02) {
-			$this->imageConf('model_undangan_sampul');
-			$this->check_storage('model_undangan_sampul');
+			$this->imageConf('cover');
+			$this->check_storage('cover');
 			if (!$this->upload->do_upload('cover02_update')) :
 				sweetAlert('Oopppsss', $this->upload->display_errors(), 'error');
 				redirect('su-admin/master/update_model/' . $id);
 			else :
 				$dataUpload = $this->upload->data();
 				$resolution = ['width' => 270, 'height' => 378];
-				$this->compreesImage('model_undangan_sampul', $dataUpload['file_name'], $resolution);
+				$this->compreesImage('cover', $dataUpload['file_name'], $resolution);
 				if ($model->cover_2 != 'default_2.svg') {
-					@unlink(FCPATH . './storage/model_undangan_sampul/' . $model->cover_2);
+					@unlink(FCPATH . './storage/designs/cover/' . $model->cover_2);
 				}
 				$this->db->set('cover_2', $dataUpload['file_name']);
 			endif;
@@ -323,8 +315,8 @@ class MasterData extends CI_Controller
 		$id = $this->input->post('id', true);
 		$model = $this->db->get_where('model_invitation', ['model_id' => $id])->row();
 		if (!empty($model)) {
-			@unlink(FCPATH . './storage/model_undangan_sampul/' . $model->cover_1);
-			@unlink(FCPATH . './storage/model_undangan_sampul/' . $model->cover_2);
+			@unlink(FCPATH . './storage/designs/cover/' . $model->cover_1);
+			@unlink(FCPATH . './storage/designs/cover/' . $model->cover_2);
 		}
 		$this->db->delete('model_invitation', ['model_id' => $id]);
 		$reponse = [
@@ -375,6 +367,7 @@ class MasterData extends CI_Controller
 					$result['nomor'] = $nomor++;
 					$result['code'] = $row->t_code;
 					$result['date'] = date('d-m-Y H:i', strtotime($row->t_date));
+					$result['source'] = $row->t_source;
 					$result['customer'] = $row->cs_name;
 					$result['type'] = $row->m_type;
 					$result['category'] = $row->m_category;
@@ -572,9 +565,11 @@ class MasterData extends CI_Controller
 					$this->load->view('super_admin/layouts/wrapper', $data, FALSE);
 				} else {
 					$pass	= htmlspecialchars($this->input->post('conf_pass', true));
-					$newpass = password_hash($pass, PASSWORD_DEFAULT);
-					if ($admin->password != $newpass) {
-						$this->db->set('password', $newpass);
+					if (!empty($pass)) {
+						$newpass = password_hash($pass, PASSWORD_DEFAULT);
+						if ($admin->password != $newpass) {
+							$this->db->set('password', $newpass);
+						}
 					}
 					$admin = array(
 						'name'	=> htmlspecialchars($this->input->post('name_update', true)),
@@ -621,7 +616,7 @@ class MasterData extends CI_Controller
 				$cus['phone'] = $value->phone;
 				$cus['email']  = $value->name;
 				$cus['order']  = $this->master->getSumOrder('cus_id', $value->cus_id);
-				$cus['img']  = ($value->image == 'default.jpg') ? base_url('assets/icons/icons_super_admin/default_foto_profil_kustomer.svg') : base_url('storage/profile_customer/' . $value->image);
+				$cus['img']  = ($value->image == 'default.jpg') ? base_url('assets/icons/icons_super_admin/default_foto_profil_kustomer.svg') : base_url('storage/profiles/' . $value->image);
 				$cus['create']  = date('d-m-Y H:i', strtotime($value->create_time)) . ' WIB';
 				$cus['update'] = ($value->update_time != null) ? date('d-m-Y H:i', strtotime($value->update_time)) . ' WIB' : '-';
 				$cus['id'] = $value->cus_id;

@@ -10,8 +10,8 @@
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb m-0 p-0">
 							<li class="breadcrumb-item" aria-current="page"><a class="text-link" href="<?= base_url('admin/dashboard') ?>">Dashboard</a></li>
-							<li class="breadcrumb-item" aria-current="page"><a class="text-link" href="<?= base_url('admin/invitation') ?>">Pengerjaan undangan</a></li>
-							<li class="breadcrumb-item" aria-current="page"><a class="text-link" href="<?= base_url('admin/invitation/settings') ?>">Setting Data Undangan</a></li>
+							<li class="breadcrumb-item" aria-current="page"><a class="text-link" href="<?= base_url('admin/undangan') ?>">Pengerjaan undangan</a></li>
+							<li class="breadcrumb-item" aria-current="page"><a class="text-link" href="<?= base_url('admin/undangan/detail/' . $code) ?>">Setting Data Undangan</a></li>
 							<li class="breadcrumb-item active" aria-current="page"><?= $title ?></li>
 						</ol>
 					</nav>
@@ -34,9 +34,7 @@
 				<label for="namaLengkapPria">Nama Lengkap <span class="text-danger">*</span></label>
 				<div class="input-group">
 					<input type="text" name="guest[]" class="form-control <?= (form_error('guest[]')) ? 'is-invalid' : '' ?>" id="namaLengkapPria" placeholder="Masukan Nama Lengkap">
-					<div id="guest[]Feedback" class="invalid-feedback">
-						<?= form_error('guest[]', '<small class="text-danger>"', '</small>') ?>
-					</div>
+					<div id="guest[]Feedback" class="invalid-feedback"><?= form_error('guest[]') ?></div>
 				</div>
 			</div>
 			<div id="next-form"></div>

@@ -92,6 +92,15 @@ class Penugasan extends CI_Controller
 			} elseif ($detail->t_desc == 2) {
 				$data['desc'] = '<td class="text-success">Sudah Dikerjakan</td>';
 			}
+
+			$undangan = $this->db->query("SELECT invitation_id as id, slug FROM invitation WHERE code='$detail->t_code'")->row();
+			$data['invite'] = null;
+			$data['slug'] = null;
+			if (!empty($undangan)) {
+				$data['invite'] = $undangan->id;
+				$data['slug'] = $undangan->slug;
+			}
+
 			$data['detail'] = $detail;
 			$data['title'] = 'Detail Penugasan';
 			$data['content'] = 'super_admin/contents/penugasan/v_detail_penugasan';

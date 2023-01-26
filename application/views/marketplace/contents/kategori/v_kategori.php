@@ -62,3 +62,12 @@
     </div>
 </section>
 <!-- Kategori Special End-->
+
+<script>
+	$(document).ready(function() {
+		$("#kategori").change(function() {
+			var kategori = $("#kategori").val();
+			window.location.href = "<?= base_url('categories?val=') ?>" + kategori;
+		});
+	});
+</script>

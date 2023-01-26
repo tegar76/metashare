@@ -91,7 +91,7 @@
 										<td><?= $nomor++ ?></td>
 										<td><?= $row['code'] ?></td>
 										<td><?= $row['date'] ?></td>
-										<td>-</td>
+										<td><?= $row['source'] ?></td>
 										<td><?= $row['customer'] ?></td>
 										<td><?= $row['type'] ?></td>
 										<td><?= $row['category'] ?></td>

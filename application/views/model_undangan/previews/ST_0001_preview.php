@@ -145,7 +145,7 @@
 
 
 	<!-- ======================= Landing Page(Cover) ========================-->
-	<section class="cover" id="cover">
+	<section class="cover" id="cover" style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.6)),	url('../image/cover/heroCover.png');">
 		<div class="bCover">
 			<img src="<?= base_url() ?>assets/sp_0001/image/cover/bingkaiCover.png" alt="bingkaiCover">
 			<div class="nSingkat">

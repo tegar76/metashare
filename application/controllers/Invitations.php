@@ -100,6 +100,11 @@ class Invitations extends CI_Controller
 				];
 				$data['acara'] = $acara;
 				$data['countdown'] = $this->dateConvertCountDown($akad->date, $akad->time);
+				$data['akadDate'] = [
+					'tanggal' => date('d', strtotime($akad->date)),
+					'bulan' => $this->bulan[(int)date('m', strtotime($akad->date))],
+					'tahun' => date('Y', strtotime($akad->date))
+				];
 				$data['loveStories'] = $this->db->get_where('love_story', ['invitation_id' => $invitation->invitation_id])->result();
 				$data['gifts'] = $this->invitation->getJoinGiftBank(['invitation_id' => $invitation->invitation_id])->result();
 

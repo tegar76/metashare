@@ -4,9 +4,8 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>0102|GreenShades|Demo</title>
-	<!--Style CSS-->
-	<link rel="stylesheet" href="<?= base_url() ?>assets/st_0001/css/style.css">
+	<title>0102|GreenShades</title>
+	<link rel="stylesheet" href="<?= base_url() ?>assets/st_0001/css/new_style.css">
 	<!--Lightbox CSS-->
 	<link rel="stylesheet" href="<?= base_url() ?>assets/st_0001/vendor/lightbox.css">
 	<!--CCS ANIMATE-->
@@ -146,21 +145,6 @@
 
 	<!-- ======================= Landing Page(Cover) ========================-->
 	<section class="cover" id="cover">
-		<!--note Demo for Desktop,tablet & ipad mini-->
-		<div class="ndemo-desk">
-			<img src="<?= base_url() ?>assets/st_0001/image/note-demo-for-desk.svg" alt="note demo">
-		</div>
-
-		<!--note Demo for Apple Android smartphone-->
-		<div class="ndemo-AAs">
-			<img src="<?= base_url() ?>assets/st_0001/image/note-demo-for-AAs.svg" alt="note demo">
-		</div>
-
-		<!--note Demo for Apple Apple mini-->
-		<div class="ndemo-Ap-mini">
-			<img src="<?= base_url() ?>assets/st_0001/image/note-demo-for-Apple-mini.svg" alt="note demo">
-		</div>
-
 		<div class="bCover">
 			<img src="<?= base_url() ?>assets/st_0001/image/cover/bingkaiCover.png" alt="bingkaiCover">
 			<div class="nSingkat">
@@ -320,7 +304,8 @@
 				<p class="jd">Berikan Hadiah</p>
 			</div>
 			<div class="isi">
-				<p>Tanpa mengurangi rasa hormat, untuk melengkapi kebahagian pengantin, anda dapat memberikan tanda kasih dengan melalui transfer ke rekening berikut:</p>
+				<p>Tanpa mengurangi rasa hormat, untuk melengkapi kebahagian pengantin, anda dapat memberikan tanda
+					kasih dengan melalui transfer ke rekening berikut:</p>
 			</div>
 			<div class="card">
 				<!----------Card Box VA BCA----------->
@@ -450,8 +435,11 @@
 					<img src="<?= base_url() ?>assets/st_0001/image/bissmilah.svg" alt="Bismillah Image">
 				</div>
 				<div class="pembuka">
-					<p data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="250">Assalamuaikum Warohmatullohi Wabaroktuh</p>
-					<p data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="350">Maha Suci Alloh SWT Yang Telah Menciptakan Mahluknya Berpasang-Pasangan, Ya Alloh Semoga Ridho-Mu Tercurah Mengiringi Pernikahan Putra-Putri Kami :</p>
+					<p data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="250">Assalamuaikum Warohmatullohi
+						Wabaroktuh</p>
+					<p data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="350">Maha Suci Alloh SWT Yang Telah
+						Menciptakan Mahluknya Berpasang-Pasangan, Ya Alloh Semoga Ridho-Mu Tercurah Mengiringi
+						Pernikahan Putra-Putri Kami :</p>
 				</div>
 				<div class="pempelai-pria" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="450">
 					<p>Runa Solahudin</p>
@@ -910,7 +898,10 @@
 					<img class="bingBawah-akhir-for-AAs" src="<?= base_url() ?>assets/st_0001/image/bingBawah-akhir-for-AAs.svg" alt="Bingkai Akhir">
 				</div>
 				<div class="akhir-isi">
-					<p>“Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu istri-istri dari jenismu sendiri, supaya kamu cenderung merasa tentram kepadanya, dan dijadikan-Nya, diantaramu rasa kasih dan sayang, Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda bagi orang-orang yang berfikir”</p>
+					<p>“Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu istri-istri dari jenismu
+						sendiri, supaya kamu cenderung merasa tentram kepadanya, dan dijadikan-Nya, diantaramu rasa
+						kasih dan sayang, Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda bagi
+						orang-orang yang berfikir”</p>
 					<p> <strong>(Q.S.Ar-Ruum:21)</strong></p>
 				</div>
 			</div>
@@ -937,7 +928,7 @@
 	<!--Lightbox CSS-->
 	<script src="<?= base_url() ?>assets/st_0001/vendor/lightbox-plus-jquery.js"></script>
 
-	<script src="<?= base_url() ?>assets/st_0001/js/script.js"></script>
+	<script src="<?= base_url() ?>assets/st_0001/js/new_script.js"></script>
 	<!--AOS Animate on scroll library-->
 	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 	<!--Initialize AOS-->

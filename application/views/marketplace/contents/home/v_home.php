@@ -1,10 +1,10 @@
 <section>
     <div class="xl:hidden flex justify-end my-3">
         <!-- Signup -->
-        <!-- <a href="<?= base_url('Marketplace/AuthMarketplace/signUp')?>" class="xs:text-base-1xs lg:text-sm border bg-slate-50 rounded-3xl border-slate-400 hover:bg-primary-blue-cyan hover:text-white hover:border-white focus:border-white  focus:bg-primary-blue-cyan focus:text-white py-1"><span class="px-2 md:px-3 lg:px-4">Sign Up</span></a> -->
+        <a href="<?= base_url('Marketplace/AuthMarketplace/signUp')?>" class="xs:text-base-1xs lg:text-sm border bg-slate-50 rounded-3xl border-slate-400 hover:bg-primary-blue-cyan hover:text-white hover:border-white focus:border-white  focus:bg-primary-blue-cyan focus:text-white py-1"><span class="px-2 md:px-3 lg:px-4">Sign Up</span></a>
 
         <!-- Logout -->
-        <a href="<?= base_url('Marketplace/AuthMarketplace/signUp')?>" class="xs:text-base-1xs lg:text-sm rounded-3xl border-slate-300 bg-danger border rounded-lg hover:bg-danger-hover text-white py-1"><span class="px-2 md:px-3 lg:px-4"><i class="fa-solid fa-arrow-right-from-bracket rotate-180"></i> Logout</span></a>
+        <!-- <a href="<?= base_url('Marketplace/AuthMarketplace/signUp')?>" class="xs:text-base-1xs lg:text-sm rounded-3xl border-slate-300 bg-danger border rounded-lg hover:bg-danger-hover text-white py-1"><span class="px-2 md:px-3 lg:px-4"><i class="fa-solid fa-arrow-right-from-bracket rotate-180"></i> Logout</span></a> -->
     </div>
     <div class="xl:items-center md:flex">
         <div class="lg:w-[60%] xl:w-[60%] md:pr-12 lg:pr-18 xl:pr-24">

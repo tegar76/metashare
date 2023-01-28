@@ -22,7 +22,7 @@ class Auth extends CI_Controller
 
 	public function index()
 	{
-		$this->checkToken();
+		// $this->checkToken();
 		$this->form_validation->set_rules([
 			[
 				'field' => 'username',

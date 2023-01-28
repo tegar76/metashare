@@ -80,8 +80,7 @@
 					<!-- Icon -->
 					<ul class="navbar-nav flex">
 						<li class="nav-item p-2">
-							<a class="nav-link p-0 text-slate-500 hover:text-primary-blue-cyan/90
-                <?= ($this->uri->segment(2) == "") ? 'text-primary-blue-cyan font-semibold' : '' ?>" href="<?= base_url() ?>">Home</a>
+							<a class="nav-link p-0 text-slate-500 hover:text-primary-blue-cyan/90 <?= ($this->uri->segment(2) == "") ? 'text-primary-blue-cyan font-semibold' : '' ?>" href="<?= base_url() ?>">Home</a>
 						</li>
 						<li class="nav-item p-2">
 							<button class="nav-link text-slate-500 focus:text-primary-blue-cyan/90 hover:text-primary-blue-cyan/90 p-0 <?= ($this->uri->segment(2) == "categories") ? 'text-primary-blue-cyan font-semibold' : '' ?>" id="multiLevelDropdownButtonNav" data-dropdown-toggle="dropdownNav">Kategori <span><i class="fa fa-chevron-down fa-xs"></i></span></button>

@@ -7,22 +7,24 @@
 
 <!-- Title Lg End-->
 <div class="mt-14 mb-8 lg:mt-0 lg:mb-0 border border-slate-600/20 shadow pt-2 pb-5 px-5 sm:px-8 rounded-md min-h-[50vh] bg-gray-100/30 xl:overflow-y-scroll xl:h-[60vh] sm:cursor-all-scroll">
-    <div>
-        <div class="hidden lg:block mb-5 pb-3 bg-slate-400/10 border-b border-b-slate-400/30 -mt-2 -mx-5 sm:-mx-8 rounded-t-md pt-2 pl-8">
-            <h1 class="text-lg fontfont-MontserratBold text-primary-blue-cyan"><?=$title?></h1>
-        </div> 
-        <div class="mb-3">
-            <? for($i=0; $i<=10; $i++) :?>
-                <!-- Testimoni -->
-                <div class="flex border-b border-b-slate-300/90 mt-3 pb-3">
-                    <img src="<?= base_url('assets/icons/icons_super_admin/default_foto_profil_kustomer.svg')?>" class="flex rounded-full items-center justify-center w-9 h-9 mr-3"></img>
-                    <div>
-                        <p class="tracking-wide text-base-sm lg:text-base-md mb-1 font-MontserratBold font-semibold opacity-90">Firman</p>
-                        <p class="text-base-xs tracking-wide opacity-80 text-justify mr-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic facere quae dolore delectus optio ipsam quia earum pariatur molestias! Nostrum sint, harum suscipit in nulla officia expedita dolorum sunt ipsam a necessitatibus corrupti beatae laborum nesciunt saepe, debitis asperiores dignissimos. Ipsum odio, ad quod sit debitis fugit unde adipisci laborum.</p>
-                    </div>
-                </div>
-                <!-- Testimoni End-->
-            <? endfor?>
-        </div>
-    </div>
+	<div>
+		<div class="hidden lg:block mb-5 pb-3 bg-slate-400/10 border-b border-b-slate-400/30 -mt-2 -mx-5 sm:-mx-8 rounded-t-md pt-2 pl-8">
+			<h1 class="text-lg fontfont-MontserratBold text-primary-blue-cyan"><?= $title ?></h1>
+		</div>
+		<div class="mb-3">
+			<?php foreach ($testimony as $item) : ?>
+				<!-- Testimoni -->
+				<div class="flex border-b border-b-slate-300/90 mt-3 pb-3">
+					<img src="<?= $item['img'] ?>" class="flex rounded-full items-center justify-center w-9 h-9 mr-3"></img>
+					<div>
+						<p class="tracking-wide text-base-sm lg:text-base-md text-slate-500 mb-1"><?= $item['name'] ?></p>
+						<p class="text-base-xs tracking-wide text-slate-500/80 text-justify mr-2">Saya Telah Memesan <?= $item['type']; ?> Kategori <?= $item['category']; ?> dengan model <?= $item['model'] ?></p>
+						<p class="text-base-xs tracking-wide text-slate-500/80 text-justify mr-2"><?= $item['text'] ?></p>
+					</div>
+				</div>
+				<!-- Testimoni End-->
+			<?php endforeach ?>
+
+		</div>
+	</div>
 </div>

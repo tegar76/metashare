@@ -10,7 +10,7 @@
 	<link rel="icon" type="image/png" sizes="16x16" href="<?= base_url() ?>/assets/icons/logo_metashare_small.png">
 
 	<!-- Css -->
-	<link rel="stylesheet" href="<?= base_url('src/style/css/style32.css') ?>">
+    <?php include FCPATH. 'src/style/tailwindOutput/import.php';?>
 
 	<!-- Hitung tanggal -->
 	<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
@@ -21,6 +21,11 @@
 	<!-- SweetAlert 2 -->
 	<link rel="stylesheet" href="<?= base_url('assets/') ?>plugin/sweetalert2/sweetalert2.min.css">
 	<script src="<?= base_url('assets/') ?>plugin/sweetalert2/sweetalert2.all.min.js"></script>
+
+	<link href="<?= base_url('assets/plugin/magnify-master/docs/css/jquery.magnify.css')?>" rel="stylesheet" />
+
+	<script src="<?= base_url('assets/plugin/magnify-master/docs/css/docs.css')?>"></script>
+	<script src="<?= base_url('assets/plugin/magnify-master/docs/js/jquery.magnify.css')?>"></script>
 
 	<style>
 		/****   
@@ -453,7 +458,7 @@
 						<div class="xl:flex xl:mx-5 xl:border xl:border-sky-800 xl:border-opacity-30 xl:rounded-xl xl:py-5 xl:mr-10">
 							<div class="xl:w-[70%] text-left mt-7 lg:mt-1">
 								<div class="">
-									<div class=" xl:hidden"></div>
+									<div class="xl:hidden"></div>
 									<div class="mx-8">
 										<div class="">
 											<div class="">

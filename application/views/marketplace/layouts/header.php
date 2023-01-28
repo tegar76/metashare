@@ -13,8 +13,8 @@
 	<!-- Fontawesome -->
 	<link rel="stylesheet" href="<?= base_url('src/fontawesome-free-6.2.0-web/css/all.css') ?>">
 
-	<!-- Css -->
-	<link rel="stylesheet" href="<?= base_url('src/style/marketplace/style28.css') ?>">
+    <!-- Css -->
+     <?php include FCPATH. 'src/style/tailwindOutput/import.php';?>
 
 	<!--Regular Datatables CSS-->
 	<link href="<?= base_url('src/style/tailwindCss/dataTables/css/data_table.css') ?>" rel="stylesheet">
@@ -198,4 +198,4 @@
 		<!-- Nav Bottom End -->
 	</header>
 
-	<main class="px-5 pt-4 pb-16 sm:px-8 md:px-14 md:pt-10 lg:px-16 xl:px-20 xl:pb-28 text-xs xl:text-sm  min-h-[70vh] max-h-full">
+	<main class="px-5 pt-4 pb-16 sm:px-8 md:px-14 md:pt-10 lg:px-16 xl:px-20 xl:pb-28 text-xs xl:text-sm  min-h-[70vh] max-h-full text-[#1C2D46]">

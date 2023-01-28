@@ -19,21 +19,19 @@
 
 			<div class="p-4 md:p-12">
 				<!-- Image for mobile view-->
-				<div class="block lg:hidden rounded-full shadow-xl mx-auto -mt-16 md:-mt-24 h-24 w-24 md:h-28 md:w-28 bg-cover bg-center border-2 border-white" style="background-image: url(<?= ($customer->image == 'default.jpg') ? base_url('assets/icons/icons_super_admin/default_foto_profil_kustomer.svg') : base_url('storage/profile_customer/' . $customer->image) ?>)"></div>
-
-				<p class="my-5 text-center text-slate-800 text-base-xs font-medium tracking-wide block lg:hidden">Total Order : <?= $totalOrder ?></p>
+				<div class="block lg:hidden rounded-full shadow-xl mx-auto -mt-16 md:-mt-24 h-24 w-24 md:h-28 md:w-28 bg-cover bg-center border-2 border-white" style="background-image: url(<?= ($customer->image == 'default.jpg') ? base_url('assets/icons/icons_super_admin/default_foto_profil_kustomer.svg') : base_url('storage/profiles/' . $customer->image) ?>)"></div>
 
 				<h1 class="text-xl font-bold hidden pt-0 lg:block mb-6">Profile</h1>
 
 				<div class="grid grid-cols-2 lg:grid-cols-3 gap-3">
-					<p class="text-slate-700 font-normal">Nama Lengkap</p>
-					<p class="col-span-2 text-slate-500"><?= $customer->name ?></p>
+					<p class="font-normal">Nama Lengkap</p>
+					<p class="col-span-2 opacity-80"><?= $customer->name ?></p>
 					<div class="col-span-3 border-b border-b-slate-400/30 mb-2"></div>
-					<p class="text-slate-700 font-normal">No Telepon</p>
-					<p class="col-span-2 text-slate-500"><?= $customer->phone ?></p>
+					<p class="font-normal">No Telepon</p>
+					<p class="col-span-2 opacity-80"><?= $customer->phone ?></p>
 					<div class="col-span-3 border-b border-b-slate-400/30 mb-2"></div>
-					<p class="text-slate-700 font-normal">Email</p>
-					<p class="col-span-2 text-slate-500"><?= $customer->email ?></p>
+					<p class="font-normal">Email</p>
+					<p class="col-span-2 opacity-80"><?= $customer->email ?></p>
 					<div class="col-span-3 border-b border-b-slate-400/30 mb-2"></div>
 				</div>
 

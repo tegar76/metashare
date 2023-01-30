@@ -5,14 +5,10 @@ class Invitation extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-<<<<<<< HEAD
-		$this->load->model('InvitationModel', 'invitation', true);
-=======
 		isAdminLogin();
 		$this->load->model('MasterModel', 'master', true);
 		$this->load->model('InvitationModel', 'invitation', true);
 		$this->load->model('AdminModel', 'admin', true);
->>>>>>> origin/master
 	}
 
 	public function index()

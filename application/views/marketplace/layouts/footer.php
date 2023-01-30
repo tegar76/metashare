@@ -1,6 +1,6 @@
 </main>
 
-<footer class="text-base-1xs xl:text-xs xl:text-base-xs <?= ($this->uri->segment(2) == "Profile") || ($this->uri->segment(2) == "RiwayatOrder") ? 'hidden' : ''?>">
+<footer class="text-base-1xs xl:text-xs xl:text-base-xs <?= ($this->uri->segment(2) == "profile") || ($this->uri->segment(2) == "history") ? 'hidden' : ''?>">
     <div class="px-5 xl:px-20 pt-4 pb-2 xl:pt-5 xl:pb-5 bg-[#3B4B62] dark:bg-gray-900">
       <div class="">
         <div class="flex items-center justify-center">
@@ -21,37 +21,37 @@
           <!-- Icon -->
           <ul class="navbar-nav flex">
             <li class="nav-item p-2">
-              <a class="nav-link text-slate-400 focus:text-primary-blue-cyan/90 hover:text-primary-blue-cyan/90 p-0 <?= ($this->uri->segment(2) == "Home") ? 'text-primary-blue-cyan font-semibold' : ''?>" href="<?= base_url('Marketplace/Home')?>">Home</a>
+              <a class="nav-link text-slate-400 focus:text-primary-blue-cyan/90 hover:text-primary-blue-cyan/90 p-0 <?= ($this->uri->segment(1) == "") ? 'text-primary-blue-cyan font-semibold' : ''?>" href="<?= base_url()?>">Home</a>
             </li>
             <li class="nav-item p-2">
-              <button class="nav-link text-slate-400 focus:text-primary-blue-cyan/90 hover:text-primary-blue-cyan/90 p-0 <?= ($this->uri->segment(2) == "Kategori") ? 'text-primary-blue-cyan font-semibold' : ''?>" href="<?= base_url('Marketplace/Kategori')?>" id="multiLevelDropdownButtonFoot" data-dropdown-toggle="dropdownFoot">Kategori <span><i class="fa fa-chevron-down fa-xs"></i></span></button>
+              <button class="nav-link text-slate-400 focus:text-primary-blue-cyan/90 hover:text-primary-blue-cyan/90 p-0 <?= ($this->uri->segment(2) == "Kategori") ? 'text-primary-blue-cyan font-semibold' : ''?>" href="<?= base_url('categories')?>" id="multiLevelDropdownButtonFoot" data-dropdown-toggle="dropdownFoot">Kategori <span><i class="fa fa-chevron-down fa-xs"></i></span></button>
               <!-- Dropdown menu -->
               <div id="dropdownFoot" class="hidden z-10 w-48 text-base-xs bg-slate-300 rounded divide-y divide-slate-100 shadow dark:bg-slate-700">
                   <ul class="py-1 text-slate-600 dark:text-slate-200" aria-labelledby="multiLevelDropdownButtonFoot">
                     <li>
-                      <a href="<?= base_url('Marketplace/Kategori')?>" type="button" class="flex justify-between items-center py-2 px-4 w-full hover:bg-slate-200 focus:bg-slate-200 dark:hover:bg-slate-400 dark:hover:text-white">Special</a>
+                      <a href="<?= base_url('categories?val=special')?>" type="button" class="flex justify-between items-center py-2 px-4 w-full hover:bg-slate-200 focus:bg-slate-200 dark:hover:bg-slate-400 dark:hover:text-white">Special</a>
                     </li>
                     <li>
-                      <a href="<?= base_url('Marketplace/Kategori')?>" type="button" class="flex justify-between items-center py-2 px-4 w-full hover:bg-slate-200 focus:bg-slate-200 dark:hover:bg-slate-600 dark:hover:text-white">Standard</a>
+                      <a href="<?= base_url('categories?val=standard')?>" type="button" class="flex justify-between items-center py-2 px-4 w-full hover:bg-slate-200 focus:bg-slate-200 dark:hover:bg-slate-600 dark:hover:text-white">Standard</a>
                     </li>
                     <li>
-                      <a href="<?= base_url('Marketplace/Kategori')?>" type="button" class="flex justify-between items-center py-2 px-4 w-full hover:bg-slate-200 focus:bg-slate-200 dark:hover:bg-slate-600 dark:hover:text-white">Basic</a>
+                      <a href="<?= base_url('categories?val=basic')?>" type="button" class="flex justify-between items-center py-2 px-4 w-full hover:bg-slate-200 focus:bg-slate-200 dark:hover:bg-slate-600 dark:hover:text-white">Basic</a>
                     </li>
                   </ul>
               </div>
             </li>
             <li class="nav-item p-2">
-              <a class="nav-link  text-slate-400 focus:text-primary-blue-cyan/90 hover:text-primary-blue-cyan/90 p-0 <?= ($this->uri->segment(2) == "Testimoni") ? 'text-primary-blue-cyan font-semibold' : ''?>" href="<?= base_url('Marketplace/Testimoni')?>">Testimoni</a>
+              <a class="nav-link  text-slate-400 focus:text-primary-blue-cyan/90 hover:text-primary-blue-cyan/90 p-0 <?= ($this->uri->segment(2) == "Testimoni") ? 'text-primary-blue-cyan font-semibold' : ''?>" href="<?= base_url('testimony')?>">Testimoni</a>
             </li>
             <li class="nav-item p-2">
-              <a class="nav-link  text-slate-400 focus:text-primary-blue-cyan/90 hover:text-primary-blue-cyan/90 p-0 <?= ($this->uri->segment(2) == "Tentang") ? 'text-primary-blue-cyan font-semibold' : ''?>" href="<?= base_url('Marketplace/Tentang')?>">Tentang</a>
+              <a class="nav-link  text-slate-400 focus:text-primary-blue-cyan/90 hover:text-primary-blue-cyan/90 p-0 <?= ($this->uri->segment(2) == "Tentang") ? 'text-primary-blue-cyan font-semibold' : ''?>" href="<?= base_url('about')?>">Tentang</a>
             </li>
             <!-- <li class="nav-item p-2">
               <a class="nav-link border bg-slate-600 rounded-xl border-slate-300 text-slate-300 hover:bg-primary-blue-cyan hover:text-white focus:bg-primary-blue-cyan focus:text-white py-1" href="<?= base_url('Marketplace/AuthMarketplace/signUp')?>"><span class="px-2">Sign Up</span></a>
             </li> -->
           <!-- *** Button Profile dan logout aktif menggantikan sign up ketika user telah daftar dan login *** -->
             <li class="nav-item p-2">
-              <a class="nav-link  text-slate-400 focus:text-primary-blue-cyan/90 hover:text-primary-blue-cyan/90 p-0 <?= ($this->uri->segment(2) == "Kategori") ? 'text-primary-blue-cyan font-semibold' : ''?>" href="<?= base_url('Marketplace/Profile')?>">Profile</a>
+              <a class="nav-link  text-slate-400 focus:text-primary-blue-cyan/90 hover:text-primary-blue-cyan/90 p-0 <?= ($this->uri->segment(2) == "Kategori") ? 'text-primary-blue-cyan font-semibold' : ''?>" href="<?= base_url('profile')?>">Profile</a>
             </li>
             <li class="nav-item p-2">
               <a class="nav-link  text-slate-400 focus:text-primary-blue-cyan/90 hover:text-primary-blue-cyan/90 p-0"href="#">Logout</a>

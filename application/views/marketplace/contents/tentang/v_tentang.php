@@ -19,7 +19,7 @@
                <img src="<?= base_url('assets/icons/icons_super_admin/default_foto_profil_kustomer.svg') ?>" alt="foto founder" class=" rounded-full h-16 w-16 sm:h-24 sm:w-24 lg:h-28 lg:w-28 mx-5 sm:mx-10 lg:mx-16 mt-8">
                <p class="flex justify-center mt-3">Co-Founder</p>
           </section>
-     </div>
+     </div> -->
      <div class="mt-10 lg:mt-14">
           <section class="lg:mt-5 justify-center text-base-md tracking-wide xl:text-xl text-slate-700 font-medium hidden xl:flex">
                <h1><?=$title?></h1>

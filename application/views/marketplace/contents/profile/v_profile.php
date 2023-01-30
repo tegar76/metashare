@@ -19,39 +19,19 @@
 
 			<div class="p-4 md:p-12">
 				<!-- Image for mobile view-->
-				<div class="block lg:hidden rounded-full shadow-xl mx-auto -mt-16 md:-mt-24 h-24 w-24 md:h-28 md:w-28 bg-cover bg-center border-2 border-white" style="background-image: url(<?= ($customer->image == 'default.jpg') ? base_url('assets/icons/icons_super_admin/default_foto_profil_kustomer.svg') : base_url('storage/profile_customer/' . $customer->image) ?>)"></div>
+				<div class="block lg:hidden rounded-full shadow-xl mx-auto -mt-16 md:-mt-24 h-24 w-24 md:h-28 md:w-28 bg-cover bg-center border-2 border-white" style="background-image: url(<?= ($customer->image == 'default.jpg') ? base_url('assets/icons/icons_super_admin/default_foto_profil_kustomer.svg') : base_url('storage/profiles/' . $customer->image) ?>)"></div>
 
-                    <h1 class="text-xl font-bold hidden pt-0 lg:block mb-6">Profile</h1>
-                    
-                    <div class="grid grid-cols-2 lg:grid-cols-3 gap-3">
-                        <p class="font-normal">Nama Lengkap</p>
-                        <p class="col-span-2 opacity-80">Jason</p>
-                        <div class="col-span-3 border-b border-b-slate-400/30 mb-2"></div>
-                        <p class="font-normal">No Telepon</p>
-                        <p class="col-span-2 opacity-80">489540860568048</p>
-                        <div class="col-span-3 border-b border-b-slate-400/30 mb-2"></div>
-                        <p class="font-normal">Email</p>
-                        <p class="col-span-2 opacity-80">jason76@gmail.com</p>
-                        <div class="col-span-3 border-b border-b-slate-400/30 mb-2"></div>
-                    </div>
-
-                    <div class="flex mt-3 sm:mt-5">
-                        <a class="items-center justify-center text-base-1xs md:text-xs lg:text-sm xl:text-base-sm p-[1px] md:p-[2px] bg-gradient-to-r from-secondary-blue via-secondary-blue-sky to-secondary-blue hover:bg-gradient-to-r hover:from-secondary-blue-sky hover:via-secondary-blue hover:to-secondary-blue-sky transition duration-500 text-blue-800 hover:text-primary-blue-cyan hover:saturate-200 rounded-lg mr-4" href="<?= base_url('Marketplace/Profile/editProfile')?>">
-                            <div class="bg-white rounded-lg w-full flex justify-center">
-                                <p class="my-1.5 mx-3 md:my-2 xl:mx-5"> Edit Profile</p>
-                            </div>
-                        </a>
-                    </div>
+				<h1 class="text-xl font-bold hidden pt-0 lg:block mb-6">Profile</h1>
 
 				<div class="grid grid-cols-2 lg:grid-cols-3 gap-3">
-					<p class="text-slate-700 font-normal">Nama Lengkap</p>
-					<p class="col-span-2 text-slate-500"><?= $customer->name ?></p>
+					<p class="font-normal">Nama Lengkap</p>
+					<p class="col-span-2 opacity-80"><?= $customer->name ?></p>
 					<div class="col-span-3 border-b border-b-slate-400/30 mb-2"></div>
-					<p class="text-slate-700 font-normal">No Telepon</p>
-					<p class="col-span-2 text-slate-500"><?= $customer->phone ?></p>
+					<p class="font-normal">No Telepon</p>
+					<p class="col-span-2 opacity-80"><?= $customer->phone ?></p>
 					<div class="col-span-3 border-b border-b-slate-400/30 mb-2"></div>
-					<p class="text-slate-700 font-normal">Email</p>
-					<p class="col-span-2 text-slate-500"><?= $customer->email ?></p>
+					<p class="font-normal">Email</p>
+					<p class="col-span-2 opacity-80"><?= $customer->email ?></p>
 					<div class="col-span-3 border-b border-b-slate-400/30 mb-2"></div>
 				</div>
 

@@ -9,19 +9,11 @@
 	<!-- Favicon -->
 	<link rel="icon" type="image/png" sizes="16x16" href="<?= base_url() ?>/assets/icons/logo_metashare_small.png">
 
-<<<<<<< HEAD
     <!-- Fontawesome -->
     <link rel="stylesheet" href="<?= base_url('src/fontawesome-free-6.2.0-web/css/all.css') ?>">
     
     <!-- Css -->
     <?php include FCPATH. 'src/style/tailwindOutput/import.php';?>
-=======
-	<!-- Fontawesome -->
-	<link rel="stylesheet" href="<?= base_url('src/fontawesome-free-6.2.0-web/css/all.css') ?>">
-
-	<!-- Css -->
-	<link rel="stylesheet" href="<?= base_url('src/style/marketplace/style28.css') ?>">
->>>>>>> origin/master
 
 	<title><?= $title ?></title>
 </head>

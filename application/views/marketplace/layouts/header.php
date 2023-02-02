@@ -38,7 +38,8 @@
 	<script src="<?= base_url('src/style/tailwindCss/node_modules/tw-elements/dist/js/index.min.js') ?>"></script>
 
 	<!-- Flowbite -->
-	<script src="<?= base_url('src/style/tailwindCss/node_modules/') ?>flowbite/dist/flowbite.js"></script>
+	<script src="<?= base_url('assets/vendor/flowbite/flowbite.min.js')?>"></script>
+
 
 	<style>
 		.carousel-indicators button {

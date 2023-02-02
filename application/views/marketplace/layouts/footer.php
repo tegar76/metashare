@@ -1,6 +1,6 @@
 </main>
 
-<footer class="text-base-1xs xl:text-xs xl:text-base-xs <?= ($this->uri->segment(2) == "profile") || ($this->uri->segment(2) == "history") ? 'hidden' : ''?>">
+<footer class="text-base-1xs xl:text-xs xl:text-base-xs <?= ($this->uri->segment(1) == "profile") || ($this->uri->segment(1) == "history") ? 'hidden' : ''?>">
     <div class="px-5 xl:px-20 pt-4 pb-2 xl:pt-5 xl:pb-5 bg-[#3B4B62] dark:bg-gray-900">
       <div class="">
         <div class="flex items-center justify-center">

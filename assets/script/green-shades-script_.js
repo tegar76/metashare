@@ -1,8 +1,19 @@
+function base_url() {
+	var pathparts = location.pathname.split("/");
+	if (location.host == "localhost:8080" || location.host == "localhost") {
+		var url = location.origin + "/" + pathparts[1].trim("/") + "/"; // http://localhost/siberhyl/
+	} else {
+		var url = location.origin + "/"; // http://localhost/
+	}
+	return url;
+}
+const BASEURL = base_url();
+
 //==================== Script Sampul ==========================
 //Untuk Memunculkan halaman Sampul
 window.addEventListener("load", function () {
 	setTimeout(function open(event) {
-		document.querySelector(".sampul").style.display = "block"; //block
+		document.querySelector(".sampul").style.display = "none"; //block
 		document
 			.querySelector(".sampul")
 			.classList.add(
@@ -59,7 +70,8 @@ window.addEventListener("scroll", scrollActive);
 
 //Mengatur akhir perhitungan mundur
 // Mengatur waktu akhir perhitungan mundur
-var countDownDate = new Date("Jan 30, 2023 13:43:00").getTime();
+var getCountDown = document.querySelector('#countDownTime').value;
+var countDownDate = new Date(getCountDown).getTime();
 
 // Memperbarui hitungan mundur setiap 1 detik
 var x = setInterval(function () {
@@ -103,10 +115,10 @@ let pm = document.getElementById("setm");
 function setmus() {
 	if (mc.paused) {
 		mc.play();
-		pm.src = "../assets/icons/green-shades/in in-play.svg";
+		pm.src = BASEURL +"assets/icons/green-shades/in in-play.svg";
 	} else {
 		mc.pause();
-		pm.src = "../assets/icons/green-shades/in in-pause.svg";
+		pm.src = BASEURL + "assets/icons/green-shades/in in-pause.svg";
 	}
 }
 

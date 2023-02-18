@@ -11,7 +11,7 @@
 	<link rel="icon" type="image/png" sizes="16x16" href="<?= base_url() ?>/assets/icons/logo_metashare_small.png">
 
 	<!-- Fontawesome -->
-	<link rel="stylesheet" href="<?= base_url('src/fontawesome-free-6.2.0-web/css/all.css') ?>">
+	<link rel="stylesheet" href="<?= base_url('src/font-awesome/css/all.css') ?>">
 
     <!-- Css -->
      <?php include FCPATH. 'src/style/tailwindOutput/import.php';?>

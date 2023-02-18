@@ -268,9 +268,8 @@
 					<h1 class="mt-8 sm:mt-12 lg:mt-8 font-RadicalsDemo text-3xl 2xs:text-4xl sm:text-5xl lg:text-4xl text-tema1-pink tracking-widest">
 						Runa & Ratna
 					</h1>
-					<p class="mt-1 sm:mt-3 text-lg 2xs:text-xl sm:text-3xl lg:text-xl text-tema1-teal font-ShareDong">
-						<!-- Wedding Date -->
-						22<span class="font-normal text-base-sm 2xs:text-base sm:text-xl lg:text-base-md">Januari</span><span>2022</span>
+					<!-- wedding date -->
+					<p class="mt-1 sm:mt-3 text-lg 2xs:text-xl sm:text-3xl lg:text-xl text-tema1-teal font-ShareDong">22 <span class="font-normal text-base-sm 2xs:text-base sm:text-xl lg:text-base-md">Januari </span><span>2022</span>
 					</p>
 				</div>
 

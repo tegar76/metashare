@@ -5,11 +5,16 @@
 			<a href="<?= base_url('register') ?>" class="xs:text-base-1xs lg:text-sm rounded-3xl border-slate-300 bg-danger border hover:bg-danger-hover text-white py-1">
 				<span class="px-2 md:px-3 lg:px-4"><i class="fa-solid fa-arrow-right-from-bracket rotate-180"></i>Sign Up</span>
 			</a>
+		<?php else : ?>
+			<!-- Signup -->
+			<a href="#" class="logout-button xs:text-base-1xs lg:text-sm rounded-3xl border-slate-300 bg-danger border hover:bg-danger-hover text-white py-1">
+				<span class="px-2 md:px-3 lg:px-4"><i class="fa-solid fa-arrow-right-from-bracket rotate-180"></i>Logout</span>
+			</a>
 		<?php endif; ?>
 	</div>
 	<div class="xl:items-center md:flex">
 		<div class="lg:w-[60%] xl:w-[60%] md:pr-12 lg:pr-18 xl:pr-24">
-			<h1 class="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-Montserrat font-extrabold text-center md:text-left">Hallo, <p>Selamat Datang!</p>
+			<h1 class="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-Montserrat font-extrabold text-center md:text-left">Hallo, <?= $this->session->userdata('fullName'); ?> <p>Selamat Datang!</p>
 			</h1>
 			<div class="flex mt-5">
 				<img class="w-8 xl:w-10 mr-3 hidden md:block" src="<?= base_url('assets/ilustrations/marketplace/ils_home_2.svg') ?>" alt="">

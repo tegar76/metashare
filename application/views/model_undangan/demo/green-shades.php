@@ -15,6 +15,13 @@
 	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 	<!--Icon Tittle -->
 	<link rel="icons" href="<?= base_url('assets/icons/green-shades/ic-ms.png') ?>">
+	<style>
+		img[alt="www.000webhost.com"] {
+			display: none
+		}
+
+		;
+	</style>
 </head>
 
 <body>
@@ -820,7 +827,7 @@
 				<!--Bingkai atas bagian akhir for Apple & Android Smartphone  -->
 				<img class="bingAtas-akhir-for-AAs" src="<?= base_url() ?>assets/images/green-shades/bingAtas-akhir-for-AAs.svg" alt="Bingkai Akhir">
 				<div class="hurufDepan-mempelai">
-					<p>R<span style="color:#EFC207;">&</span>R</p>
+					<p><?= substr($invitation->groom_nickname, 0, 1) ?><span style="color:#EFC207;">&</span><?= substr($invitation->bride_nickname, 0, 1) ?></p>
 				</div>
 				<div class="trm">
 					<p>Terimakasih</p>

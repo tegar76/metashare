@@ -43,7 +43,7 @@ class Invitations extends CI_Controller
 	public function preview($id, $slug = null)
 	{
 		$invitation = $this->invitation->getInvitationBySlug($id, $slug);
-		if (empty($slug) and empty($invitation)) {
+		if (empty($slug) or empty($invitation)) {
 			$data['title'] = '404 Not Found';
 			$this->load->view('errors/contents/v_error_404', $data, FALSE);
 		} else {
@@ -174,6 +174,60 @@ class Invitations extends CI_Controller
 					</div>
 				</div>
 			</div>
+			';
+		}
+		echo json_encode([$output]);
+	}
+
+	public function get_message_standard()
+	{
+		$output = '';
+		$where = array(
+			'invitation_id' => $_GET['id'],
+		);
+		$query 	= $this->db->order_by('create_time', 'DESC')->get_where('message', $where);
+		$result	= $query->result();
+		foreach ($result as $key => $val) {
+			$inisial = substr($val->name, 0, 1);
+			if ($val->status == 2) {
+				$bgcolor = 'avatar-nama-hadir avtr';
+			} elseif ($val->status == 1) {
+				$bgcolor = 'avatar-nama-tdkHadir avtr';
+			} elseif ($val->status == 0) {
+				$bgcolor = 'avatar-nama-blmTahu avtr';
+			}
+			$output .= '
+			<div class="dtl-pesan">
+			<table border="0">
+				<tr>
+					<td width="10" rowspan="3">
+						<div class="'. $bgcolor.'">
+							<p>' . $inisial . '</p>
+						</div>
+					</td>
+					<td>
+						<div class="nama">
+							<p>' . $val->name . '</p>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="tgl-kirim">
+							<p>' . date('d-m-Y H:i', strtotime($val->create_time)) . ' WIB</p>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="ucapan">
+							<p>' . $val->message . '</p>
+						</div>
+					</td>
+				</tr>
+			</table>
+			<hr>
+		</div>
 			';
 		}
 		echo json_encode([$output]);

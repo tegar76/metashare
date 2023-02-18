@@ -4,25 +4,25 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="icon" type="image/png" sizes="16x16" href="<?= base_url('assets/icons/green-shades/ic-ms.png') ?>">
-	<title>Wedding <?= $invitation->groom_nickname . ' & ' . $invitation->bride_nickname ?></title>
+	<title>0102|GreenShades|Demo</title>
 	<!--Style CSS-->
 	<link rel="stylesheet" href="<?= base_url('assets/style/green-shades-style_.css') ?>">
 	<!--Lightbox CSS-->
-	<link rel="stylesheet" href="<?= base_url('assets/vendor/lightbox.css') ?>">
+	<link rel="stylesheet" href="<?= base_url('assets/vendor/lightbox_.css') ?>">
 	<!--CCS ANIMATE-->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 	<!--AOS-->
 	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 	<!--Icon Tittle -->
+	<link rel="icons" href="<?= base_url('assets/icons/green-shades/ic-ms.png') ?>">
 
-	<!--<style>
+	<style>
 		img[alt="www.000webhost.com"] {
 			display: none
 		}
 
 		;
-	</style>-->
+	</style>
 </head>
 
 <body>
@@ -46,7 +46,7 @@
 			</div>
 
 			<div class="waktuAkad">
-				<p><?= $akadDate['tanggal'] . ' ' . $akadDate['bulan'] . ' ' . $akadDate['tahun'] ?></p>
+				<p>09 September 2022</p>
 			</div>
 
 			<div class="batas">
@@ -60,7 +60,7 @@
 			</div>
 
 			<div class="mempelai">
-				<P><?= $invitation->groom_nickname . ' & ' . $invitation->bride_nickname ?></P>
+				<P>Runa & Ratna</P>
 			</div>
 
 			<div class="batas">
@@ -77,7 +77,7 @@
 				<div class="isi">
 					<p>Kepada Yth</p>
 					<p>Bapak/Ibu/Saudara/i</p>
-					<h2><?= (!empty($guest) ? $guest : '-') ?></h2>
+					<h2>Danur Pratama S.Kom</h2>
 				</div>
 			</div>
 
@@ -111,17 +111,31 @@
 	<!--========================= /SAMPUL END ===================-->
 
 	<!-- ======================= Landing Page(Cover) ========================-->
-	<section class="cover" id="cover" style="background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)),
-        url('<?= base_url('/storage/invitations/uploads/' . $invitation->cover_image_2) ?>')">
+	<section class="cover" id="cover">
+		<!--note Demo for Desktop,tablet & ipad mini-->
+		<div class="ndemo-desk">
+			<img src="<?= base_url('assets/images/green-shades/note-demo-for-desk.svg') ?>" alt="note demo">
+		</div>
+
+		<!--note Demo for Apple Android smartphone-->
+		<div class="ndemo-AAs">
+			<img src="<?= base_url('assets/images/green-shades/note-demo-for-AAs.svg') ?>" alt="note demo">
+		</div>
+
+		<!--note Demo for Apple Apple mini-->
+		<div class="ndemo-Ap-mini">
+			<img src="<?= base_url('assets/images/green-shades/note-demo-for-Apple-mini.svg') ?>" alt="note demo">
+		</div>
+
 		<div class="bCover">
 			<!--<img src="assets/image/cover/bingkaiCover.png" alt="bingkaiCover">-->
 			<div class="nSingkat">
-				<p class="animate__animated animate__backInDown animate__fast"><?= $invitation->groom_nickname ?></p>
+				<p class="animate__animated animate__backInDown animate__fast">Runa</p>
 				<p>&</p>
-				<p class="animate__animated animate__backInUp animate__fast"><?= $invitation->bride_nickname ?></p>
+				<p class="animate__animated animate__backInUp animate__fast">Ratna</p>
 			</div>
 		</div>
-		<input type="hidden" id="countDownTime" name="count_down" value="<?= $countdown ?>">
+
 		<div class="contWa">
 			<div class="jud">
 				<p>Waktu Mundur Acara Akad Nikah</p>
@@ -153,8 +167,7 @@
 			<div class="nav-menu" id="nav-menu">
 				<ul>
 					<li>
-						<a href="#cover" class="nav_link active-link">
-							<svg viewBox="0 0 19 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<a href="#cover" class="nav_link active-link"><svg viewBox="0 0 19 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<g id="in in-cover-small">
 									<g id="Group 2">
 										<rect id="Rectangle 1" x="1.45" y="1.45" width="16.1" height="21.1" rx="3.55" stroke-opacity="0.784" stroke-width="0.9" />
@@ -166,8 +179,7 @@
 						</a>
 					</li>
 					<li>
-						<a href="#mempelai" class="nav_link">
-							<svg viewBox="0 0 19 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<a href="#mempelai" class="nav_link"><svg viewBox="0 0 19 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<g id="in in-ring-small">
 									<g id="Group 3">
 										<circle id="Ellipse 1" cx="7" cy="17" r="5.55" stroke-opacity="0.7804" stroke-width="0.9" />
@@ -179,8 +191,7 @@
 						</a>
 					</li>
 					<li>
-						<a href="#waktu" class="nav_link">
-							<svg viewBox="0 0 19 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<a href="#waktu" class="nav_link"><svg viewBox="0 0 19 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<g id="in in-date-small">
 									<g id="Group 9">
 										<g id="Group 4">
@@ -277,22 +288,96 @@
 					<p>Tanpa mengurangi rasa hormat, untuk melengkapi kebahagian pengantin, anda dapat memberikan tanda kasih dengan melalui transfer ke rekening berikut:</p>
 				</div>
 				<div class="card">
-					<?php foreach ($gifts as $gift) : ?>
-						<div class="card-box">
-							<img class="va-image" src="<?= base_url('storage/') . $gift->icon ?>" alt="Card Virtual Akun BCA">
-							<div class="no-va">
-								<p id="no-va-<?= $gift->id ?>"><?= $gift->account ?></p>
-								<img class="copy-va" src="<?= base_url() ?>assets/icons/green-shades/in in-copy.svg" alt="copy" onclick="copyToClipboard('no-va-<?= $gift->id ?>');return false">
-							</div>
-							<p class="recipient">*Recipient: <?= $gift->recipient ?></p>
-							<div class="barcode">
-								<img class="barcode-isi" src="<?= base_url('storage/invitations/gifts/') . $gift->qr ?>" alt="barcode">
-							</div>
-							<div class="btn-saveQR">
-								<button class="btn-saveQR_Code">Save QR Code</button>
-							</div>
+					<!----------Virtual Account----------->
+					<div class="card-box">
+						<img class="va-image" src="<?= base_url() ?>assets/images/green-shades/gift_va(BCA)/gift_card_va_bca.svg" alt="Card Virtual Akun BCA">
+						<div class="no-va">
+							<p id="no-va">2235577</p>
+							<img class="copy-va" src="<?= base_url() ?>assets/icons/green-shades/in in-copy.svg" alt="copy" onclick="copyToClipboard('no-va');return false">
 						</div>
-					<?php endforeach ?>
+						<p class="recipient">*Recipient:Danteria Sah</p>
+						<div class="barcode">
+							<img class="barcode-isi" src="<?= base_url() ?>assets/images/green-shades/gift_va(BCA)/gift_card_va_barcode(BCA).png" alt="barcode">
+						</div>
+						<div class="btn-saveQR">
+							<button class="btn-saveQR_Code">Save QR Code</button>
+						</div>
+					</div>
+
+					<div class="card-box">
+						<img class="va-image" src="<?= base_url() ?>assets/images/green-shades/gift_va(BRI)/gift_card_va_bri.svg" alt="Card Virtual Akun BRI">
+						<div class="no-va">
+							<p id="no-va">123456789012345</p>
+							<img class="copy-va" src="<?= base_url() ?>assets/icons/green-shades/in in-copy.svg" alt="copy" onclick="copyToClipboard('no-va');return false;">
+						</div>
+						<p class="recipient">*Recipient:Danteria Sah</p>
+						<div class="barcode">
+							<img class="barcode-isi" src="<?= base_url() ?>assets/images/green-shades/gift_va(BRI)/gift_card_va_barcode(BRI).png" alt="barcode">
+						</div>
+						<div class="btn-saveQR">
+							<button class="btn-saveQR_Code">Save QR Code</button>
+						</div>
+					</div>
+
+					<div class="card-box">
+						<img class="va-image" src="assets/image/gift_va(MANDIRI)/gift_card_va_mandiri.svg" alt="Card Virtual Akun MANDIRI">
+						<div class="no-va">
+							<p id="no-va">1234567890123</p>
+							<img class="copy-va" src="assets/icon/in in-copy.svg" alt="copy" onclick="copyToClipboard('no-va');return false;">
+						</div>
+						<p class="recipient">*Recipient:Danteria Sah</p>
+						<div class="barcode">
+							<img class="barcode-isi" src="assets/image/gift_va(MANDIRI)/gift_card_va_barcode(MANDIRI).png" alt="barcode">
+						</div>
+						<div class="btn-saveQR">
+							<button class="btn-saveQR_Code">Save QR Code</button>
+						</div>
+					</div>
+
+					<div class="card-box">
+						<img class="va-image" src="<?= base_url() ?>assets/images/green-shades/gift_va(MANDIRI)/gift_card_va_mandiri.svg" alt="Card Virtual Akun MANDIRI">
+						<div class="no-va">
+							<p id="no-va">1234567890</p>
+							<img class="copy-va" src="<?= base_url() ?>assets/icons/green-shades/in in-copy.svg" alt="copy" onclick="copyToClipboard('no-va');return false;">
+						</div>
+						<p class="recipient">*Recipient:Danteria Sah</p>
+						<div class="barcode">
+							<img class="barcode-isi" src="<?= base_url() ?>assets/images/green-shades/gift_va(MANDIRI)/gift_card_va_barcode(MANDIRI).png" alt="barcode">
+						</div>
+						<div class="btn-saveQR">
+							<button class="btn-saveQR_Code">Save QR Code</button>
+						</div>
+					</div>
+
+					<div class="card-box">
+						<img class="va-image" src="<?= base_url() ?>assets/images/green-shades/gift_va(BSI)/gift_card_va_bsi.svg" alt="Card Virtual Akun BSI">
+						<div class="no-va">
+							<p id="no-va">12345678901234</p>
+							<img class="copy-va" src="<?= base_url() ?>assets/icons/green-shades/in in-copy.svg" alt="copy" onclick="copyToClipboard('no-va');return false">
+						</div>
+						<p class="recipient">*Recipient:Danteria Sah</p>
+						<div class="barcode">
+							<img class="barcode-isi" src="<?= base_url() ?>assets/images/green-shades/gift_va(BSI)/gift_card_va_barcode(BSI).png" alt="barcode">
+						</div>
+						<div class="btn-saveQR">
+							<button class="btn-saveQR_Code">Save QR Code</button>
+						</div>
+					</div>
+
+					<div class="card-box">
+						<img class="va-image" src="<?= base_url() ?>assets/images/green-shades/gift_va(CIMBNIAGA)/gift_card_va_cimbniaga.svg" alt="Card Virtual Akun CIMBNIAGA">
+						<div class="no-va">
+							<p id="no-va">087899706753</p>
+							<img class="copy-va" src="<?= base_url() ?>assets/icons/green-shades/in in-copy.svg" alt="copy" onclick="copyToClipboard('no-va');return false">
+						</div>
+						<p class="recipient">*Recipient:Danteria Sah</p>
+						<div class="barcode">
+							<img class="barcode-isi" src="<?= base_url() ?>assets/images/green-shades/gift_va(CIMBNIAGA)/gift_card_va_barcode(CIMBNIAGA).png" alt="barcode">
+						</div>
+						<div class="btn-saveQR">
+							<button class="btn-saveQR_Code">Save QR Code</button>
+						</div>
+					</div>
 				</div>
 				<footer>
 					<div id="in-close" class="in-close">&times;</div>
@@ -313,19 +398,18 @@
 				<p data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="350">Maha Suci Alloh SWT Yang Telah Menciptakan Mahluknya Berpasang-Pasangan, Ya Alloh Semoga Ridho-Mu Tercurah Mengiringi Pernikahan Putra-Putri Kami :</p>
 			</div>
 			<div class="pempelai-pria" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="450">
-				<p><?= $invitation->groom_name ?></p>
-				<a href="https://instagram.com/<?= $invitation->groom_ig ?>"><img src="<?= base_url() ?>assets/images/green-shades/ig.png" alt="ic-Instagram"></a>
-				<p>Putra <?= $invitation->groom_son ?> Bpk. <?= $invitation->groom_father ?> & Ibu <?= $invitation->groom_mother ?></p>
+				<p>Runa Solahudin</p>
+				<a href="#"><img src="<?= base_url() ?>assets/images/green-shades/ig.png" alt="ic-Instagram"></a>
+				<p>Putri Ke-1 dari Bapak Lorem Ipsum & Ibu Lorem Doren (Bandung)</p>
 			</div>
 			<div class="dengan" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="550">
 				<p>Dengan</p>
 			</div>
 			<div class="pempelai-wanita" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="650">
-				<p><?= $invitation->bride_name ?></p>
-				<a href="https://instagram.com/<?= $invitation->bride_ig ?>">
-					<img src="<?= base_url() ?>assets/images/green-shades/ig.png" alt="ic-Instagram">
-				</a>
-				<p>Putri <?= $invitation->bride_daughter; ?> Bpk. <?= $invitation->bride_father ?> & Ibu <?= $invitation->bride_mother ?></p>
+				<p>Ratna Diah Pitaloka</p>
+				<a href="#">
+					<img src="<?= base_url() ?>assets/images/green-shades/ig.png" alt="ic-Instagram"></a>
+				<p>Putri Ke-2 dari Bapak Lorem Ipsum & Ibu Lorem Doren (Jakarta)</p>
 			</div>
 			<div class="penutup" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="750">
 				<p>Untuk Melaksanakan Sunah Rosul-mu dalam membentuk Keluarga Sakinah, Mawadah dan Warohmah</p>
@@ -362,10 +446,10 @@
 					</svg>
 				</div>
 				<div class="tgl">
-					<P><?= $acara['tasyakur']['tanggal']; ?></P>
+					<P>Jum'at - Sabtu,30-31 Januari 2023</P>
 				</div>
 				<div class="almt">
-					<p><?= $acara['tasyakur']['alamat']; ?></p>
+					<p>Jl.Merpati Putih Rt.01 Rw.01 Kec Lorem Ipsum Dorem</p>
 				</div>
 			</div>
 			<!--end tasyakuran -->
@@ -385,17 +469,17 @@
 					</svg>
 				</div>
 				<div class="tgl">
-					<P><?= $acara['akad']['tanggal'] ?></P>
+					<P>Rabu,31 Januari 2023</P>
 				</div>
 				<div class="jaam">
-					<P><?= $acara['akad']['waktu']; ?> - Selesai</P>
+					<P>09.00 WIB-Selesai</P>
 				</div>
 				<div class="almt">
-					<p><?= $acara['akad']['alamat'] ?></p>
+					<p>Jl.Merpati Putih Rt.01 Rw.01 Kec Lorem Ipsum Dorem</p>
 				</div>
 
 				<div class="btn-map">
-					<a href="<?= $acara['akad']['maps']; ?>">
+					<a href="#map">
 						<svg height="14" viewBox="0 0 17 14" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<g id="in in-maps">
 								<path id="path3570" d="M8.96832 6.9728C8.73302 7.26647 8.28858 7.27355 8.04404 6.98752L6.85788 5.6001C6.4138 4.91169 6.33837 4.2554 6.65424 3.62698C6.67414 3.58739 6.69979 3.55032 6.73058 3.51846C7.11291 3.1229 7.55232 3.17252 7.9377 3.44226C8.3175 3.7081 8.91726 3.70865 9.30223 3.45036C9.69352 3.18784 10.1215 3.17221 10.5101 3.51592C10.5348 3.53777 10.5574 3.56316 10.5763 3.59018C11.0692 4.29433 10.5061 4.91459 10.1266 5.52731L8.96832 6.9728Z" stroke="white" stroke-width="0.9" stroke-miterlimit="8.7" stroke-linecap="round" stroke-linejoin="bevel" />
@@ -426,16 +510,17 @@
 					</svg>
 				</div>
 				<div class="tgl">
-					<P><?= $acara['resepsi']['tanggal'] ?></P>
+					<P>Rabu,31 Januari 2023</P>
 				</div>
 				<div class="jaam">
-					<P><?= $acara['resepsi']['waktu']; ?> - Selesai</P>
+					<P>11.00 WIB-Selesai</P>
 				</div>
 				<div class="almt">
-					<p><?= $acara['resepsi']['alamat'] ?></p>
+					<p>Jl.Merpati Putih Rt.01 Rw.01 Kec Lorem Ipsum Dorem</p>
 				</div>
+
 				<div class="btn-map">
-					<a href="<?= $acara['resepsi']['maps']; ?>">
+					<a href="#map">
 						<svg height="14" viewBox="0 0 17 14" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<g id="in in-maps">
 								<path id="path3570" d="M8.96832 6.9728C8.73302 7.26647 8.28858 7.27355 8.04404 6.98752L6.85788 5.6001C6.4138 4.91169 6.33837 4.2554 6.65424 3.62698C6.67414 3.58739 6.69979 3.55032 6.73058 3.51846C7.11291 3.1229 7.55232 3.17252 7.9377 3.44226C8.3175 3.7081 8.91726 3.70865 9.30223 3.45036C9.69352 3.18784 10.1215 3.17221 10.5101 3.51592C10.5348 3.53777 10.5574 3.56316 10.5763 3.59018C11.0692 4.29433 10.5061 4.91459 10.1266 5.52731L8.96832 6.9728Z" stroke="white" stroke-width="0.9" stroke-miterlimit="8.7" stroke-linecap="round" stroke-linejoin="bevel" />
@@ -490,12 +575,29 @@
 		</div>
 		<div class="contain">
 			<div class="gallery-img">
-				<?php $incrementPhoto = 250 ?>
-				<?php foreach ($photos as $photo) : ?>
-					<a href="<?= $photo['img'] ?>" data-lightbox="models" data-title="image <?= $photo['id'] ?>">
-						<img src="<?= $photo['img'] ?>" alt="img <?= $photo['id'] ?>" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="<?= $incrementPhoto += 100 ?>">
-					</a>
-				<?php endforeach  ?>
+				<a href="<?= base_url() ?>assets/images/green-shades/gallery/1.jpg" data-lightbox="models" data-title="image 1">
+					<img src="<?= base_url() ?>assets/images/green-shades/gallery/1.jpg" alt="img 1" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="250">
+				</a>
+
+				<a href="<?= base_url() ?>assets/images/green-shades/gallery/2.png" data-lightbox="models" data-title="image 2">
+					<img src="<?= base_url() ?>assets/images/green-shades/gallery/2.png" alt="img 2" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="350">
+				</a>
+
+				<a href="<?= base_url() ?>assets/images/green-shades/gallery/3.png" data-lightbox="models" data-title="image 3">
+					<img src="<?= base_url() ?>assets/images/green-shades/gallery/3.png" alt="img 3" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="450">
+				</a>
+
+				<a href="<?= base_url() ?>assets/images/green-shades/gallery/4.png" data-lightbox="models" data-title="image 4">
+					<img src="<?= base_url() ?>assets/images/green-shades/gallery/4.png" alt="img 4" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="550">
+				</a>
+
+				<a href="<?= base_url() ?>assets/images/green-shades/gallery/5.png" data-lightbox="models" data-title="image 5">
+					<img src="<?= base_url() ?>assets/images/green-shades/gallery/5.png" alt="img 5" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="650">
+				</a>
+
+				<a href="<?= base_url() ?>assets/images/green-shades/gallery/6.png" data-lightbox="models" data-title="image 6">
+					<img src="<?= base_url() ?>assets/images/green-shades/gallery/6.png" alt="img 6" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="750">
+				</a>
 			</div>
 		</div>
 
@@ -514,47 +616,200 @@
 			<img src="<?= base_url() ?>assets/images/green-shades/dive-galery-for-AAs.svg" alt="diveder">
 		</div>
 	</section>
+
 	<section id="pesan">
 		<div class="pesan-bahagia" data-aos="fade-down-right" data-aos-duration="1000" data-aos-delay="150">
 			<div class="header">
 				<p>Pesan Bahagia</p>
 				<hr>
 			</div>
-			<?= form_open("#", ['id' => 'submit-happy-message']) ?>
-			<input type="hidden" name="guest_name" value="<?= $guest ?>">
-			<input type="hidden" id="invtId" name="invt_id" value="<?= $invitation->invitation_id ?>">
 			<div class="inp-pesan">
 				<p>Pesan :</p>
-				<textarea name="pesan" id="" cols="20" rows="2" placeholder="Input pesan bahagia"></textarea>
+				<textarea name="" id="" cols="20" rows="2" placeholder="Input pesan bahagia"></textarea>
 			</div>
 			<div class="confirm-kehadiran">
 				<label class="contain">
-					<input type="radio" value="2" checked="checked" name="konfirmasiHadir">
+					<input type="radio" checked="checked" name="radio">
 					<span class="checkmark check"></span>
 					Hadir
 				</label>
 				<label class="contain">
-					<input type="radio" value="1" name="konfirmasiHadir">
+					<input type="radio" name="radio">
 					<span class="checkmark2 check"></span>
 					Tidak Hadir
 				</label>
 				<label class="contain">
-					<input type="radio" value="0" name="konfirmasiHadir">
+					<input type="radio" name="radio">
 					<span class="checkmark3 check"></span>
 					Belum Tahu
 				</label>
 			</div>
-
-			<div class="btn-kirimm">
-				<button type="submit">Kirim</button>
-				<p>Total Pesan : <?= $message ?></p>
+			<div class="btn-kirim">
+				<a href="">Kirim</a>
+				<p>Total Pesan : 5</p>
 			</div>
-			<?= form_close() ?>
-		
 			<div class="isi-pesan">
-				<div id="display_message"></div>
+				<div class="dtl-pesan">
+					<table border="0">
+						<tr>
+							<td width="10" rowspan="3">
+								<div class="avatar-nama-hadir avtr">
+									<p>R</p>
+								</div>
+							</td>
+							<td>
+								<div class="nama">
+									<p>Rahayu</p>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="tgl-kirim">
+									<p>12-12-2022 13:00 WIB</p>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="ucapan">
+									<p>Selamat bro, selamat Menembuh Hidup Baru</p>
+								</div>
+							</td>
+						</tr>
+					</table>
+					<hr>
+				</div>
+
+				<div class="dtl-pesan">
+					<table border="0">
+						<tr>
+							<td width="10" rowspan="3">
+								<div class="avatar-nama-tdkHadir avtr">
+									<p>H</p>
+								</div>
+							</td>
+							<td>
+								<div class="nama">
+									<p>Hasan Sanusi</p>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="tgl-kirim">
+									<p>12-12-2022 13:00 WIB</p>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="ucapan">
+									<p>Wahhhh Selamat, Tapi Maaf tidak bisa hadir bozz.</p>
+								</div>
+							</td>
+						</tr>
+					</table>
+					<hr>
+				</div>
+
+				<div class="dtl-pesan">
+					<table border="0">
+						<tr>
+							<td width="10" rowspan="3">
+								<div class="avatar-nama-blmTahu avtr">
+									<p>T</p>
+								</div>
+							</td>
+							<td>
+								<div class="nama">
+									<p>Taro Basuki</p>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="tgl-kirim">
+									<p>12-12-2022 13:00 WIB</p>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="ucapan">
+									<p>Selamat-selamat,Atas Pernikahannya</p>
+								</div>
+							</td>
+						</tr>
+					</table>
+					<hr>
+				</div>
+
+				<div class="dtl-pesan">
+					<table border="0">
+						<tr>
+							<td width="10" rowspan="3">
+								<div class="avatar-nama-blmTahu avtr">
+									<p>T</p>
+								</div>
+							</td>
+							<td>
+								<div class="nama">
+									<p>Taro Basuki</p>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="tgl-kirim">
+									<p>12-12-2022 13:00 WIB</p>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="ucapan">
+									<p>Selamat-selamat,Atas Pernikahannya</p>
+								</div>
+							</td>
+						</tr>
+					</table>
+					<hr>
+				</div>
+
+				<div class="dtl-pesan">
+					<table border="0">
+						<tr>
+							<td width="10" rowspan="3">
+								<div class="avatar-nama-tdkHadir avtr">
+									<p>A</p>
+								</div>
+							</td>
+							<td>
+								<div class="nama">
+									<p>Adi Sanusi</p>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="tgl-kirim">
+									<p>12-12-2022 13:00 WIB</p>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="ucapan">
+									<p>Wahhhh Selamat</p>
+								</div>
+							</td>
+						</tr>
+					</table>
+					<hr>
+				</div>
+
 			</div>
-			
 		</div>
 		<div class="akhir" data-aos="fade-down-left" data-aos-duration="1000" data-aos-delay="200">
 			<div class="header">
@@ -564,16 +819,16 @@
 				<!--Bingkai atas bagian akhir for Apple & Android Smartphone  -->
 				<img class="bingAtas-akhir-for-AAs" src="<?= base_url() ?>assets/images/green-shades/bingAtas-akhir-for-AAs.svg" alt="Bingkai Akhir">
 				<div class="hurufDepan-mempelai">
-					<p><?= substr($invitation->groom_nickname, 0, 1) ?><span style="color:#EFC207;">&</span><?= substr($invitation->bride_nickname, 0, 1) ?></p>
+					<p>R<span style="color:#EFC207;">&</span>R</p>
 				</div>
 				<div class="trm">
 					<p>Terimakasih</p>
 				</div>
 				<!--Bingkai bawah bagian akhir for desktop  -->
-				<img class="bingBawah-akhir-for-desk" src="<?= base_url() ?>assets/images/green-shades/bingBawah-akhir-for-desktop.svg" alt="Bingkai Akhir">
+				<img class="bingBawah-akhir-for-desk" src="assets/image/bingBawah-akhir-for-desktop.svg" alt="Bingkai Akhir">
 
 				<!--Bingkai bawah bagian akhir for Apple & Android Smartphone  -->
-				<img class="bingBawah-akhir-for-AAs" src="<?= base_url() ?>assets/images/green-shades/bingBawah-akhir-for-AAs.svg" alt="Bingkai Akhir">
+				<img class="bingBawah-akhir-for-AAs" src="assets/image/bingBawah-akhir-for-AAs.svg" alt="Bingkai Akhir">
 			</div>
 			<div class="akhir-isi">
 				<p>“Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu istri-istri dari jenismu sendiri, supaya kamu cenderung merasa tentram kepadanya, dan dijadikan-Nya, diantaramu rasa kasih dan sayang, Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda bagi orang-orang yang berfikir”</p>
@@ -602,59 +857,12 @@
 	<!--Lightbox CSS-->
 	<script src="<?= base_url() ?>assets/vendor/lightbox-plus-jquery.js"></script>
 
-	<script src="<?= base_url() ?>assets/script/green-shades-script_.js"></script>
+	<script src="<?= base_url() ?>assets/script/green-shades-script.js"></script>
 	<!--AOS Animate on scroll library-->
 	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 	<!--Initialize AOS-->
 	<script>
 		AOS.init();
-	</script>
-
-	<script>
-		$(document).ready(function() {
-			load_comment();
-			$("#submit-happy-message").submit(function(e) {
-				e.preventDefault();
-				var form = this;
-				var formdata = new FormData(form);
-				$.ajax({
-					url: "<?= base_url('undangan/submit_message') ?>",
-					type: "POST",
-					processData: false,
-					contentType: false,
-					data: formdata,
-					dataType: "json",
-					success: function(response) {
-						if (response.success == true) {
-							load_comment();
-							form.reset();
-						}
-					},
-					error: function() {
-						swal.fire(
-							"Gagal",
-							"Pesan tidak tersampaikan",
-							"error"
-						);
-					},
-				});
-			});
-
-			function load_comment() {
-				$id = $('#invtId').val();
-				$.ajax({
-					type: "GET",
-					url: "<?= base_url('undangan/get_message_standard?id=') ?>" + $id,
-					dataType: "json",
-					success: function(reponse) {
-						$("#display_message").html(reponse);
-					},
-					error: function(reponse) {
-						console.log(reponse.responseText);
-					},
-				});
-			}
-		});
 	</script>
 </body>
 

@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>0102|GreenShades|Demo</title>
 	<!--Style CSS-->
-	<link rel="stylesheet" href="<?= base_url() ?>assets/st_0001/css/style.css">
+	<link rel="stylesheet" href="<?= base_url() ?>assets/st_0001/css/style_.css">
 	<!--Lightbox CSS-->
 	<link rel="stylesheet" href="<?= base_url() ?>assets/st_0001/vendor/lightbox.css">
 	<!--CCS ANIMATE-->

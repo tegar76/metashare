@@ -19,6 +19,7 @@ body {
 	/*background-image: url('assets/image/Sampul.svg');*/
 	background-color: #fefefe;
 	z-index: 1;
+	overflow-x: hidden;
 }
 
 body::-webkit-scrollbar {

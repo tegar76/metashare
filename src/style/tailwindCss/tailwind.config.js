@@ -1,6 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./../../../**/*.{php, js}'],
+  content: [
+    '../../../**/**/*.{php, js}',
+    "./node_modules/flowbite/**/*.js"
+  ],
   theme: {
     extend: {
       colors: {
@@ -14,6 +17,14 @@ module.exports = {
         'danger-hover': '#ff3333',
         'warning': '#ff9933',
         'warning-hover': '#e67300',
+
+        // Font Tema 1
+        'tema1-sampul': '#fff4e2',
+        'tema1-cover': '#fff4e2',
+        'tema1-main': '#F0EDE5',
+        'tema1-dark-green': '#748c54ff',
+        'tema1-pink': '#ef6351',
+        'tema1-teal': '#618b95ff',
       },
       spacing: {
         '3/10': '30%',
@@ -25,9 +36,12 @@ module.exports = {
       fontFamily: {
         BacktoBlack: [ "BacktoBlack"],
         GreatVibes: [ "GreatVibes"],
-        Montserrat: [ "Montserrat"],
         MontserratBold: [ "MontserratBold"],
+        Montserrat: [ "Montserrat"],
         PrimaryPoppins: [ "Poppins"],
+        KalunaScriptDemo: [ "KalunaScriptDemo"],
+        RadicalsDemo: [ "RadicalsDemo"],
+        ShareDong : [ "ShareDong"],
       },
       fontSize: {
         'tiny': '1.125rem',
@@ -40,7 +54,19 @@ module.exports = {
       },
 
       screens: {
-        'xs': '500px',
+        '2xs': '380px', 
+        '1xs': '450px',
+        
+
+        /*
+          Ket: 
+            2xs =   Exstra small devices 
+            1xs =   Exstra small devices
+            xs =    Exstra small devices
+            sm =   Exstra small devices Landscape
+            md =   Exstra small devices
+            2xs =   Exstra small devices
+        */
       },
       backgroundImage: {
         'primary-sm': "url('../../../assets/bg_img/bg_primary_sm2.png')",
@@ -49,7 +75,10 @@ module.exports = {
         'cover-crop': "url('../../../assets/bg_img/bg_foto_cover_crop.png')",
         'mp-primary-xl': "url('../../../assets/bg_img/bg_marketplace/mp_bg_primary_xl.svg')",
         'mp-primary-sm': "url('../../../assets/bg_img/bg_marketplace/mp_bg_primary_sm.svg')",
-        'split-white-sky': "linear-gradient(to bottom left, #F9FDF7 50% , #F1F1F1 50%);"
+        'split-white-sky': "linear-gradient(to bottom left, #F9FDF7 50% , #F1F1F1 50%);",
+
+        // Tema 1
+        'tema1-sampul-bg-photo': "url('../../../assets/img/cover_250x250.png')",
       },
       animation: {
         'spin-slow': 'spin 2s linear infinite',
@@ -138,6 +167,9 @@ module.exports = {
            },
         },
       }),
+      textShadow: {
+        'tema1': '2px 2px 2px rgb(239, 99, 81)',
+      },
       columns: {
         '4xs': '14rem',
         '5xs': '12rem',
@@ -154,6 +186,7 @@ module.exports = {
     require('@tailwindcss/forms'),
     require('tw-elements/dist/plugin'),
     require('flowbite/plugin'),
+    require('tailwindcss-textshadow'),
   ],
   future: {
     defaultLineHeights: true,

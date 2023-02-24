@@ -4,120 +4,88 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/png" sizes="16x16" href="<?= base_url('assets/icons/green-shades/ic-ms.png') ?>">
 	<title>0102|GreenShades|Demo</title>
 	<!--Style CSS-->
-	<link rel="stylesheet" href="<?= base_url() ?>assets/st_0001/css/style_.css">
+	<link rel="stylesheet" href="<?= base_url('assets/style/gs-style.css') ?>">
 	<!--Lightbox CSS-->
-	<link rel="stylesheet" href="<?= base_url() ?>assets/st_0001/vendor/lightbox.css">
+	<link rel="stylesheet" href="<?= base_url('assets/vendor/lightbox.css') ?>">
 	<!--CCS ANIMATE-->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 	<!--AOS-->
 	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 	<!--Icon Tittle -->
-	<link rel="icon" href="<?= base_url() ?>assets/st_0001/icon/ic-ms.png">
+
+	<!--<style>-->
+	<!--	img[alt="www.000webhost.com"] {-->
+	<!--		display: none-->
+	<!--	}-->
+
+	<!--	;-->
+	<!--</style>-->
 </head>
 
 <body>
 	<!-- ======================= SAMPUL ========================-->
 	<div class="sampul" id="sampul">
-		<section class="group3">
-			<img src="<?= base_url() ?>assets/st_0001/image/sampul/group3.svg" alt="group3">
-		</section>
+		<!--Responsive Bingkai-->
+		<div class="group1">
+			<img src="<?= base_url('assets/images/green-shades/sampul/group1.svg') ?>" alt="group1">
+		</div>
 
-		<section class="group4">
-			<img src="<?= base_url() ?>assets/st_0001/image/sampul/group4.svg" alt="group4">
-		</section>
+		<div class="group2">
+			<img src="<?= base_url('assets/images/green-shades/sampul/group2.svg') ?>" alt="group2">
+		</div>
 
-		<!--Responsive Bingkai For Tablets-->
-		<section class="group1">
-			<img src="<?= base_url() ?>assets/st_0001/image/sampul/group1.svg" alt="group1">
-		</section>
-
-		<section class="group2">
-			<img src="<?= base_url() ?>assets/st_0001/image/sampul/group2.svg" alt="group2">
-		</section>
-		<!--/Responsive Bingkai For Tablets -->
-
-		<!--Responsive Bingkai For Apple Smartphone & Android Smartphone-->
-		<section class="group5">
-			<img src="<?= base_url() ?>assets/st_0001/image/sampul/group5.svg" alt="group5">
-		</section>
-
-		<section class="group6">
-			<img src="<?= base_url() ?>assets/st_0001/image/sampul/group6.svg" alt="group6">
-		</section>
-		<!--/Responsive Bingkai For Apple Smartphone & Android Smartphone-->
-
-		<!--Responsive Bingkai Smartphone small-->
-		<section class="group7">
-			<img src="<?= base_url() ?>assets/st_0001/image/sampul/group7.svg" alt="group7">
-		</section>
-
-		<section class="group8">
-			<img src="<?= base_url() ?>assets/st_0001/image/sampul/group8.svg" alt="group8">
-		</section>
-
-		<!--/Responsive Bingkai Smartphone small -->
-
-		<section>
+		<div class="contain">
 			<div class="pengantar">
-				<div class="container">
-					<div class="text">
-						<p>The</p>
-						<p>Wedding Of</p>
-					</div>
+				<div class="text">
+					<p>The</p>
+					<p>Wedding Of</p>
 				</div>
 			</div>
-		</section>
 
-		<section>
 			<div class="waktuAkad">
 				<p>09 September 2022</p>
 			</div>
-		</section>
 
-		<div class="batas">
-			<svg height="15" viewBox="0 0 184 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-				<path d="M93.1274 14.4343C92.8921 14.728 92.4477 14.7351 92.2031 14.4491L87.2883 8.70034C85.8136 6.41438 85.5898 4.23743 86.6952 2.15472C86.716 2.11558 86.7424 2.07767 86.7721 2.04476C88.6293 -0.014218 90.9306 1.25997 92.4392 3.36239C92.7095 3.73905 93.3 3.74402 93.5737 3.3699C95.2184 1.12238 97.3766 0.26907 99.2409 2.00201C99.265 2.02447 99.2883 2.05055 99.3079 2.0771C101.023 4.40322 99.1615 6.44608 97.9115 8.46375L93.1274 14.4343Z" fill="#ABC1B9" stroke="white" stroke-width="0.6" stroke-miterlimit="8.7" stroke-linecap="round" stroke-linejoin="bevel" />
-				<line x1="1" y1="7.56465" x2="85.8212" y2="7.56466" stroke="#1A1C1F" stroke-opacity="0.75" stroke-width="0.9" />
-				<line x1="0.55" y1="10.686" x2="0.55" y2="4.67509" stroke="#1A1C1F" stroke-opacity="0.75" stroke-width="0.9" />
-				<line x1="183.55" y1="10.686" x2="183.55" y2="4.67509" stroke="#1A1C1F" stroke-opacity="0.75" stroke-width="0.9" />
-				<line x1="99.179" y1="7.56465" x2="184" y2="7.56464" stroke="#1A1C1F" stroke-opacity="0.75" stroke-width="0.9" />
-			</svg>
-		</div>
+			<div class="batas">
+				<svg height="15" viewBox="0 0 184 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M93.1274 14.4343C92.8921 14.728 92.4477 14.7351 92.2031 14.4491L87.2883 8.70034C85.8136 6.41438 85.5898 4.23743 86.6952 2.15472C86.716 2.11558 86.7424 2.07767 86.7721 2.04476C88.6293 -0.014218 90.9306 1.25997 92.4392 3.36239C92.7095 3.73905 93.3 3.74402 93.5737 3.3699C95.2184 1.12238 97.3766 0.26907 99.2409 2.00201C99.265 2.02447 99.2883 2.05055 99.3079 2.0771C101.023 4.40322 99.1615 6.44608 97.9115 8.46375L93.1274 14.4343Z" fill="#ABC1B9" stroke="white" stroke-width="0.6" stroke-miterlimit="8.7" stroke-linecap="round" stroke-linejoin="bevel" />
+					<line x1="1" y1="7.56465" x2="85.8212" y2="7.56466" stroke="#1A1C1F" stroke-opacity="0.75" stroke-width="0.9" />
+					<line x1="0.55" y1="10.686" x2="0.55" y2="4.67509" stroke="#1A1C1F" stroke-opacity="0.75" stroke-width="0.9" />
+					<line x1="183.55" y1="10.686" x2="183.55" y2="4.67509" stroke="#1A1C1F" stroke-opacity="0.75" stroke-width="0.9" />
+					<line x1="99.179" y1="7.56465" x2="184" y2="7.56464" stroke="#1A1C1F" stroke-opacity="0.75" stroke-width="0.9" />
+				</svg>
+			</div>
 
-		<section>
 			<div class="mempelai">
 				<P>Runa & Ratna</P>
 			</div>
-		</section>
 
-		<div class="batas">
-			<svg height="15" viewBox="0 0 184 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-				<path d="M93.1274 14.4343C92.8921 14.728 92.4477 14.7351 92.2031 14.4491L87.2883 8.70034C85.8136 6.41438 85.5898 4.23743 86.6952 2.15472C86.716 2.11558 86.7424 2.07767 86.7721 2.04476C88.6293 -0.014218 90.9306 1.25997 92.4392 3.36239C92.7095 3.73905 93.3 3.74402 93.5737 3.3699C95.2184 1.12238 97.3766 0.26907 99.2409 2.00201C99.265 2.02447 99.2883 2.05055 99.3079 2.0771C101.023 4.40322 99.1615 6.44608 97.9115 8.46375L93.1274 14.4343Z" fill="#ABC1B9" stroke="white" stroke-width="0.6" stroke-miterlimit="8.7" stroke-linecap="round" stroke-linejoin="bevel" />
-				<line x1="1" y1="7.56465" x2="85.8212" y2="7.56466" stroke="#1A1C1F" stroke-opacity="0.75" stroke-width="0.9" />
-				<line x1="0.55" y1="10.686" x2="0.55" y2="4.67509" stroke="#1A1C1F" stroke-opacity="0.75" stroke-width="0.9" />
-				<line x1="183.55" y1="10.686" x2="183.55" y2="4.67509" stroke="#1A1C1F" stroke-opacity="0.75" stroke-width="0.9" />
-				<line x1="99.179" y1="7.56465" x2="184" y2="7.56464" stroke="#1A1C1F" stroke-opacity="0.75" stroke-width="0.9" />
-			</svg>
-		</div>
+			<div class="batas">
+				<svg height="15" viewBox="0 0 184 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M93.1274 14.4343C92.8921 14.728 92.4477 14.7351 92.2031 14.4491L87.2883 8.70034C85.8136 6.41438 85.5898 4.23743 86.6952 2.15472C86.716 2.11558 86.7424 2.07767 86.7721 2.04476C88.6293 -0.014218 90.9306 1.25997 92.4392 3.36239C92.7095 3.73905 93.3 3.74402 93.5737 3.3699C95.2184 1.12238 97.3766 0.26907 99.2409 2.00201C99.265 2.02447 99.2883 2.05055 99.3079 2.0771C101.023 4.40322 99.1615 6.44608 97.9115 8.46375L93.1274 14.4343Z" fill="#ABC1B9" stroke="white" stroke-width="0.6" stroke-miterlimit="8.7" stroke-linecap="round" stroke-linejoin="bevel" />
+					<line x1="1" y1="7.56465" x2="85.8212" y2="7.56466" stroke="#1A1C1F" stroke-opacity="0.75" stroke-width="0.9" />
+					<line x1="0.55" y1="10.686" x2="0.55" y2="4.67509" stroke="#1A1C1F" stroke-opacity="0.75" stroke-width="0.9" />
+					<line x1="183.55" y1="10.686" x2="183.55" y2="4.67509" stroke="#1A1C1F" stroke-opacity="0.75" stroke-width="0.9" />
+					<line x1="99.179" y1="7.56465" x2="184" y2="7.56464" stroke="#1A1C1F" stroke-opacity="0.75" stroke-width="0.9" />
+				</svg>
+			</div>
 
-		<section class="tamu">
-			<div class="container">
+			<div class="tamu">
 				<div class="isi">
 					<p>Kepada Yth</p>
 					<p>Bapak/Ibu/Saudara/i</p>
-					<h2>Danur Pratama Rahaja</h2>
+					<h2>Danur Pratama S.Kom</h2>
 				</div>
 			</div>
-		</section>
 
-		<section class="ket">
-			<p>*Maaf Bila Ada kesalahan Penulisan Nama & Gelar</p>
-		</section>
+			<div class="ket">
+				<p>*Maaf Bila Ada kesalahan Penulisan Nama & Gelar</p>
+			</div>
 
-		<section class="btn" onclick="playLang()">
-			<div class="container">
+			<div class="btn" onclick="playLang()">
 				<a href="#" id="buka">
 					<svg height="24" viewBox="0 0 19 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<g id="in in-padlove-small" clip-path="url(#clip0_42_16)">
@@ -138,37 +106,36 @@
 					<p>Buka undangan</p>
 				</a>
 			</div>
-		</section>
+		</div>
 	</div>
 	<!--========================= /SAMPUL END ===================-->
-
-
 
 	<!-- ======================= Landing Page(Cover) ========================-->
 	<section class="cover" id="cover">
 		<!--note Demo for Desktop,tablet & ipad mini-->
 		<div class="ndemo-desk">
-			<img src="<?= base_url() ?>assets/st_0001/image/note-demo-for-desk.svg" alt="note demo">
+			<img src="<?= base_url('assets/images/green-shades/note-demo-for-desk.svg') ?>" alt="note demo">
 		</div>
 
 		<!--note Demo for Apple Android smartphone-->
 		<div class="ndemo-AAs">
-			<img src="<?= base_url() ?>assets/st_0001/image/note-demo-for-AAs.svg" alt="note demo">
+			<img src="<?= base_url('assets/images/green-shades/note-demo-for-AAs.svg') ?>" alt="note demo">
 		</div>
 
 		<!--note Demo for Apple Apple mini-->
 		<div class="ndemo-Ap-mini">
-			<img src="<?= base_url() ?>assets/st_0001/image/note-demo-for-Apple-mini.svg" alt="note demo">
+			<img src="<?= base_url('assets/images/green-shades/note-demo-for-Apple-mini.svg') ?>" alt="note demo">
 		</div>
 
 		<div class="bCover">
-			<img src="<?= base_url() ?>assets/st_0001/image/cover/bingkaiCover.png" alt="bingkaiCover">
+			<!--<img src="assets/image/cover/bingkaiCover.png" alt="bingkaiCover">-->
 			<div class="nSingkat">
 				<p class="animate__animated animate__backInDown animate__fast">Runa</p>
 				<p>&</p>
 				<p class="animate__animated animate__backInUp animate__fast">Ratna</p>
 			</div>
 		</div>
+		<input type="hidden" id="countDownTime" name="count_down" value="May 30, 2023 13:43:00">
 
 		<div class="contWa">
 			<div class="jud">
@@ -209,7 +176,8 @@
 										<path id="Vector 1" d="M7.40993 1.81482L7.40992 5.87938C7.40992 6.48912 8.21387 6.71015 8.52559 6.18611L8.70954 5.87685C9.02126 5.35281 9.82521 5.57385 9.82521 6.18359V7.46173C9.82521 7.7931 10.0938 8.06173 10.4252 8.06173H11.2689C11.6003 8.06173 11.8689 7.7931 11.8689 7.46173V1.81482" stroke-opacity="0.784" stroke-width="0.9" />
 									</g>
 								</g>
-							</svg></a>
+							</svg>
+						</a>
 					</li>
 					<li>
 						<a href="#mempelai" class="nav_link"><svg viewBox="0 0 19 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -220,7 +188,8 @@
 										<path id="path3570" d="M10.5477 6.95293C10.3126 7.23939 9.87661 7.24636 9.63248 6.96756L7.59813 4.64433C6.92132 3.61997 6.812 2.64389 7.30536 1.70964C7.32622 1.67014 7.35268 1.63299 7.38342 1.60058C8.09873 0.846372 9.0387 0.84704 9.75268 1.35504C10.1259 1.62059 10.7205 1.61487 11.0807 1.33187C11.7147 0.833733 12.4202 0.951767 13.1276 1.58976C13.1522 1.6119 13.1754 1.63725 13.195 1.66389C13.9632 2.70926 13.1067 3.62881 12.5303 4.53709L10.5477 6.95293Z" stroke-opacity="0.780392" stroke-width="0.9" stroke-miterlimit="8.7" stroke-linecap="round" stroke-linejoin="bevel" />
 									</g>
 								</g>
-							</svg></a>
+							</svg>
+						</a>
 					</li>
 					<li>
 						<a href="#waktu" class="nav_link"><svg viewBox="0 0 19 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -235,10 +204,12 @@
 										<line id="Line 6" x1="13.45" y1="1.45" x2="13.45" y2="4.55" stroke-opacity="0.7804" stroke-width="0.9" stroke-linecap="round" />
 									</g>
 								</g>
-							</svg></a>
+							</svg>
+						</a>
 					</li>
 					<li>
-						<a href="#galery" class="nav_link"><svg width="26" height="24" viewBox="0 0 26 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<a href="#galery" class="nav_link">
+							<svg width="26" height="24" viewBox="0 0 26 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<g id="in in-galery-Small">
 									<g id="Group 7">
 										<g id="Group 5">
@@ -253,10 +224,12 @@
 										<circle id="Ellipse 3" cx="15.1124" cy="14" r="5.55" stroke-opacity="0.7804" stroke-width="0.9" />
 									</g>
 								</g>
-							</svg></a>
+							</svg>
+						</a>
 					</li>
 					<li>
-						<a href="#pesan" class="nav_link"><svg viewBox="0 0 19 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<a href="#pesan" class="nav_link">
+							<svg viewBox="0 0 19 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<g id="in in-message-small" clip-path="url(#clip0_37_35)">
 									<g id="Group 6">
 										<path id="Vector 2" d="M1 5V17.7158C1 18.6128 1.7271 19.3399 2.62402 19.3399C3.63489 19.3399 4.40015 20.2535 4.22288 21.2487L4 22.5C3.89214 22.8555 4.34283 23.1091 4.59069 22.8323L7.34281 19.7594C7.58192 19.4924 7.92338 19.3399 8.28178 19.3399H14C16.2091 19.3399 18 17.549 18 15.3399V5C18 2.79086 16.2091 1 14 1H5C2.79086 1 1 2.79086 1 5Z" stroke-opacity="0.7804" stroke-width="0.9" />
@@ -271,7 +244,8 @@
 										<rect width="19" height="24" fill="white" />
 									</clipPath>
 								</defs>
-							</svg></a>
+							</svg>
+						</a>
 					</li>
 				</ul>
 			</div>
@@ -280,664 +254,611 @@
 
 		<!---------- Musik & Berikan Hadiah---------->
 		<audio id="music" loop>
-			<source src="<?= base_url() ?>assets/st_0001/music/music2.mpeg" type="audio/mp3">
+			<source src="<?= base_url('assets/music/shane-filan-beautiful-in-white.mpeg') ?>" type="audio/mp3">
 		</audio>
-	</section>
 
-	<!---------- Wave For Desktop---------->
-	<div class="wave-desk">
-		<img src="<?= base_url() ?>assets/st_0001/image/wave-mempelai-for-Desktop.svg" alt="wave for desktop">
-	</div>
+		<!-- Wave For Desktop
+        	<img  class="wave-desk" src="assets/image/wave-mempelai-for-Desktop.svg" alt="wave for desktop">
+        
+	       Wave For Tablets
+        	<img class="wave-tab" src="assets/image/wave-mempelai-for-tablets.svg" alt="wave for tablets">
+        
+          Wave For Apple & Android Smartphone
+        	<img class="wave-AAs" src="assets/image/wave-mempelai-for-AAsmartphone.svg" alt="wave for Apple & Android smartphone">
 
-	<!---------- Wave For Tablets---------->
-	<div class="wave-tab">
-		<img src="<?= base_url() ?>assets/st_0001/image/wave-mempelai-for-tablets.svg" alt="wave for tablets">
-	</div>
+          Wave For Apple Smartphone mini
+        	<img class="wave-Ap-mini" src="assets/image/wave-mempelai-for-Ap-mini.svg" alt="wave for Apple & Android smartphone">-->
 
-	<!---------- Wave For Tablets mini---------->
-	<div class="wave-tab-min">
-		<img src="<?= base_url() ?>assets/st_0001/image/wave-mempelai-for-tablets.svg" alt="wave for tablets mini">
-	</div>
+		<img class="giftt" id="btnGift" src="<?= base_url() ?>assets/icons/green-shades/in in-gift.svg" alt="gift">
 
-	<!---------- Wave For Apple & Android Smartphone---------->
-	<div class="wave-AAs">
-		<img src="<?= base_url() ?>assets/st_0001/image/wave-mempelai-for-AAsmartphone.svg" alt="wave for Apple & Android smartphone">
-	</div>
+		<img id="setm" class="setmus" src="<?= base_url() ?>assets/icons/green-shades/in in-play.svg" alt="SettingMusic" onclick="setmus()">
 
-	<!---------- Wave For Apple Smartphone mini---------->
-	<div class="wave-Ap-mini">
-		<img src="<?= base_url() ?>assets/st_0001/image/wave-mempelai-for-Ap-mini.svg" alt="wave for Apple & Android smartphone">
-	</div>
+		<!---------- Modal Berikan Hadiah ---------->
+		<div id="myModal" class="myModal">
+			<div class="modal-content">
 
-	<img class="giftt" id="btnGift" src="<?= base_url() ?>assets/st_0001/icon/in in-gift.svg" alt="gift">
+				<!-- notif copied -->
+				<div class="notf-copy" id="notf-copy">
+					<p id="cSucces"> &#x2714; Berhasil Dicopy</p>
+				</div>
 
-	<img id="setm" class="setmus" src="<?= base_url() ?>assets/st_0001/icon/in in-play.svg" alt="SettingMusic" onclick="setmus()">
+				<div class="judul">
+					<p class="jd">Berikan Hadiah</p>
+				</div>
+				<div class="isi">
+					<p>Tanpa mengurangi rasa hormat, untuk melengkapi kebahagian pengantin, anda dapat memberikan tanda kasih dengan melalui transfer ke rekening berikut:</p>
+				</div>
+				<div class="card">
+					<!----------Virtual Account----------->
+					<div class="card-box">
+						<img class="va-image" src="<?= base_url() ?>assets/images/green-shades/gift_va(BCA)/gift_card_va_bca.svg" alt="Card Virtual Akun BCA">
+						<div class="no-va">
+							<p id="no-va">2235577</p>
+							<img class="copy-va" src="<?= base_url() ?>assets/icons/green-shades/in in-copy.svg" alt="copy" onclick="copyToClipboard('no-va');return false">
+						</div>
+						<p class="recipient">*Recipient:Danteria Sah</p>
+						<div class="barcode">
+							<img class="barcode-isi" src="<?= base_url() ?>assets/images/green-shades/gift_va(BCA)/gift_card_va_barcode(BCA).png" alt="barcode">
+						</div>
+						<div class="btn-saveQR">
+							<button class="btn-saveQR_Code">Save QR Code</button>
+						</div>
+					</div>
 
-	<!---------- Modal Berikan Hadiah ---------->
-	<div id="myModal" class="myModal">
-		<div class="modal-content">
-			<div class="judul">
-				<p class="jd">Berikan Hadiah</p>
+					<div class="card-box">
+						<img class="va-image" src="<?= base_url() ?>assets/images/green-shades/gift_va(BRI)/gift_card_va_bri.svg" alt="Card Virtual Akun BRI">
+						<div class="no-va">
+							<p id="no-va">123456789012345</p>
+							<img class="copy-va" src="<?= base_url() ?>assets/icons/green-shades/in in-copy.svg" alt="copy" onclick="copyToClipboard('no-va');return false;">
+						</div>
+						<p class="recipient">*Recipient:Danteria Sah</p>
+						<div class="barcode">
+							<img class="barcode-isi" src="<?= base_url() ?>assets/images/green-shades/gift_va(BRI)/gift_card_va_barcode(BRI).png" alt="barcode">
+						</div>
+						<div class="btn-saveQR">
+							<button class="btn-saveQR_Code">Save QR Code</button>
+						</div>
+					</div>
+
+					<div class="card-box">
+						<img class="va-image" src="a<?= base_url() ?>assets/images/green-shades/gift_va(MANDIRI)/gift_card_va_mandiri.svg" alt="Card Virtual Akun MANDIRI">
+						<div class="no-va">
+							<p id="no-va">1234567890123</p>
+							<img class="copy-va" src="<?= base_url() ?>assets/icons/green-shades/in in-copy.svg" alt="copy" onclick="copyToClipboard('no-va');return false;">
+						</div>
+						<p class="recipient">*Recipient:Danteria Sah</p>
+						<div class="barcode">
+							<img class="barcode-isi" src="<?= base_url() ?>assets/images/green-shades/gift_va(MANDIRI)/gift_card_va_barcode(MANDIRI).png" alt="barcode">
+						</div>
+						<div class="btn-saveQR">
+							<button class="btn-saveQR_Code">Save QR Code</button>
+						</div>
+					</div>
+
+					<div class="card-box">
+						<img class="va-image" src="<?= base_url() ?>assets/images/green-shades/gift_va(MANDIRI)/gift_card_va_mandiri.svg" alt="Card Virtual Akun MANDIRI">
+						<div class="no-va">
+							<p id="no-va">1234567890</p>
+							<img class="copy-va" src="<?= base_url() ?>assets/icons/green-shades/in in-copy.svg" alt="copy" onclick="copyToClipboard('no-va');return false;">
+						</div>
+						<p class="recipient">*Recipient:Danteria Sah</p>
+						<div class="barcode">
+							<img class="barcode-isi" src="<?= base_url() ?>assets/images/green-shades/gift_va(MANDIRI)/gift_card_va_barcode(MANDIRI).png" alt="barcode">
+						</div>
+						<div class="btn-saveQR">
+							<button class="btn-saveQR_Code">Save QR Code</button>
+						</div>
+					</div>
+
+					<div class="card-box">
+						<img class="va-image" src="<?= base_url() ?>assets/images/green-shades/gift_va(BSI)/gift_card_va_bsi.svg" alt="Card Virtual Akun BSI">
+						<div class="no-va">
+							<p id="no-va">12345678901234</p>
+							<img class="copy-va" src="<?= base_url() ?>assets/icons/green-shades/in in-copy.svg" alt="copy" onclick="copyToClipboard('no-va');return false">
+						</div>
+						<p class="recipient">*Recipient:Danteria Sah</p>
+						<div class="barcode">
+							<img class="barcode-isi" src="<?= base_url() ?>assets/images/green-shades/gift_va(BSI)/gift_card_va_barcode(BSI).png" alt="barcode">
+						</div>
+						<div class="btn-saveQR">
+							<button class="btn-saveQR_Code">Save QR Code</button>
+						</div>
+					</div>
+
+					<div class="card-box">
+						<img class="va-image" src="<?= base_url() ?>assets/images/green-shades/gift_va(CIMBNIAGA)/gift_card_va_cimbniaga.svg" alt="Card Virtual Akun CIMBNIAGA">
+						<div class="no-va">
+							<p id="no-va">087899706753</p>
+							<img class="copy-va" src="<?= base_url() ?>assets/icons/green-shades/in in-copy.svg" alt="copy" onclick="copyToClipboard('no-va');return false">
+						</div>
+						<p class="recipient">*Recipient:Danteria Sah</p>
+						<div class="barcode">
+							<img class="barcode-isi" src="<?= base_url() ?>assets/images/green-shades/gift_va(CIMBNIAGA)/gift_card_va_barcode(CIMBNIAGA).png" alt="barcode">
+						</div>
+						<div class="btn-saveQR">
+							<button class="btn-saveQR_Code">Save QR Code</button>
+						</div>
+					</div>
+				</div>
+				<footer>
+					<div id="in-close" class="in-close">&times;</div>
+				</footer>
 			</div>
-			<div class="isi">
-				<p>Tanpa mengurangi rasa hormat, untuk melengkapi kebahagian pengantin, anda dapat memberikan tanda kasih dengan melalui transfer ke rekening berikut:</p>
-			</div>
-			<div class="card">
-				<!----------Card Box VA BCA----------->
-				<div class="card-box-BCA">
-					<img class="BCA-image" src="<?= base_url() ?>assets/st_0001/image/gift_va(BCA)/gift_card_va_bca.svg" alt="Card Virtual Akun BCA">
-					<div class="no_va_BCA">
-						<input id="myInput_VA_BCA" type="text" value="2235577880" disabled>
-						<img class="copy_VA_BCA" src="<?= base_url() ?>assets/st_0001/icon/in in-copy.svg" alt="copy" onclick="copy_VA_BCA()">
-						<span class="recipient">
-							<p>*Recipient:Danteria Sah</p>
-						</span>
-					</div>
-					<div class="barcode">
-						<img class="barcode-isi" src="<?= base_url() ?>assets/st_0001/image/gift_va(BCA)/gift_card_va_barcode(BCA).png" alt="barcode">
-					</div>
-					<div class="btn-saveQR">
-						<button class="btn-saveQR_Code">Save QR Code</button>
-					</div>
-				</div>
-
-				<!----------Card Box VA BRI----------->
-				<div class="card-box-BRI">
-					<img class="BRI-image" src="<?= base_url() ?>assets/st_0001/image/gift_va(BRI)/gift_card_va_bri.svg" alt="Card Virtual Akun BRI">
-					<div class="no_va_BRI">
-						<input id="myInput_VA_BRI" type="text" value="123456789012345" disabled>
-						<img class="copy_VA_BRI" src="<?= base_url() ?>assets/st_0001/icon/in in-copy.svg" alt="copy" onclick="copy_VA_BRI()">
-						<span class="recipient">
-							<p>*Recipient:Danteria Sah</p>
-						</span>
-					</div>
-					<div class="barcode">
-						<img class="barcode-isi" src="<?= base_url() ?>assets/st_0001/image/gift_va(BRI)/gift_card_va_barcode(BRI).png" alt="barcode">
-					</div>
-					<div class="btn-saveQR">
-						<button class="btn-saveQR_Code">Save QR Code</button>
-					</div>
-				</div>
-
-
-				<!----------Card Box VA MANDIRI----------->
-				<div class="card-box-MANDIRI">
-					<img class="MANDIRI-image" src="<?= base_url() ?>assets/st_0001/image/gift_va(MANDIRI)/gift_card_va_mandiri.svg" alt="Card Virtual Akun MANDIRI">
-					<div class="no_va_MANDIRI">
-						<input id="myInput_VA_MANDIRI" type="text" value="1234567890123" disabled>
-						<img class="copy_VA_MANDIRI" src="<?= base_url() ?>assets/st_0001/icon/in in-copy.svg" alt="copy" onclick="copy_VA_MANDIRI()">
-						<span class="recipient">
-							<p>*Recipient:Danteria Sah</p>
-						</span>
-					</div>
-					<div class="barcode">
-						<img class="barcode-isi" src="<?= base_url() ?>assets/st_0001/image/gift_va(MANDIRI)/gift_card_va_barcode(MANDIRI).png" alt="barcode">
-					</div>
-					<div class="btn-saveQR">
-						<button class="btn-saveQR_Code">Save QR Code</button>
-					</div>
-				</div>
-
-
-				<!----------Card Box VA BSI----------->
-				<div class="card-box-BSI">
-					<img class="BSI-image" src="<?= base_url() ?>assets/st_0001/image/gift_va(BSI)/gift_card_va_bsi.svg" alt="Card Virtual Akun BSI">
-					<div class="no_va_BSI">
-						<input id="myInput_VA_BSI" type="text" value="1234567890" disabled>
-						<img class="copy_VA_BSI" src="<?= base_url() ?>assets/st_0001/icon/in in-copy.svg" alt="copy" onclick="copy_VA_BSI()">
-						<span class="recipient">
-							<p>*Recipient:Danteria Sah</p>
-						</span>
-					</div>
-					<div class="barcode">
-						<img class="barcode-isi" src="<?= base_url() ?>assets/st_0001/image/gift_va(BSI)/gift_card_va_barcode(BSI).png" alt="barcode">
-					</div>
-					<div class="btn-saveQR">
-						<button class="btn-saveQR_Code">Save QR Code</button>
-					</div>
-				</div>
-
-				<!----------Card Box VA CIMBNIAGA----------->
-				<div class="card-box-CIMBNIAGA">
-					<img class="CIMBNIAGA-image" src="<?= base_url() ?>assets/st_0001/image/gift_va(CIMBNIAGA)/gift_card_va_cimbniaga.svg" alt="Card Virtual Akun CIMBNIAGA">
-					<div class="no_va_CIMBNIAGA">
-						<input id="myInput_VA_CIMBNIAGA" type="text" value="12345678901234" disabled>
-						<img class="copy_VA_CIMBNIAGA" src="<?= base_url() ?>assets/st_0001/icon/in in-copy.svg" alt="copy" onclick="copy_VA_CIMBNIAGA()">
-						<span class="recipient">
-							<p>*Recipient:Danteria Sah</p>
-						</span>
-					</div>
-					<div class="barcode">
-						<img class="barcode-isi" src="<?= base_url() ?>assets/st_0001/image/gift_va(CIMBNIAGA)/gift_card_va_barcode(CIMBNIAGA).png" alt="barcode">
-					</div>
-					<div class="btn-saveQR">
-						<button class="btn-saveQR_Code">Save QR Code</button>
-					</div>
-				</div>
-
-				<!----------Card Box VA DANA----------->
-				<div class="card-box-DANA">
-					<img class="DANA-image" src="<?= base_url() ?>assets/st_0001/image/gift_va(DANA)/gift_card_va_dana.svg" alt="Card Virtual Akun DANA">
-					<div class="no_va_DANA">
-						<input id="myInput_VA_DANA" type="text" value="12345678901234567" disabled>
-						<img class="copy_VA_DANA" src="<?= base_url() ?>assets/st_0001/icon/in in-copy.svg" alt="copy" onclick="copy_VA_DANA()">
-						<span class="recipient">
-							<p>*Recipient:Danteria Sah</p>
-						</span>
-					</div>
-					<div class="barcode">
-						<img class="barcode-isi" src="<?= base_url() ?>assets/st_0001/image/gift_va(DANA)/gift_card_va_barcode(DANA).png" alt="barcode">
-					</div>
-					<div class="btn-saveQR">
-						<button class="btn-saveQR_Code">Save QR Code</button>
-					</div>
-				</div>
-			</div>
-			<footer>
-				<div id="in-close" class="in-close">&times;</div>
-			</footer>
 		</div>
-	</div>
-
+	</section>
 	<!-- ======================= END Landing Page(Cover) ========================-->
 
-	<!--==============Main Content=============-->
+	<!-- ======================= Landing Page(Mempelai) ========================-->
+	<section id="mempelai">
+		<div class="isi">
+			<div class="bismillah" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="100">
+				<img src="<?= base_url() ?>assets/images/green-shades/bissmilah.svg" alt="Bismillah Image">
+			</div>
+			<div class="pembuka">
+				<p data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="250">Assalamuaikum Warohmatullohi Wabaroktuh</p>
+				<p data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="350">Maha Suci Alloh SWT Yang Telah Menciptakan Mahluknya Berpasang-Pasangan, Ya Alloh Semoga Ridho-Mu Tercurah Mengiringi Pernikahan Putra-Putri Kami :</p>
+			</div>
+			<div class="pempelai-pria" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="450">
+				<p>Runa Solahudin</p>
+				<a href="#"><img src="<?= base_url() ?>assets/images/green-shades/ig.png" alt="ic-Instagram"></a>
+				<p>Putri Ke-1 dari Bapak Lorem Ipsum & Ibu Lorem Doren (Bandung)</p>
+			</div>
+			<div class="dengan" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="550">
+				<p>Dengan</p>
+			</div>
+			<div class="pempelai-wanita" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="650">
+				<p>Ratna Diah Pitaloka</p>
+				<a href="#">
+					<img src="<?= base_url() ?>assets/images/green-shades/ig.png" alt="ic-Instagram"></a>
+				<p>Putri Ke-2 dari Bapak Lorem Ipsum & Ibu Lorem Doren (Jakarta)</p>
+			</div>
+			<div class="penutup" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="750">
+				<p>Untuk Melaksanakan Sunah Rosul-mu dalam membentuk Keluarga Sakinah, Mawadah dan Warohmah</p>
+			</div>
+		</div>
 
-	<div class="content">
-		<section id="mempelai">
-			<div class="isi">
-				<div class="bismillah" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="100">
-					<img src="<?= base_url() ?>assets/st_0001/image/bissmilah.svg" alt="Bismillah Image">
+		<!--Diveder For Desktop,tablet & tablet mini-->
+		<div class="dive">
+			<img src="<?= base_url() ?>assets/images/green-shades/dive-mempelai.svg" alt="diveder">
+
+		</div>
+
+		<!--Diveder For Android & Apple Smartphone & Apple Smartphone mini-->
+		<div class="dive-AAs">
+			<img src="<?= base_url() ?>assets/images/green-shades/dive-mempelai-for-AAsmartphone.svg" alt="diveder">
+
+		</div>
+	</section>
+
+	<section id="waktu">
+		<div class="isi">
+			<!--Tasyakuran-->
+			<div class="tasyakuran" data-aos="fade-down-right" data-aos-duration="1000" data-aos-delay="150">
+				<p class="judul">Tasyakuran</p>
+				<div class="batas">
+					<svg height="13" viewBox="0 0 101 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<g id="Group 20">
+							<path id="path3570" d="M51.174 12.4343C50.9386 12.728 50.4942 12.7351 50.2497 12.4491L46.1042 7.60027C44.8423 5.64396 44.649 3.78078 45.5914 1.99816C45.6121 1.95899 45.6385 1.92114 45.6683 1.88831C47.2231 0.173184 49.1393 1.17742 50.4309 2.90416C50.7086 3.27539 51.3001 3.28078 51.5809 2.91189C52.9773 1.07726 54.7808 0.406048 56.3441 1.85395C56.3683 1.87637 56.3915 1.9024 56.411 1.92898C57.8742 3.9204 56.2802 5.66972 55.2098 7.39748L51.174 12.4343Z" fill="#5E887C" stroke="white" stroke-width="0.6" stroke-miterlimit="8.7" stroke-linecap="round" stroke-linejoin="bevel" />
+							<line id="Line 3" x1="1" y1="6.5" x2="44.5484" y2="6.5" stroke="#1A1C1F" stroke-opacity="0.75" />
+							<line id="Line 5" x1="0.5" y1="10.0109" x2="0.5" y2="3.99998" stroke="#1A1C1F" stroke-opacity="0.75" />
+							<line id="Line 6" x1="100.5" y1="9.68604" x2="100.5" y2="3.67509" stroke="#1A1C1F" stroke-opacity="0.75" />
+							<line id="Line 4" x1="57.4516" y1="6.51471" x2="101" y2="6.5147" stroke="#1A1C1F" stroke-opacity="0.75" />
+						</g>
+					</svg>
 				</div>
-				<div class="pembuka">
-					<p data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="250">Assalamuaikum Warohmatullohi Wabaroktuh</p>
-					<p data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="350">Maha Suci Alloh SWT Yang Telah Menciptakan Mahluknya Berpasang-Pasangan, Ya Alloh Semoga Ridho-Mu Tercurah Mengiringi Pernikahan Putra-Putri Kami :</p>
+				<div class="tgl">
+					<P>Jum'at - Sabtu,30-31 Januari 2023</P>
 				</div>
-				<div class="pempelai-pria" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="450">
-					<p>Runa Solahudin</p>
-					<a href="#"><img src="<?= base_url() ?>assets/st_0001/image/ig.png" alt="ic-Instagram"></a>
-					<p>Putri Ke-1 dari Bapak Lorem Ipsum & Ibu Lorem Doren (Purwokerto)</p>
-				</div>
-				<div class="dengan" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="550">
-					<p>Dengan</p>
-				</div>
-				<div class="pempelai-wanita" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="650">
-					<p>Ratna Diah Pitaloka</p>
-					<a href="#">
-						<img src="<?= base_url() ?>assets/st_0001/image/ig.png" alt="ic-Instagram"></a>
-					<p>Putri Ke-2 dari Bapak Lorem Ipsum & Ibu Lorem Doren (Banyumas)</p>
-				</div>
-				<div class="penutup" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="750">
-					<p>Untuk Melaksanakan Sunah Rosul-mu dalam membentuk Keluarga Sakinah, Mawadah dan Warohmah</p>
+				<div class="almt">
+					<p>Jl.Merpati Putih Rt.01 Rw.01 Kec Lorem Ipsum Dorem</p>
 				</div>
 			</div>
+			<!--end tasyakuran -->
 
-			<!--Diveder For Desktop,tablet & tablet mini-->
-			<div class="dive">
-				<img src="<?= base_url() ?>assets/st_0001/image/dive-mempelai.svg" alt="diveder">
-			</div>
-
-			<!--Diveder For Android & Apple Smartphone-->
-			<div class="dive-AAs">
-				<img src="<?= base_url() ?>assets/st_0001/image/dive-mempelai-for-AAsmartphone.svg" alt="diveder">
-			</div>
-
-			<!--Diveder For Apple Smartphone mini-->
-			<div class="dive-Ap-mini">
-				<img src="<?= base_url() ?>assets/st_0001/image/dive-mempelai-for-Ap-mini.svg" alt="diveder">
-			</div>
-
-		</section>
-
-		<section id="waktu">
-			<!--<div class="pembuka">
-    			<p>Selaras mensyukuri nikmat Allah SWT, disertai rasa haru dan bahagia, kami bermaksud meyelenggarakan Tasyakuran, Akad Nikah & Resepi yang Insya Allah akan Dilaksanakan Pada :</p>
-    		</div>-->
-			<div class="isi">
-				<!--Tasyakuran-->
-				<div class="tasyakuran" data-aos="fade-down-right" data-aos-duration="1000" data-aos-delay="150">
-					<p class="judul">Tasyakuran</p>
-					<div class="batas">
-						<svg height="13" viewBox="0 0 101 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<g id="Group 20">
-								<path id="path3570" d="M51.174 12.4343C50.9386 12.728 50.4942 12.7351 50.2497 12.4491L46.1042 7.60027C44.8423 5.64396 44.649 3.78078 45.5914 1.99816C45.6121 1.95899 45.6385 1.92114 45.6683 1.88831C47.2231 0.173184 49.1393 1.17742 50.4309 2.90416C50.7086 3.27539 51.3001 3.28078 51.5809 2.91189C52.9773 1.07726 54.7808 0.406048 56.3441 1.85395C56.3683 1.87637 56.3915 1.9024 56.411 1.92898C57.8742 3.9204 56.2802 5.66972 55.2098 7.39748L51.174 12.4343Z" fill="#5E887C" stroke="white" stroke-width="0.6" stroke-miterlimit="8.7" stroke-linecap="round" stroke-linejoin="bevel" />
-								<line id="Line 3" x1="1" y1="6.5" x2="44.5484" y2="6.5" stroke="#1A1C1F" stroke-opacity="0.75" />
-								<line id="Line 5" x1="0.5" y1="10.0109" x2="0.5" y2="3.99998" stroke="#1A1C1F" stroke-opacity="0.75" />
-								<line id="Line 6" x1="100.5" y1="9.68604" x2="100.5" y2="3.67509" stroke="#1A1C1F" stroke-opacity="0.75" />
-								<line id="Line 4" x1="57.4516" y1="6.51471" x2="101" y2="6.5147" stroke="#1A1C1F" stroke-opacity="0.75" />
-							</g>
-						</svg>
-					</div>
-					<div class="tgl">
-						<P>Jum'at - Sabtu,08-09 Agustus 2022</P>
-					</div>
-					<div class="almt">
-						<p>Jl.Kyai Badri Rt.07 Rw.03 Kec Sumampir Purwokerto</p>
-					</div>
+			<!-- Akad Nikah-->
+			<div class="akad" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="300">
+				<p class="judul">Akad Nikah</p>
+				<div class="batas">
+					<svg width="101" height="13" viewBox="0 0 101 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<g id="Group 20">
+							<path id="path3570" d="M51.174 12.4343C50.9386 12.728 50.4942 12.7351 50.2497 12.4491L46.1042 7.60027C44.8423 5.64396 44.649 3.78078 45.5914 1.99816C45.6121 1.95899 45.6385 1.92114 45.6683 1.88831C47.2231 0.173184 49.1393 1.17742 50.4309 2.90416C50.7086 3.27539 51.3001 3.28078 51.5809 2.91189C52.9773 1.07726 54.7808 0.406048 56.3441 1.85395C56.3683 1.87637 56.3915 1.9024 56.411 1.92898C57.8742 3.9204 56.2802 5.66972 55.2098 7.39748L51.174 12.4343Z" fill="#5E887C" stroke="white" stroke-width="0.6" stroke-miterlimit="8.7" stroke-linecap="round" stroke-linejoin="bevel" />
+							<line id="Line 3" x1="1" y1="6.5" x2="44.5484" y2="6.5" stroke="#1A1C1F" stroke-opacity="0.75" />
+							<line id="Line 5" x1="0.5" y1="10.0109" x2="0.5" y2="3.99998" stroke="#1A1C1F" stroke-opacity="0.75" />
+							<line id="Line 6" x1="100.5" y1="9.68604" x2="100.5" y2="3.67509" stroke="#1A1C1F" stroke-opacity="0.75" />
+							<line id="Line 4" x1="57.4516" y1="6.51471" x2="101" y2="6.5147" stroke="#1A1C1F" stroke-opacity="0.75" />
+						</g>
+					</svg>
 				</div>
-				<!--end tasyakuran -->
+				<div class="tgl">
+					<P>Rabu,31 Januari 2023</P>
+				</div>
+				<div class="jaam">
+					<P>09.00 WIB-Selesai</P>
+				</div>
+				<div class="almt">
+					<p>Jl.Merpati Putih Rt.01 Rw.01 Kec Lorem Ipsum Dorem</p>
+				</div>
 
-				<!-- Akad Nikah-->
-				<div class="akad" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="300">
-					<p class="judul">Akad Nikah</p>
-					<div class="batas">
-						<svg width="101" height="13" viewBox="0 0 101 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<g id="Group 20">
-								<path id="path3570" d="M51.174 12.4343C50.9386 12.728 50.4942 12.7351 50.2497 12.4491L46.1042 7.60027C44.8423 5.64396 44.649 3.78078 45.5914 1.99816C45.6121 1.95899 45.6385 1.92114 45.6683 1.88831C47.2231 0.173184 49.1393 1.17742 50.4309 2.90416C50.7086 3.27539 51.3001 3.28078 51.5809 2.91189C52.9773 1.07726 54.7808 0.406048 56.3441 1.85395C56.3683 1.87637 56.3915 1.9024 56.411 1.92898C57.8742 3.9204 56.2802 5.66972 55.2098 7.39748L51.174 12.4343Z" fill="#5E887C" stroke="white" stroke-width="0.6" stroke-miterlimit="8.7" stroke-linecap="round" stroke-linejoin="bevel" />
-								<line id="Line 3" x1="1" y1="6.5" x2="44.5484" y2="6.5" stroke="#1A1C1F" stroke-opacity="0.75" />
-								<line id="Line 5" x1="0.5" y1="10.0109" x2="0.5" y2="3.99998" stroke="#1A1C1F" stroke-opacity="0.75" />
-								<line id="Line 6" x1="100.5" y1="9.68604" x2="100.5" y2="3.67509" stroke="#1A1C1F" stroke-opacity="0.75" />
-								<line id="Line 4" x1="57.4516" y1="6.51471" x2="101" y2="6.5147" stroke="#1A1C1F" stroke-opacity="0.75" />
-							</g>
-						</svg>
-					</div>
-					<div class="tgl">
-						<P>Sabtu,09 Agustus 2022</P>
-					</div>
-					<div class="jaam">
-						<P>09.00 WIB-Selesai</P>
-					</div>
-					<div class="almt">
-						<p>Jl.Kyai Badri Rt.07 Rw.03 Kec Sumampir Purwokerto</p>
-					</div>
-
-					<div class="btn-map">
-						<a href="#map">
-							<svg height="14" viewBox="0 0 17 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<g id="in in-maps">
-									<path id="path3570" d="M8.96832 6.9728C8.73302 7.26647 8.28858 7.27355 8.04404 6.98752L6.85788 5.6001C6.4138 4.91169 6.33837 4.2554 6.65424 3.62698C6.67414 3.58739 6.69979 3.55032 6.73058 3.51846C7.11291 3.1229 7.55232 3.17252 7.9377 3.44226C8.3175 3.7081 8.91726 3.70865 9.30223 3.45036C9.69352 3.18784 10.1215 3.17221 10.5101 3.51592C10.5348 3.53777 10.5574 3.56316 10.5763 3.59018C11.0692 4.29433 10.5061 4.91459 10.1266 5.52731L8.96832 6.9728Z" stroke="white" stroke-width="0.9" stroke-miterlimit="8.7" stroke-linecap="round" stroke-linejoin="bevel" />
-									<g id="Group 1562">
-										<path id="Ellipse 16" d="M15.7038 11.3077C15.7038 11.4825 15.598 11.7206 15.2406 12.0023C14.8882 12.2799 14.3505 12.5497 13.6459 12.7846C12.2413 13.2527 10.2724 13.55 8.07692 13.55C5.88145 13.55 3.9125 13.2527 2.50798 12.7846C1.80337 12.5497 1.26562 12.2799 0.913263 12.0023C0.555836 11.7206 0.45 11.4825 0.45 11.3077C0.45 11.133 0.555836 10.8949 0.913263 10.6132C1.26562 10.3355 1.80337 10.0658 2.50798 9.83088C3.9125 9.36271 5.88145 9.06542 8.07692 9.06542C10.2724 9.06542 12.2413 9.36271 13.6459 9.83088C14.3505 10.0658 14.8882 10.3355 15.2406 10.6132C15.598 10.8949 15.7038 11.133 15.7038 11.3077Z" stroke="white" stroke-width="0.9" />
-										<path id="Vector" d="M8.61538 0.45C10.5404 0.45 11.4932 1.01931 11.995 1.73149C12.5214 2.47859 12.6353 3.49141 12.6353 4.55621C12.6353 5.01364 12.4882 5.55055 12.2209 6.13907C11.9554 6.72353 11.5837 7.33219 11.1642 7.92562C10.3249 9.11273 9.32011 10.2029 8.66986 10.8668C8.47681 11.0639 8.17432 11.0602 7.98614 10.8583C7.3634 10.1904 6.40942 9.10236 5.61393 7.91946C4.80332 6.71406 4.21923 5.49869 4.21923 4.55621C4.21923 3.52594 4.41634 2.51002 5.02903 1.75609C5.62699 1.02027 6.691 0.45 8.61538 0.45Z" stroke="white" stroke-width="0.9" />
-									</g>
+				<div class="btn-map">
+					<a href="#map">
+						<svg height="14" viewBox="0 0 17 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<g id="in in-maps">
+								<path id="path3570" d="M8.96832 6.9728C8.73302 7.26647 8.28858 7.27355 8.04404 6.98752L6.85788 5.6001C6.4138 4.91169 6.33837 4.2554 6.65424 3.62698C6.67414 3.58739 6.69979 3.55032 6.73058 3.51846C7.11291 3.1229 7.55232 3.17252 7.9377 3.44226C8.3175 3.7081 8.91726 3.70865 9.30223 3.45036C9.69352 3.18784 10.1215 3.17221 10.5101 3.51592C10.5348 3.53777 10.5574 3.56316 10.5763 3.59018C11.0692 4.29433 10.5061 4.91459 10.1266 5.52731L8.96832 6.9728Z" stroke="white" stroke-width="0.9" stroke-miterlimit="8.7" stroke-linecap="round" stroke-linejoin="bevel" />
+								<g id="Group 1562">
+									<path id="Ellipse 16" d="M15.7038 11.3077C15.7038 11.4825 15.598 11.7206 15.2406 12.0023C14.8882 12.2799 14.3505 12.5497 13.6459 12.7846C12.2413 13.2527 10.2724 13.55 8.07692 13.55C5.88145 13.55 3.9125 13.2527 2.50798 12.7846C1.80337 12.5497 1.26562 12.2799 0.913263 12.0023C0.555836 11.7206 0.45 11.4825 0.45 11.3077C0.45 11.133 0.555836 10.8949 0.913263 10.6132C1.26562 10.3355 1.80337 10.0658 2.50798 9.83088C3.9125 9.36271 5.88145 9.06542 8.07692 9.06542C10.2724 9.06542 12.2413 9.36271 13.6459 9.83088C14.3505 10.0658 14.8882 10.3355 15.2406 10.6132C15.598 10.8949 15.7038 11.133 15.7038 11.3077Z" stroke="white" stroke-width="0.9" />
+									<path id="Vector" d="M8.61538 0.45C10.5404 0.45 11.4932 1.01931 11.995 1.73149C12.5214 2.47859 12.6353 3.49141 12.6353 4.55621C12.6353 5.01364 12.4882 5.55055 12.2209 6.13907C11.9554 6.72353 11.5837 7.33219 11.1642 7.92562C10.3249 9.11273 9.32011 10.2029 8.66986 10.8668C8.47681 11.0639 8.17432 11.0602 7.98614 10.8583C7.3634 10.1904 6.40942 9.10236 5.61393 7.91946C4.80332 6.71406 4.21923 5.49869 4.21923 4.55621C4.21923 3.52594 4.41634 2.51002 5.02903 1.75609C5.62699 1.02027 6.691 0.45 8.61538 0.45Z" stroke="white" stroke-width="0.9" />
 								</g>
-							</svg>
-							<p>Google Maps</p>
-						</a>
-					</div>
-				</div>
-				<!--end Akad Nikah-->
-
-				<!-- Resepsi-->
-				<div class="resepsi" data-aos="fade-down-left" data-aos-duration="1000" data-aos-delay="450">
-					<p class="judul">Resepsi</p>
-					<div class="batas">
-						<svg width="101" height="13" viewBox="0 0 101 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<g id="Group 20">
-								<path id="path3570" d="M51.174 12.4343C50.9386 12.728 50.4942 12.7351 50.2497 12.4491L46.1042 7.60027C44.8423 5.64396 44.649 3.78078 45.5914 1.99816C45.6121 1.95899 45.6385 1.92114 45.6683 1.88831C47.2231 0.173184 49.1393 1.17742 50.4309 2.90416C50.7086 3.27539 51.3001 3.28078 51.5809 2.91189C52.9773 1.07726 54.7808 0.406048 56.3441 1.85395C56.3683 1.87637 56.3915 1.9024 56.411 1.92898C57.8742 3.9204 56.2802 5.66972 55.2098 7.39748L51.174 12.4343Z" fill="#5E887C" stroke="white" stroke-width="0.6" stroke-miterlimit="8.7" stroke-linecap="round" stroke-linejoin="bevel" />
-								<line id="Line 3" x1="1" y1="6.5" x2="44.5484" y2="6.5" stroke="#1A1C1F" stroke-opacity="0.75" />
-								<line id="Line 5" x1="0.5" y1="10.0109" x2="0.5" y2="3.99998" stroke="#1A1C1F" stroke-opacity="0.75" />
-								<line id="Line 6" x1="100.5" y1="9.68604" x2="100.5" y2="3.67509" stroke="#1A1C1F" stroke-opacity="0.75" />
-								<line id="Line 4" x1="57.4516" y1="6.51471" x2="101" y2="6.5147" stroke="#1A1C1F" stroke-opacity="0.75" />
 							</g>
 						</svg>
-					</div>
-					<div class="tgl">
-						<P>Sabtu,09 Agustus 2022</P>
-					</div>
-					<div class="jaam">
-						<P>11.00 WIB-Selesai</P>
-					</div>
-					<div class="almt">
-						<p>Jl.Kyai Badri Rt.07 Rw.03 Kec Sumampir Purwokerto</p>
-					</div>
-
-					<div class="btn-map">
-						<a href="#map">
-							<svg height="14" viewBox="0 0 17 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<g id="in in-maps">
-									<path id="path3570" d="M8.96832 6.9728C8.73302 7.26647 8.28858 7.27355 8.04404 6.98752L6.85788 5.6001C6.4138 4.91169 6.33837 4.2554 6.65424 3.62698C6.67414 3.58739 6.69979 3.55032 6.73058 3.51846C7.11291 3.1229 7.55232 3.17252 7.9377 3.44226C8.3175 3.7081 8.91726 3.70865 9.30223 3.45036C9.69352 3.18784 10.1215 3.17221 10.5101 3.51592C10.5348 3.53777 10.5574 3.56316 10.5763 3.59018C11.0692 4.29433 10.5061 4.91459 10.1266 5.52731L8.96832 6.9728Z" stroke="white" stroke-width="0.9" stroke-miterlimit="8.7" stroke-linecap="round" stroke-linejoin="bevel" />
-									<g id="Group 1562">
-										<path id="Ellipse 16" d="M15.7038 11.3077C15.7038 11.4825 15.598 11.7206 15.2406 12.0023C14.8882 12.2799 14.3505 12.5497 13.6459 12.7846C12.2413 13.2527 10.2724 13.55 8.07692 13.55C5.88145 13.55 3.9125 13.2527 2.50798 12.7846C1.80337 12.5497 1.26562 12.2799 0.913263 12.0023C0.555836 11.7206 0.45 11.4825 0.45 11.3077C0.45 11.133 0.555836 10.8949 0.913263 10.6132C1.26562 10.3355 1.80337 10.0658 2.50798 9.83088C3.9125 9.36271 5.88145 9.06542 8.07692 9.06542C10.2724 9.06542 12.2413 9.36271 13.6459 9.83088C14.3505 10.0658 14.8882 10.3355 15.2406 10.6132C15.598 10.8949 15.7038 11.133 15.7038 11.3077Z" stroke="white" stroke-width="0.9" />
-										<path id="Vector" d="M8.61538 0.45C10.5404 0.45 11.4932 1.01931 11.995 1.73149C12.5214 2.47859 12.6353 3.49141 12.6353 4.55621C12.6353 5.01364 12.4882 5.55055 12.2209 6.13907C11.9554 6.72353 11.5837 7.33219 11.1642 7.92562C10.3249 9.11273 9.32011 10.2029 8.66986 10.8668C8.47681 11.0639 8.17432 11.0602 7.98614 10.8583C7.3634 10.1904 6.40942 9.10236 5.61393 7.91946C4.80332 6.71406 4.21923 5.49869 4.21923 4.55621C4.21923 3.52594 4.41634 2.51002 5.02903 1.75609C5.62699 1.02027 6.691 0.45 8.61538 0.45Z" stroke="white" stroke-width="0.9" />
-									</g>
-								</g>
-							</svg>
-							<p>Google Maps</p>
-						</a>
-					</div>
+						<p>Google Maps</p>
+					</a>
 				</div>
-				<!--end Resepsi-->
 			</div>
+			<!--end Akad Nikah-->
 
-			<div class="penutup" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="600">
-				<p>Atas kehadiran serta doa restu Bapak/Ibu/Saudara(i) kami sampaikan terimakasih</p>
-				<p>Wassalamuaikum Warohmatullohi Wabarokatuh</p>
+			<!-- Resepsi-->
+			<div class="resepsi" data-aos="fade-down-left" data-aos-duration="1000" data-aos-delay="450">
+				<p class="judul">Resepsi</p>
+				<div class="batas">
+					<svg width="101" height="13" viewBox="0 0 101 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<g id="Group 20">
+							<path id="path3570" d="M51.174 12.4343C50.9386 12.728 50.4942 12.7351 50.2497 12.4491L46.1042 7.60027C44.8423 5.64396 44.649 3.78078 45.5914 1.99816C45.6121 1.95899 45.6385 1.92114 45.6683 1.88831C47.2231 0.173184 49.1393 1.17742 50.4309 2.90416C50.7086 3.27539 51.3001 3.28078 51.5809 2.91189C52.9773 1.07726 54.7808 0.406048 56.3441 1.85395C56.3683 1.87637 56.3915 1.9024 56.411 1.92898C57.8742 3.9204 56.2802 5.66972 55.2098 7.39748L51.174 12.4343Z" fill="#5E887C" stroke="white" stroke-width="0.6" stroke-miterlimit="8.7" stroke-linecap="round" stroke-linejoin="bevel" />
+							<line id="Line 3" x1="1" y1="6.5" x2="44.5484" y2="6.5" stroke="#1A1C1F" stroke-opacity="0.75" />
+							<line id="Line 5" x1="0.5" y1="10.0109" x2="0.5" y2="3.99998" stroke="#1A1C1F" stroke-opacity="0.75" />
+							<line id="Line 6" x1="100.5" y1="9.68604" x2="100.5" y2="3.67509" stroke="#1A1C1F" stroke-opacity="0.75" />
+							<line id="Line 4" x1="57.4516" y1="6.51471" x2="101" y2="6.5147" stroke="#1A1C1F" stroke-opacity="0.75" />
+						</g>
+					</svg>
+				</div>
+				<div class="tgl">
+					<P>Rabu,31 Januari 2023</P>
+				</div>
+				<div class="jaam">
+					<P>11.00 WIB-Selesai</P>
+				</div>
+				<div class="almt">
+					<p>Jl.Merpati Putih Rt.01 Rw.01 Kec Lorem Ipsum Dorem</p>
+				</div>
+
+				<div class="btn-map">
+					<a href="#map">
+						<svg height="14" viewBox="0 0 17 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<g id="in in-maps">
+								<path id="path3570" d="M8.96832 6.9728C8.73302 7.26647 8.28858 7.27355 8.04404 6.98752L6.85788 5.6001C6.4138 4.91169 6.33837 4.2554 6.65424 3.62698C6.67414 3.58739 6.69979 3.55032 6.73058 3.51846C7.11291 3.1229 7.55232 3.17252 7.9377 3.44226C8.3175 3.7081 8.91726 3.70865 9.30223 3.45036C9.69352 3.18784 10.1215 3.17221 10.5101 3.51592C10.5348 3.53777 10.5574 3.56316 10.5763 3.59018C11.0692 4.29433 10.5061 4.91459 10.1266 5.52731L8.96832 6.9728Z" stroke="white" stroke-width="0.9" stroke-miterlimit="8.7" stroke-linecap="round" stroke-linejoin="bevel" />
+								<g id="Group 1562">
+									<path id="Ellipse 16" d="M15.7038 11.3077C15.7038 11.4825 15.598 11.7206 15.2406 12.0023C14.8882 12.2799 14.3505 12.5497 13.6459 12.7846C12.2413 13.2527 10.2724 13.55 8.07692 13.55C5.88145 13.55 3.9125 13.2527 2.50798 12.7846C1.80337 12.5497 1.26562 12.2799 0.913263 12.0023C0.555836 11.7206 0.45 11.4825 0.45 11.3077C0.45 11.133 0.555836 10.8949 0.913263 10.6132C1.26562 10.3355 1.80337 10.0658 2.50798 9.83088C3.9125 9.36271 5.88145 9.06542 8.07692 9.06542C10.2724 9.06542 12.2413 9.36271 13.6459 9.83088C14.3505 10.0658 14.8882 10.3355 15.2406 10.6132C15.598 10.8949 15.7038 11.133 15.7038 11.3077Z" stroke="white" stroke-width="0.9" />
+									<path id="Vector" d="M8.61538 0.45C10.5404 0.45 11.4932 1.01931 11.995 1.73149C12.5214 2.47859 12.6353 3.49141 12.6353 4.55621C12.6353 5.01364 12.4882 5.55055 12.2209 6.13907C11.9554 6.72353 11.5837 7.33219 11.1642 7.92562C10.3249 9.11273 9.32011 10.2029 8.66986 10.8668C8.47681 11.0639 8.17432 11.0602 7.98614 10.8583C7.3634 10.1904 6.40942 9.10236 5.61393 7.91946C4.80332 6.71406 4.21923 5.49869 4.21923 4.55621C4.21923 3.52594 4.41634 2.51002 5.02903 1.75609C5.62699 1.02027 6.691 0.45 8.61538 0.45Z" stroke="white" stroke-width="0.9" />
+								</g>
+							</g>
+						</svg>
+						<p>Google Maps</p>
+					</a>
+				</div>
 			</div>
+			<!--end Resepsi-->
+		</div>
 
-			<!--Diveder For Desktop-->
-			<div class="dive-waktu">
-				<img src="<?= base_url() ?>assets/st_0001/image/dive-waktu.svg" alt="diveder">
+		<div class="penutup" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="600">
+			<p>Atas kehadiran serta doa restu Bapak/Ibu/Saudara(i) kami sampaikan terimakasih</p>
+			<p>Wassalamuaikum Warohmatullohi Wabarokatuh</p>
+		</div>
+
+		<!--Diveder For Desktop-->
+		<div class="dive-waktu">
+			<img src="<?= base_url() ?>assets/images/green-shades/dive-waktu.svg" alt="diveder">
+		</div>
+
+		<!--Diveder For tablet & tablet mini-->
+		<div class="dive-waktu-tablet">
+			<img src="<?= base_url() ?>assets/images/green-shades/dive-waktu-for-tablet.svg" alt="diveder">
+		</div>
+
+		<!--Diveder For Apple & Android & apple mini-->
+		<div class="dive-waktu-AAs">
+			<img src="<?= base_url() ?>assets/images/green-shades/dive-waktu-AAs.svg" alt="diveder">
+		</div>
+	</section>
+
+	<section id="galery">
+		<div class="header">
+			<!--Judul Galeri For Desktop-->
+			<div class="jd-gal-desk">
+				<img src="<?= base_url() ?>assets/images/green-shades/gallery/jdul-galeri-for-desktop.svg" alt="Judul Galeri">
 			</div>
-
-			<!--Diveder For tablet-->
-			<div class="dive-waktu-tablet">
-				<img src="<?= base_url() ?>assets/st_0001/image/dive-waktu-for-tablet.svg" alt="diveder">
+			<!--Diveder For Apple & Android--->
+			<div class="jd-gal-AAs">
+				<img src="<?= base_url() ?>assets/images/green-shades/gallery/jdul-galeri-for-AAs.svg" alt="Judul Galeri">
 			</div>
-
-			<!--Diveder For tablet mini-->
-			<div class="dive-waktu-tablet-mini">
-				<img src="<?= base_url() ?>assets/st_0001/image/dive-waktu-for-tablet-mini.svg" alt="diveder">
+			<!--Diveder For Apple mini--->
+			<div class="jd-gal-Ap-mini">
+				<img src="<?= base_url() ?>assets/images/green-shades/gallery/jdul-galeri-for-Ap-mini.svg" alt="Judul Galeri">
 			</div>
+		</div>
+		<div class="contain">
+			<div class="gallery-img">
+				<a href="<?= base_url() ?>assets/images/green-shades/gallery/1.jpg" data-lightbox="models" data-title="image 1">
+					<img src="<?= base_url() ?>assets/images/green-shades/gallery/1.jpg" alt="img 1" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="250">
+				</a>
 
-			<!--Diveder For Apple & Android-->
-			<div class="dive-waktu-AAs">
-				<img src="<?= base_url() ?>assets/st_0001/image/dive-waktu-AAs.svg" alt="diveder">
+				<a href="<?= base_url() ?>assets/images/green-shades/gallery/2.png" data-lightbox="models" data-title="image 2">
+					<img src="<?= base_url() ?>assets/images/green-shades/gallery/2.png" alt="img 2" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="350">
+				</a>
+
+				<a href="<?= base_url() ?>assets/images/green-shades/gallery/3.png" data-lightbox="models" data-title="image 3">
+					<img src="<?= base_url() ?>assets/images/green-shades/gallery/3.png" alt="img 3" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="450">
+				</a>
+
+				<a href="<?= base_url() ?>assets/images/green-shades/gallery/4.png" data-lightbox="models" data-title="image 4">
+					<img src="<?= base_url() ?>assets/images/green-shades/gallery/4.png" alt="img 4" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="550">
+				</a>
+
+				<a href="<?= base_url() ?>assets/images/green-shades/gallery/5.png" data-lightbox="models" data-title="image 5">
+					<img src="<?= base_url() ?>assets/images/green-shades/gallery/5.png" alt="img 5" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="650">
+				</a>
+
+				<a href="<?= base_url() ?>assets/images/green-shades/gallery/6.png" data-lightbox="models" data-title="image 6">
+					<img src="<?= base_url() ?>assets/images/green-shades/gallery/6.png" alt="img 6" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="750">
+				</a>
 			</div>
+		</div>
 
-			<!--Diveder For Apple mini-->
-			<div class="dive-waktu-Ap-mini">
-				<img src="<?= base_url() ?>assets/st_0001/image/dive-waktu-for-Ap-mini.svg" alt="diveder">
-			</div>
-		</section>
+		<!--Diveder Galery For Desktop-->
+		<div class="dive-galery">
+			<img src="<?= base_url() ?>assets/images/green-shades/dive-galery.svg" alt="diveder">
+		</div>
 
-		<section id="galery">
+		<!--Diveder galery For tablet & ipad mini-->
+		<div class="dive-galery-tablet">
+			<img src="<?= base_url() ?>assets/images/green-shades/dive-galery-for-tablet.svg" alt="diveder">
+		</div>
+
+		<!--Diveder galery For Apple ,Android & apple mini -->
+		<div class="dive-galery-AAs">
+			<img src="<?= base_url() ?>assets/images/green-shades/dive-galery-for-AAs.svg" alt="diveder">
+		</div>
+	</section>
+
+	<section id="pesan">
+		<div class="pesan-bahagia" data-aos="fade-down-right" data-aos-duration="1000" data-aos-delay="150">
 			<div class="header">
-				<!--Judul Galeri For Desktop-->
-				<div class="jd-gal-desk">
-					<img src="<?= base_url() ?>assets/st_0001/image/gallery/jdul-galeri-for-desktop.svg" alt="Judul Galeri">
-				</div>
-				<!--Diveder For Apple & Android--->
-				<div class="jd-gal-AAs">
-					<img src="<?= base_url() ?>assets/st_0001/image/gallery/jdul-galeri-for-AAs.svg" alt="Judul Galeri">
-				</div>
-				<!--Diveder For Apple mini--->
-				<div class="jd-gal-Ap-mini">
-					<img src="<?= base_url() ?>assets/st_0001/image/gallery/jdul-galeri-for-Ap-mini.svg" alt="Judul Galeri">
-				</div>
+				<p>Pesan Bahagia</p>
+				<hr>
 			</div>
-			<div class="contain">
-				<div class="gallery-img">
-					<a href="<?= base_url() ?>assets/st_0001/image/gallery/1.jpg" data-lightbox="models" data-title="image 1">
-						<img src="<?= base_url() ?>assets/st_0001/image/gallery/1.jpg" alt="img 1" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="250">
-					</a>
-
-					<a href="<?= base_url() ?>assets/st_0001/image/gallery/2.png" data-lightbox="models" data-title="image 2">
-						<img src="<?= base_url() ?>assets/st_0001/image/gallery/2.png" alt="img 2" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="350">
-					</a>
-
-					<a href="<?= base_url() ?>assets/st_0001/image/gallery/3.png" data-lightbox="models" data-title="image 3">
-						<img src="<?= base_url() ?>assets/st_0001/image/gallery/3.png" alt="img 3" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="450">
-					</a>
-
-					<a href="<?= base_url() ?>assets/st_0001/image/gallery/4.png" data-lightbox="models" data-title="image 4">
-						<img src="<?= base_url() ?>assets/st_0001/image/gallery/4.png" alt="img 4" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="550">
-					</a>
-
-					<a href="<?= base_url() ?>assets/st_0001/image/gallery/5.png" data-lightbox="models" data-title="image 5">
-						<img src="<?= base_url() ?>assets/st_0001/image/gallery/5.png" alt="img 5" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="650">
-					</a>
-
-					<a href="<?= base_url() ?>assets/st_0001/image/gallery/6.png" data-lightbox="models" data-title="image 6">
-						<img src="<?= base_url() ?>assets/st_0001/image/gallery/6.png" alt="img 6" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="750">
-					</a>
-				</div>
+			<div class="inp-pesan">
+				<p>Pesan :</p>
+				<textarea name="" id="" cols="20" rows="2" placeholder="Input pesan bahagia"></textarea>
 			</div>
-
-			<!--Diveder Galery For Desktop-->
-			<div class="dive-galery">
-				<img src="<?= base_url() ?>assets/st_0001/image/dive-galery.svg" alt="diveder">
+			<div class="confirm-kehadiran">
+				<label class="contain">
+					<input type="radio" checked="checked" name="radio">
+					<span class="checkmark check"></span>
+					Hadir
+				</label>
+				<label class="contain">
+					<input type="radio" name="radio">
+					<span class="checkmark2 check"></span>
+					Tidak Hadir
+				</label>
+				<label class="contain">
+					<input type="radio" name="radio">
+					<span class="checkmark3 check"></span>
+					Belum Tahu
+				</label>
 			</div>
-			<!--Diveder galery For tablet-->
-			<div class="dive-galery-tablet">
-				<img src="<?= base_url() ?>assets/st_0001/image/dive-galery-for-tablet.svg" alt="diveder">
+			<div class="btn-kirimm">
+				<button type="button">Kirim</button>
+				<p>Total Pesan : 0</p>
 			</div>
-			<!--Diveder galery For tablet mini-->
-			<div class="dive-galery-tablet-mini">
-				<img src="<?= base_url() ?>assets/st_0001/image/dive-galery-for-tablet-mini.svg" alt="diveder">
-			</div>
-			<!--Diveder galery For Apple & Android-->
-			<div class="dive-galery-AAs">
-				<img src="<?= base_url() ?>assets/st_0001/image/dive-galery-for-AAs.svg" alt="diveder">
-			</div>
-			<!--Diveder For Apple mini-->
-			<div class="dive-galery-Ap-mini">
-				<img src="<?= base_url() ?>assets/st_0001/image/dive-galery-for-Ap-mini.svg" alt="diveder">
-			</div>
-		</section>
-
-		<section id="pesan">
-			<div class="pesan-bahagia" data-aos="fade-down-right" data-aos-duration="1000" data-aos-delay="150">
-				<div class="header">
-					<p>Pesan Bahagia</p>
+			<div class="isi-pesan">
+				<div class="dtl-pesan">
+					<table border="0">
+						<tr>
+							<td width="10" rowspan="3">
+								<div class="avatar-nama-hadir avtr">
+									<p>R</p>
+								</div>
+							</td>
+							<td>
+								<div class="nama">
+									<p>Rahayu</p>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="tgl-kirim">
+									<p>12-12-2022 13:00 WIB</p>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="ucapan">
+									<p>Selamat bro, selamat Menembuh Hidup Baru</p>
+								</div>
+							</td>
+						</tr>
+					</table>
 					<hr>
 				</div>
-				<div class="inp-pesan">
-					<p>Pesan :</p>
-					<textarea name="" id="" cols="20" rows="2" placeholder="Input pesan bahagia"></textarea>
+
+				<div class="dtl-pesan">
+					<table border="0">
+						<tr>
+							<td width="10" rowspan="3">
+								<div class="avatar-nama-tdkHadir avtr">
+									<p>H</p>
+								</div>
+							</td>
+							<td>
+								<div class="nama">
+									<p>Hasan Sanusi</p>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="tgl-kirim">
+									<p>12-12-2022 13:00 WIB</p>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="ucapan">
+									<p>Wahhhh Selamat, Tapi Maaf tidak bisa hadir bozz.</p>
+								</div>
+							</td>
+						</tr>
+					</table>
+					<hr>
 				</div>
-				<div class="confirm-kehadiran">
-					<label class="contain">
-						<input type="radio" checked="checked" name="radio">
-						<span class="checkmark check"></span>
-						Hadir
-					</label>
-					<label class="contain">
-						<input type="radio" name="radio">
-						<span class="checkmark2 check"></span>
-						Tidak Hadir
-					</label>
-					<label class="contain">
-						<input type="radio" name="radio">
-						<span class="checkmark3 check"></span>
-						Belum Tahu
-					</label>
+
+				<div class="dtl-pesan">
+					<table border="0">
+						<tr>
+							<td width="10" rowspan="3">
+								<div class="avatar-nama-blmTahu avtr">
+									<p>T</p>
+								</div>
+							</td>
+							<td>
+								<div class="nama">
+									<p>Taro Basuki</p>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="tgl-kirim">
+									<p>12-12-2022 13:00 WIB</p>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="ucapan">
+									<p>Selamat-selamat,Atas Pernikahannya</p>
+								</div>
+							</td>
+						</tr>
+					</table>
+					<hr>
 				</div>
-				<div class="btn-kirim">
-					<a href="">Kirim</a>
-					<p>Total Pesan : 5</p>
+
+				<div class="dtl-pesan">
+					<table border="0">
+						<tr>
+							<td width="10" rowspan="3">
+								<div class="avatar-nama-blmTahu avtr">
+									<p>T</p>
+								</div>
+							</td>
+							<td>
+								<div class="nama">
+									<p>Taro Basuki</p>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="tgl-kirim">
+									<p>12-12-2022 13:00 WIB</p>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="ucapan">
+									<p>Selamat-selamat,Atas Pernikahannya</p>
+								</div>
+							</td>
+						</tr>
+					</table>
+					<hr>
 				</div>
-				<div class="isi-pesan">
-					<div class="dtl-pesan">
-						<table border="0">
-							<tr>
-								<td width="10" rowspan="3">
-									<div class="avatar-nama-hadir avtr">
-										<p>R</p>
-									</div>
-								</td>
-								<td>
-									<div class="nama">
-										<p>Rahayu</p>
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<div class="tgl-kirim">
-										<p>12-12-2022 13:00 WIB</p>
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<div class="ucapan">
-										<p>Selamat bro, selamat Menembuh Hidup Baru</p>
-									</div>
-								</td>
-							</tr>
-						</table>
-						<hr>
-					</div>
 
-					<div class="dtl-pesan">
-						<table border="0">
-							<tr>
-								<td width="10" rowspan="3">
-									<div class="avatar-nama-tdkHadir avtr">
-										<p>H</p>
-									</div>
-								</td>
-								<td>
-									<div class="nama">
-										<p>Hasan Sanusi</p>
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<div class="tgl-kirim">
-										<p>12-12-2022 13:00 WIB</p>
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<div class="ucapan">
-										<p>Wahhhh Selamat, Tapi Maaf tidak bisa hadir bozz.</p>
-									</div>
-								</td>
-							</tr>
-						</table>
-						<hr>
-					</div>
-
-					<div class="dtl-pesan">
-						<table border="0">
-							<tr>
-								<td width="10" rowspan="3">
-									<div class="avatar-nama-blmTahu avtr">
-										<p>T</p>
-									</div>
-								</td>
-								<td>
-									<div class="nama">
-										<p>Taro Basuki</p>
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<div class="tgl-kirim">
-										<p>12-12-2022 13:00 WIB</p>
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<div class="ucapan">
-										<p>Selamat-selamat,Atas Pernikahannya</p>
-									</div>
-								</td>
-							</tr>
-						</table>
-						<hr>
-					</div>
-
-					<div class="dtl-pesan">
-						<table border="0">
-							<tr>
-								<td width="10" rowspan="3">
-									<div class="avatar-nama-blmTahu avtr">
-										<p>T</p>
-									</div>
-								</td>
-								<td>
-									<div class="nama">
-										<p>Taro Basuki</p>
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<div class="tgl-kirim">
-										<p>12-12-2022 13:00 WIB</p>
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<div class="ucapan">
-										<p>Selamat-selamat,Atas Pernikahannya</p>
-									</div>
-								</td>
-							</tr>
-						</table>
-						<hr>
-					</div>
-
-					<div class="dtl-pesan">
-						<table border="0">
-							<tr>
-								<td width="10" rowspan="3">
-									<div class="avatar-nama-tdkHadir avtr">
-										<p>A</p>
-									</div>
-								</td>
-								<td>
-									<div class="nama">
-										<p>Adi Sanusi</p>
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<div class="tgl-kirim">
-										<p>12-12-2022 13:00 WIB</p>
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<div class="ucapan">
-										<p>Wahhhh Selamat</p>
-									</div>
-								</td>
-							</tr>
-						</table>
-						<hr>
-					</div>
-
+				<div class="dtl-pesan">
+					<table border="0">
+						<tr>
+							<td width="10" rowspan="3">
+								<div class="avatar-nama-tdkHadir avtr">
+									<p>A</p>
+								</div>
+							</td>
+							<td>
+								<div class="nama">
+									<p>Adi Sanusi</p>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="tgl-kirim">
+									<p>12-12-2022 13:00 WIB</p>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="ucapan">
+									<p>Wahhhh Selamat</p>
+								</div>
+							</td>
+						</tr>
+					</table>
+					<hr>
 				</div>
-			</div>
-			<div class="akhir" data-aos="fade-down-left" data-aos-duration="1000" data-aos-delay="200">
-				<div class="header">
-					<!--Bingkai atas bagian akhir for desktop  -->
-					<img class="bingAtas-akhir-for-desk" src="<?= base_url() ?>assets/st_0001/image/bingAtas-akhir-for-desktop.svg" alt="Bingkai Akhir">
 
-					<!--Bingkai atas bagian akhir for Apple & Android Smartphone  -->
-					<img class="bingAtas-akhir-for-AAs" src="<?= base_url() ?>assets/st_0001/image/bingAtas-akhir-for-AAs.svg" alt="Bingkai Akhir">
-					<div class="hurufDepan-mempelai">
-						<p>R<span style="color:#EFC207;">&</span>R</p>
-					</div>
-					<div class="trm">
-						<p>Terimakasih</p>
-					</div>
-					<!--Bingkai bawah bagian akhir for desktop  -->
-					<img class="bingBawah-akhir-for-desk" src="<?= base_url() ?>assets/st_0001/image/bingBawah-akhir-for-desktop.svg" alt="Bingkai Akhir">
-
-					<!--Bingkai bawah bagian akhir for Apple & Android Smartphone  -->
-					<img class="bingBawah-akhir-for-AAs" src="<?= base_url() ?>assets/st_0001/image/bingBawah-akhir-for-AAs.svg" alt="Bingkai Akhir">
-				</div>
-				<div class="akhir-isi">
-					<p>“Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu istri-istri dari jenismu sendiri, supaya kamu cenderung merasa tentram kepadanya, dan dijadikan-Nya, diantaramu rasa kasih dan sayang, Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda bagi orang-orang yang berfikir”</p>
-					<p> <strong>(Q.S.Ar-Ruum:21)</strong></p>
-				</div>
-			</div>
-		</section>
-	</div>
-
-	<div class="footer">
-		<div class="isi-foo">
-			<img class="logo-ms" src="<?= base_url() ?>assets/st_0001/image/logo_ms.svg" alt="Logo MetaShare">
-		</div>
-		<div class="kontak">
-			<div class="wa">
-				<img src="<?= base_url() ?>assets/st_0001/image/wa.png" alt="Icon WhatApps">
-				<p>+087899703471</p>
-			</div>
-
-			<div class="ig">
-				<img src="<?= base_url() ?>assets/st_0001/image/ig.png" alt="Icon Instagram">
-				<p>mesa_digitalUndangan</p>
 			</div>
 		</div>
-	</div>
+		<div class="akhir" data-aos="fade-down-left" data-aos-duration="1000" data-aos-delay="200">
+			<div class="header">
+				<!--Bingkai atas bagian akhir for desktop  -->
+				<img class="bingAtas-akhir-for-desk" src="<?= base_url() ?>assets/images/green-shades/bingAtas-akhir-for-desktop.svg" alt="Bingkai Akhir">
+
+				<!--Bingkai atas bagian akhir for Apple & Android Smartphone  -->
+				<img class="bingAtas-akhir-for-AAs" src="<?= base_url() ?>assets/images/green-shades/bingAtas-akhir-for-AAs.svg" alt="Bingkai Akhir">
+				<div class="hurufDepan-mempelai">
+					<p>R<span style="color:#EFC207;">&</span>R</p>
+				</div>
+				<div class="trm">
+					<p>Terimakasih</p>
+				</div>
+				<!--Bingkai bawah bagian akhir for desktop  -->
+				<img class="bingBawah-akhir-for-desk" src="<?= base_url() ?>assets/images/green-shades/bingBawah-akhir-for-desktop.svg" alt="Bingkai Akhir">
+
+				<!--Bingkai bawah bagian akhir for Apple & Android Smartphone  -->
+				<img class="bingBawah-akhir-for-AAs" src="<?= base_url() ?>assets/images/green-shades/bingBawah-akhir-for-AAs.svg" alt="Bingkai Akhir">
+			</div>
+			<div class="akhir-isi">
+				<p>“Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu istri-istri dari jenismu sendiri, supaya kamu cenderung merasa tentram kepadanya, dan dijadikan-Nya, diantaramu rasa kasih dan sayang, Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda bagi orang-orang yang berfikir”</p>
+				<p> <strong>(Q.S.Ar-Ruum:21)</strong></p>
+			</div>
+		</div>
+
+		<div class="footer">
+			<div class="isi-foo">
+				<img class="logo-ms" src="<?= base_url() ?>assets/images/green-shades/logo_ms.svg" alt="Logo MetaShare">
+			</div>
+			<div class="kontak">
+				<div class="wa">
+					<img src="<?= base_url() ?>assets/images/green-shades/wa.png" alt="Icon WhatApps">
+					<p>087899703471</p>
+				</div>
+
+				<div class="ig">
+					<img src="<?= base_url() ?>assets/images/green-shades/ig.png" alt="Icon Instagram">
+					<p>mesa_digitalUndangan</p>
+				</div>
+			</div>
+		</div>
+	</section>
 
 	<!--Lightbox CSS-->
-	<script src="<?= base_url() ?>assets/st_0001/vendor/lightbox-plus-jquery.js"></script>
+	<script src="<?= base_url() ?>assets/vendor/lightbox-plus-jquery.js"></script>
 
-	<script src="<?= base_url() ?>assets/st_0001/js/script.js"></script>
+	<script src="<?= base_url() ?>assets/script/gs-script.js"></script>
 	<!--AOS Animate on scroll library-->
 	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 	<!--Initialize AOS-->

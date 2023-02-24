@@ -165,6 +165,7 @@ $route['preview/(:any)/(:any)'] = 'Invitations/preview/$1/$2';
 $route['wedding/(:any)/(:any)'] = 'Invitations/preview/$1/$2';
 $route['undangan/submit_message'] = 'Invitations/submit_message';
 $route['undangan/get_message'] = 'Invitations/get_message';
+$route['undangan/get_message_standard'] = 'Invitations/get_message_standard';
 $route['undangan/view_photo'] = 'Invitations/view_photo';
 
 $route['view/bukti_pembayaran'] = 'ViewController/view_proof';

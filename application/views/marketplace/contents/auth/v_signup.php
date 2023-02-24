@@ -12,8 +12,8 @@
 	<!-- Fontawesome -->
 	<link rel="stylesheet" href="<?= base_url('src/fontawesome-free-6.2.0-web/css/all.css') ?>">
 
-	<!-- Css -->
-	<link rel="stylesheet" href="<?= base_url('src/style/marketplace/style28.css') ?>">
+    <!-- Css -->
+    <?php include FCPATH. 'src/style/tailwindOutput/import.php';?>
 
 	<title><?= $title ?></title>
 </head>

@@ -12,11 +12,11 @@ class CategoryController extends CI_Controller
 	public function index()
 	{
 		$data['category'] = '';
-		$data['model'] = array();
+		$data['models'] = array();
 		if ($_REQUEST) {
 			$category = $this->input->get('val');
 			$data['category'] = $category;
-			$data['model'] = $this->home->getDesginByCategory($category, 10);
+			$data['models'] = $this->home->getDesginByCategory($category, 10);
 		}
 		$data['title'] = 'Kategori Undangan';
 		$data['content'] = 'marketplace/contents/kategori/v_kategori';

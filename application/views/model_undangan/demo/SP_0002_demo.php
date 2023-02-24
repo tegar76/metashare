@@ -399,8 +399,6 @@
 									</video>
 								</div>
 							</div>
-
-
 						</div>
 					</div>
 				</section>

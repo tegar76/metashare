@@ -16,6 +16,7 @@
 	<!-- Login CSS -->
 	<link href="<?= base_url('src/style/adminmart/login.css') ?>" rel="stylesheet">
 
+
 	<link rel="stylesheet" href="<?= base_url('src/adminmart/dist/css/icons/font-awesome/css/fontawesome.min.css') ?>">
 
 	<!-- SweetAlert 2 -->
@@ -82,7 +83,7 @@
 								<div class="form-group">
 									<div class="input-group rounded shadow-sm">
 										<span><label for="password" class="icon-key mt-2 pl-3 text-primary"></label></span>
-										<input name="password" class="form-control border-0 <?= (form_error('password')) ? 'is-invalid' : '' ?>"" id=" password" type="password" placeholder="Masukan password" autocomplete="current-password" id="id_password"><span role="button" class="d-flex"><i class="fas fa-eye fa-xs mr-2 my-auto" id="togglePassword"></i></span>
+										<input name="password" class="form-control border-0 <?= (form_error('password')) ? 'is-invalid' : '' ?>" id="password" type="password" placeholder="Masukan password" autocomplete="current-password" id="id_password"><span role="button" class="d-flex"><i class="fas fa-eye fa-xs mr-2 my-auto" id="togglePassword"></i></span>
 										<div id="passwordFeedback" class="invalid-feedback">
 											<?= form_error('password', '<div class="text-danger">', '</div>') ?>
 										</div>

@@ -3,28 +3,51 @@
 @tailwind utilities;
 
 @font-face {
+  font-family: "Montserrat";
+  src: url("../../../assets/fonts/MontserratAlternatesLight.ttf") ;
+  font-display: block;
+}
+
+@font-face {
   font-family: "BacktoBlack";
-  src: url("../../../assets/fonts/BacktoBlack.ttf");
+  src: url("../../../assets/fonts/BacktoBlack.ttf") ;
+  font-display: block;
 }
 
 @font-face {
   font-family: "GreatVibes";
-  src: url("../../../assets/fonts/GreatVibes-Regular.ttf");
-}
-
-@font-face {
-  font-family: "Montserrat";
-  src: url("../../../assets/fonts/MontserratAlternates-Light.ttf");
+  src: url("../../../assets/fonts/GreatVibesRegular.ttf") ;
+  font-display: block;
 }
 
 @font-face {
   font-family: "MontserratBold";
-  src: url("../../../assets/fonts/MontserratAlternates-Regular.ttf");
+  src: url("../../../assets/fonts/MontserratAlternatesRegular.ttf") ;
+  font-display: block;
 }
 
 @font-face {
   font-family: "Poppins";
-  src: url("../../../assets/fonts/Poppins-Regular.ttf");
+  src: url("../../../assets/fonts/PoppinsRegular.ttf") ;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "KalunaScriptDemo";
+  src: url("../../../assets/fonts/KalunaScriptDemo.otf") ;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "RadicalsDemo";
+  src: url("../../../assets/fonts/RadicalsDemo.ttf") ;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "ShareDong";
+  src: url("../../../assets/fonts/ShareDong.ttf") ;
+  font-display: block;
 }
 
 @layer utilities {
@@ -62,5 +85,6 @@
       -ms-overflow-style: auto;  /* IE and Edge */
       scrollbar-width: auto;  /* Firefox */
     }
+
 }
 

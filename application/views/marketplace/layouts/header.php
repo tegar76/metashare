@@ -11,10 +11,10 @@
 	<link rel="icon" type="image/png" sizes="16x16" href="<?= base_url() ?>/assets/icons/logo_metashare_small.png">
 
 	<!-- Fontawesome -->
-	<link rel="stylesheet" href="<?= base_url('src/fontawesome-free-6.2.0-web/css/all.css') ?>">
+	<link rel="stylesheet" href="<?= base_url('src/font-awesome/css/all.css') ?>">
 
-	<!-- Css -->
-	<link rel="stylesheet" href="<?= base_url('src/style/marketplace/style28.css') ?>">
+    <!-- Css -->
+     <?php include FCPATH. 'src/style/tailwindOutput/import.php';?>
 
 	<!--Regular Datatables CSS-->
 	<link href="<?= base_url('src/style/tailwindCss/dataTables/css/data_table.css') ?>" rel="stylesheet">
@@ -38,7 +38,8 @@
 	<script src="<?= base_url('src/style/tailwindCss/node_modules/tw-elements/dist/js/index.min.js') ?>"></script>
 
 	<!-- Flowbite -->
-	<script src="<?= base_url('src/style/tailwindCss/node_modules/') ?>flowbite/dist/flowbite.js"></script>
+	<script src="<?= base_url('assets/vendor/flowbite/flowbite.min.js')?>"></script>
+
 
 	<style>
 		.carousel-indicators button {
@@ -80,8 +81,7 @@
 					<!-- Icon -->
 					<ul class="navbar-nav flex">
 						<li class="nav-item p-2">
-							<a class="nav-link p-0 text-slate-500 hover:text-primary-blue-cyan/90
-                <?= ($this->uri->segment(2) == "") ? 'text-primary-blue-cyan font-semibold' : '' ?>" href="<?= base_url() ?>">Home</a>
+							<a class="nav-link p-0 text-slate-500 hover:text-primary-blue-cyan/90 <?= ($this->uri->segment(2) == "") ? 'text-primary-blue-cyan font-semibold' : '' ?>" href="<?= base_url() ?>">Home</a>
 						</li>
 						<li class="nav-item p-2">
 							<button class="nav-link text-slate-500 focus:text-primary-blue-cyan/90 hover:text-primary-blue-cyan/90 p-0 <?= ($this->uri->segment(2) == "categories") ? 'text-primary-blue-cyan font-semibold' : '' ?>" id="multiLevelDropdownButtonNav" data-dropdown-toggle="dropdownNav">Kategori <span><i class="fa fa-chevron-down fa-xs"></i></span></button>
@@ -198,4 +198,4 @@
 		<!-- Nav Bottom End -->
 	</header>
 
-	<main class="px-5 pt-4 pb-16 sm:px-8 md:px-14 md:pt-10 lg:px-16 xl:px-20 xl:pb-28 text-xs xl:text-sm  min-h-[70vh] max-h-full">
+	<main class="px-5 pt-4 pb-16 sm:px-8 md:px-14 md:pt-10 lg:px-16 xl:px-20 xl:pb-28 text-xs xl:text-sm  min-h-[70vh] max-h-full text-[#1C2D46]">

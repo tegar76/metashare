@@ -16,13 +16,13 @@
 	<!--Icon Tittle -->
 	<link rel="icons" href="<?= base_url('assets/icons/green-shades/ic-ms.png') ?>">
 
-	<style>
+	<!-- <style>
 		img[alt="www.000webhost.com"] {
 			display: none
 		}
 
 		;
-	</style>
+	</style> -->
 </head>
 
 <body>

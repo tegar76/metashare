@@ -13,7 +13,7 @@ const BASEURL = base_url();
 //Untuk Memunculkan halaman Sampul
 window.addEventListener("load", function () {
 	setTimeout(function open(event) {
-		document.querySelector(".sampul").style.display = "none"; //block
+		document.querySelector(".sampul").style.display = "block"; //block
 		document
 			.querySelector(".sampul")
 			.classList.add(
@@ -70,7 +70,7 @@ window.addEventListener("scroll", scrollActive);
 
 //Mengatur akhir perhitungan mundur
 // Mengatur waktu akhir perhitungan mundur
-var getCountDown = document.querySelector('#countDownTime').value;
+var getCountDown = document.querySelector("#countDownTime").value;
 var countDownDate = new Date(getCountDown).getTime();
 
 // Memperbarui hitungan mundur setiap 1 detik
@@ -115,7 +115,7 @@ let pm = document.getElementById("setm");
 function setmus() {
 	if (mc.paused) {
 		mc.play();
-		pm.src = BASEURL +"assets/icons/green-shades/in in-play.svg";
+		pm.src = BASEURL + "assets/icons/green-shades/in in-play.svg";
 	} else {
 		mc.pause();
 		pm.src = BASEURL + "assets/icons/green-shades/in in-pause.svg";

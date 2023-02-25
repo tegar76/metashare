@@ -4,10 +4,10 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="icon" type="image/png" sizes="16x16" href="<?= base_url('assets/icons/green-shades/ic-ms.png') ?>">
+	<link rel="icon"  href="<?= base_url('assets/icons/green-shades/ic-ms.png') ?>">
 	<title>Wedding <?= $invitation->groom_nickname . ' & ' . $invitation->bride_nickname ?></title>
 	<!--Style CSS-->
-	<link rel="stylesheet" href="<?= base_url('assets/style/green-shades-style_.css') ?>">
+	<link rel="stylesheet" href="<?= base_url('assets/style/green-shades-style.css') ?>">
 	<!--Lightbox CSS-->
 	<link rel="stylesheet" href="<?= base_url('assets/vendor/lightbox.css') ?>">
 	<!--CCS ANIMATE-->

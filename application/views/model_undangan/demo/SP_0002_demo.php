@@ -13,7 +13,7 @@
 	<script src="<?= base_url() ?>assets/vendor/jquery/dist/jquery.min.js"></script>
 
 	<!-- Css -->
-	<link href="<?= base_url() ?>assets/style/tailwind-style.css" rel="stylesheet" />
+	<link href="<?= base_url() ?>assets/style/tailwind_style2.css" rel="stylesheet" />
 
 	<!-- Tailwind Elements -->
 	<script src="<?= base_url() ?>assets/vendor/tw-elements/dist/js/index.min.js"></script>
@@ -321,7 +321,7 @@
 		<!-- Cover -->
 		<section class="absolute -z-10 top-0" id="cover">
 			<div class="lg:hidden absolute inset-0  bg-slate-900 bg-opacity-60"></div>
-			<div class="w-screen h-screen bg-cover bg-center bg-[url('<?= base_url() ?>assets/images/foto_cover_full.jpg')] lg:bg-none lg:bg-violet-200 text-center">
+			<div class="w-screen h-screen bg-cover bg-center bg-[url('foto_cover_full.jpg')] lg:bg-none lg:bg-violet-200 text-center">
 				<div class="flex justify-center ml-5">
 					<div class="lg:w-[50vw] lg:mr-5 lg:h-screen lg:relative absolute bottom-[6vh]" data-aos="zoom-in-down" data-aos-easing="ease-out-cubic" data-aos-duration="500">
 						<div class="flex">

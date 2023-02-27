@@ -13,7 +13,7 @@
 	<script src="<?= base_url() ?>assets/vendor/jquery/dist/jquery.min.js"></script>
 
 	<!-- Css -->
-	<link href="<?= base_url() ?>assets/style/tailwind-style.css" rel="stylesheet" />
+	<link href="<?= base_url() ?>assets/style/tailwind_style2.css" rel="stylesheet" />
 
 	<!-- Tailwind Elements -->
 	<script src="<?= base_url() ?>assets/vendor/tw-elements/dist/js/index.min.js"></script>
@@ -310,16 +310,34 @@
 
 	<div class="mainPage main-page-transition hidden" id="mainPage">
 		<!-- Cover -->
+
+		<style>
+			.bg-cover-mobile {
+				background-image: url('<?= base_url('storage/invitations/uploads/' . $invitation->cover_image_2)?>');
+				width: 100vw;
+				height: 100vh;
+				background-size: cover;
+				background-position: center;
+				text-align: center;
+			}
+
+			@media (min-width:1024px){
+				.bg-cover-mobile{
+					background-image:none;
+				}
+			}
+
+		</style>
+
 		<section class="absolute -z-10 top-0" id="cover">
 			<div class="lg:hidden absolute inset-0  bg-slate-900 bg-opacity-60"></div>
-			<div class="w-screen h-screen bg-cover bg-center bg-[url('<?= base_url('storage/invitations/uploads/' . $invitation->cover_image_2) ?>')] lg:bg-none lg:bg-violet-200 text-center">
+			<div class=" bg-cover-mobile  lg:bg-violet-200 text-center">
 				<div class="flex justify-center ml-5">
 					<div class="lg:w-[50vw] lg:mr-5 lg:h-screen lg:relative absolute bottom-[6vh]" data-aos="zoom-in-down" data-aos-easing="ease-out-cubic" data-aos-duration="500">
 						<div class="flex">
 							<div class="hidden lg:block">
 								<img src="<?= base_url('assets/ilustrations/tema1/cover_flower1.png') ?>" alt=".." class="w-40">
 							</div>
-
 							<div class="items-center justify-center bg-pink-100/10 lg:bg-tema1-pink/5 border border-white/50 lg:border-tema1-pink/70 w-44 h-36 2xs:w-56 2xs:h-48 md:w-80 md:h-64 lg:w-64 lg:h-52 rounded-lg text-center mx-auto mt-[21vh] shadow-tema1-pink/80 shadow-sm">
 								<div class="bg-white lg:bg-tema1-teal/5  bg-opacity-10 border border-white/20 lg:border-tema1-teal/70 w-full h-full my-auto rounded-lg text-center mx-auto -rotate-12 font-RadicalsDemo text-3xl 2xs:text-5xl sm:text-5xl md:text-[68px] lg:text-5xl text-white/70 lg:text-tema1-pink tracking-widest shadow-[#1774f554] shadow-sm">
 									<!-- Groom and bride name -->
@@ -368,9 +386,15 @@
 						</div>
 					</div>
 					<div class="hidden lg:flex ml-5 w-[50vw] justify-center items-center" data-aos="zoom-in-down" data-aos-easing="ease-out-cubic" data-aos-duration="500">
-						<div> <img src="<?= base_url('assets/ilustrations/tema1/cover_flower4.png') ?>" alt="" class="w-20"></div>
-						<div class="shadow-md shadow-tema1-pink rounded-[40px]"><img src="<?= base_url('storage/invitations/uploads/' . $invitation->cover_image_2) ?>" alt="" class="w-96 my-auto border-2 border-tema1-dark-green rounded-[40px]"></div>
-						<div> <img src="<?= base_url('assets/ilustrations/tema1/cover_flower3.png') ?>" alt="" class="w-20"></div>
+						<div>
+							<img src="<?= base_url('assets/ilustrations/tema1/cover_flower4.png') ?>" alt="cover_flower_4" class="w-20">
+						</div>
+						<div class="shadow-md shadow-tema1-pink rounded-[40px]">
+							<img src="<?= base_url('storage/invitations/uploads/' . $invitation->cover_image_2) ?>" alt="cover_flower" class="w-96 my-auto border-2 border-tema1-dark-green rounded-[40px]">
+						</div>
+						<div>
+							<img src="<?= base_url('assets/ilustrations/tema1/cover_flower3.png') ?>" alt="cover_flower" class="w-20">
+						</div>
 					</div>
 				</div>
 			</div>
@@ -773,11 +797,12 @@
 				<!-- Notif Success Copy End-->
 				<div class="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-tema1-teal/30 rounded-t-md">
 					<h1 class="font-KalunaScriptDemo tracking-widest text-3xl 1xs:text-4xl lg:text-3xl mx-auto">
-						Berikan Hadiah</h1>
+						Berikan Hadiah
+					</h1>
 				</div>
 				<div class="modal-body relative p-4">
 					<p class="mb-4 text-base-xs 2xs:text-base-sm 1xs:text-base-md md:text-[20px] lg:text-base-md lg:leading-6 font-normal text-slate-800 text-justify"><span class="font-semibold">
-							Tanpa mengurangi rasa hormat,</span> untuk melengkapi kebahagian pengantin, anda dapat memberikan tanda kasih dengan melalui transfer ke rekening berikut :
+						Tanpa mengurangi rasa hormat,</span> untuk melengkapi kebahagian pengantin, anda dapat memberikan tanda kasih dengan melalui transfer ke rekening berikut :
 					</p>
 					<!-- content card bca-->
 					<?php foreach ($gifts as $gift) : ?>

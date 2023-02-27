@@ -12,7 +12,7 @@
 	<script src="<?= base_url() ?>assets/vendor/jquery/dist/jquery.min.js"></script>
 
 	<!-- Css -->
-	<link href="<?= base_url() ?>assets/style/tailwind-style.css" rel="stylesheet" />
+	<link href="<?= base_url() ?>assets/style/tailwind_style2.css" rel="stylesheet" />
 
 	<!-- Tailwind Elements -->
 	<script src="<?= base_url() ?>assets/vendor/tw-elements/dist/js/index.min.js"></script>
@@ -96,7 +96,7 @@
 </head>
 
 <body class="font-Montserrat bg-[#ebeeee]">
-	
+
 	<!-- floating button -->
 	<div id="floatingButton" class="hidden fixed right-5 bottom-28 z-10 md:right-12 w-10 md:-16 lg:w-12">
 		<div class="justify-between w-10 md:w-16 lg:w-12 mx-auto lg:py-3 block lg:mx-0 lg:ml-5">
@@ -138,10 +138,13 @@
 				<div class="flex justify-center">
 
 					<div class="">
-						<h1 class="mt-[15vh] 2xs:mt-[20vh] font-KalunaScriptDemo text-3xl 2xs:text-4xl sm:text-6xl lg:text-4xl text-tema1-dark-green">The Wedding Of</h1>
-
+						<h1 class="mt-[15vh] 2xs:mt-[20vh] font-KalunaScriptDemo text-3xl 2xs:text-4xl sm:text-6xl lg:text-4xl text-tema1-dark-green">
+							The Wedding Of
+						</h1>
 						<div>
-							<h1 class="mt-8 sm:mt-12 lg:mt-8 font-RadicalsDemo text-3xl 2xs:text-4xl sm:text-5xl lg:text-4xl text-tema1-pink tracking-widest"><?= $invitation->groom_nickname . ' & ' . $invitation->bride_nickname ?></h1>
+							<h1 class="mt-8 sm:mt-12 lg:mt-8 font-RadicalsDemo text-3xl 2xs:text-4xl sm:text-5xl lg:text-4xl text-tema1-pink tracking-widest">
+								<?= $invitation->groom_nickname . ' & ' . $invitation->bride_nickname ?>
+							</h1>
 							<p class="mt-1 sm:mt-3 text-lg 2xs:text-xl sm:text-3xl lg:text-xl text-tema1-teal font-ShareDong">
 								<?= $akadDate['tanggal'] . ' <span class="font-normal text-base-sm 2xs:text-base sm:text-xl lg:text-base-md"> ' . $akadDate['bulan'] . '  </span><span> ' . $akadDate['tahun'] . ' </span>' ?>
 							</p>
@@ -153,7 +156,9 @@
 									<div class="attribute">
 										<p class="mb-2 lg:mb-0">Kepada Yth</p>
 										<p>Bapak/Ibu/Saudara/I</p>
-										<p class="mt-2 lg:mt-0 text-base-xs 2xs:text-base-md sm:text-2xl lg:text-base-md font-semibold"><?= (!empty($guest) ? $guest : '-') ?></p>
+										<p class="mt-2 lg:mt-0 text-base-xs 2xs:text-base-md sm:text-2xl lg:text-base-md font-semibold">
+											<?= (!empty($guest) ? $guest : '-') ?>
+										</p>
 									</div>
 								</div>
 							</div>
@@ -242,7 +247,9 @@
 					</p>
 				</div>
 				<div class="">
-					<div class=""><img class="hidden lg:block w-24 lg:w-64 absolute -right-3 lg:-right-10 opacity-70" src="<?= base_url('assets/ilustrations/tema1/sambutan_flower2.png') ?>" alt=""></div>
+					<div class="">
+						<img class="hidden lg:block w-24 lg:w-64 absolute -right-3 lg:-right-10 opacity-70" src="<?= base_url('assets/ilustrations/tema1/sambutan_flower2.png') ?>" alt="">
+					</div>
 				</div>
 			</div>
 		</section>
@@ -272,11 +279,11 @@
 							<img class=" absolute w-14 md:w-20 lg:w-14 opacity-80 right-5 1xs:right-16 md:right-24 lg:left-[30vw]" src="<?= base_url('assets/ilustrations/tema1/resepsi_flower2.svg') ?>" />
 							<div class="pt-3 pb-5 px-3 md:pt-8 md:pb-8 lg:px-3  font-semibold text-base-xs 2xs:text-base-sm md:text-[26px]  lg:text-base-md text-slate-900/90 tracking-wider">
 								<h1 class=" mb-3 md:mb-8 font-MontserratBold text-base 2xs:text-md 1xs:text-tiny md:text-[30px] lg:text-xl">Tasyakuran</h1>
-								<p class="mb-1 text-slate-800">Jum'at, 21 Oktober 2022</p>
-								<p class="mb-2 text-slate-800">10.00 WIB - Selesai</p>
-								<p class=" text-slate-800 mb-3">Jl. Pramuka Timur No.213 RT.02 RW.01 No.213 RT.02 RW.01</p>
+								<p class="mb-1 text-slate-800"><?= $acara['tasyakur']['tanggal']; ?></p>
+								<p class="mb-1 text-slate-800"><?= $acara['tasyakur']['waktu']; ?> - Selesai</p>
+								<p class="text-slate-800 mb-3"><?= $acara['tasyakur']['alamat']; ?></p>
 								<p class="text-slate-700 text-base-1xs 2xs:text-base-xs md:text-xl lg:text-sm">(Kediaman Mempelai Pria)</p>
-								<a target="_blank" href="https://goo.gl/maps/HyxMYiBshiDf29f27">
+								<a target="_blank" href="<?= $acara['tasyakur']['maps'] ?>">
 									<button class="mt-4 md:mt-8 px-4 py-2 rounded-lg bg-tema1-pink/60 font-semibold hover:bg-tema1-pink/100 transition ease-in-out duration-500 text-white">
 										<div class="flex justify-items-center">
 											<img class="mr-3" width="14" height="14" src="<?= base_url() ?>assets/icons/tema1/resepsi_loc.svg" alt="">
@@ -292,11 +299,11 @@
 							<img class=" absolute w-12 md:w-[70px] lg:w-[44px] opacity-80 right-4 1xs:right-14 md:right-[88px] lg:right-[36vw]" src="<?= base_url() ?>assets/ilustrations/tema1/resepsi_flower3.svg" />
 							<div class="pt-3 pb-5 px-3 md:pt-8 md:pb-8 lg:px-3  font-semibold text-base-xs 2xs:text-base-sm md:text-[26px]  lg:text-base-md text-slate-900/90 tracking-wider">
 								<h1 class=" mb-3 md:mb-8 font-MontserratBold text-base 2xs:text-md 1xs:text-tiny md:text-[30px] lg:text-xl">Akad</h1>
-								<p class="mb-1 text-slate-800">Jum'at, 21 Oktober 2022</p>
-								<p class="mb-2 text-slate-800">10.00 WIB - Selesai</p>
-								<p class=" text-slate-800 mb-3">Jl. Pramuka Timur No.213 RT.02 RW.01</p>
+								<p class="mb-1 text-slate-800"><?= $acara['akad']['tanggal']; ?></p>
+								<p class="mb-1 text-slate-800"><?= $acara['akad']['waktu']; ?> - Selesai</p>
+								<p class="text-slate-800 mb-3"><?= $acara['akad']['alamat']; ?></p>
 								<p class="text-slate-700 text-base-1xs 2xs:text-base-xs md:text-xl lg:text-sm">(Kediaman Mempelai Pria)</p>
-								<a target="_blank" href="https://goo.gl/maps/HyxMYiBshiDf29f27">
+								<a target="_blank" href="<?= $acara['akad']['maps'] ?>">
 									<button class="mt-4 md:mt-8 px-4 py-2 rounded-lg bg-tema1-pink/60 font-semibold hover:bg-tema1-pink/100 transition ease-in-out duration-500 text-white">
 										<div class="flex justify-items-center">
 											<img class="mr-3" width="14" height="14" src="<?= base_url() ?>assets/icons/tema1/resepsi_loc.svg" alt="">
@@ -312,14 +319,14 @@
 							<img class=" absolute w-14 md:w-20 lg:w-14 opacity-80 right-6 1xs:right-16 md:right-24 lg:right-[7.5vw]" src="<?= base_url() ?>assets/ilustrations/tema1/resepsi_flower1.svg" />
 							<div class="pt-3 pb-5 px-3 md:pt-8 md:pb-8 lg:px-3 font-semibold text-base-xs 2xs:text-base-sm md:text-[26px]  lg:text-base-md text-slate-900/90 tracking-wider">
 								<h1 class=" mb-3 md:mb-8 font-MontserratBold text-base 2xs:text-md 1xs:text-tiny md:text-[30px] lg:text-xl">Resepsi</h1>
-								<p class="mb-1 text-slate-800">Jum'at, 21 Oktober 2022</p>
-								<p class="mb-2 text-slate-800">10.00 WIB - Selesai</p>
-								<p class=" text-slate-800 mb-3">Jl. Pramuka Timur No.213 RT.02 RW.01</p>
+								<p class="mb-1 text-slate-800"><?= $acara['resepsi']['tanggal']; ?></p>
+								<p class="mb-1 text-slate-800"><?= $acara['resepsi']['waktu']; ?> - Selesai</p>
+								<p class="text-slate-800 mb-3"><?= $acara['resepsi']['alamat']; ?></p>
 								<p class="text-slate-700 text-base-1xs 2xs:text-base-xs md:text-xl lg:text-sm">(Kediaman Mempelai Pria)</p>
-								<a target="_blank" href="https://goo.gl/maps/HyxMYiBshiDf29f27" class="self-end">
+								<a target="_blank" href="<?= $acara['resepsi']['maps']; ?>" class="self-end">
 									<button class="mt-4 md:mt-8 px-4 py-2 rounded-lg bg-tema1-pink/60 font-semibold hover:bg-tema1-pink/100 transition ease-in-out duration-500 text-white">
 										<div class="flex justify-items-center">
-											<img class="mr-3" width="14" height="14" src="<?= base_url() ?>assets/icons//tema1/resepsi_loc.svg" alt="">
+											<img class="mr-3" width="14" height="14" src="<?= base_url() ?>assets/icons/tema1/resepsi_loc.svg" alt="">
 											<p class="text-xs md:text-xl lg:text-sm">Google Map</p>
 										</div>
 									</button>
@@ -363,6 +370,9 @@
 						<div class="">
 							<div class="">
 								<div class="">
+									<?= form_open("#", ['id' => 'submit-message']) ?>
+									<input type="hidden" name="guest_name" value="<?= $guest ?>">
+									<input type="hidden" id="invtId" name="invt_id" value="<?= $invitation->invitation_id ?>">
 									<div class="">
 										<label for="pesan" class="opacity-70 font-semibold tracking-wide cursor-pointer text-sm 2xs:text-base-sm 1xs:text-base-md md:text-[27px] lg:text-base lg:leading-6">Pesan</label>
 										<div class="mt-2">
@@ -389,27 +399,15 @@
 									<div class="mt-3 md:mt-8">
 										<button type="submit" class="px-4 py-1 md:px-8 md:py-3 lg:py-1.5 lg:px-6 bg-tema1-pink/60 hover:bg-tema1-pink/100  text-white rounded-lg hover:bg-opacity-70 transition-all duration-300 text-sm 2xs:text-base-sm 1xs:text-base md:text-[27px] lg:text-base lg:leading-6 font-semibold">Kirim</button>
 									</div>
+									<?= form_close() ?>
 								</div>
 								<div class="">
 									<div>
-										<p class="opacity-70 font-semibold tracking-wide mb-3 md:mb-5 mt-4 md:mt-8 text-sm 2xs:text-base-sm 1xs:text-base-md md:text-[27px] lg:text-base lg:leading-6">Total Pesan : <span>fbuhbfb</span></p>
+										<p class="opacity-70 font-semibold tracking-wide mb-3 md:mb-5 mt-4 md:mt-8 text-sm 2xs:text-base-sm 1xs:text-base-md md:text-[27px] lg:text-base lg:leading-6">Total Pesan : <span><?= $message ?></span></p>
 									</div>
 									<div class="overflow-y-scroll h-[350px] xl:h-[250px] border border-tema1-teal/60 cursor-all-scroll rounded-md bg-white/30 shadow-sm lg:shadow-md shadow-tema1-teal/50 border-r-tema1-teal mb-5">
 										<div class="mx-3 mb-3">
-											<div class="flex mt-3">
-												<div class="mr-3">
-													<div class="flex w-9 h-9 md:w-12 md:h-12 lg:w-10 lg:h-10 font-semibold border border-slate-400 text-sm 2xs:text-base-sm 1xs:text-base-md md:text-[27px] lg:text-base lg:leading-6 text-center rounded-full items-center justify-center text-green-500">T</div>
-												</div>
-												<div>
-													<div>
-														<p class="font-semibold opacity-80 tracking-wide text-sm 2xs:text-base-sm 1xs:text-base-md md:text-[26px] lg:text-base-md lg:leading-6">Tegar Kusuma</p>
-														<p class="text-base-1xs 2xs:text-base-xs 1xs:text-base-sm md:text-[22px] lg:text-base-sm lg:leading-6 text-slate-500 mb-1 md:mt-2 lg:mt-0">
-															22 Januari 2022
-														</p>
-														<p class="tracking-wide text-slate-800 text-justify mr-2 text-base-xs 2xs:text-base-sm 1xs:text-base-md md:text-[25px] lg:text-base-sm lg:leading-6">Selamat Menempuh Hidup Baru</p>
-													</div>
-												</div>
-											</div>
+											<div id="display_message"></div>
 										</div>
 									</div>
 								</div>
@@ -434,7 +432,7 @@
 							<h1 class="font-KalunaScriptDemo tracking-wide text-3xl 2xs:text-4xl sm:text-5xl md:text-6xl lg:text-4xl mb-1 lg:mb-3 opacity-80 text-center ">Terimakasih</h1>
 							<p class="text-sm 2xs:text-base-sm 1xs:text-base-md md:text-[22px] lg:text-base lg:leading-6 text-center">Atas Do'a Restunya</p>
 							<div class="text-center mt-8 font-RadicalsDemo tracking-widest text-3xl 2xs:text-3xl sm:text-4xl md:text-5xl lg:text-4xl text-tema1-pink">
-								<p class="">Runa & Ratna</p>
+								<p class=""><?= $invitation->groom_nickname ?> & <?= $invitation->bride_nickname ?></p>
 							</div>
 							<div class="flex my-10 opacity-80"><img src="<?= base_url() ?>assets/ilustrations/tema1/pesan_bahagia_flower_4.svg" class="mx-auto mb-4 w-[180px] md:w-[230px] lg:w-[250px]" alt=""></div>
 						</div>
@@ -476,187 +474,39 @@
 				<!-- Notif Success Copy End-->
 				<div class="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-tema1-teal/30 rounded-t-md">
 					<h1 class="font-KalunaScriptDemo tracking-widest text-3xl 1xs:text-4xl lg:text-3xl mx-auto">
-						Berikan Hadiah</h1>
+						Berikan Hadiah
+					</h1>
 				</div>
 				<div class="modal-body relative p-4">
-					<p class="mb-4 text-base-xs 2xs:text-base-sm 1xs:text-base-md md:text-[20px] lg:text-base-md lg:leading-6 font-normal text-slate-800 text-justify"><span class="font-semibold">
-							Tanpa mengurangi rasa hormat,</span> untuk melengkapi kebahagian pengantin, anda dapat memberikan tanda kasih dengan melalui transfer ke rekening berikut :
+					<p class="mb-4 text-base-xs 2xs:text-base-sm 1xs:text-base-md md:text-[20px] lg:text-base-md lg:leading-6 font-normal text-slate-800 text-justify">
+						<span class="font-semibold">Tanpa mengurangi rasa hormat,</span> untuk melengkapi kebahagian pengantin, anda dapat memberikan tanda kasih dengan melalui transfer ke rekening berikut :
 					</p>
-					<!-- content card bca-->
-					<div class="rounded-lg p-4 my-5 tracking-widest shadow-md shadow-tema1-teal/10 border border-tema1-teal/40">
-						<div class="px-2 py-3">
-							<div class=""><img class="w-20" src="<?= base_url() ?>assets/icons/app/i_gift_card_va_bca.svg" alt="bca"></div>
-							<div class="flex mt-4">
+					<?php foreach ($gifts as $gift) : ?>
+						<div class="rounded-lg p-4 my-5 tracking-widest shadow-md shadow-tema1-teal/10 border border-tema1-teal/40">
+							<div class="px-2 py-3">
+								<div class=""><img class="w-20" src="<?= base_url('storage/') . $gift->icon ?>"" alt=" bri"></div>
+								<div class="flex mt-4">
+									<div>
+										<p class="font-semibold mr-3 text-base-xs 2xs:text-base-md 1xs:text-sm md:text-[20px] lg:text-base-sm lg:leading-6 text-slate-600" id="<?= $gift->id ?>"><?= $gift->account ?></p>
+									</div>
+									<button class="hover:shadow-lg focus:shadow-xl active:shadow-xl transition duration-100 ease-in-out"><img class="h-3 2xs:h-4" src="<?= base_url() ?>assets/icons/tema1/copy.svg" alt="Copy" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Salin" onclick="CopyToClipboard('<?= $gift->id ?>'); return false;"></button>
+								</div>
 								<div>
-									<p class="font-semibold mr-3 text-base-xs 2xs:text-base-md 1xs:text-sm md:text-[20px] lg:text-base-sm lg:leading-6 text-slate-600" id="noBca">1342179716</p>
+									<p class="text-base-1xs 2xs:text-base-xs 1xs:text-base-sm md:text-[16px] lg:text-[15px] lg:leading-6 font-normal text-slate-600">a.n. <span class="text-slate-900"><?= $gift->recipient ?></span></p>
 								</div>
-								<button class="hover:shadow-lg focus:shadow-xl active:shadow-xl transition duration-100 ease-in-out"><img class="h-3 2xs:h-4" src="<?= base_url() ?>assets/icons/tema1/copy.svg" alt="Copy" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Salin" onclick="CopyToClipboard('noBca'); return false;"></button>
-							</div>
-							<div>
-								<p class="text-base-1xs 2xs:text-base-xs 1xs:text-base-sm md:text-[16px] lg:text-[15px] lg:leading-6 font-normal text-slate-600">a.n. <span class="text-slate-900">Runa Vha Ningit </span></p>
-							</div>
-							<div class="shadow-sm p-1 shadow-tema1-teal/20 my-4 -mx-6"></div>
-							<div class="qr-code">
-								<div class="flex items-center justify-center">
-									<img class="h-32" src="<?= base_url() ?>assets/images/example-barcode.png" alt="">
-								</div>
-								<div class="flex items-center justify-center mt-3">
-									<button class="px-3 py-1 font-Montserrat font-semibold border border-tema1-teal/60 text-tema1-teal mx-auto hover:bg-tema1-teal/80 hover:text-white transition delay-150 rounded-md text-base-1xs 2xs:text-base-xs 1xs:text-base-sm md:text-[16px] lg:text-[14px] lg:leading-6">Simpan</button>
+								<div class="shadow-sm p-1 shadow-tema1-teal/20 my-4 -mx-6"></div>
+								<div class="qr-code">
+									<div class="flex items-center justify-center">
+										<img class="h-32" src="<?= base_url('storage/invitations/gifts/') . $gift->qr ?>" alt="">
+									</div>
+									<div class="flex items-center justify-center mt-3">
+										<button class="px-3 py-1 font-Montserrat font-semibold border border-tema1-teal/60 text-tema1-teal mx-auto hover:bg-tema1-teal/80 hover:text-white transition delay-150 rounded-md text-base-1xs 2xs:text-base-xs 1xs:text-base-sm md:text-[16px] lg:text-[14px] lg:leading-6">Simpan</button>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-					<!-- content card bca end-->
-					<!-- content card bri-->
-					<div class="rounded-lg p-4 my-5 tracking-widest shadow-md shadow-tema1-teal/10 border border-tema1-teal/40">
-						<div class="px-2 py-3">
-							<div class=""><img class="w-20" src="<?= base_url() ?>assets/icons/app/i_gift_card_va_bri.svg" alt="bri"></div>
-							<div class="flex mt-4">
-								<div>
-									<p class="font-semibold mr-3 text-base-xs 2xs:text-base-md 1xs:text-sm md:text-[20px] lg:text-base-sm lg:leading-6 text-slate-600" id="noBri">9999999</p>
-								</div>
-								<button class="hover:shadow-lg focus:shadow-xl active:shadow-xl transition duration-100 ease-in-out"><img class="h-3 2xs:h-4" src="<?= base_url() ?>assets/icons/tema1/copy.svg" alt="Copy" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Salin" onclick="CopyToClipboard('noBri'); return false;"></button>
-							</div>
-							<div>
-								<p class="text-base-1xs 2xs:text-base-xs 1xs:text-base-sm md:text-[16px] lg:text-[15px] lg:leading-6 font-normal text-slate-600">a.n. <span class="text-slate-900">Runa Vha Ningit </span></p>
-							</div>
-							<div class="shadow-sm p-1 shadow-tema1-teal/20 my-4 -mx-6"></div>
-							<div class="qr-code">
-								<div class="flex items-center justify-center">
-									<img class="h-32" src="<?= base_url() ?>assets/images/example-barcode.png" alt="">
-								</div>
-								<div class="flex items-center justify-center mt-3">
-									<button class="px-3 py-1 font-Montserrat font-semibold border border-tema1-teal/60 text-tema1-teal mx-auto hover:bg-tema1-teal/80 hover:text-white transition delay-150 rounded-md text-base-1xs 2xs:text-base-xs 1xs:text-base-sm md:text-[16px] lg:text-[14px] lg:leading-6">Simpan</button>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- content card bri end-->
-					<!-- content card mandiri-->
-					<div class="rounded-lg p-4 my-5 tracking-widest shadow-md shadow-tema1-teal/10 border border-tema1-teal/40">
-						<div class="px-2 py-3">
-							<div class=""><img class="w-20" src="<?= base_url() ?>assets/icons/app/i_gift_card_va_mandiri.svg" alt="mandiri"></div>
-							<div class="flex mt-4">
-								<div>
-									<p class="font-semibold mr-3 text-base-xs 2xs:text-base-md 1xs:text-sm md:text-[20px] lg:text-base-sm lg:leading-6 text-slate-600" id="noMandiri">9999999</p>
-								</div>
-								<button class="hover:shadow-lg focus:shadow-xl active:shadow-xl transition duration-100 ease-in-out"><img class="h-3 2xs:h-4" src="<?= base_url() ?>assets/icons/tema1/copy.svg" alt="Copy" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Salin" onclick="CopyToClipboard('noMandiri'); return false;"></button>
-							</div>
-							<div>
-								<p class="text-base-1xs 2xs:text-base-xs 1xs:text-base-sm md:text-[16px] lg:text-[15px] lg:leading-6 font-normal text-slate-600">a.n. <span class="text-slate-900">Runa Vha Ningit </span></p>
-							</div>
-							<div class="shadow-sm p-1 shadow-tema1-teal/20 my-4 -mx-6"></div>
-							<div class="qr-code">
-								<div class="flex items-center justify-center">
-									<img class="h-32" src="<?= base_url() ?>assets/images/example-barcode.png" alt="">
-								</div>
-								<div class="flex items-center justify-center mt-3">
-									<button class="px-3 py-1 font-Montserrat font-semibold border border-tema1-teal/60 text-tema1-teal mx-auto hover:bg-tema1-teal/80 hover:text-white transition delay-150 rounded-md text-base-1xs 2xs:text-base-xs 1xs:text-base-sm md:text-[16px] lg:text-[14px] lg:leading-6">Simpan</button>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- content card mandiri end-->
-					<!-- content card bsi-->
-					<div class="rounded-lg p-4 my-5 tracking-widest shadow-md shadow-tema1-teal/10 border border-tema1-teal/40">
-						<div class="px-2 py-3">
-							<div class=""><img class="w-20" src="<?= base_url() ?>assets/icons/app/i_gift_card_va_bsi.svg" alt="bsi"></div>
-							<div class="flex mt-4">
-								<div>
-									<p class="font-semibold mr-3 text-base-xs 2xs:text-base-md 1xs:text-sm md:text-[20px] lg:text-base-sm lg:leading-6 text-slate-600" id="noBsi">9999999</p>
-								</div>
-								<button class="hover:shadow-lg focus:shadow-xl active:shadow-xl transition duration-100 ease-in-out"><img class="h-3 2xs:h-4" src="<?= base_url() ?>assets/icons/tema1/copy.svg" alt="Copy" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Salin" onclick="CopyToClipboard('noBsi'); return false;"></button>
-							</div>
-							<div>
-								<p class="text-base-1xs 2xs:text-base-xs 1xs:text-base-sm md:text-[16px] lg:text-[15px] lg:leading-6 font-normal text-slate-600">a.n. <span class="text-slate-900">Runa Vha Ningit </span></p>
-							</div>
-							<div class="shadow-sm p-1 shadow-tema1-teal/20 my-4 -mx-6"></div>
-							<div class="qr-code">
-								<div class="flex items-center justify-center">
-									<img class="h-32" src="<?= base_url() ?>assets/images/example-barcode.png" alt="">
-								</div>
-								<div class="flex items-center justify-center mt-3">
-									<button class="px-3 py-1 font-Montserrat font-semibold border border-tema1-teal/60 text-tema1-teal mx-auto hover:bg-tema1-teal/80 hover:text-white transition delay-150 rounded-md text-base-1xs 2xs:text-base-xs 1xs:text-base-sm md:text-[16px] lg:text-[14px] lg:leading-6">Simpan</button>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- content card bsi end-->
-					<!-- content card bni-->
-					<div class="rounded-lg p-4 my-5 tracking-widest shadow-md shadow-tema1-teal/10 border border-tema1-teal/40">
-						<div class="px-2 py-3">
-							<div class=""><img class="w-20" src="<?= base_url() ?>assets/icons/app/i_gift_card_va_bni.svg" alt="bni"></div>
-							<div class="flex mt-4">
-								<div>
-									<p class="font-semibold mr-3 text-base-xs 2xs:text-base-md 1xs:text-sm md:text-[20px] lg:text-base-sm lg:leading-6 text-slate-600" id="noBni">9999999</p>
-								</div>
-								<button class="hover:shadow-lg focus:shadow-xl active:shadow-xl transition duration-100 ease-in-out"><img class="h-3 2xs:h-4" src="<?= base_url() ?>assets/icons/tema1/copy.svg" alt="Copy" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Salin" onclick="CopyToClipboard('noBni'); return false;"></button>
-							</div>
-							<div>
-								<p class="text-base-1xs 2xs:text-base-xs 1xs:text-base-sm md:text-[16px] lg:text-[15px] lg:leading-6 font-normal text-slate-600">a.n. <span class="text-slate-900">Runa Vha Ningit </span></p>
-							</div>
-							<div class="shadow-sm p-1 shadow-tema1-teal/20 my-4 -mx-6"></div>
-							<div class="qr-code">
-								<div class="flex items-center justify-center">
-									<img class="h-32" src="<?= base_url() ?>assets/images/example-barcode.png" alt="">
-								</div>
-								<div class="flex items-center justify-center mt-3">
-									<button class="px-3 py-1 font-Montserrat font-semibold border border-tema1-teal/60 text-tema1-teal mx-auto hover:bg-tema1-teal/80 hover:text-white transition delay-150 rounded-md text-base-1xs 2xs:text-base-xs 1xs:text-base-sm md:text-[16px] lg:text-[14px] lg:leading-6">Simpan</button>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- content card end bni-->
-					<!-- content card cimbniaga-->
-					<div class="rounded-lg p-4 my-5 tracking-widest shadow-md shadow-tema1-teal/10 border border-tema1-teal/40">
-						<div class="px-2 py-3">
-							<div class=""><img class="w-20" src="<?= base_url() ?>assets/icons/app/i_gift_card_va_cimbniaga.svg" alt="cimbniaga"></div>
-							<div class="flex mt-4">
-								<div>
-									<p class="font-semibold mr-3 text-base-xs 2xs:text-base-md 1xs:text-sm md:text-[20px] lg:text-base-sm lg:leading-6 text-slate-600" id="noCimbniaga">9999999</p>
-								</div>
-								<button class="hover:shadow-lg focus:shadow-xl active:shadow-xl transition duration-100 ease-in-out"><img class="h-3 2xs:h-4" src="<?= base_url() ?>assets/icons/tema1/copy.svg" alt="Copy" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Salin" onclick="CopyToClipboard('noCimbniaga'); return false;"></button>
-							</div>
-							<div>
-								<p class="text-base-1xs 2xs:text-base-xs 1xs:text-base-sm md:text-[16px] lg:text-[15px] lg:leading-6 font-normal text-slate-600">a.n. <span class="text-slate-900">Runa Vha Ningit </span></p>
-							</div>
-							<div class="shadow-sm p-1 shadow-tema1-teal/20 my-4 -mx-6"></div>
-							<div class="qr-code">
-								<div class="flex items-center justify-center">
-									<img class="h-32" src="<?= base_url() ?>assets/images/example-barcode.png" alt="">
-								</div>
-								<div class="flex items-center justify-center mt-3">
-									<button class="px-3 py-1 font-Montserrat font-semibold border border-tema1-teal/60 text-tema1-teal mx-auto hover:bg-tema1-teal/80 hover:text-white transition delay-150 rounded-md text-base-1xs 2xs:text-base-xs 1xs:text-base-sm md:text-[16px] lg:text-[14px] lg:leading-6">Simpan</button>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- content card cimbniagaend-->
-					<!-- content card dana-->
-					<div class="rounded-lg p-4 my-5 tracking-widest shadow-md shadow-tema1-teal/10 border border-tema1-teal/40">
-						<div class="px-2 py-3">
-							<div class=""><img class="w-20" src="<?= base_url() ?>assets/icons/app/i_gift_card_va_dana.svg" alt="dana"></div>
-							<div class="flex mt-4">
-								<div>
-									<p class="font-semibold mr-3 text-base-xs 2xs:text-base-md 1xs:text-sm md:text-[20px] lg:text-base-sm lg:leading-6 text-slate-600" id="noDana">9999999</p>
-								</div>
-								<button class="hover:shadow-lg focus:shadow-xl active:shadow-xl transition duration-100 ease-in-out"><img class="h-3 2xs:h-4" src="<?= base_url() ?>assets/icons/tema1/copy.svg" alt="Copy" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Salin" onclick="CopyToClipboard('noDana'); return false;"></button>
-							</div>
-							<div>
-								<p class="text-base-1xs 2xs:text-base-xs 1xs:text-base-sm md:text-[16px] lg:text-[15px] lg:leading-6 font-normal text-slate-600">a.n. <span class="text-slate-900">Runa Vha Ningit </span></p>
-							</div>
-							<div class="shadow-sm p-1 shadow-tema1-teal/20 my-4 -mx-6"></div>
-							<div class="qr-code">
-								<div class="flex items-center justify-center">
-									<img class="h-32" src="<?= base_url() ?>assets/images/example-barcode.png" alt="">
-								</div>
-								<div class="flex items-center justify-center mt-3">
-									<button class="px-3 py-1 font-Montserrat font-semibold border border-tema1-teal/60 text-tema1-teal mx-auto hover:bg-tema1-teal/80 hover:text-white transition delay-150 rounded-md text-base-1xs 2xs:text-base-xs 1xs:text-base-sm md:text-[16px] lg:text-[14px] lg:leading-6">Simpan</button>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- content card end dana-->
+					<?php endforeach ?>
+					<!-- content card-->
 				</div>
 				<div class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-center p-4 border-t border-tema1-teal/30 rounded-b-md">
 					<button type="button" class="px-4 py-1 md:px-8 md:py-3 lg:py-1.5 lg:px-6 bg-tema1-pink/70 hover:bg-tema1-pink/100  text-white rounded-lg hover:bg-opacity-70 transition-all duration-300 text-sm 2xs:text-base-sm 1xs:text-base md:text-[27px] lg:text-base lg:leading-6 font-semibold" data-bs-dismiss="modal">
@@ -666,11 +516,6 @@
 			</div>
 		</div>
 	</div>
-
-
-
-
-
 
 	<script>
 		function showMainPage() {
@@ -728,7 +573,57 @@
 		AOS.init();
 	</script>
 
+	<script>
+		$(document).ready(function() {
+			load_comment();
+			$("#submit-message").submit(function(e) {
+				e.preventDefault();
+				var form = this;
+				var formdata = new FormData(form);
+				$.ajax({
+					url: "<?= base_url('undangan/submit_message') ?>",
+					type: "POST",
+					processData: false,
+					contentType: false,
+					data: formdata,
+					dataType: "json",
+					success: function(response) {
+						if (response.success == true) {
+							swal.fire(
+								"Pesan Tersampaikan",
+								"Terima kasih atas ucapannya",
+								"success"
+							);
+							load_comment();
+							form.reset();
+						}
+					},
+					error: function() {
+						swal.fire(
+							"Gagal",
+							"Pesan tidak tersampaikan",
+							"error"
+						);
+					},
+				});
+			});
 
+			function load_comment() {
+				$id = $('#invtId').val();
+				$.ajax({
+					type: "GET",
+					url: "<?= base_url('undangan/get_message?id=') ?>" + $id,
+					dataType: "json",
+					success: function(reponse) {
+						$("#display_message").html(reponse);
+					},
+					error: function(reponse) {
+						console.log(reponse.responseText);
+					},
+				});
+			}
+		});
+	</script>
 </body>
 
 </html>

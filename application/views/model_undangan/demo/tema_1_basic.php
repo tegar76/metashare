@@ -12,7 +12,7 @@
 	<script src="<?= base_url() ?>assets/vendor/jquery/dist/jquery.min.js"></script>
 
 	<!-- Css -->
-	<link href="<?= base_url() ?>assets/style/tailwind-style.css" rel="stylesheet" />
+	<link href="<?= base_url() ?>assets/style/tailwind_style2.css" rel="stylesheet" />
 
 	<!-- Tailwind Elements -->
 	<script src="<?= base_url() ?>assets/vendor/tw-elements/dist/js/index.min.js"></script>
@@ -97,6 +97,15 @@
 </head>
 
 <body class="font-Montserrat bg-[#ebeeee]">
+
+	<!-- Demo Watermark -->
+	<div class="">
+		<div class="fixed z-50 top-1 right-1 lg:top-2 lg:right-2">
+			<img class="w-20 lg:w-28" src="<?= base_url('assets/icons/app/watermark_demo.svg') ?>" alt="">
+		</div>
+	</div>
+	<!-- Demo Watermark End -->
+	
 	<!-- floating button -->
 	<div id="floatingButton" class="hidden fixed right-5 bottom-28 z-10 md:right-12 w-10 md:-16 lg:w-12">
 		<div class="justify-between w-10 md:w-16 lg:w-12 mx-auto lg:py-3 block lg:mx-0 lg:ml-5">

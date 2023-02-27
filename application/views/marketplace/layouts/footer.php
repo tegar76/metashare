@@ -122,7 +122,7 @@
 </script>
 
 <script>
-	$('#order-now').submit(function(e) {
+	$('.order-now').submit(function(e) {
 		e.preventDefault();
 		var form = this;
 		var formdata = new FormData(form);

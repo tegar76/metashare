@@ -21,7 +21,7 @@
 			<!-- Select Jenis End-->
 		</div>
 		<!-- Dropdown Filter Mobile End -->
-		<h1 class="text-base xl:text-lg font-MontserratBold mb-4 underline decoration-blue-500 underline-offset-8 decoration-2 mb-6 md:no-underline text-center md:text-left">Kategori <?= $category ?></h1>
+		<h1 class="text-base xl:text-lg font-MontserratBold underline decoration-blue-500 underline-offset-8 decoration-2 mb-6 md:no-underline text-center md:text-left">Kategori <?= $category ?></h1>
 		<div class="grid grid-cols-1 sm:grid-cols-2 sm:gap-x-4 lg:grid-cols-3 xl:grid-cols-3 xl:gap-x-12 xl:gap-y-6">
 			<!-- Limit 6 Card -->
 			<?php if (!empty($models)) : ?>
@@ -49,7 +49,7 @@
 							<div class="flex mb-4 justify-center">
 								<a target="_blank" href="<?= base_url('demo?model=' . $model->view_model) ?>" class="text-base-xs xl:text-sm border text-primary-blue-cyan/80 border-primary-blue-cyan/70 px-3 py-1 rounded-lg hover:bg-primary-blue-cyan hover:text-white hover:border-white mr-3"> <i class="fa fa-eye"></i> Demo</a>
 								<?php if ($this->session->userdata('logged_in') == true and $this->session->userdata('level') == 'customer') : ?>
-									<?= form_open('#', ['id' => 'order-now']) ?>
+									<?= form_open('#', ['class' => 'order-now']) ?>
 									<input type="hidden" name="model_id" value="<?= $model->model_id; ?>">
 									<button type="submit" class="text-base-xs xl:text-sm border text-white border-success bg-success px-3 py-1 rounded-lg hover:bg-success-hover hover:border-success-hover hover:text-white"> <i class="fa-brands fa-whatsapp fa-lg"></i> Order</button>
 									<?= form_close() ?>

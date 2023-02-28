@@ -30,15 +30,19 @@
 		<div class="card shadow-sm px-3">
 			<?= form_open_multipart($this->uri->uri_string(), ['class' => 'mt-2']) ?>
 			<input type="hidden" name="invtId" value="<?= $invt->invitation_id ?>">
-			<div class="form-group mb-3">
-				<label for="namaLengkapPria">Link Video Prewedding<span class="text-danger">*</span></label>
-				<div class="input-group">
-					<input type="text" name="link_video" class="form-control <?= (form_error('link_video')) ? 'is-invalid' : '' ?>" id="namaLengkapPria" placeholder="Masukan Link Video Yang Bersumber Dari Google Drive" value="<?= set_value('link_video') ?>">
-					<div id="link_videoFeedback" class="invalid-feedback">
-						<?= form_error('link_video', '<small class="text-danger">', '</small>') ?>
+			<?php if ($category == 'special') : ?>
+				<div class="form-group mb-3">
+					<label for="namaLengkapPria">Link Video Prewedding<span class="text-danger">*</span></label>
+					<div class="input-group">
+						<input type="text" name="link_video" class="form-control <?= (form_error('link_video')) ? 'is-invalid' : '' ?>" id="namaLengkapPria" placeholder="Masukan Link Video Yang Bersumber Dari Google Drive" value="<?= set_value('link_video') ?>">
+						<div id="link_videoFeedback" class="invalid-feedback">
+							<?= form_error('link_video', '<small class="text-danger">', '</small>') ?>
+						</div>
 					</div>
 				</div>
-			</div>
+			<?php else : ?>
+				<input type="hidden" name="link_video" value="null">
+			<?php endif ?>
 			<a href="#" id="btn-tambah-foto" class="btn btn-sm btn-outline-info px-3 py-1 mb-2 mt-3"><i class="fa fa-add mr-1"></i>Foto</a>
 			<a href="#" id="btn-reset-form" class=" btn btn-sm btn-outline-warning px-3 py-1 mb-2 mt-3">Reset</a>
 			<!-- Loop Form -->

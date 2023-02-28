@@ -576,6 +576,7 @@
 	<script>
 		$(document).ready(function() {
 			load_comment();
+			load_count_comment();
 			$("#submit-message").submit(function(e) {
 				e.preventDefault();
 				var form = this;
@@ -595,6 +596,7 @@
 								"success"
 							);
 							load_comment();
+							load_count_comment();
 							form.reset();
 						}
 					},
@@ -609,13 +611,28 @@
 			});
 
 			function load_comment() {
-				$id = $('#invtId').val();
+				let id = $('#invtId').val();
 				$.ajax({
 					type: "GET",
-					url: "<?= base_url('undangan/get_message?id=') ?>" + $id,
+					url: "<?= base_url('undangan/get_message?id=') ?>" + id,
 					dataType: "json",
 					success: function(reponse) {
 						$("#display_message").html(reponse);
+					},
+					error: function(reponse) {
+						console.log(reponse.responseText);
+					},
+				});
+			}
+
+			function load_count_comment() {
+				let id = $('#invtId').val();
+				$.ajax({
+					type: "GET",
+					url: "<?= base_url('undangan/get_count_message?id=') ?>" + id,
+					dataType: "json",
+					success: function(reponse) {
+						$("#count_message").text(reponse);
 					},
 					error: function(reponse) {
 						console.log(reponse.responseText);

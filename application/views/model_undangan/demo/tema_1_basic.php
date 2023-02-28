@@ -105,7 +105,7 @@
 		</div>
 	</div>
 	<!-- Demo Watermark End -->
-	
+
 	<!-- floating button -->
 	<div id="floatingButton" class="hidden fixed right-5 bottom-28 z-10 md:right-12 w-10 md:-16 lg:w-12">
 		<div class="justify-between w-10 md:w-16 lg:w-12 mx-auto lg:py-3 block lg:mx-0 lg:ml-5">
@@ -129,71 +129,71 @@
 
 	<!-- Sampul -->
 	<div class="sampul text-center z-0 bg-gradient-to-t from-indigo-100 via-red-100 to-yellow-50  min-h-[100vh] max-h-max" id="sampul">
-        <div class="flex justify-center items-center">
-            <div>
-                <img src="<?= base_url('assets/ilustrations/tema1/sampul_ils1.png') ?>" class="absolute left-0 opacity-80 w-14 2xs:w-20 sm:w-40">
-                <div class="absolute left-[35vw] top-5 hidden lg:block">
-                    <div class="flex">
-                        <div class="border border-tema1-teal/50 bg-tema1-pink/50 -rotate-45  h-10 w-2 rounded-xl -mr-8"></div>
-                        <div class="border border-tema1-teal/50 bg-tema1-pink/50 -rotate-45 hidden lg:block h-14 w-2 rounded-xl"></div>
-                    </div>
-                </div>
-                <div class="absolute right-[33vw] top-5 hidden lg:block">
-                    <div class="flex">
-                        <div class="border border-tema1-teal/50 bg-tema1-pink/50 -rotate-45 h-10 w-2 rounded-xl -mr-8"></div>
-                        <div class="border border-tema1-teal/50 bg-tema1-pink/50 -rotate-45 h-14 w-2 rounded-xl"></div>
-                    </div>
-                </div>
-                <div class="flex justify-center">
-                
-                    <div class="">
-                        <h1 class="mt-[15vh] 2xs:mt-[20vh] font-KalunaScriptDemo text-3xl 2xs:text-4xl sm:text-6xl lg:text-4xl text-tema1-dark-green">The Wedding Of</h1>
+		<div class="flex justify-center items-center">
+			<div>
+				<img src="<?= base_url('assets/ilustrations/tema1/sampul_ils1.png') ?>" class="absolute left-0 opacity-80 w-14 2xs:w-20 sm:w-40">
+				<div class="absolute left-[35vw] top-5 hidden lg:block">
+					<div class="flex">
+						<div class="border border-tema1-teal/50 bg-tema1-pink/50 -rotate-45  h-10 w-2 rounded-xl -mr-8"></div>
+						<div class="border border-tema1-teal/50 bg-tema1-pink/50 -rotate-45 hidden lg:block h-14 w-2 rounded-xl"></div>
+					</div>
+				</div>
+				<div class="absolute right-[33vw] top-5 hidden lg:block">
+					<div class="flex">
+						<div class="border border-tema1-teal/50 bg-tema1-pink/50 -rotate-45 h-10 w-2 rounded-xl -mr-8"></div>
+						<div class="border border-tema1-teal/50 bg-tema1-pink/50 -rotate-45 h-14 w-2 rounded-xl"></div>
+					</div>
+				</div>
+				<div class="flex justify-center">
 
-                        <div>
-                            <h1 class="mt-8 sm:mt-12 lg:mt-8 font-RadicalsDemo text-3xl 2xs:text-4xl sm:text-5xl lg:text-4xl text-tema1-pink tracking-widest">Runa & Ratna</h1>
-                            <p class="mt-1 sm:mt-3 text-lg 2xs:text-xl sm:text-3xl lg:text-xl text-tema1-teal font-ShareDong">22 <span class="font-normal text-base-sm 2xs:text-base sm:text-xl lg:text-base-md">Januari </span><span>2022</span></p>
-                        </div>
+					<div class="">
+						<h1 class="mt-[15vh] 2xs:mt-[20vh] font-KalunaScriptDemo text-3xl 2xs:text-4xl sm:text-6xl lg:text-4xl text-tema1-dark-green">The Wedding Of</h1>
 
-                        <div class="">
-                            <div class="flex">
-                                <div class="border border-tema1-pink/40 bg-white/30 px-8 2xs:px-10 sm:px-14 lg:px-10 py-3 sm:py-5 lg:py-2 rounded-xl sm:rounded-3xl lg:rounded-xl mt-8 mx-auto text-xs 2xl:text-sm sm:text-xl lg:text-sm text-tema1-teal">
-                                    <div class="attribute">
-                                        <p class="mb-2 lg:mb-0">Kepada Yth</p>
-                                        <p>Bapak/Ibu/Saudara/I</p>
-                                        <p class="mt-2 lg:mt-0 text-base-xs 2xs:text-base-md sm:text-2xl lg:text-base-md font-semibold">Tegar Kusuma</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <p class="text-tema1-teal/60 leading-4 lg:leading-3 my-3 text-base-2xs 2xs:text-base-1xs sm:text-base-md lg:text-base-1xs">*Mohon Maaf Bila Ada Kesalahan Dalam <br> Penulisan Nama dan Gelar</p>
-                        </div>
+						<div>
+							<h1 class="mt-8 sm:mt-12 lg:mt-8 font-RadicalsDemo text-3xl 2xs:text-4xl sm:text-5xl lg:text-4xl text-tema1-pink tracking-widest">Runa & Ratna</h1>
+							<p class="mt-1 sm:mt-3 text-lg 2xs:text-xl sm:text-3xl lg:text-xl text-tema1-teal font-ShareDong">22 <span class="font-normal text-base-sm 2xs:text-base sm:text-xl lg:text-base-md">Januari </span><span>2022</span></p>
+						</div>
 
-                        <div class="flex">
-                            <a href="#sambutan" id="btnOpen" role="button" class="font-MontserratBold font-medium text-white text-base-xs 2xs:text-sm sm:text-xl lg:text-base-xs w-fit bg-tema1-teal hover:bg-teal-700 rounded-xl sm:rounded-2xl lg:rounded-xl mx-auto transition delay-150 animate-bounce flex justify-center mt-8 mb-8 sm:mt-16 lg:mt-8 px-8 lg:px-8 py-1.5 2xs:py-2.5 sm:py-4 lg:py-1" data-role="link"  onclick="showMainPage()">
-                                <div class="flex"> <img src="<?= base_url('assets/icons/tema1/cover_icon_unlock.svg') ?>" alt="" class="mr-3 w-3">
-                                    <p>Buka Undangan</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                
-                </div>
-                <div class="absolute left-[35vw] bottom-5 hidden lg:block">
-                    <div class="flex">
-                        <div class="border border-tema1-teal/50 bg-tema1-pink/50 -rotate-45 hidden lg:block h-10 w-2 rounded-xl -mr-8"></div>
-                        <div class="border border-tema1-teal/50 bg-tema1-pink/50 -rotate-45 hidden lg:block h-14 w-2 rounded-xl"></div>
-                    </div>
-                </div>
-                <div class="absolute right-[33vw] bottom-5 hidden lg:block">
-                    <div class="flex">
-                        <div class="border border-tema1-teal/50 bg-tema1-pink/50 -rotate-45 h-10 w-2 rounded-xl -mr-8"></div>
-                        <div class="border border-tema1-teal/50 bg-tema1-pink/50 -rotate-45 h-14 w-2 rounded-xl"></div>
-                    </div>
-                </div>
-                <img src="<?= base_url('assets/ilustrations/tema1/sampul_ils3.png') ?>" class="absolute right-0 opacity-80 -mt-32 sm:-mt-44 lg:bottom-0 w-14 2xs:w-20 sm:w-40">
-            </div>
-        </div>
-        
-    </div>
+						<div class="">
+							<div class="flex">
+								<div class="border border-tema1-pink/40 bg-white/30 px-8 2xs:px-10 sm:px-14 lg:px-10 py-3 sm:py-5 lg:py-2 rounded-xl sm:rounded-3xl lg:rounded-xl mt-8 mx-auto text-xs 2xl:text-sm sm:text-xl lg:text-sm text-tema1-teal">
+									<div class="attribute">
+										<p class="mb-2 lg:mb-0">Kepada Yth</p>
+										<p>Bapak/Ibu/Saudara/I</p>
+										<p class="mt-2 lg:mt-0 text-base-xs 2xs:text-base-md sm:text-2xl lg:text-base-md font-semibold">Tegar Kusuma</p>
+									</div>
+								</div>
+							</div>
+							<p class="text-tema1-teal/60 leading-4 lg:leading-3 my-3 text-base-2xs 2xs:text-base-1xs sm:text-base-md lg:text-base-1xs">*Mohon Maaf Bila Ada Kesalahan Dalam <br> Penulisan Nama dan Gelar</p>
+						</div>
+
+						<div class="flex">
+							<a href="#sambutan" id="btnOpen" role="button" class="font-MontserratBold font-medium text-white text-base-xs 2xs:text-sm sm:text-xl lg:text-base-xs w-fit bg-tema1-teal hover:bg-teal-700 rounded-xl sm:rounded-2xl lg:rounded-xl mx-auto transition delay-150 animate-bounce flex justify-center mt-8 mb-8 sm:mt-16 lg:mt-8 px-8 lg:px-8 py-1.5 2xs:py-2.5 sm:py-4 lg:py-1" data-role="link" onclick="showMainPage()">
+								<div class="flex"> <img src="<?= base_url('assets/icons/tema1/cover_icon_unlock.svg') ?>" alt="" class="mr-3 w-3">
+									<p>Buka Undangan</p>
+								</div>
+							</a>
+						</div>
+					</div>
+
+				</div>
+				<div class="absolute left-[35vw] bottom-5 hidden lg:block">
+					<div class="flex">
+						<div class="border border-tema1-teal/50 bg-tema1-pink/50 -rotate-45 hidden lg:block h-10 w-2 rounded-xl -mr-8"></div>
+						<div class="border border-tema1-teal/50 bg-tema1-pink/50 -rotate-45 hidden lg:block h-14 w-2 rounded-xl"></div>
+					</div>
+				</div>
+				<div class="absolute right-[33vw] bottom-5 hidden lg:block">
+					<div class="flex">
+						<div class="border border-tema1-teal/50 bg-tema1-pink/50 -rotate-45 h-10 w-2 rounded-xl -mr-8"></div>
+						<div class="border border-tema1-teal/50 bg-tema1-pink/50 -rotate-45 h-14 w-2 rounded-xl"></div>
+					</div>
+				</div>
+				<img src="<?= base_url('assets/ilustrations/tema1/sampul_ils3.png') ?>" class="absolute right-0 opacity-80 -mt-32 sm:-mt-44 lg:bottom-0 w-14 2xs:w-20 sm:w-40">
+			</div>
+		</div>
+
+	</div>
 	<!-- Sampul End-->
 
 	<div class="mainPage hidden main-page-transition" id="mainPage">
@@ -370,6 +370,9 @@
 						<div class="">
 							<div class="">
 								<div class="">
+									<?= form_open("#", ['id' => 'submit-message-basic']) ?>
+									<input type="hidden" name="guest_name" value="Tamu Undangan">
+									<input type="hidden" id="invtId" name="invt_id" value="0">
 									<div class="">
 										<label for="pesan" class="opacity-70 font-semibold tracking-wide cursor-pointer text-sm 2xs:text-base-sm 1xs:text-base-md md:text-[27px] lg:text-base lg:leading-6">Pesan</label>
 										<div class="mt-2">
@@ -396,27 +399,15 @@
 									<div class="mt-3 md:mt-8">
 										<button type="submit" class="px-4 py-1 md:px-8 md:py-3 lg:py-1.5 lg:px-6 bg-tema1-pink/60 hover:bg-tema1-pink/100  text-white rounded-lg hover:bg-opacity-70 transition-all duration-300 text-sm 2xs:text-base-sm 1xs:text-base md:text-[27px] lg:text-base lg:leading-6 font-semibold">Kirim</button>
 									</div>
+									<?= form_close() ?>
 								</div>
 								<div class="">
 									<div>
-										<p class="opacity-70 font-semibold tracking-wide mb-3 md:mb-5 mt-4 md:mt-8 text-sm 2xs:text-base-sm 1xs:text-base-md md:text-[27px] lg:text-base lg:leading-6">Total Pesan : <span>fbuhbfb</span></p>
+										<p class="opacity-70 font-semibold tracking-wide mb-3 md:mb-5 mt-4 md:mt-8 text-sm 2xs:text-base-sm 1xs:text-base-md md:text-[27px] lg:text-base lg:leading-6">Total Pesan : <span id="count_message"></span></p>
 									</div>
 									<div class="overflow-y-scroll h-[350px] xl:h-[250px] border border-tema1-teal/60 cursor-all-scroll rounded-md bg-white/30 shadow-sm lg:shadow-md shadow-tema1-teal/50 border-r-tema1-teal mb-5">
 										<div class="mx-3 mb-3">
-											<div class="flex mt-3">
-												<div class="mr-3">
-													<div class="flex w-9 h-9 md:w-12 md:h-12 lg:w-10 lg:h-10 font-semibold border border-slate-400 text-sm 2xs:text-base-sm 1xs:text-base-md md:text-[27px] lg:text-base lg:leading-6 text-center rounded-full items-center justify-center text-green-500">T</div>
-												</div>
-												<div>
-													<div>
-														<p class="font-semibold opacity-80 tracking-wide text-sm 2xs:text-base-sm 1xs:text-base-md md:text-[26px] lg:text-base-md lg:leading-6">Tegar Kusuma</p>
-														<p class="text-base-1xs 2xs:text-base-xs 1xs:text-base-sm md:text-[22px] lg:text-base-sm lg:leading-6 text-slate-500 mb-1 md:mt-2 lg:mt-0">
-															22 Januari 2022
-														</p>
-														<p class="tracking-wide text-slate-800 text-justify mr-2 text-base-xs 2xs:text-base-sm 1xs:text-base-md md:text-[25px] lg:text-base-sm lg:leading-6">Selamat Menempuh Hidup Baru</p>
-													</div>
-												</div>
-											</div>
+											<div id="display_message"></div>
 										</div>
 									</div>
 								</div>
@@ -735,7 +726,63 @@
 		AOS.init();
 	</script>
 
+	<script>
+		$(document).ready(function() {
+			load_comment();
+			load_count_comment();
+			$("#submit-message-basic").submit(function(e) {
+				e.preventDefault();
+				var form = this;
+				var formdata = new FormData(form);
+				$.ajax({
+					url: "<?= base_url('undangan/submit_message') ?>",
+					type: "POST",
+					processData: false,
+					contentType: false,
+					data: formdata,
+					dataType: "json",
+					success: function(response) {
+						if (response.success == true) {
+							load_comment();
+							load_count_comment();
+							form.reset();
+						}
+					},
+				});
+			});
 
+			function load_comment() {
+				let id = $('#invtId').val();
+				$.ajax({
+					type: "GET",
+					url: "<?= base_url('undangan/get_message_demo_special?id=') ?>" + id,
+					dataType: "json",
+					success: function(reponse) {
+						$("#display_message").html(reponse);
+					},
+					error: function(reponse) {
+						console.log(reponse.responseText);
+					},
+				});
+			}
+
+			function load_count_comment() {
+				let id = $('#invtId').val();
+				$.ajax({
+					type: "GET",
+					url: "<?= base_url('undangan/get_count_message?id=') ?>" + id,
+					dataType: "json",
+					success: function(reponse) {
+						$("#count_message").text(reponse);
+					},
+					error: function(reponse) {
+						console.log(reponse.responseText);
+					},
+				});
+			}
+		});
+	</script>
+	
 </body>
 
 </html>

@@ -25,6 +25,12 @@ class Invitations extends CI_Controller
 			$query = $this->db->get_where("model_invitation", ['view_model' => $_GET['model']])->row();
 			if ($query) {
 				$data['title'] = 'PreviewModelUndangan';
+				$messages = $this->db->order_by('create_time', 'DESC')
+					->limit(8)
+					->get_where('message', [
+						'invitation_id' => 0
+					]);
+				$data['messageNum'] = $messages->num_rows();
 				$view = 'model_undangan/demo/' . $query->view_model . '_demo';
 				if (file_exists(APPPATH . 'views/' . $view  . '.php')) {
 					$this->load->view($view, $data, false);
@@ -201,7 +207,7 @@ class Invitations extends CI_Controller
 			<table border="0">
 				<tr>
 					<td width="10" rowspan="3">
-						<div class="'. $bgcolor.'">
+						<div class="' . $bgcolor . '">
 							<p>' . $inisial . '</p>
 						</div>
 					</td>
@@ -273,5 +279,112 @@ class Invitations extends CI_Controller
 			'csrfHash' => $this->security->get_csrf_hash()
 		];
 		echo json_encode($reponse);
+	}
+
+	public function get_message_demo_special()
+	{
+		$output = '';
+		$query 	= $this->db->order_by('create_time', 'DESC')
+			->limit(8)
+			->get_where('message', [
+				'invitation_id' => 0
+			]);
+		$result	= $query->result();
+		foreach ($result as $key => $val) {
+			$inisial = substr($val->name, 0, 1);
+			if ($val->status == 2) {
+				$bgcolor = 'text-green-500';
+			} elseif ($val->status == 1) {
+				$bgcolor = 'text-red-400';
+			} elseif ($val->status == 0) {
+				$bgcolor = 'text-yellow-500';
+			}
+			$output .= '
+			<div class="flex mt-3">
+				<div class="mr-3">
+					<div class="flex w-9 h-9 font-semibold border border-slate-300 shadow-lg ' . $bgcolor . ' text-center rounded-full items-center justify-center">' . $inisial . '</div>
+				</div>
+				<div>
+					<div>
+						<p class="font-semibold opacity-60 tracking-wide text-base-sm lg:text-base-md">' . $val->name . '</p>
+						<p class="text-xs text-slate-500 mb-1">' . date('d-m-Y H:i', strtotime($val->create_time)) . '</p>
+						<p class="text-base-xs tracking-wide text-slate-700 text-justify mr-2">' . $val->message . '</p>
+					</div>
+				</div>
+			</div>
+			';
+		}
+		echo json_encode([$output]);
+	}
+
+	public function get_message_demo_standard()
+	{
+		$output = '';
+		$query 	= $this->db->order_by('create_time', 'DESC')
+			->limit(8)
+			->get_where('message', [
+				'invitation_id' => 0
+			]);
+		$result	= $query->result();
+		foreach ($result as $key => $val) {
+			$inisial = substr($val->name, 0, 1);
+			if ($val->status == 2) {
+				$bgcolor = 'avatar-nama-hadir avtr';
+			} elseif ($val->status == 1) {
+				$bgcolor = 'avatar-nama-tdkHadir avtr';
+			} elseif ($val->status == 0) {
+				$bgcolor = 'avatar-nama-blmTahu avtr';
+			}
+			$output .= '
+			<div class="dtl-pesan">
+			<table border="0">
+				<tr>
+					<td width="10" rowspan="3">
+						<div class="' . $bgcolor . '">
+							<p>' . $inisial . '</p>
+						</div>
+					</td>
+					<td>
+						<div class="nama">
+							<p>' . $val->name . '</p>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="tgl-kirim">
+							<p>' . date('d-m-Y H:i', strtotime($val->create_time)) . ' WIB</p>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="ucapan">
+							<p>' . $val->message . '</p>
+						</div>
+					</td>
+				</tr>
+			</table>
+			<hr>
+		</div>
+			';
+		}
+		echo json_encode([$output]);
+	}
+
+	public function get_count_message()
+	{
+		if(isset($_GET['id'])) {
+			$id = $_GET['id'];
+		} else {
+			$id = 0;
+		}
+
+		$messages = $this->db->order_by('create_time', 'DESC')
+			->limit(8)
+			->get_where('message', [
+				'invitation_id' => $id
+			])->num_rows();
+		echo json_encode($messages);
 	}
 }

@@ -30,7 +30,8 @@
 	<script src="<?= base_url() ?>assets/vendor/aos/dist/aos.js"></script>
 
 
-	<title>Sunset Shades</title>
+
+	<title>Wedding Sunset Shades</title>
 
 
 	<style>
@@ -700,6 +701,9 @@
 						<div class="">
 							<div class="">
 								<div class="">
+									<?= form_open("#", ['id' => 'submit-message']) ?>
+									<input type="hidden" name="guest_name" value="Tamu Undangan">
+									<input type="hidden" id="invtId" name="invt_id" value="0">
 									<div class="">
 										<label for="pesan" class="opacity-70 font-semibold tracking-wide cursor-pointer text-sm 2xs:text-base-sm 1xs:text-base-md md:text-[27px] lg:text-base lg:leading-6">Pesan</label>
 										<div class="mt-2">
@@ -726,27 +730,15 @@
 									<div class="mt-3 md:mt-8">
 										<button type="submit" class="px-4 py-1 md:px-8 md:py-3 lg:py-1.5 lg:px-6 bg-tema1-pink/60 hover:bg-tema1-pink/100  text-white rounded-lg hover:bg-opacity-70 transition-all duration-300 text-sm 2xs:text-base-sm 1xs:text-base md:text-[27px] lg:text-base lg:leading-6 font-semibold">Kirim</button>
 									</div>
+									<?= form_close() ?>
 								</div>
 								<div class="">
 									<div>
-										<p class="opacity-70 font-semibold tracking-wide mb-3 md:mb-5 mt-4 md:mt-8 text-sm 2xs:text-base-sm 1xs:text-base-md md:text-[27px] lg:text-base lg:leading-6">Total Pesan : <span>10</span></p>
+										<p class="opacity-70 font-semibold tracking-wide mb-3 md:mb-5 mt-4 md:mt-8 text-sm 2xs:text-base-sm 1xs:text-base-md md:text-[27px] lg:text-base lg:leading-6">Total Pesan : <span id="count_message"></span></p>
 									</div>
 									<div class="overflow-y-scroll h-[350px] xl:h-[250px] border border-tema1-teal/60 cursor-all-scroll rounded-md bg-white/30 shadow-sm lg:shadow-md shadow-tema1-teal/50 border-r-tema1-teal mb-5">
 										<div class="mx-3 mb-3">
-											<div class="flex mt-3">
-												<div class="mr-3">
-													<div class="flex w-9 h-9 md:w-12 md:h-12 lg:w-10 lg:h-10 font-semibold border border-slate-400 text-sm 2xs:text-base-sm 1xs:text-base-md md:text-[27px] lg:text-base lg:leading-6 text-center rounded-full items-center justify-center text-green-500">T</div>
-												</div>
-												<div>
-													<div>
-														<p class="font-semibold opacity-80 tracking-wide text-sm 2xs:text-base-sm 1xs:text-base-md md:text-[26px] lg:text-base-md lg:leading-6">Tegar Kusuma</p>
-														<p class="text-base-1xs 2xs:text-base-xs 1xs:text-base-sm md:text-[22px] lg:text-base-sm lg:leading-6 text-slate-500 mb-1 md:mt-2 lg:mt-0">
-															22 Januari 2022
-														</p>
-														<p class="tracking-wide text-slate-800 text-justify mr-2 text-base-xs 2xs:text-base-sm 1xs:text-base-md md:text-[25px] lg:text-base-sm lg:leading-6">Selamat Menempuh Hidup Baru</p>
-													</div>
-												</div>
-											</div>
+											<div id="display_message"></div>
 										</div>
 									</div>
 								</div>
@@ -1042,7 +1034,7 @@
 
 		// hitung tanggal akurat 99 hari
 		// Set the date we're counting down to
-		var countDownDate = new Date("Dec 31, 2022 09:50:25").getTime();
+		var countDownDate = new Date("May 31, 2023 09:50:25").getTime();
 
 		// Update the count down every 1 second
 		var x = setInterval(function() {
@@ -1105,9 +1097,6 @@
 					document.querySelector(".tabs a[href*=" + sectionId + "]").style.strokeWidth = "1.2px"
 
 				}
-
-
-
 			});
 		}
 
@@ -1133,7 +1122,62 @@
 
 		AOS.init();
 	</script>
+	<script>
+		$(document).ready(function() {
+			load_comment();
+			load_count_comment();
+			$("#submit-message").submit(function(e) {
+				e.preventDefault();
+				var form = this;
+				var formdata = new FormData(form);
+				$.ajax({
+					url: "<?= base_url('undangan/submit_message') ?>",
+					type: "POST",
+					processData: false,
+					contentType: false,
+					data: formdata,
+					dataType: "json",
+					success: function(response) {
+						if (response.success == true) {
+							load_comment();
+							load_count_comment();
+							form.reset();
+						}
+					},
+				});
+			});
 
+			function load_comment() {
+				let id = $('#invtId').val();
+				$.ajax({
+					type: "GET",
+					url: "<?= base_url('undangan/get_message_demo_special?id=') ?>" + id,
+					dataType: "json",
+					success: function(reponse) {
+						$("#display_message").html(reponse);
+					},
+					error: function(reponse) {
+						console.log(reponse.responseText);
+					},
+				});
+			}
+
+			function load_count_comment() {
+				let id = $('#invtId').val();
+				$.ajax({
+					type: "GET",
+					url: "<?= base_url('undangan/get_count_message?id=') ?>" + id,
+					dataType: "json",
+					success: function(reponse) {
+						$("#count_message").text(reponse);
+					},
+					error: function(reponse) {
+						console.log(reponse.responseText);
+					},
+				});
+			}
+		});
+	</script>
 
 </body>
 

@@ -619,199 +619,44 @@
 	</section>
 
 	<section id="pesan">
-		<div class="pesan-bahagia" data-aos="fade-down-right" data-aos-duration="1000" data-aos-delay="150">
-			<div class="header">
-				<p>Pesan Bahagia</p>
-				<hr>
-			</div>
-			<div class="inp-pesan">
-				<p>Pesan :</p>
-				<textarea name="" id="" cols="20" rows="2" placeholder="Input pesan bahagia"></textarea>
-			</div>
-			<div class="confirm-kehadiran">
-				<label class="contain">
-					<input type="radio" checked="checked" name="radio">
-					<span class="checkmark check"></span>
-					Hadir
-				</label>
-				<label class="contain">
-					<input type="radio" name="radio">
-					<span class="checkmark2 check"></span>
-					Tidak Hadir
-				</label>
-				<label class="contain">
-					<input type="radio" name="radio">
-					<span class="checkmark3 check"></span>
-					Belum Tahu
-				</label>
-			</div>
-			<div class="btn-kirimm">
-				<button type="button">Kirim</button>
-				<p>Total Pesan : 0</p>
-			</div>
-			<div class="isi-pesan">
-				<div class="dtl-pesan">
-					<table border="0">
-						<tr>
-							<td width="10" rowspan="3">
-								<div class="avatar-nama-hadir avtr">
-									<p>R</p>
-								</div>
-							</td>
-							<td>
-								<div class="nama">
-									<p>Rahayu</p>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<div class="tgl-kirim">
-									<p>12-12-2022 13:00 WIB</p>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<div class="ucapan">
-									<p>Selamat bro, selamat Menembuh Hidup Baru</p>
-								</div>
-							</td>
-						</tr>
-					</table>
+	    <div class="pesan-bahagia" data-aos="fade-down-right" data-aos-duration="1000" data-aos-delay="150">
+				<div class="header">
+					<p>Pesan Bahagia</p>
 					<hr>
 				</div>
-
-				<div class="dtl-pesan">
-					<table border="0">
-						<tr>
-							<td width="10" rowspan="3">
-								<div class="avatar-nama-tdkHadir avtr">
-									<p>H</p>
-								</div>
-							</td>
-							<td>
-								<div class="nama">
-									<p>Hasan Sanusi</p>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<div class="tgl-kirim">
-									<p>12-12-2022 13:00 WIB</p>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<div class="ucapan">
-									<p>Wahhhh Selamat, Tapi Maaf tidak bisa hadir bozz.</p>
-								</div>
-							</td>
-						</tr>
-					</table>
-					<hr>
+				<?= form_open("#", ['id' => 'submit-happy-message']) ?>
+				<input type="hidden" name="guest_name" value="Tamu Undangan">
+				<input type="hidden" id="invtId" name="invt_id" value="0">
+				<div class="inp-pesan">
+					<p>Pesan :</p>
+					<textarea name="pesan" id="" cols="20" rows="2" placeholder="Input pesan bahagia"></textarea>
 				</div>
-
-				<div class="dtl-pesan">
-					<table border="0">
-						<tr>
-							<td width="10" rowspan="3">
-								<div class="avatar-nama-blmTahu avtr">
-									<p>T</p>
-								</div>
-							</td>
-							<td>
-								<div class="nama">
-									<p>Taro Basuki</p>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<div class="tgl-kirim">
-									<p>12-12-2022 13:00 WIB</p>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<div class="ucapan">
-									<p>Selamat-selamat,Atas Pernikahannya</p>
-								</div>
-							</td>
-						</tr>
-					</table>
-					<hr>
+				<div class="confirm-kehadiran">
+					<label class="contain">
+						<input type="radio" checked="checked" name="radio">
+						<span class="checkmark check"></span>
+						Hadir
+					</label>
+					<label class="contain">
+						<input type="radio" name="radio">
+						<span class="checkmark2 check"></span>
+						Tidak Hadir
+					</label>
+					<label class="contain">
+						<input type="radio" name="radio">
+						<span class="checkmark3 check"></span>
+						Belum Tahu
+					</label>
 				</div>
-
-				<div class="dtl-pesan">
-					<table border="0">
-						<tr>
-							<td width="10" rowspan="3">
-								<div class="avatar-nama-blmTahu avtr">
-									<p>T</p>
-								</div>
-							</td>
-							<td>
-								<div class="nama">
-									<p>Taro Basuki</p>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<div class="tgl-kirim">
-									<p>12-12-2022 13:00 WIB</p>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<div class="ucapan">
-									<p>Selamat-selamat,Atas Pernikahannya</p>
-								</div>
-							</td>
-						</tr>
-					</table>
-					<hr>
+				<div class="btn-kirimm">
+					<button type="submit">Kirim</button>
+					<p>Total Pesan : <span id="count_message"></span></p>
 				</div>
-
-				<div class="dtl-pesan">
-					<table border="0">
-						<tr>
-							<td width="10" rowspan="3">
-								<div class="avatar-nama-tdkHadir avtr">
-									<p>A</p>
-								</div>
-							</td>
-							<td>
-								<div class="nama">
-									<p>Adi Sanusi</p>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<div class="tgl-kirim">
-									<p>12-12-2022 13:00 WIB</p>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<div class="ucapan">
-									<p>Wahhhh Selamat</p>
-								</div>
-							</td>
-						</tr>
-					</table>
-					<hr>
+				<?= form_close() ?>
+				<div class="isi-pesan">
+					<div id="display_message"></div>
 				</div>
-
 			</div>
-		</div>
 		<div class="akhir" data-aos="fade-down-left" data-aos-duration="1000" data-aos-delay="200">
 			<div class="header">
 				<!--Bingkai atas bagian akhir for desktop  -->
@@ -864,6 +709,62 @@
 	<!--Initialize AOS-->
 	<script>
 		AOS.init();
+	</script>
+	<script>
+		$(document).ready(function() {
+			load_comment();
+			load_count_comment();
+			$("#submit-happy-message").submit(function(e) {
+				e.preventDefault();
+				var form = this;
+				var formdata = new FormData(form);
+				$.ajax({
+					url: "<?= base_url('undangan/submit_message') ?>",
+					type: "POST",
+					processData: false,
+					contentType: false,
+					data: formdata,
+					dataType: "json",
+					success: function(response) {
+						if (response.success == true) {
+							load_comment();
+							load_count_comment();
+							form.reset();
+						}
+					},
+				});
+			});
+
+			function load_comment() {
+				let id = $('#invtId').val();
+				$.ajax({
+					type: "GET",
+					url: "<?= base_url('undangan/get_message_demo_standard?id=') ?>" + id,
+					dataType: "json",
+					success: function(reponse) {
+						$("#display_message").html(reponse);
+					},
+					error: function(reponse) {
+						console.log(reponse.responseText);
+					},
+				});
+			}
+
+			function load_count_comment() {
+				let id = $('#invtId').val();
+				$.ajax({
+					type: "GET",
+					url: "<?= base_url('undangan/get_count_message?id=') ?>" + id,
+					dataType: "json",
+					success: function(reponse) {
+						$("#count_message").text(reponse);
+					},
+					error: function(reponse) {
+						console.log(reponse.responseText);
+					},
+				});
+			}
+		});
 	</script>
 </body>
 

@@ -21,7 +21,6 @@
 		img[alt="www.000webhost.com"] {
 			display: none
 		}
-
 		;
 	</style>-->
 </head>
@@ -548,14 +547,14 @@
 
 			<div class="btn-kirimm">
 				<button type="submit">Kirim</button>
-				<p>Total Pesan : <?= $message ?></p>
+				<p>Total Pesan : <span id="count_message"></span></p>
 			</div>
 			<?= form_close() ?>
-		
+
 			<div class="isi-pesan">
 				<div id="display_message"></div>
 			</div>
-			
+
 		</div>
 		<div class="akhir" data-aos="fade-down-left" data-aos-duration="1000" data-aos-delay="200">
 			<div class="header">
@@ -614,6 +613,7 @@
 	<script>
 		$(document).ready(function() {
 			load_comment();
+			load_count_comment();
 			$("#submit-happy-message").submit(function(e) {
 				e.preventDefault();
 				var form = this;
@@ -628,6 +628,7 @@
 					success: function(response) {
 						if (response.success == true) {
 							load_comment();
+							load_count_comment();
 							form.reset();
 						}
 					},
@@ -642,13 +643,28 @@
 			});
 
 			function load_comment() {
-				$id = $('#invtId').val();
+				let id = $('#invtId').val();
 				$.ajax({
 					type: "GET",
-					url: "<?= base_url('undangan/get_message_standard?id=') ?>" + $id,
+					url: "<?= base_url('undangan/get_message_standard?id=') ?>" + id,
 					dataType: "json",
 					success: function(reponse) {
 						$("#display_message").html(reponse);
+					},
+					error: function(reponse) {
+						console.log(reponse.responseText);
+					},
+				});
+			}
+
+			function load_count_comment() {
+				let id = $('#invtId').val();
+				$.ajax({
+					type: "GET",
+					url: "<?= base_url('undangan/get_count_message?id=') ?>" + id,
+					dataType: "json",
+					success: function(reponse) {
+						$("#count_message").text(reponse);
 					},
 					error: function(reponse) {
 						console.log(reponse.responseText);

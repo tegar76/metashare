@@ -79,9 +79,9 @@
 							<span class="input-group-text">Upload</span>
 						</div>
 						<div class="custom-file">
-							<input type="file" name="cover_img[1]" class="custom-file-input <?= (form_error('cover_img[1]')) ? 'is-invalid' : '' ?>" id="uploadSampul" accept="image/*">
+							<input type="file" name="cover_img_1" class="custom-file-input <?= (form_error('cover_img_1')) ? 'is-invalid' : '' ?>" id="uploadSampul" accept="image/*">
 							<label class="custom-file-label" for="uploadSampul">Choose file</label>
-							<div class="invalid-feedback"><?= form_error('cover_img[1]') ?></div>
+							<div class="invalid-feedback"><?= form_error('cover_img_1') ?></div>
 						</div>
 					</div>
 					<p>Catatan: File max 2mb format (SVG,PNG,JPG,JPEG), rekomendasi format SVG (270 x 378 pixels) </p>
@@ -94,9 +94,9 @@
 						<span class="input-group-text">Upload</span>
 					</div>
 					<div class="custom-file">
-						<input type="file" name="cover_img[2]" class="custom-file-input <?= (form_error('cover_img[2]')) ? 'is-invalid' : '' ?>" id="uploadCover" accept="image/*">
-						<label class="custom-file-label" for="uploadCover">Choose file</label>
-						<div class="invalid-feedback"><?= form_error('cover_img[2]') ?></div>
+						<input type="file" name="cover_img_2" class="custom-file-input <?= (form_error('cover_img_2')) ? 'is-invalid' : '' ?>" id="uploadCover" accept="image/*">
+						<label class="custom-file-label" for="uploadCover">Choose file</label>cover_img_2
+						<div class="invalid-feedback"><?= form_error('cover_img_2') ?></div>
 					</div>
 				</div>
 				<p>Catatan: File max 2mb format (SVG,PNG,JPG,JPEG), rekomendasi format SVG (270 x 378 pixels) </p>

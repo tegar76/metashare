@@ -109,14 +109,14 @@ class Undangan extends CI_Controller
 			die;
 		} else {
 			if ($data['detail']->m_category == 'special') {
-				if (empty($_FILES['cover_img']['name'][1])) {
-					$this->form_validation->set_rules('cover_img[1]', 'Foto Sampul', 'required', ['required' => 'Anda harus upload {field}']);
+				if (empty($_FILES['cover_img_1']['name'])) {
+					$this->form_validation->set_rules('cover_img_1', 'Foto Sampul', 'required', ['required' => 'Anda harus upload {field}']);
 				}
 			}
 
 			// Validasi Upload Cover
-			if (empty($_FILES['cover_img']['name'][2])) {
-				$this->form_validation->set_rules('cover_img[2]', 'Foto Sampul', 'required', ['required' => 'Anda harus upload {field}']);
+			if (empty($_FILES['cover_img_2']['name'])) {
+				$this->form_validation->set_rules('cover_img_2', 'Foto Sampul', 'required', ['required' => 'Anda harus upload {field}']);
 			}
 
 			// Validasi Upload Cover
@@ -442,12 +442,12 @@ class Undangan extends CI_Controller
 		// cek  kategori model undangan special
 		if ($_POST['kategori'] == 'special') {
 			# upload foto sampul
-			if (!empty($_FILES['cover_img']['name'][1])) {
-				$_FILES['file']['name'] = $_FILES['cover_img']['name'][1];
-				$_FILES['file']['type'] 	= $_FILES['cover_img']['type'][1];
-				$_FILES['file']['tmp_name'] = $_FILES['cover_img']['tmp_name'][1];
-				$_FILES['file']['error'] 	= $_FILES['cover_img']['error'][1];
-				$_FILES['file']['size'] 	= $_FILES['cover_img']['size'][1];
+			if (!empty($_FILES['cover_img_1']['name'])) {
+				$_FILES['file']['name'] = $_FILES['cover_img_1']['name'];
+				$_FILES['file']['type'] 	= $_FILES['cover_img_1']['type'];
+				$_FILES['file']['tmp_name'] = $_FILES['cover_img_1']['tmp_name'];
+				$_FILES['file']['error'] 	= $_FILES['cover_img_1']['error'];
+				$_FILES['file']['size'] 	= $_FILES['cover_img_1']['size'];
 				if ($this->upload->do_upload('file')) {
 					$upload_img = $this->upload->data();
 					$this->db->set('cover_image_1', $upload_img['file_name']);
@@ -478,12 +478,12 @@ class Undangan extends CI_Controller
 		}
 
 		# upload foto sampul
-		if (!empty($_FILES['cover_img']['name'][1])) {
-			$_FILES['file']['name'] = $_FILES['cover_img']['name'][2];
-			$_FILES['file']['type'] = $_FILES['cover_img']['type'][2];
-			$_FILES['file']['tmp_name'] = $_FILES['cover_img']['tmp_name'][2];
-			$_FILES['file']['error'] = $_FILES['cover_img']['error'][2];
-			$_FILES['file']['size'] = $_FILES['cover_img']['size'][2];
+		if (!empty($_FILES['cover_img_2']['name'])) {
+			$_FILES['file']['name'] = $_FILES['cover_img_2']['name'];
+			$_FILES['file']['type'] = $_FILES['cover_img_2']['type'];
+			$_FILES['file']['tmp_name'] = $_FILES['cover_img_2']['tmp_name'];
+			$_FILES['file']['error'] = $_FILES['cover_img_2']['error'];
+			$_FILES['file']['size'] = $_FILES['cover_img_2']['size'];
 			if ($this->upload->do_upload('file')) {
 				$upload_img = $this->upload->data();
 				$this->db->set('cover_image_2', $upload_img['file_name']);
@@ -931,12 +931,12 @@ class Undangan extends CI_Controller
 		$this->check_storage('uploads');
 		// aksi upload cover dan sampul
 		if ($_POST['kategori'] == 'special') {
-			if (!empty($_FILES['cover_img_update']['name'][1])) {
-				$_FILES['file']['name'] = $_FILES['cover_img_update']['name'][1];
-				$_FILES['file']['type'] 	= $_FILES['cover_img_update']['type'][1];
-				$_FILES['file']['tmp_name'] = $_FILES['cover_img_update']['tmp_name'][1];
-				$_FILES['file']['error'] 	= $_FILES['cover_img_update']['error'][1];
-				$_FILES['file']['size'] 	= $_FILES['cover_img_update']['size'][1];
+			if (!empty($_FILES['cover_img_update_1']['name'])) {
+				$_FILES['file']['name'] = $_FILES['cover_img_update_1']['name'];
+				$_FILES['file']['type'] 	= $_FILES['cover_img_update_1']['type'];
+				$_FILES['file']['tmp_name'] = $_FILES['cover_img_update_1']['tmp_name'];
+				$_FILES['file']['error'] 	= $_FILES['cover_img_update_1']['error'];
+				$_FILES['file']['size'] 	= $_FILES['cover_img_update_1']['size'];
 				if ($this->upload->do_upload('file')) {
 					if ($dataInvt->cover_image_1 != 'cover_image_1.svg	') {
 						@unlink(FCPATH . './storage/invitations/uploads/' . $dataInvt->cover_image_1);
@@ -973,12 +973,12 @@ class Undangan extends CI_Controller
 			}
 		}
 
-		if (!empty($_FILES['cover_img_update']['name'][2])) {
-			$_FILES['file']['name'] = $_FILES['cover_img_update']['name'][2];
-			$_FILES['file']['type'] = $_FILES['cover_img_update']['type'][2];
-			$_FILES['file']['tmp_name'] = $_FILES['cover_img_update']['tmp_name'][2];
-			$_FILES['file']['error'] = $_FILES['cover_img_update']['error'][2];
-			$_FILES['file']['size']	= $_FILES['cover_img_update']['size'][2];
+		if (!empty($_FILES['cover_img_update_2']['name'])) {
+			$_FILES['file']['name'] = $_FILES['cover_img_update_2']['name'];
+			$_FILES['file']['type'] = $_FILES['cover_img_update_2']['type'];
+			$_FILES['file']['tmp_name'] = $_FILES['cover_img_update_2']['tmp_name'];
+			$_FILES['file']['error'] = $_FILES['cover_img_update_2']['error'];
+			$_FILES['file']['size']	= $_FILES['cover_img_update_2']['size'];
 			if ($this->upload->do_upload('file')) {
 				if ($dataInvt->cover_image_2 != 'cover_image_2.svg') {
 					@unlink(FCPATH . './storage/invitations/uploads/' . $dataInvt->cover_image_2);

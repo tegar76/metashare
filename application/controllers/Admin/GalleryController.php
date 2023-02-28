@@ -25,18 +25,20 @@ class GalleryController extends CI_Controller
 			sweetAlert("Warning!", "Data Undangan harus diinput terlebih dahulu", "warning");
 			redirect('admin/undangan/detail/' . $code);
 		} else {
-			$this->form_validation->set_rules([
-				[
-					'field' => 'link_video',
-					'label' => 'Link Video Goole Drive',
-					'rules' => 'trim|required|xss_clean|prep_url',
-					'errors' => [
-						'required' => '{field} harus diisi',
-						'xss_clean' => 'cek kembali pada {field}',
-						'prep_url' => '{field} harus valid'
+			if ($this->input->post('category') == 'special') {
+				$this->form_validation->set_rules([
+					[
+						'field' => 'link_video',
+						'label' => 'Link Video Goole Drive',
+						'rules' => 'trim|required|xss_clean|prep_url',
+						'errors' => [
+							'required' => '{field} harus diisi',
+							'xss_clean' => 'cek kembali pada {field}',
+							'prep_url' => '{field} harus valid'
+						]
 					]
-				]
-			]);
+				]);
+			}
 			if (empty($_FILES['photo']['name'])) {
 				$this->form_validation->set_rules([
 					[

@@ -29,6 +29,8 @@
 	<link href="<?= base_url() ?>assets/vendor/aos/dist/aos.css" rel="stylesheet">
 	<script src="<?= base_url() ?>assets/vendor/aos/dist/aos.js"></script>
 
+	<link rel="stylesheet" href="<?= base_url('assets/') ?>plugin/sweetalert2/sweetalert2.min.css">
+	<script src="<?= base_url('assets/') ?>plugin/sweetalert2/sweetalert2.all.min.js"></script>
 
 	<title>The Wedding Of <?= $invitation->groom_nickname . ' & ' . $invitation->bride_nickname ?></title>
 

@@ -7,7 +7,7 @@
 	<link rel="icon" type="image/png" sizes="16x16" href="<?= base_url('assets/icons/green-shades/ic-ms.png') ?>">
 	<title>Wedding <?= $invitation->groom_nickname . ' & ' . $invitation->bride_nickname ?></title>
 	<!--Style CSS-->
-	<link rel="stylesheet" href="<?= base_url('assets/style/green-shades-style_.css') ?>">
+	<link rel="stylesheet" href="<?= base_url('assets/style/gs-style.css') ?>">
 	<!--Lightbox CSS-->
 	<link rel="stylesheet" href="<?= base_url('assets/vendor/lightbox.css') ?>">
 	<!--CCS ANIMATE-->
@@ -15,7 +15,8 @@
 	<!--AOS-->
 	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 	<!--Icon Tittle -->
-
+	<link rel="stylesheet" href="<?= base_url('assets/') ?>plugin/sweetalert2/sweetalert2.min.css">
+	<script src="<?= base_url('assets/') ?>plugin/sweetalert2/sweetalert2.all.min.js"></script>
 	<!--<style>
 		img[alt="www.000webhost.com"] {
 			display: none
@@ -112,7 +113,7 @@
 
 	<!-- ======================= Landing Page(Cover) ========================-->
 	<section class="cover" id="cover" style="background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)),
-        url('<?= base_url('/storage/invitations/uploads/' . $invitation->cover_image_2) ?>')">
+        url('<?= base_url('storage/invitations/uploads/' . $invitation->cover_image_2) ?>')">
 		<div class="bCover">
 			<!--<img src="assets/image/cover/bingkaiCover.png" alt="bingkaiCover">-->
 			<div class="nSingkat">
@@ -242,7 +243,7 @@
 
 		<!---------- Musik & Berikan Hadiah---------->
 		<audio id="music" loop>
-			<source src="<?= base_url('assets/music/shane-filan-beautiful-in-white.mpeg') ?>" type="audio/mp3">
+			<source src="<?= base_url('storage/invitations/uploads/' . $invitation->music_bg) ?>" type="audio/mp3">
 		</audio>
 
 		<!-- Wave For Desktop
@@ -602,7 +603,7 @@
 	<!--Lightbox CSS-->
 	<script src="<?= base_url() ?>assets/vendor/lightbox-plus-jquery.js"></script>
 
-	<script src="<?= base_url() ?>assets/script/green-shades-script_.js"></script>
+	<script src="<?= base_url() ?>assets/script/gs-script.js"></script>
 	<!--AOS Animate on scroll library-->
 	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 	<!--Initialize AOS-->

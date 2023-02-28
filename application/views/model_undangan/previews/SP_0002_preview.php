@@ -313,7 +313,7 @@
 
 		<style>
 			.bg-cover-mobile {
-				background-image: url('<?= base_url('storage/invitations/uploads/' . $invitation->cover_image_2)?>');
+				background-image: url('<?= base_url('storage/invitations/uploads/' . $invitation->cover_image_2) ?>');
 				width: 100vw;
 				height: 100vh;
 				background-size: cover;
@@ -321,12 +321,11 @@
 				text-align: center;
 			}
 
-			@media (min-width:1024px){
-				.bg-cover-mobile{
-					background-image:none;
+			@media (min-width:1024px) {
+				.bg-cover-mobile {
+					background-image: none;
 				}
 			}
-
 		</style>
 
 		<section class="absolute -z-10 top-0" id="cover">
@@ -802,7 +801,7 @@
 				</div>
 				<div class="modal-body relative p-4">
 					<p class="mb-4 text-base-xs 2xs:text-base-sm 1xs:text-base-md md:text-[20px] lg:text-base-md lg:leading-6 font-normal text-slate-800 text-justify"><span class="font-semibold">
-						Tanpa mengurangi rasa hormat,</span> untuk melengkapi kebahagian pengantin, anda dapat memberikan tanda kasih dengan melalui transfer ke rekening berikut :
+							Tanpa mengurangi rasa hormat,</span> untuk melengkapi kebahagian pengantin, anda dapat memberikan tanda kasih dengan melalui transfer ke rekening berikut :
 					</p>
 					<!-- content card bca-->
 					<?php foreach ($gifts as $gift) : ?>
@@ -969,6 +968,7 @@
 	<script>
 		$(document).ready(function() {
 			load_comment();
+			load_count_comment();
 			$("#submit-message").submit(function(e) {
 				e.preventDefault();
 				var form = this;
@@ -988,6 +988,7 @@
 								"success"
 							);
 							load_comment();
+							load_count_comment();
 							form.reset();
 						}
 					},
@@ -1002,13 +1003,28 @@
 			});
 
 			function load_comment() {
-				$id = $('#invtId').val();
+				let id = $('#invtId').val();
 				$.ajax({
 					type: "GET",
-					url: "<?= base_url('undangan/get_message?id=') ?>" + $id,
+					url: "<?= base_url('undangan/get_message?id=') ?>" + id,
 					dataType: "json",
 					success: function(reponse) {
 						$("#display_message").html(reponse);
+					},
+					error: function(reponse) {
+						console.log(reponse.responseText);
+					},
+				});
+			}
+
+			function load_count_comment() {
+				let id = $('#invtId').val();
+				$.ajax({
+					type: "GET",
+					url: "<?= base_url('undangan/get_count_message?id=') ?>" + id,
+					dataType: "json",
+					success: function(reponse) {
+						$("#count_message").text(reponse);
 					},
 					error: function(reponse) {
 						console.log(reponse.responseText);

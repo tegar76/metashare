@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="icon"  href="<?= base_url('assets/icons/green-shades/ic-ms.png') ?>">
+	<link rel="icon" href="<?= base_url('assets/icons/green-shades/ic-ms.png') ?>">
 	<title>Wedding <?= $invitation->groom_nickname . ' & ' . $invitation->bride_nickname ?></title>
 	<!--Style CSS-->
 	<link rel="stylesheet" href="<?= base_url('assets/style/green-shades-style.css') ?>">
@@ -112,7 +112,7 @@
 
 	<!-- ======================= Landing Page(Cover) ========================-->
 	<section class="cover" id="cover" style="background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)),
-        url('<?= base_url('/storage/invitations/uploads/' . $invitation->cover_image_2) ?>')">
+        url('<?= base_url('storage/invitations/uploads/' . $invitation->cover_image_2) ?>')">
 		<div class="bCover">
 			<!--<img src="assets/image/cover/bingkaiCover.png" alt="bingkaiCover">-->
 			<div class="nSingkat">
@@ -242,7 +242,7 @@
 
 		<!---------- Musik & Berikan Hadiah---------->
 		<audio id="music" loop>
-			<source src="<?= base_url('assets/music/shane-filan-beautiful-in-white.mpeg') ?>" type="audio/mp3">
+			<source src="<?= base_url('storage/invitations/uploads/' . $invitation->music_bg) ?>" type="audio/mp3">
 		</audio>
 
 		<!-- Wave For Desktop
@@ -547,14 +547,14 @@
 
 			<div class="btn-kirimm">
 				<button type="submit">Kirim</button>
-				<p>Total Pesan : <?= $message ?></p>
+				<p>Total Pesan : <span id="count_message"></span></p>
 			</div>
 			<?= form_close() ?>
-		
+
 			<div class="isi-pesan">
 				<div id="display_message"></div>
 			</div>
-			
+
 		</div>
 		<div class="akhir" data-aos="fade-down-left" data-aos-duration="1000" data-aos-delay="200">
 			<div class="header">
@@ -613,6 +613,7 @@
 	<script>
 		$(document).ready(function() {
 			load_comment();
+			load_count_comment();
 			$("#submit-happy-message").submit(function(e) {
 				e.preventDefault();
 				var form = this;
@@ -627,6 +628,7 @@
 					success: function(response) {
 						if (response.success == true) {
 							load_comment();
+							load_count_comment();
 							form.reset();
 						}
 					},
@@ -641,13 +643,28 @@
 			});
 
 			function load_comment() {
-				$id = $('#invtId').val();
+				let id = $('#invtId').val();
 				$.ajax({
 					type: "GET",
-					url: "<?= base_url('undangan/get_message_standard?id=') ?>" + $id,
+					url: "<?= base_url('undangan/get_message_standard?id=') ?>" + id,
 					dataType: "json",
 					success: function(reponse) {
 						$("#display_message").html(reponse);
+					},
+					error: function(reponse) {
+						console.log(reponse.responseText);
+					},
+				});
+			}
+
+			function load_count_comment() {
+				let id = $('#invtId').val();
+				$.ajax({
+					type: "GET",
+					url: "<?= base_url('undangan/get_count_message?id=') ?>" + id,
+					dataType: "json",
+					success: function(reponse) {
+						$("#count_message").text(reponse);
 					},
 					error: function(reponse) {
 						console.log(reponse.responseText);

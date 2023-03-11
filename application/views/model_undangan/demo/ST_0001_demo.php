@@ -633,17 +633,17 @@
 				</div>
 				<div class="confirm-kehadiran">
 					<label class="contain">
-						<input type="radio" checked="checked" name="radio">
+						<input type="radio" checked="checked" name="konfirmasiHadir" value="2">
 						<span class="checkmark check"></span>
 						Hadir
 					</label>
 					<label class="contain">
-						<input type="radio" name="radio">
+						<input type="radio" name="konfirmasiHadir" value="1">
 						<span class="checkmark2 check"></span>
 						Tidak Hadir
 					</label>
 					<label class="contain">
-						<input type="radio" name="radio">
+						<input type="radio" name="konfirmasiHadir" value="0">
 						<span class="checkmark3 check"></span>
 						Belum Tahu
 					</label>

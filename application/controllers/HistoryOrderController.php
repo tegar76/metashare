@@ -163,11 +163,11 @@ class HistoryOrderController extends CI_Controller
 			);
 			$this->db->insert('transaction', $order);
 			$model = $this->db->get_where('model_invitation', ['model_id' => $this->input->post('model_id')])->row();
-			$message = "Saya tertarik dan saya ingin mengorder model undangan pernikahan digital, dengan spesifikasinya sbb : %0A
+			$message = "Saya tertarik dan saya ingin memesan model undangan pernikahan digital dengan spesifikasinya sebagai berikut : %0A
 				Model : $model->name %0A
 				Jenis  : $model->type %0A
 				Kategori : $model->category %0A
-				Harga : Rp. $model->price";
+				Harga : Rp. " . number_format($model->price, 2, ",", ".");
 			$response = [
 				'success' => true,
 				'message' => $message

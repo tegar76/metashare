@@ -1,0 +1,2866 @@
+@font-face {
+	font-family: gv;
+	src: url("../fonts/GreatVibes-A7yL.otf");
+}
+
+@font-face {
+	font-family: sans;
+	src: url("../fonts/ModernSans-Light.otf");
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	/*scroll-behavior: smooth;*/
+}
+
+body {
+	/*background-image: url('assets/image/Sampul.svg');*/
+	background-color: #fefefe;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	z-index: 1;
+}
+
+body::-webkit-scrollbar {
+	display: none;
+}
+
+section {
+	width: 100%;
+	font-family: sans;
+	overflow-x: hidden;
+}
+
+/*-- =================== Style LANDING Page(Sampul) ================== */
+.sampul {
+	height: 100vh;
+	background-image: url("../images/green-shades/sampul/bg-sampul.svg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	z-index: 10;
+}
+
+/*Note demo for Desktop,tablet & ipad mini*/
+.ndemo-desk {
+	position: absolute;
+	right: 0;
+	top: 0;
+	z-index: 20;
+}
+
+/*Note demo for Apple Android smartphone*/
+.ndemo-AAs {
+	display: none;
+}
+
+/*Note demo for Apple mini*/
+.ndemo-Ap-mini {
+	display: none;
+}
+
+/*Style Bingkai*/
+.bing1 {
+	display: inline-block;
+	position: absolute;
+	right: 0;
+	top: 0;
+	margin: 0;
+	padding: 0;
+	z-index: 10;
+}
+
+.bing2 {
+	display: inline-block;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	margin: 0;
+	padding: 0;
+	z-index: 10;
+}
+/*Style Bingkai End*/
+
+.contain {
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	text-align: center;
+	position: relative; /*Untuk mengaktifkan z-index*/
+	z-index: 30;
+	/*background-color: red;*/
+}
+
+.pengantar {
+	/*background-color: yellow;*/
+	margin-bottom: 5px;
+}
+
+.pengantar .text {
+	width: 100%;
+}
+
+.pengantar .text p {
+	font-family: sans;
+	font-size: 40px;
+	font-weight: 500;
+	background: -webkit-linear-gradient(#efc207, #354f52);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.waktuAkad {
+	margin-bottom: 50px;
+}
+
+.waktuAkad p {
+	font-family: sans;
+	font-size: 17px;
+	font-weight: 500;
+}
+
+.batas svg {
+	width: 200px;
+}
+
+.mempelai {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.mempelai p {
+	font-family: gv;
+	font-size: 30px;
+	font-weight: 500;
+	letter-spacing: 0.12em;
+	color: #1a1c1f;
+}
+
+.tamu .isi {
+	width: auto;
+	height: auto;
+	background-color: transparent;
+	border-radius: 10px;
+	border: 1px solid #c4d7d1;
+	margin-top: 50px;
+}
+
+.tamu .isi p {
+	padding: 10px 20px 10px 20px;
+	font-family: sans;
+	font-size: 17px;
+	font-weight: 500;
+	color: #1a1c1f;
+}
+
+.tamu .isi h2 {
+	padding: 10px 20px 10px 20px;
+	font-family: sans;
+	font-size: 20px;
+	font-weight: 600;
+	white-space: nowrap;
+	color: #1a1c1f;
+}
+
+.ket {
+	padding: 5px;
+	font-size: 12px;
+	font-weight: 100;
+	font-family: sans;
+	color: #1a1c1f;
+}
+
+.btn {
+	margin-top: 50px;
+	display: block;
+}
+
+.btn a {
+	display: flex;
+	flex-direction: row;
+	width: 171px;
+	height: 40px;
+	cursor: pointer;
+	background-color: #5e887c;
+	border: transparent;
+	border-radius: 12px;
+	text-decoration: none;
+}
+
+.btn a p {
+	font-size: 17px;
+	font-weight: 500;
+	font-family: sans;
+	color: #ffffff;
+	padding-top: 13px;
+}
+
+.btn a svg {
+	width: 13px;
+	margin: 3px 7px 20px 15px;
+}
+
+/* style Count Down Waktu AKAD nikah*/
+.contWa {
+	width: 100%;
+	height: auto;
+	padding: 0px;
+	margin-top: 50px;
+	/*background-color: #2989A8;*/
+	display: none;
+}
+
+.contWa .jud {
+	font-family: sans;
+	font-size: 17px;
+	color: #1a1c1f;
+	text-align: center;
+}
+
+.subjud {
+	display: flex;
+	justify-content: center;
+}
+
+.subjud ul {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding: 15px;
+	width: 320px;
+	font-family: sans;
+	font-size: 17px;
+	color: #1a1c1f;
+	/*border: 1px solid blueviolet;*/
+	list-style-type: none;
+}
+
+.subjud ul li p {
+	text-align: center;
+	padding-bottom: 10px;
+}
+
+.subjud ul li .hari,
+.jam,
+.menit,
+.detik {
+	font-size: 18px;
+	font-weight: 500;
+	text-align: center;
+	width: 55px;
+	height: 40px;
+	padding-top: 10px;
+	color: #1a1c1f;
+	border: 1px solid #5e887c;
+	border-radius: 5px;
+}
+
+/*Note demo for Desktop,tablet & ipad mini*/
+.ndemo-desk {
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+/*Note demo for Apple Android smartphone*/
+.ndemo-AAs {
+	display: none;
+}
+
+/*Note demo for Apple mini*/
+.ndemo-Ap-mini {
+	display: none;
+}
+
+/* -----------------  Berikan Hadiah & Music --------- */
+.gm {
+	display: none; /*none*/
+}
+
+.giftt {
+	position: fixed;
+	bottom: 12%;
+	right: 1%;
+	cursor: pointer;
+	z-index: 10;
+}
+
+.giftt {
+	animation: jump-shaking 1.5s infinite;
+}
+
+@keyframes jump-shaking {
+	0% {
+		transform: translateX(0);
+	}
+	25% {
+		transform: translateY(-9px);
+	}
+	35% {
+		transform: translateY(-9px) rotate(17deg);
+	}
+	55% {
+		transform: translateY(-9px) rotate(-17deg);
+	}
+	65% {
+		transform: translateY(-9px) rotate(17deg);
+	}
+	75% {
+		transform: translateY(-9px) rotate(-17deg);
+	}
+	100% {
+		transform: translateY(0) rotate(0);
+	}
+}
+
+/*.setmus{
+   position: fixed;
+   cursor: pointer;
+   bottom: 12%;
+   right: 1%;
+   z-index: 10;
+ }*/
+
+/* -------- Modal Berikan Hadiah ---------*/
+.myModal {
+	display: none; /*none*/
+	position: fixed;
+	z-index: 50;
+	top: 0px;
+	width: 100%;
+	height: 100vh;
+	/*background-color: red;*/
+}
+
+.modal-content {
+	width: 400px;
+	height: auto;
+	margin-inline: auto;
+	margin-top: 3%;
+	color: white;
+	background-color: #ffffff;
+	border: 1px solid #5e887c;
+	border-radius: 10px;
+}
+
+.notf-copy {
+	background-color: #38b000;
+	border: 1px solid #ffffff;
+	border-radius: 8px;
+	position: fixed;
+	display: block;
+	transform: translateX(-50%);
+	top: 17%;
+	left: 50%;
+	position: fixed;
+	display: none;
+}
+
+.notf-copy #cSucces {
+	padding: 5px 10px;
+	color: white;
+	font-size: 12px;
+}
+
+.modal-content .judul {
+	/*background-color: red;*/
+}
+
+.modal-content .jd {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	font-family: gv;
+	font-weight: 500;
+	font-size: 26px;
+	text-align: center;
+	color: #1a1c1f;
+}
+
+.modal-content .isi {
+	padding: 0px 30px 20px 30px;
+	font-family: sans;
+	text-align: center;
+	font-size: 13px;
+	color: #1a1c1f;
+}
+
+.modal-content .card {
+	width: 385px;
+	max-height: 380px;
+	margin-inline: auto;
+	margin-bottom: 5px;
+	overflow: auto;
+	/*border: 1px solid #5E887C;*/
+}
+
+/*---------------Virtual Account----------------*/
+
+.modal-content .card .card-box {
+	font-family: sans;
+	font-size: 13px;
+	font-weight: 500;
+	color: #1a1c1f;
+	border: 1px solid #bbc4d2;
+	border-radius: 5px;
+	width: 300px;
+	margin-inline: auto;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+
+.modal-content .card .card-box .va-image {
+	width: 60px;
+	height: 18px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+}
+
+.card-box .no-va {
+	display: flex;
+	flex-direction: row;
+	padding-left: 3px;
+	margin-bottom: 5px;
+	letter-spacing: 2.5px;
+	background-color: #ffffff;
+	/*border: 1px solid blue;*/
+}
+
+.card-box .no-va .copy-va {
+	margin-left: 5px;
+	width: 12px;
+	cursor: pointer;
+}
+
+.recipient {
+	letter-spacing: 2px;
+	color: #1a1c1f;
+	/*border: 1px solid red;*/
+}
+
+.barcode {
+	display: flex;
+	justify-content: center;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.barcode .barcode-isi {
+	width: 110px;
+	height: 110px;
+}
+
+.btn-saveQR {
+	display: flex;
+	justify-content: center;
+}
+
+.btn-saveQR .btn-saveQR_Code {
+	font-family: sans;
+	background-color: #2989a8;
+	border: none;
+	color: #ffffff;
+	width: 105px;
+	height: 22px;
+	border-radius: 3px;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.modal-content footer {
+	margin: auto;
+	border: 1px solid #bbc4d2;
+	border-radius: 5px;
+	width: 80px;
+	height: 30px;
+	margin-bottom: 15px;
+}
+
+.modal-content footer .in-close {
+	color: #1a1c1f;
+	font-size: 40px;
+	font-weight: 400;
+	text-align: center;
+	margin-top: -6px;
+	cursor: pointer;
+}
+
+/*=============Style Landingpage (Mempelai)=============*/
+#mempelai {
+	width: 100vw;
+	padding-top: 30px;
+	/*border: 1px solid red;*/
+}
+
+#mempelai .isi {
+	width: 85%;
+	margin-inline: auto;
+}
+
+#mempelai .isi .bismillah {
+	display: flex;
+	justify-content: center;
+	height: fit-content;
+	margin-bottom: 20px;
+}
+
+#mempelai .isi .bismillah img {
+	width: 250px;
+}
+
+#mempelai .isi .pembuka {
+	/*border: 1px solid blue;*/
+}
+
+#mempelai .isi .pembuka p:nth-child(1) {
+	font-weight: 600;
+	text-align: center;
+	padding-bottom: 5px;
+}
+
+#mempelai .isi .pembuka p:nth-child(2) {
+	text-align: center;
+}
+
+#mempelai .isi .pempelai-pria {
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 22px;
+}
+
+#mempelai .isi .pempelai-pria p:nth-child(1) {
+	font-family: gv;
+	font-size: 35px;
+	background: -webkit-linear-gradient(#efc207, #354f52);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+#mempelai .isi .pempelai-pria a img {
+	width: 25px;
+}
+
+#mempelai .isi .dengan {
+	text-align: center;
+}
+
+#mempelai .isi .dengan p {
+	font-weight: 600;
+}
+
+#mempelai .isi .pempelai-wanita {
+	text-align: center;
+	margin-top: 20px;
+}
+
+#mempelai .isi .pempelai-wanita p:nth-child(1) {
+	font-family: gv;
+	font-size: 35px;
+	background: -webkit-linear-gradient(#efc207, #354f52);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+#mempelai .isi .pempelai-wanita a img {
+	width: 25px;
+}
+
+#mempelai .isi .penutup {
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.dive img {
+	width: 100%;
+}
+
+.dive-AAs {
+	display: none;
+}
+/*=================== END Style Landingpage (Mempelai)================*/
+
+/*=============Style Landingpage (Waktu)=============*/
+#waktu {
+	width: 100vw;
+	background-image: url("../images/green-shades/bg-waktu.svg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+#waktu .isi {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	width: 85%;
+	margin-inline: auto;
+	margin-top: 20px;
+	margin-bottom: 0px;
+	padding-top: 20px;
+	/*border: 1px solid red;*/
+}
+
+/*--- Waktu Tasyakuran----*/
+#waktu .isi .tasyakuran {
+	width: 330px;
+	height: fit-content;
+	padding: 0px 30px 25px 30px;
+	margin-inline: auto;
+	/*margin-bottom: 30px;*/
+	background-color: #ffffff;
+	background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='13' ry='13' stroke='grey' stroke-width='2' stroke-dasharray='15%2c 15%2c 1' stroke-dashoffset='33' stroke-linecap='square'/%3e%3c/svg%3e");
+	border-radius: 6px;
+}
+
+#waktu .isi .corak-tasyakuran {
+	display: flex;
+	justify-content: center;
+	margin-top: -26px;
+}
+
+.corak-tasyakuran img {
+	width: 180px;
+}
+
+#waktu .isi .tasyakuran .judul {
+	text-align: center;
+	font-size: 20px;
+	font-weight: 600;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+#waktu .isi .tasyakuran .batas {
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+#waktu .isi .tasyakuran .tgl {
+	text-align: center;
+}
+
+#waktu .isi .tasyakuran .tgl p {
+	padding-bottom: 10px;
+	font-weight: 600;
+}
+
+#waktu .isi .tasyakuran .almt {
+	text-align: center;
+}
+
+/*--- Waktu Akad Nikah----*/
+#waktu .isi .akad {
+	width: 330px;
+	height: fit-content;
+	padding: 30px 30px 25px 30px;
+	margin-inline: auto;
+	/*margin-bottom: 30px;*/
+	background-color: #ffffff;
+	background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='13' ry='13' stroke='grey' stroke-width='2' stroke-dasharray='15%2c 15%2c 1' stroke-dashoffset='33' stroke-linecap='square'/%3e%3c/svg%3e");
+	border-radius: 6px;
+}
+
+#waktu .isi .corak-akad {
+	display: flex;
+	justify-content: center;
+	margin-top: -56px;
+}
+
+.corak-akad img {
+	width: 180px;
+}
+
+#waktu .isi .akad .judul {
+	text-align: center;
+	font-size: 20px;
+	font-weight: 600;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+#waktu .isi .akad .batas {
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+#waktu .isi .akad .tgl p {
+	text-align: center;
+	padding-bottom: 10px;
+	font-weight: 600;
+}
+
+#waktu .isi .akad .jaam p {
+	text-align: center;
+	padding-bottom: 10px;
+}
+
+#waktu .isi .akad .almt {
+	text-align: center;
+	padding-bottom: 15px;
+}
+
+#waktu .isi .akad .btn-map a {
+	display: flex;
+	flex-direction: row;
+	width: fit-content;
+	height: fit-content;
+	padding: 6px;
+	background-color: #5e887c;
+	border-radius: 5px;
+	margin-inline: auto;
+	color: #ffffff;
+	text-decoration: none;
+}
+
+#waktu .isi .akad .btn-map a svg {
+	margin-right: 3px;
+	width: 17px;
+}
+
+/*--- Waktu Resepsi----*/
+#waktu .isi .resepsi {
+	width: 330px;
+	height: fit-content;
+	padding: 30px 30px 25px 30px;
+	margin-inline: auto;
+	/*margin-bottom: 30px;*/
+	background-color: #ffffff;
+	background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='13' ry='13' stroke='grey' stroke-width='3' stroke-dasharray='15%2c 15%2c 1' stroke-dashoffset='33' stroke-linecap='square'/%3e%3c/svg%3e");
+	border-radius: 6px;
+}
+
+#waktu .isi .corak-resepsi {
+	display: flex;
+	justify-content: center;
+	margin-top: -56px;
+}
+
+.corak-resepsi img {
+	width: 180px;
+}
+
+#waktu .isi .resepsi .judul {
+	text-align: center;
+	font-size: 20px;
+	font-weight: 600;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+#waktu .isi .resepsi .batas {
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+#waktu .isi .resepsi .tgl p {
+	text-align: center;
+	padding-bottom: 10px;
+	font-weight: 600;
+}
+
+#waktu .isi .resepsi .jaam p {
+	text-align: center;
+	padding-bottom: 10px;
+}
+
+#waktu .isi .resepsi .almt {
+	text-align: center;
+	padding-bottom: 15px;
+}
+
+#waktu .isi .resepsi .btn-map a {
+	display: flex;
+	flex-direction: row;
+	width: fit-content;
+	height: fit-content;
+	padding: 6px;
+	background-color: #5e887c;
+	border-radius: 5px;
+	margin-inline: auto;
+	color: #ffffff;
+	text-decoration: none;
+}
+
+#waktu .isi .resepsi .btn-map a svg {
+	margin-right: 3px;
+	width: 17px;
+}
+
+/*-----waktu penutup -----*/
+
+#waktu .penutup {
+	width: 100%;
+	margin-top: 15px;
+}
+
+#waktu .penutup p:nth-child(1) {
+	text-align: center;
+	margin-inline: auto;
+	padding-bottom: 5px;
+}
+
+#waktu .penutup p:nth-child(2) {
+	font-weight: 600;
+	text-align: center;
+	margin-inline: auto;
+	padding-bottom: 20px;
+}
+
+.dive-waktu img {
+	width: 100%;
+}
+
+.dive-waktu-AAs {
+	display: none;
+}
+
+/*=================== END Style Landingpage (Waktu)================*/
+
+/*=============Style Landingpage (Pesan)=============*/
+#pesan {
+	width: 100vw;
+	height: fit-content;
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+	flex-wrap: wrap;
+	/*background-image: url('../image/bg-pesan.svg');*/
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	/*border: 3px solid red;*/
+}
+
+#pesan .pesan-bahagia {
+	margin: 15px 0px 0px 0px;
+	height: 583px;
+	width: 40%;
+	border: 2px solid #5e887c;
+	border-radius: 5px 0px 0px 5px;
+}
+
+.pesan-bahagia .header {
+	text-align: center;
+	padding: 15px 0px;
+	font-family: gv;
+	font-size: 30px;
+}
+
+.pesan-bahagia .header hr {
+	width: 165px;
+	margin: auto;
+	border: 1px solid #efc207;
+}
+
+.pesan-bahagia .inp-pesan {
+	padding: 0px 29px 15px 29px;
+	/*border: 1px solid blue;*/
+}
+
+.pesan-bahagia .inp-pesan p {
+	padding-top: 15px;
+	padding-bottom: 15px;
+	font-weight: 600;
+}
+
+.pesan-bahagia .inp-pesan textarea {
+	width: 100%;
+	border-radius: 4px;
+	resize: none;
+	font-size: 13px;
+	padding: 7px 0px 0px 7px;
+}
+
+/*Konfirmasi Kehadiran*/
+.pesan-bahagia .confirm-kehadiran {
+	display: flex;
+	flex-direction: row;
+	height: fit-content;
+	padding-left: 18px;
+	margin-bottom: 15px;
+	/*border: 1px solid red;*/
+}
+
+.confirm-kehadiran .contain {
+	display: inline-block;
+	cursor: pointer;
+	font-size: 15px;
+	width: fit-content;
+	margin-left: 10px;
+	height: fit-content;
+	/*border: 1px solid yellow;*/
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+/*Menyembunyikan default radio button*/
+.confirm-kehadiran .contain input {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+}
+
+/*Membuat custome radio button*/
+.confirm-kehadiran .checkmark {
+	display: inline-block;
+	width: 13px;
+	height: 13px;
+	font-size: 15px;
+	border-radius: 30%;
+	background-color: #ffffff;
+	border: 1px solid #000000;
+}
+
+.confirm-kehadiran .checkmark2 {
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	margin-left: 10px;
+	border-radius: 30%;
+	background-color: #ffffff;
+	border: 1px solid #000000;
+}
+
+.confirm-kehadiran .checkmark3 {
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	margin-left: 10px;
+	border-radius: 30%;
+	background-color: #ffffff;
+	border: 1px solid #000000;
+}
+
+/*ketika mouse lewat pada radio,*/
+.contain:hover input ~ .check {
+	background-color: #eeeeee;
+}
+
+/*ketika radio dipilih,maka background akan berubah*/
+.confirm-kehadiran input:checked ~ .checkmark {
+	background-color: #5e887c;
+}
+
+.confirm-kehadiran input:checked ~ .checkmark2 {
+	background-color: #dc143c;
+}
+
+.confirm-kehadiran input:checked ~ .checkmark3 {
+	background-color: #efc207;
+}
+/* End Konfirmasi Kehadiran*/
+
+.btn-kirim {
+	padding: 10px 29px 15px 27px;
+}
+
+.btn-kirim .btn-km {
+	padding: 8px 15px 8px 15px;
+	width: fit-content;
+	color: white;
+	background-color: #5e887c;
+	border: 1px solid white;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.btn-kirim p {
+	margin-top: 20px;
+	font-weight: 600;
+}
+
+.isi-pesan {
+	overflow: auto;
+	margin-inline: auto;
+	margin-bottom: 15px;
+	width: 91%;
+	height: 260px;
+	/*border: 1px solid blue;*/
+}
+
+table {
+	width: 100%;
+	/*background-color: yellow;*/
+}
+table .avatar-nama-hadir {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	top: 0;
+	width: 40px;
+	height: 40px;
+	margin-right: 10px;
+	background-color: #5e887c;
+	border-radius: 100%;
+	border: 1px solid #ffffff;
+}
+
+table .avatar-nama-tdkHadir {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 40px;
+	height: 40px;
+	margin-right: 10px;
+	background-color: #dc143c;
+	border-radius: 100%;
+	border: 1px solid #ffffff;
+}
+
+table .avatar-nama-blmTahu {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 40px;
+	height: 40px;
+	margin-right: 10px;
+	background-color: #efc207;
+	border-radius: 100%;
+	border: 1px solid #ffffff;
+}
+
+.avtr p {
+	font-size: 20px;
+	color: #ffffff;
+	font-weight: 600;
+	margin-top: 3px;
+}
+
+table .nama {
+	font-weight: 600;
+}
+
+table .tgl-kirim {
+	font-size: 12px;
+}
+
+table .ucapan {
+	padding-top: 2px;
+	margin-bottom: 10px;
+}
+
+hr {
+	margin-bottom: 10px;
+}
+
+/* Batas Hal Pesan  Bahagia */
+
+#pesan .akhir {
+	margin: 15px 0px 0px 0px;
+	height: 583px;
+	width: 40%;
+	color: #ffffff;
+	border: 2px solid #5e887c;
+	background-color: #5e887c;
+	border-radius: 0px 5px 5px 0px;
+}
+
+.akhir .header {
+	text-align: center;
+	padding-top: 110px;
+}
+.akhir .header .bingAtas-akhir-for-desk {
+	width: 190px;
+	/*border: 1px solid red;*/
+}
+
+.akhir .header .bingAtas-akhir-for-AAs {
+	display: none;
+}
+
+.akhir .header .hurufDepan-mempelai {
+	font-family: gv;
+	font-size: 60px;
+	font-weight: 500;
+	margin-bottom: 10px;
+	margin-top: 5px;
+	/*border: 1px solid blue;*/
+	height: 55px;
+}
+
+.akhir .header .trm {
+	font-family: sans;
+	font-size: 20px;
+	font-weight: 600;
+	margin-bottom: 10px;
+	/*border: 1px solid yellow;*/
+}
+
+.akhir .header .bingBawah-akhir-for-desk {
+	width: 190px;
+	/*border: 1px solid red;*/
+}
+
+.akhir .header .bingBawah-akhir-for-AAs {
+	display: none;
+}
+
+.akhir .akhir-isi {
+	width: 70%;
+	text-align: center;
+	margin-inline: auto;
+	margin-top: 20px;
+	/*border: 1px solid blue;*/
+}
+
+/*============= End Style Landingpage (Pesan)=============*/
+
+/*-------------FOOTER--------------*/
+.footer {
+	width: 100vw;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	margin-top: 50px;
+	background-color: #1a262d;
+}
+
+.footer .isi-foo {
+	width: 30%;
+	margin-inline: auto;
+	/*background-color: red;*/
+}
+
+.isi-foo .logo-ms {
+	width: 120px;
+}
+
+.footer .kontak {
+	display: flex;
+	justify-content: flex-end;
+	width: 30%;
+	margin-inline: auto;
+	/*border: 1px solid yellow;*/
+}
+
+.kontak .wa {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin-right: 15px;
+}
+
+.kontak .wa img {
+	width: 18px;
+	margin-right: 5px;
+}
+
+.kontak .wa p {
+	color: #ffffff;
+	font-size: 13px;
+}
+
+.kontak .ig {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.kontak .ig img {
+	width: 18px;
+	margin-right: 5px;
+}
+
+.kontak .ig p {
+	color: #ffffff;
+	font-size: 13px;
+}
+
+/*------------- END FOOTER--------------*/
+
+/*=====Responsive For Desktop*======*/
+@media screen and (min-width: 1022px) and (max-width: 1280px) {
+	/*LandingPage(Sampul)*/
+	.modal-content {
+		margin-top: 8%;
+		height: auto;
+	}
+
+	.modal-content .card {
+		max-height: 400px;
+	}
+
+	/*LandingPage(Waktu)*/
+	/*--- Waktu Tasyakuran----*/
+	#waktu .isi .tasyakuran {
+		width: 270px;
+		padding: 30px 30px 25px 30px;
+	}
+	/*--- Waktu Akad Nikah----*/
+	#waktu .isi .akad {
+		width: 270px;
+		padding: 30px 30px 25px 30px;
+	}
+
+	/*--- Waktu Resepsi----*/
+	#waktu .isi .resepsi {
+		width: 270px;
+		padding: 30px 30px 25px 30px;
+	}
+
+	/*Landingpage(Pesan Bahagia)*/
+	#pesan {
+		height: fit-content;
+		width: 100%;
+		/*border: 1px solid blue;*/
+	}
+
+	#pesan .pesan-bahagia {
+		margin: 25px 0px 0px 0px;
+		height: 623px;
+	}
+
+	.isi-pesan {
+		overflow: auto;
+		margin-inline: auto;
+		argin-bottom: 10px;
+		width: 89%;
+		height: 320px;
+		/*border: 1px solid blue;*/
+	}
+
+	/* Batas Hal Pesan  Bahagia */
+	#pesan .akhir {
+		margin: 25px 0px 0px 0px;
+		height: 623px;
+	}
+
+	/*Footer*/
+	.footer {
+		height: 50px;
+	}
+}
+
+/*=====Responsive For Tablet*======**/
+@media screen and (min-width: 769px) and (max-width: 1021px) {
+	/*Sampul*/
+	.pengantar .text p {
+		font-size: 50px;
+	}
+
+	.waktuAkad p {
+		font-size: 20px;
+	}
+
+	.mempelai p {
+		font-size: 30px;
+	}
+
+	.ket {
+		font-size: 13px;
+	}
+
+	.giftt {
+		right: 2%;
+	}
+
+	.modal-content {
+		margin-top: 7%;
+		height: auto;
+	}
+
+	.modal-content .card {
+		max-height: 450px;
+	}
+
+	/*LandingPage(Waktu)*/
+	#waktu .isi {
+		display: flex;
+		flex-direction: column;
+		margin-top: 15px;
+	}
+
+	#waktu .isi .tasyakuran {
+		margin-bottom: 35px;
+	}
+
+	#waktu .isi .akad {
+		margin-bottom: 35px;
+	}
+
+	/*Landingpage (Pesan Bahagia)*/
+	.content #pesan {
+		width: 100%;
+		height: fit-content;
+		margin-bottom: 0px;
+		/*border: 1px solid blue;*/
+	}
+
+	#pesan .pesan-bahagia {
+		margin-top: 5px;
+		width: 86%;
+		height: fit-content;
+		border: none;
+	}
+
+	.isi-pesan {
+		overflow: auto;
+		margin-inline: auto;
+		margin-bottom: 20px;
+		width: 93%;
+		height: 300px;
+		/*border: 1px solid blue;*/
+	}
+
+	table .tgl-kirim {
+		font-size: 13px;
+	}
+	/* Batas Hal Pesan  Bahagia */
+
+	#pesan .akhir {
+		margin: 0px 0px 0px 0px;
+		width: 100%;
+		height: fit-content;
+		border: none;
+		border-radius: 0px;
+	}
+
+	.akhir .header {
+		padding-top: 30px;
+	}
+	.akhir .header .bingAtas-akhir-for-desk {
+		width: 190px;
+		/*border: 1px solid red;*/
+	}
+
+	.akhir .header .hurufDepan-mempelai {
+		margin-bottom: 10px;
+	}
+
+	.akhir .header .trm {
+		margin-bottom: 10px;
+		/*border: 1px solid yellow;*/
+	}
+
+	.akhir .header .bingBawah-akhir-for-desk {
+		width: 190px;
+		/*border: 1px solid red;*/
+	}
+
+	.akhir .akhir-isi {
+		width: 60%;
+		margin-top: 10px;
+		margin-bottom: 60px;
+		/*border: 1px solid blue;*/
+	}
+
+	/*FOOTER*/
+	.footer {
+		height: 90px;
+		display: flex;
+		align-items: center;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		margin-top: 0px;
+		background-color: #1a262d;
+	}
+
+	.footer .isi-foo {
+		width: fit-content;
+		margin-top: 10px;
+		margin-left: 35px;
+		/*border: 1px solid red;*/
+	}
+
+	.isi-foo .logo-ms {
+		width: 170px;
+	}
+
+	.footer .kontak {
+		width: fit-content;
+		margin-top: 10px;
+		margin-right: 35px;
+		display: flex;
+		flex-direction: row;
+		/*border: 1px solid yellow;*/
+	}
+
+	.kontak .wa img {
+		width: 22px;
+		margin-right: 5px;
+	}
+
+	.kontak .wa p {
+		color: #ffffff;
+		font-size: 16px;
+	}
+
+	.kontak .ig img {
+		width: 22px;
+		margin-right: 5px;
+	}
+
+	.kontak .ig p {
+		font-size: 16px;
+	}
+}
+
+/*=====Responsive For Ipad mini*======**/
+@media screen and (min-width: 481px) and (max-width: 768px) {
+	/*Sampul*/
+	.bing1 img {
+		width: 300px;
+		height: 300px;
+	}
+
+	.bing2 img {
+		width: 300px;
+		height: 300px;
+	}
+
+	.giftt {
+		right: 2%;
+	}
+
+	.modal-content {
+		margin-top: 7%;
+		height: auto;
+	}
+
+	.modal-content .card {
+		max-height: 450px;
+	}
+
+	/*LandingPage(Waktu)*/
+	#waktu .isi {
+		display: flex;
+		flex-direction: column;
+		margin-top: 15px;
+	}
+
+	#waktu .isi .tasyakuran {
+		margin-bottom: 35px;
+	}
+
+	#waktu .isi .akad {
+		margin-bottom: 35px;
+	}
+
+	/*Landingpage (Pesan Bahagia)*/
+	.content #pesan {
+		width: 100%;
+		height: fit-content;
+		margin-bottom: 0px;
+		/*border: 1px solid blue;*/
+	}
+
+	#pesan .pesan-bahagia {
+		margin-top: 5px;
+		width: 95%;
+		height: fit-content;
+		border: none;
+		/*background-color: red;*/
+	}
+
+	.isi-pesan {
+		overflow: auto;
+		margin-inline: auto;
+		margin-bottom: 20px;
+		width: 91%;
+		height: 300px;
+		/*border: 1px solid blue;*/
+	}
+
+	table .tgl-kirim {
+		font-size: 13px;
+	}
+	/* Batas Hal Pesan  Bahagia */
+
+	#pesan .akhir {
+		margin: 0px 0px 0px 0px;
+		width: 100%;
+		height: fit-content;
+		border: none;
+		border-radius: 0px;
+	}
+
+	.akhir .header {
+		padding-top: 30px;
+	}
+	.akhir .header .bingAtas-akhir-for-desk {
+		width: 190px;
+		/*border: 1px solid red;*/
+	}
+
+	.akhir .header .hurufDepan-mempelai {
+		margin-bottom: 10px;
+	}
+
+	.akhir .header .trm {
+		margin-bottom: 10px;
+		/*border: 1px solid yellow;*/
+	}
+
+	.akhir .header .bingBawah-akhir-for-desk {
+		width: 190px;
+		/*border: 1px solid red;*/
+	}
+
+	.akhir .akhir-isi {
+		width: 60%;
+		margin-top: 10px;
+		margin-bottom: 40px;
+		/*border: 1px solid blue;*/
+	}
+
+	/*FOOTER*/
+	.footer {
+		height: 60px;
+		display: flex;
+		align-items: center;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		margin-top: 0px;
+		background-color: #1a262d;
+	}
+
+	.footer .isi-foo {
+		width: fit-content;
+		margin-top: 10px;
+		margin-left: 35px;
+		/*border: 1px solid red;*/
+	}
+
+	.isi-foo .logo-ms {
+		width: 150px;
+	}
+
+	.footer .kontak {
+		width: fit-content;
+		margin-top: 10px;
+		margin-right: 35px;
+		display: flex;
+		flex-direction: row;
+		/*border: 1px solid yellow;*/
+	}
+
+	.kontak .wa img {
+		width: 22px;
+		margin-right: 5px;
+	}
+
+	.kontak .wa p {
+		color: #ffffff;
+		font-size: 16px;
+	}
+
+	.kontak .ig img {
+		width: 22px;
+		margin-right: 5px;
+	}
+
+	.kontak .ig p {
+		font-size: 16px;
+	}
+}
+
+/*=======Responsive For Apple Smartphones & Android Smartphone=======*/
+@media screen and (min-width: 360px) and (max-width: 480px) {
+	/*SAMPUL*/
+
+	.ndemo-desk {
+		display: none;
+	}
+
+	/*Note demo for Apple mini*/
+	.ndemo-Ap-mini {
+		display: block;
+		position: absolute;
+		right: 0;
+		top: 0;
+		z-index: 20;
+	}
+
+	.bing1 img {
+		width: 200px;
+		height: 200px;
+	}
+
+	.bing2 img {
+		width: 200px;
+		height: 200px;
+	}
+
+	.pengantar .text p {
+		font-size: 40px;
+		font-weight: 500;
+	}
+
+	.waktuAkad p {
+		font-size: 19px;
+	}
+
+	.mempelai p {
+		font-size: 28px;
+	}
+
+	.tamu .isi p {
+		font-size: 15px;
+	}
+
+	.tamu .isi h2 {
+		font-size: 18px;
+	}
+
+	.ket {
+		font-size: 12px;
+	}
+
+	.contWa .jud {
+		font-size: 15px;
+	}
+
+	.subjud ul {
+		padding: 15px;
+		width: 275px;
+		font-size: 15px;
+		/*border: 1px solid blueviolet;*/
+	}
+
+	.subjud ul li p {
+		padding-bottom: 10px;
+	}
+
+	.subjud ul li .hari,
+	.jam,
+	.menit,
+	.detik {
+		font-size: 16px;
+		font-weight: 600;
+		width: 45px;
+		height: 35px;
+		padding-top: 10px;
+	}
+
+	.giftt {
+		right: 3%;
+	}
+
+	.modal-content {
+		width: 300px;
+		height: auto;
+		margin-inline: auto;
+		margin-top: 40px;
+		color: white;
+		background-color: #ffffff;
+		border: 1px solid #5e887c;
+		border-radius: 10px;
+	}
+
+	.modal-content .jd {
+		padding-top: 15px;
+		padding-bottom: 15px;
+	}
+
+	.modal-content .isi {
+		padding: 0px 30px 20px 30px;
+		font-family: sans;
+		font-size: 13px;
+		text-align: center;
+	}
+
+	.modal-content .card {
+		width: 270px;
+		max-height: 340px;
+		margin-inline: auto;
+		margin-bottom: 15px;
+		overflow: auto;
+		/*border: 1px solid #5E887C;*/
+	}
+
+	/*---------------Virtual Account----------------*/
+	.modal-content .card .card-box {
+		font-size: 13px;
+		width: 250px;
+	}
+
+	.modal-content .card .card-box .va-image {
+		width: 60px;
+		height: 18px;
+		margin-left: 0px;
+		margin-bottom: 15px;
+	}
+
+	.card-box .no-va {
+		display: flex;
+		flex-direction: row;
+		padding-left: 3px;
+		margin-bottom: 5px;
+		letter-spacing: 2.5px;
+		background-color: #ffffff;
+		/*border: 1px solid blue;*/
+	}
+
+	.card-box .no-va .copy-va {
+		margin-left: 5px;
+		width: 12px;
+		cursor: pointer;
+	}
+
+	.modal-content .card {
+		width: 250px;
+		max-height: 350px;
+		margin-bottom: 0px;
+		/*border: 1px solid #5E887C;*/
+	}
+
+	.modal-content footer {
+		margin: auto;
+		border: 1px solid #bbc4d2;
+		border-radius: 5px;
+		width: 70px;
+		height: 35px;
+		margin-bottom: 15px;
+	}
+
+	.modal-content footer .in-close {
+		margin-top: -5px;
+	}
+
+	.recipient {
+		letter-spacing: 2px;
+		color: #1a1c1f;
+		/*border: 1px solid red;*/
+	}
+
+	/*Landingpage (Mempelai)*/
+	#mempelai {
+		font-family: sans;
+		font-size: 13px;
+		padding-top: 15px;
+	}
+
+	#mempelai .isi {
+		width: 85%;
+		margin-inline: auto;
+	}
+
+	#mempelai .isi .bismillah {
+		display: flex;
+		justify-content: center;
+		width: 100%;
+		height: fit-content;
+		margin-bottom: 20px;
+	}
+
+	#mempelai .isi .bismillah img {
+		width: 200px;
+	}
+
+	#mempelai .isi .pembuka {
+		/*border: 1px solid blue;*/
+	}
+
+	#mempelai .isi .pembuka p:nth-child(1) {
+		font-weight: 600;
+		text-align: center;
+		padding-bottom: 5px;
+	}
+
+	#mempelai .isi .pembuka p:nth-child(2) {
+		text-align: center;
+	}
+
+	#mempelai .isi .pempelai-pria {
+		text-align: center;
+		margin-top: 20px;
+		margin-bottom: 22px;
+	}
+
+	#mempelai .isi .pempelai-pria p:nth-child(1) {
+		font-family: gv;
+		font-size: 32px;
+		color: #efc207;
+	}
+
+	#mempelai .isi .pempelai-pria a img {
+		width: 20px;
+	}
+
+	#mempelai .isi .dengan {
+		text-align: center;
+	}
+
+	#mempelai .isi .dengan p {
+		font-weight: 600;
+	}
+
+	#mempelai .isi .pempelai-wanita {
+		text-align: center;
+		padding-top: 5px;
+	}
+
+	#mempelai .isi .pempelai-wanita p:nth-child(1) {
+		font-family: gv;
+		font-size: 32px;
+		color: #efc207;
+	}
+
+	#mempelai .isi .pempelai-wanita a img {
+		width: 20px;
+	}
+
+	#mempelai .isi .penutup {
+		text-align: center;
+		margin-top: 10px;
+		margin-bottom: 15px;
+	}
+
+	.dive {
+		display: none;
+	}
+
+	.dive-AAs {
+		display: block;
+	}
+
+	.dive-AAs img {
+		width: 100%;
+	}
+
+	/*Landingpage (Waktu)*/
+	#waktu .isi {
+		width: 100%;
+		margin-top: 15px;
+		margin-bottom: 0px;
+		padding-top: 15px;
+		/*border: 1px solid red;*/
+	}
+
+	/*--- Waktu Tasyakuran----*/
+	#waktu .isi .tasyakuran {
+		width: 300px;
+		height: fit-content;
+		padding: 15px 20px 15px 20px;
+		margin-bottom: 35px;
+	}
+
+	#waktu .isi .corak-tasyakuran {
+		display: flex;
+		justify-content: center;
+		margin-top: -37px;
+	}
+
+	.corak-tasyakuran img {
+		width: 150px;
+	}
+
+	#waktu .isi .tasyakuran .judul {
+		font-size: 15px;
+		padding-bottom: 5px;
+	}
+
+	#waktu .isi .tasyakuran .batas {
+		margin-bottom: 5px;
+	}
+
+	#waktu .isi .tasyakuran .batas svg {
+		width: 75px;
+	}
+
+	#waktu .isi .tasyakuran .tgl {
+		text-align: center;
+	}
+
+	#waktu .isi .tasyakuran .tgl p {
+		padding-bottom: 10px;
+		font-size: 13px;
+	}
+
+	#waktu .isi .tasyakuran .almt {
+		text-align: center;
+		font-size: 13px;
+	}
+
+	/*--- Waktu Akad Nikah----*/
+	#waktu .isi .akad {
+		width: 300px;
+		height: fit-content;
+		padding: 15px 20px 15px 20px;
+		margin-bottom: 35px;
+	}
+
+	#waktu .isi .corak-akad {
+		display: flex;
+		justify-content: center;
+		margin-top: -37px;
+	}
+
+	.corak-akad img {
+		width: 150px;
+	}
+
+	#waktu .isi .akad .judul {
+		font-size: 15px;
+		padding-bottom: 5px;
+	}
+
+	#waktu .isi .akad .batas {
+		margin-bottom: 5px;
+	}
+
+	#waktu .isi .akad .batas svg {
+		width: 75px;
+	}
+
+	#waktu .isi .akad .tgl {
+		text-align: center;
+	}
+
+	#waktu .isi .akad .tgl p {
+		padding-bottom: 10px;
+		font-size: 13px;
+	}
+
+	#waktu .isi .akad .jaam p {
+		font-size: 13px;
+		text-align: center;
+		padding-bottom: 10px;
+	}
+
+	#waktu .isi .akad .almt {
+		font-size: 13px;
+		text-align: center;
+		padding-bottom: 15px;
+	}
+
+	#waktu .isi .akad .btn-map a {
+		padding: 6px 6px 6px 6px;
+		font-size: 13px;
+	}
+
+	#waktu .isi .akad .btn-map a svg {
+		margin-right: 3px;
+		margin-top: -1px;
+		width: 12px;
+	}
+
+	/*--- Waktu Resepsi----*/
+	#waktu .isi .resepsi {
+		width: 300px;
+		height: fit-content;
+		padding: 15px 20px 15px 20px;
+		margin-bottom: 10px;
+	}
+
+	#waktu .isi .corak-resepsi {
+		display: flex;
+		justify-content: center;
+		margin-top: -37px;
+	}
+
+	.corak-resepsi img {
+		width: 150px;
+	}
+
+	#waktu .isi .resepsi .judul {
+		font-size: 15px;
+		padding-bottom: 5px;
+	}
+
+	#waktu .isi .resepsi .batas {
+		margin-bottom: 5px;
+	}
+
+	#waktu .isi .resepsi .batas svg {
+		width: 75px;
+	}
+
+	#waktu .isi .resepsi .tgl {
+		text-align: center;
+	}
+
+	#waktu .isi .resepsi .tgl p {
+		padding-bottom: 10px;
+		font-size: 13px;
+	}
+
+	#waktu .isi .resepsi .jaam p {
+		font-size: 13px;
+		text-align: center;
+		padding-bottom: 10px;
+	}
+
+	#waktu .isi .resepsi .almt {
+		font-size: 13px;
+		text-align: center;
+		padding-bottom: 15px;
+	}
+
+	#waktu .isi .resepsi .btn-map a {
+		padding: 6px 6px 6px 6px;
+		font-size: 13px;
+	}
+
+	#waktu .isi .resepsi .btn-map a svg {
+		margin-right: 3px;
+		margin-top: -1px;
+		width: 12px;
+	}
+
+	/*-----waktu penutup -----*/
+	#waktu .penutup p:nth-child(1) {
+		width: 85%;
+		font-size: 13px;
+		padding-bottom: 5px;
+	}
+
+	#waktu .penutup p:nth-child(2) {
+		width: 85%;
+		font-size: 13px;
+		padding-bottom: 15px;
+	}
+
+	.dive-waktu {
+		display: none;
+	}
+
+	.dive-waktu-AAs {
+		display: block;
+		/*border: 1px solid blue;*/
+	}
+
+	.dive-waktu-AAs img {
+		width: 100%;
+	}
+
+	/*Landingpage (Pesan Bahagia)*/
+	#pesan {
+		width: 100%;
+		height: fit-content;
+		margin-bottom: 0px;
+		/*border: 1px solid blue;*/
+	}
+
+	#pesan .pesan-bahagia {
+		margin: 5px 0px 0px 0px;
+		height: fit-content;
+		width: 100%;
+		border: none;
+		border-radius: none;
+	}
+
+	.pesan-bahagia .header {
+		padding: 10px 0px;
+		font-family: gv;
+		font-size: 23px;
+	}
+
+	.pesan-bahagia .header hr {
+		width: 132px;
+		border: 1px solid #efc207;
+	}
+
+	.pesan-bahagia .inp-pesan {
+		padding: 0px 29px 12px 29px;
+		/*border: 1px solid blue;*/
+	}
+
+	.pesan-bahagia .inp-pesan p {
+		padding-top: 0px;
+		padding-bottom: 15px;
+	}
+
+	.isi-pesan {
+		width: 85%;
+		height: 240px;
+		/*border: 1px solid blue;*/
+	}
+
+	table .nama {
+		font-weight: 600;
+	}
+
+	table .tgl-kirim {
+		font-size: 12px;
+	}
+
+	table .ucapan {
+		padding-top: 2px;
+		margin-bottom: 10px;
+		font-size: 13px;
+	}
+
+	/* Batas Hal Pesan  Bahagia */
+	#pesan .akhir {
+		margin: 0px 0px 0px 0px;
+		width: 100%;
+		height: fit-content;
+		border: none;
+		border-radius: 0px;
+	}
+
+	.akhir .header {
+		padding-top: 20px;
+	}
+	.akhir .header .bingAtas-akhir-for-desk {
+		display: none;
+		/*border: 1px solid red;*/
+	}
+
+	.akhir .header .bingAtas-akhir-for-AAs {
+		display: block;
+		margin-inline: auto;
+		/*border: 1px solid red;*/
+	}
+
+	.akhir .header .hurufDepan-mempelai {
+		font-family: gv;
+		font-size: 45px;
+		margin-bottom: 0px;
+		margin-top: 5px;
+		height: 50px;
+	}
+
+	.akhir .header .trm {
+		font-family: sans;
+		font-size: 16px;
+		font-weight: 600;
+		margin-bottom: 10px;
+		/*border: 1px solid yellow;*/
+	}
+
+	.akhir .header .bingBawah-akhir-for-desk {
+		display: none;
+	}
+
+	.akhir .header .bingBawah-akhir-for-AAs {
+		display: block;
+		margin-inline: auto;
+		/*border: 1px solid red;*/
+	}
+
+	.akhir .akhir-isi {
+		width: 78%;
+		margin-top: 10px;
+		margin-bottom: 20px;
+		font-size: 13px;
+		/*border: 1px solid blue;*/
+	}
+
+	/*FOOTER*/
+	.footer {
+		height: 50px; /*90px*/
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		margin-top: 0px;
+		padding: 0px 10px 0px 10px;
+		background-color: #1a262d;
+	}
+
+	.footer .isi-foo {
+		width: fit-content;
+		margin-top: 0px;
+		/*border: 1px solid red;*/
+	}
+
+	.isi-foo .logo-ms {
+		width: 120px;
+	}
+
+	.footer .kontak {
+		display: flex;
+		justify-content: flex-start;
+		flex-direction: row;
+		align-items: center;
+		width: fit-content;
+		margin-top: 0px;
+		/*border: 1px solid yellow;*/
+	}
+
+	.kontak .wa img {
+		width: 17px;
+		margin-right: 3px;
+		margin-bottom: 2px;
+	}
+
+	.kontak .wa p {
+		color: #ffffff;
+		font-size: 13px;
+	}
+
+	.kontak .ig img {
+		width: 17px;
+		margin-bottom: 2px;
+		margin-right: 3px;
+	}
+
+	.kontak .ig p {
+		font-size: 13px;
+	}
+}
+
+/*=========Responsive For Apple Smartphones Mini=========*/
+@media screen and (min-width: 320px) and (max-width: 359px) {
+	/*SAMPUL*/
+	/*Note demo for Desktop,tablet & ipad mini*/
+	.ndemo-desk {
+		display: none;
+	}
+
+	/*Note demo for Apple mini*/
+	.ndemo-Ap-mini {
+		display: block;
+		position: absolute;
+		right: 0;
+		top: 0;
+		z-index: 20;
+	}
+
+	.bing1 img {
+		width: 130px;
+		height: 130px;
+	}
+	.bing2 img {
+		width: 130px;
+		height: 130px;
+	}
+
+	.pengantar {
+		/*background-color: yellow;*/
+		margin-bottom: 1%;
+	}
+
+	.pengantar .text p {
+		font-size: 28px;
+	}
+
+	.waktuAkad {
+		margin-bottom: 6%;
+	}
+
+	.waktuAkad p {
+		font-size: 15px;
+	}
+
+	.batas svg {
+		width: 140px;
+	}
+
+	.mempelai {
+		margin-top: 1%;
+		margin-bottom: 1%;
+	}
+
+	.mempelai p {
+		font-size: 23px;
+	}
+
+	.tamu .isi {
+		margin-top: 10%;
+	}
+
+	.tamu .isi p {
+		font-size: 14px;
+	}
+
+	.tamu .isi h2 {
+		font-size: 15px;
+	}
+
+	.ket {
+		font-size: 11px;
+	}
+
+	.contWa .jud {
+		font-size: 14px;
+	}
+
+	.subjud ul {
+		padding: 14px;
+		width: 275px;
+		font-size: 15px;
+		/*border: 1px solid blueviolet;*/
+	}
+
+	.subjud ul li p {
+		padding-bottom: 10px;
+	}
+
+	.subjud ul li .hari,
+	.jam,
+	.menit,
+	.detik {
+		font-size: 15px;
+		font-weight: 600;
+		width: 45px;
+		height: 35px;
+		padding-top: 10px;
+	}
+
+	.btn {
+		margin-top: 10%;
+	}
+
+	.btn a {
+		border-radius: 10px;
+		width: fit-content;
+		height: fit-content;
+	}
+
+	.btn a p {
+		font-size: 15px;
+		padding-top: 11px;
+		padding-right: 15px;
+	}
+
+	.btn a svg {
+		width: 12px;
+		margin: 2px 7px 0px 15px;
+	}
+
+	.giftt {
+		right: 2%;
+		width: 42px;
+	}
+
+	.modal-content {
+		width: 270px;
+		margin-top: 20px;
+	}
+
+	.modal-content .jd {
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+
+	.modal-content .isi {
+		font-size: 12px;
+		text-align: center;
+	}
+
+	.modal-content .card {
+		width: 250px;
+		max-height: 225px;
+		margin-bottom: 0px;
+		/*border: 1px solid #5E887C;*/
+	}
+	/*---------------Virtual Account----------------*/
+	.modal-content .card .card-box {
+		font-size: 12px;
+		width: 220px;
+	}
+
+	.modal-content footer {
+		margin: auto;
+		border: 1px solid #bbc4d2;
+		border-radius: 10px;
+		width: 50px;
+		height: 35px;
+		margin-bottom: 15px;
+	}
+
+	/*Landingpage (Mempelai)*/
+	#mempelai {
+		font-family: sans;
+		font-size: 12px;
+		padding-top: 15px;
+	}
+
+	#mempelai .isi {
+		width: 85%;
+		margin-inline: auto;
+	}
+
+	#mempelai .isi .bismillah {
+		display: flex;
+		justify-content: center;
+		width: 100%;
+		height: fit-content;
+		margin-bottom: 20px;
+	}
+
+	#mempelai .isi .bismillah img {
+		width: 170px;
+	}
+
+	#mempelai .isi .pembuka {
+		/*border: 1px solid blue;*/
+	}
+
+	#mempelai .isi .pembuka p:nth-child(1) {
+		font-weight: 600;
+		text-align: center;
+		padding-bottom: 5px;
+	}
+
+	#mempelai .isi .pembuka p:nth-child(2) {
+		text-align: center;
+	}
+
+	#mempelai .isi .pempelai-pria {
+		text-align: center;
+		margin-top: 20px;
+		margin-bottom: 22px;
+	}
+
+	#mempelai .isi .pempelai-pria p:nth-child(1) {
+		font-family: gv;
+		font-size: 28px;
+		color: #efc207;
+	}
+
+	#mempelai .isi .pempelai-pria a img {
+		width: 20px;
+	}
+
+	#mempelai .isi .dengan {
+		text-align: center;
+	}
+
+	#mempelai .isi .dengan p {
+		font-weight: 600;
+	}
+
+	#mempelai .isi .pempelai-wanita {
+		text-align: center;
+		padding-top: 5px;
+	}
+
+	#mempelai .isi .pempelai-wanita p:nth-child(1) {
+		font-family: gv;
+		font-size: 28px;
+		color: #efc207;
+	}
+
+	#mempelai .isi .pempelai-wanita a img {
+		width: 20px;
+	}
+
+	#mempelai .isi .penutup {
+		text-align: center;
+		margin-top: 10px;
+		margin-bottom: 15px;
+	}
+
+	.dive {
+		display: none;
+	}
+
+	.dive-AAs {
+		display: block;
+	}
+
+	.dive-AAs img {
+		width: 100%;
+	}
+
+	/*Landingpage (Waktu)*/
+	#waktu .isi {
+		width: 100%;
+		margin-top: 10px;
+		margin-bottom: 0px;
+		padding-top: 15px;
+		/*border: 1px solid red;*/
+	}
+
+	/*--- Waktu Tasyakuran----*/
+	#waktu .isi .tasyakuran {
+		width: 260px;
+		height: fit-content;
+		padding: 15px 20px 15px 20px;
+		margin-bottom: 30px;
+	}
+
+	#waktu .isi .corak-tasyakuran {
+		display: flex;
+		justify-content: center;
+		margin-top: -34px;
+	}
+
+	.corak-tasyakuran img {
+		width: 130px;
+	}
+
+	#waktu .isi .tasyakuran .judul {
+		font-size: 14px;
+		padding-bottom: 5px;
+	}
+
+	#waktu .isi .tasyakuran .batas {
+		margin-bottom: 5px;
+	}
+
+	#waktu .isi .tasyakuran .batas svg {
+		width: 75px;
+	}
+
+	#waktu .isi .tasyakuran .tgl {
+		text-align: center;
+	}
+
+	#waktu .isi .tasyakuran .tgl p {
+		padding-bottom: 10px;
+		font-size: 12px;
+	}
+
+	#waktu .isi .tasyakuran .almt {
+		text-align: center;
+		font-size: 12px;
+	}
+
+	/*--- Waktu Akad Nikah----*/
+	#waktu .isi .akad {
+		width: 260px;
+		height: fit-content;
+		padding: 15px 20px 15px 20px;
+		margin-bottom: 30px;
+	}
+
+	#waktu .isi .corak-akad {
+		display: flex;
+		justify-content: center;
+		margin-top: -34px;
+	}
+
+	.corak-akad img {
+		width: 130px;
+	}
+
+	#waktu .isi .akad .judul {
+		font-size: 14px;
+		padding-bottom: 5px;
+	}
+
+	#waktu .isi .akad .batas {
+		margin-bottom: 5px;
+	}
+
+	#waktu .isi .akad .batas svg {
+		width: 75px;
+	}
+
+	#waktu .isi .akad .tgl {
+		text-align: center;
+	}
+
+	#waktu .isi .akad .tgl p {
+		padding-bottom: 10px;
+		font-size: 12px;
+	}
+
+	#waktu .isi .akad .jaam p {
+		font-size: 12px;
+		text-align: center;
+		padding-bottom: 10px;
+	}
+
+	#waktu .isi .akad .almt {
+		font-size: 12px;
+		text-align: center;
+		padding-bottom: 15px;
+	}
+
+	#waktu .isi .akad .btn-map a {
+		padding: 6px 6px 6px 6px;
+		font-size: 13px;
+	}
+
+	#waktu .isi .akad .btn-map a svg {
+		margin-right: 3px;
+		margin-top: -1px;
+		width: 12px;
+	}
+
+	/*--- Waktu Resepsi----*/
+	#waktu .isi .resepsi {
+		width: 260px;
+		height: fit-content;
+		padding: 15px 20px 15px 20px;
+		margin-bottom: 10px;
+	}
+
+	#waktu .isi .corak-resepsi {
+		display: flex;
+		justify-content: center;
+		margin-top: -34px;
+	}
+
+	.corak-resepsi img {
+		width: 130px;
+	}
+
+	#waktu .isi .resepsi .judul {
+		font-size: 14px;
+		padding-bottom: 5px;
+	}
+
+	#waktu .isi .resepsi .batas {
+		margin-bottom: 5px;
+	}
+
+	#waktu .isi .resepsi .batas svg {
+		width: 75px;
+	}
+
+	#waktu .isi .resepsi .tgl {
+		text-align: center;
+	}
+
+	#waktu .isi .resepsi .tgl p {
+		padding-bottom: 10px;
+		font-size: 12px;
+	}
+
+	#waktu .isi .resepsi .jaam p {
+		font-size: 12px;
+		text-align: center;
+		padding-bottom: 10px;
+	}
+
+	#waktu .isi .resepsi .almt {
+		font-size: 12px;
+		text-align: center;
+		padding-bottom: 15px;
+	}
+
+	#waktu .isi .resepsi .btn-map a {
+		padding: 6px 6px 6px 6px;
+		font-size: 12px;
+	}
+
+	#waktu .isi .resepsi .btn-map a svg {
+		margin-right: 3px;
+		margin-top: -1px;
+		width: 12px;
+	}
+
+	/*-----waktu penutup -----*/
+	#waktu .penutup p:nth-child(1) {
+		width: 85%;
+		font-size: 12px;
+		padding-bottom: 5px;
+	}
+
+	#waktu .penutup p:nth-child(2) {
+		width: 85%;
+		font-size: 12px;
+		padding-bottom: 15px;
+	}
+
+	.dive-waktu {
+		display: none;
+	}
+
+	.dive-waktu-AAs {
+		display: block;
+		/*border: 1px solid blue;*/
+	}
+
+	.dive-waktu-AAs img {
+		width: 100vw;
+	}
+
+	/*Landingpage (Pesan Bahagia)*/
+	#pesan {
+		width: 100%;
+		height: fit-content;
+		margin-bottom: 0px;
+		/*border: 1px solid blue;*/
+	}
+
+	#pesan .pesan-bahagia {
+		margin: 5px 0px 0px 0px;
+		height: fit-content;
+		width: 100%;
+		border: none;
+		border-radius: none;
+	}
+
+	.pesan-bahagia .header {
+		padding: 10px 0px;
+		font-family: gv;
+		font-size: 22px;
+	}
+
+	.pesan-bahagia .header hr {
+		width: 120px;
+		/*border: 1px solid #EFC207;*/
+	}
+
+	.pesan-bahagia .inp-pesan {
+		padding: 0px 15px 12px 15px;
+		/*border: 1px solid blue;*/
+	}
+
+	.pesan-bahagia .inp-pesan p {
+		padding-top: 0px;
+		padding-bottom: 15px;
+		font-size: 14px;
+	}
+
+	/*Konfirmasi Kehadiran*/
+	.pesan-bahagia .confirm-kehadiran {
+		display: flex;
+		flex-direction: row;
+		height: fit-content;
+		padding-left: 2px;
+		margin-bottom: 15px;
+		/*border: 1px solid red;*/
+	}
+
+	.confirm-kehadiran .contain {
+		width: fit-content;
+		margin-left: 10px;
+		/*border: 1px solid yellow;*/
+	}
+
+	.btn-kirim {
+		padding: 10px 15px 15px 15px;
+	}
+
+	.btn-kirim p {
+		font-size: 14px;
+	}
+
+	.isi-pesan {
+		width: 93%;
+		height: 240px;
+		/*border: 1px solid blue;*/
+	}
+
+	.avtr p {
+		font-size: 18px;
+	}
+
+	table .nama {
+		font-weight: 600;
+		font-size: 13px;
+	}
+
+	table .tgl-kirim {
+		font-size: 12px;
+	}
+
+	table .ucapan {
+		padding-top: 2px;
+		margin-bottom: 10px;
+		font-size: 13px;
+	}
+
+	/* Batas Hal Pesan  Bahagia */
+	#pesan .akhir {
+		margin: 10px 0px 0px 0px;
+		width: 100%;
+		height: fit-content;
+		border: none;
+		border-radius: 0px;
+	}
+
+	.akhir .header {
+		padding-top: 20px;
+	}
+	.akhir .header .bingAtas-akhir-for-desk {
+		display: none;
+		/*border: 1px solid red;*/
+	}
+
+	.akhir .header .bingAtas-akhir-for-AAs {
+		display: block;
+		margin-inline: auto;
+		/*border: 1px solid red;*/
+	}
+
+	.akhir .header .hurufDepan-mempelai {
+		font-family: gv;
+		font-size: 40px;
+		margin-bottom: 0px;
+		margin-top: 5px;
+		height: 50px;
+	}
+
+	.akhir .header .trm {
+		font-family: sans;
+		font-size: 15px;
+		font-weight: 600;
+		margin-bottom: 10px;
+		/*border: 1px solid yellow;*/
+	}
+
+	.akhir .header .bingBawah-akhir-for-desk {
+		display: none;
+	}
+
+	.akhir .header .bingBawah-akhir-for-AAs {
+		display: block;
+		margin-inline: auto;
+		/*border: 1px solid red;*/
+	}
+
+	.akhir .akhir-isi {
+		width: 78%;
+		margin-top: 10px;
+		margin-bottom: 20px;
+		font-size: 12px;
+		/*border: 1px solid blue;*/
+	}
+
+	/*FOOTER*/
+	.footer {
+		height: 50px; /*90px*/
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		/*align-items: center;*/
+		flex-direction: row;
+		flex-wrap: nowrap;
+		margin-top: 0px;
+		background-color: #1a262d;
+	}
+
+	.footer .isi-foo {
+		width: fit-content;
+		margin-top: 0px;
+		margin-bottom: 0px;
+		/*border: 1px solid red;*/
+	}
+
+	.isi-foo .logo-ms {
+		width: 110px;
+	}
+
+	.footer .kontak {
+		display: flex;
+		flex-direction: column-reverse;
+		justify-content: flex-start;
+		flex-wrap: wrap;
+		/*align-items: center;*/
+		width: fit-content;
+		margin-top: 0px;
+		margin-bottom: 0px;
+		/*border: 1px solid yellow;*/
+	}
+
+	.kontak .wa img {
+		width: 15px;
+		margin-right: 3px;
+		margin-bottom: 2px;
+	}
+
+	.kontak .wa p {
+		color: #ffffff;
+		font-size: 12px;
+	}
+
+	.kontak .ig img {
+		width: 15px;
+		margin-right: 3px;
+	}
+
+	.kontak .ig p {
+		font-size: 12px;
+	}
+}

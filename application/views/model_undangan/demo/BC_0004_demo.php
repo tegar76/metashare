@@ -3,38 +3,51 @@
 
 <head>
 	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="icon" type="image/png" sizes="16x16" href="<?= base_url('assets/icons/green-shades/ic-ms.png') ?>">
-	<title>0102|GreenShades|Demo</title>
+	<title>0103|YegeShades|Demo</title>
 	<!--Style CSS-->
-	<link rel="stylesheet" href="<?= base_url('assets/style/gs-style.css') ?>">
-	<!--Lightbox CSS-->
+	<link rel="stylesheet" href="<?= base_url('assets/style/yege-shades-style.css') ?>">
 	<link rel="stylesheet" href="<?= base_url('assets/vendor/lightbox.css') ?>">
+
 	<!--CCS ANIMATE-->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 	<!--AOS-->
 	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 	<!--Icon Tittle -->
+	<style>
+		img[alt="www.000webhost.com"] {
+			display: none
+		}
 
-	<!--<style>-->
-	<!--	img[alt="www.000webhost.com"] {-->
-	<!--		display: none-->
-	<!--	}-->
-
-	<!--	;-->
-	<!--</style>-->
+		;
+	</style>
 </head>
 
 <body>
-	<!-- ======================= SAMPUL ========================-->
-	<div class="sampul" id="sampul">
-		<!--Responsive Bingkai-->
-		<div class="group1">
-			<img src="<?= base_url('assets/images/green-shades/sampul/group1.svg') ?>" alt="group1">
+	<!-- ======================= Landing Page(Sampul) ========================-->
+	<section class="sampul" id="sampul">
+		<!--note Demo for Desktop,tablet & ipad mini-->
+		<div class="ndemo-desk">
+			<img src="<?= base_url() ?>assets/images/green-shades/note-demo-for-desk.svg" alt="note demo">
 		</div>
 
-		<div class="group2">
-			<img src="<?= base_url('assets/images/green-shades/sampul/group2.svg') ?>" alt="group2">
+		<!--note Demo for Apple Android smartphone-->
+		<!--<div class="ndemo-AAs">
+            <img src="<?= base_url() ?>assets/images/green-shades/note-demo-for-AAs.svg" alt="note demo">
+        </div>-->
+
+		<!--note Demo for Apple Apple mini-->
+		<div class="ndemo-Ap-mini">
+			<img src="<?= base_url('assets/images/green-shades/note-demo-for-Apple-mini.svg') ?>" alt="note demo">
+		</div>
+		<!--Responsive Bingkai-->
+		<div class="bing1">
+			<img class="animate__animated animate__fadeInTopRight animate__delay-1s" src="<?= base_url('assets/images/green-shades/sampul/bingkai1.svg') ?>" alt="bingkai1">
+		</div>
+		<div class="bing2">
+			<img class="animate__animated animate__fadeInBottomLeft animate__delay-1s" src="<?= base_url('assets/images/green-shades/sampul/bingkai2.svg') ?>" alt="bingkai2">
 		</div>
 
 		<div class="contain">
@@ -85,193 +98,59 @@
 				<p>*Maaf Bila Ada kesalahan Penulisan Nama & Gelar</p>
 			</div>
 
-			<div class="btn" onclick="playLang()">
-				<a href="#" id="buka">
-					<svg height="24" viewBox="0 0 19 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<g id="in in-padlove-small" clip-path="url(#clip0_42_16)">
-							<g id="Group 8">
-								<g id="g1006">
-									<path id="rect953" d="M15.8843 9.45C16.7741 9.45 17.55 10.2356 17.55 11.2744V20.7256C17.55 21.7644 16.7741 22.55 15.8843 22.55H3.11573C2.22587 22.55 1.45 21.7644 1.45 20.7256V11.2744C1.45 10.2356 2.22587 9.45 3.11573 9.45H9.5H15.8843Z" stroke-opacity="0.7804" stroke-width="1" stroke-miterlimit="0" stroke-linecap="round" stroke-linejoin="bevel" />
-								</g>
+			<div class="btn" id="btn" onclick="enableScroll()" style="transition-delay: 120s;">
+				<a href="javascript:setTimeout(()=>{window.location = '#mempelai'},500);">
+					<svg height="33" viewBox="0 0 11 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<g id="in in btn-open">
+							<g id="Group 1692">
+								<path id="path3570" d="M5.71419 14.1733C5.48241 14.4204 5.09212 14.4267 4.85246 14.1873L1.82818 11.1652C0.887642 9.91967 0.738593 8.73301 1.43032 7.59737C1.45439 7.55785 1.48422 7.52111 1.51805 7.48954C2.62959 6.45234 4.13847 6.57499 5.15544 7.43006C5.48203 7.70465 6.01152 7.70637 6.32372 7.41553C7.28573 6.51931 8.3896 6.59486 9.49638 7.47402C9.52235 7.49465 9.54744 7.51868 9.5689 7.54397C10.6478 8.81476 9.45755 9.9319 8.65737 11.0353L5.71419 14.1733Z" stroke="white" stroke-miterlimit="8.7" stroke-linecap="round" stroke-linejoin="bevel" />
+								<path id="Ellipse 17" d="M7.25 3.9375C7.25 4.95392 7.01352 5.84953 6.65687 6.47366C6.29214 7.11194 5.86446 7.375 5.5 7.375C5.13554 7.375 4.70786 7.11194 4.34313 6.47366C3.98648 5.84953 3.75 4.95392 3.75 3.9375C3.75 2.92108 3.98648 2.02547 4.34313 1.40134C4.70786 0.763056 5.13554 0.5 5.5 0.5C5.86446 0.5 6.29214 0.763056 6.65687 1.40134C7.01352 2.02547 7.25 2.92108 7.25 3.9375Z" stroke="white" />
 							</g>
-							<path id="path949" d="M14.1806 9.47874C14.8716 8.77181 15.5638 7.347 15.7021 6.46179C15.883 5.30366 15.5271 4.09442 14.6918 3.13126C13.8565 2.1681 12.5444 1.46359 11.0938 1.22683C9.46323 0.960681 7.68922 1.30159 6.39663 2.12947C5.10405 2.95735 3.85236 5.16898 3.85076 6.48052" stroke-opacity="0.7804" stroke-width="1" stroke-miterlimit="0" stroke-linecap="round" />
-							<path id="path3570" d="M10.2791 18.5645C10.0483 18.8046 9.66619 18.8108 9.42776 18.5783L7.55212 16.7501C6.93094 15.9477 6.82763 15.1828 7.27413 14.4506C7.29833 14.4109 7.32865 14.3744 7.3636 14.3437C8.02478 13.7634 8.81075 13.9858 9.42337 14.5079C9.74361 14.7809 10.2615 14.7843 10.584 14.5141C11.2235 13.9784 11.98 13.8371 12.6506 14.3396C12.6771 14.3594 12.7023 14.383 12.7238 14.4082C13.4236 15.2292 12.6356 15.9518 12.1049 16.6656L10.2791 18.5645Z" stroke-opacity="0.784" stroke-width="1" stroke-miterlimit="8.7" stroke-linecap="round" stroke-linejoin="bevel" />
 						</g>
-						<defs>
-							<clipPath id="clip0_42_16">
-								<rect width="19" height="24" fill="white" />
-							</clipPath>
-						</defs>
 					</svg>
 					<p>Buka undangan</p>
 				</a>
 			</div>
-		</div>
-	</div>
-	<!--========================= /SAMPUL END ===================-->
 
-	<!-- ======================= Landing Page(Cover) ========================-->
-	<section class="cover" id="cover">
-		<!--note Demo for Desktop,tablet & ipad mini-->
-		<div class="ndemo-desk">
-			<img src="<?= base_url('assets/images/green-shades/note-demo-for-desk.svg') ?>" alt="note demo">
-		</div>
-
-		<!--note Demo for Apple Android smartphone-->
-		<div class="ndemo-AAs">
-			<img src="<?= base_url('assets/images/green-shades/note-demo-for-AAs.svg') ?>" alt="note demo">
-		</div>
-
-		<!--note Demo for Apple Apple mini-->
-		<div class="ndemo-Ap-mini">
-			<img src="<?= base_url('assets/images/green-shades/note-demo-for-Apple-mini.svg') ?>" alt="note demo">
-		</div>
-
-		<div class="bCover">
-			<!--<img src="assets/image/cover/bingkaiCover.png" alt="bingkaiCover">-->
-			<div class="nSingkat">
-				<p class="animate__animated animate__backInDown animate__fast">Runa</p>
-				<p>&</p>
-				<p class="animate__animated animate__backInUp animate__fast">Ratna</p>
+			<!--Count Down Waktu Akad Nikah-->
+			<div class="contWa" id="contWa">
+				<div class="jud">
+					<p>Waktu Mundur Acara Akad Nikah</p>
+				</div>
+				<input type="hidden" id="countDownTime" name="count_down" value="May 30, 2023 13:43:00">
+				<div class="subjud">
+					<ul>
+						<li>
+							<p>Hari</p>
+							<div id="hari" class="hari"></div>
+						</li>
+						<li>
+							<p>Jam</p>
+							<div id="jam" class="jam"></div>
+						</li>
+						<li>
+							<p>Menit</p>
+							<div id="menit" class="menit"></div>
+						</li>
+						<li>
+							<p>Detik</p>
+							<div id="detik" class="detik"></div>
+						</li>
+					</ul>
+				</div>
 			</div>
 		</div>
-		<input type="hidden" id="countDownTime" name="count_down" value="May 30, 2023 13:43:00">
-
-		<div class="contWa">
-			<div class="jud">
-				<p>Waktu Mundur Acara Akad Nikah</p>
-			</div>
-			<div class="subjud">
-				<ul>
-					<li>
-						<p>Hari</p>
-						<div id="hari" class="hari"></div>
-					</li>
-					<li>
-						<p>Jam</p>
-						<div id="jam" class="jam"></div>
-					</li>
-					<li>
-						<p>Menit</p>
-						<div id="menit" class="menit"></div>
-					</li>
-					<li>
-						<p>Detik</p>
-						<div id="detik" class="detik"></div>
-					</li>
-				</ul>
-			</div>
-		</div>
-
-
-		<div class="navigasi">
-			<div class="nav-menu" id="nav-menu">
-				<ul>
-					<li>
-						<a href="#cover" class="nav_link active-link"><svg viewBox="0 0 19 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<g id="in in-cover-small">
-									<g id="Group 2">
-										<rect id="Rectangle 1" x="1.45" y="1.45" width="16.1" height="21.1" rx="3.55" stroke-opacity="0.784" stroke-width="0.9" />
-										<path id="path3570" d="M9.71157 17.5094C9.47617 17.8098 9.02388 17.8169 8.77908 17.5242L6.86629 15.237C6.21982 14.2125 6.11547 13.2363 6.58686 12.3019C6.60666 12.2627 6.63194 12.2256 6.66146 12.193C7.32624 11.4593 8.19411 11.4403 8.86858 11.9079C9.25373 12.1749 9.87122 12.1668 10.2444 11.8833C10.8361 11.4337 11.4904 11.5626 12.1465 12.1817C12.1704 12.2043 12.1929 12.23 12.2118 12.257C12.945 13.3022 12.1271 14.2216 11.5767 15.1297L9.71157 17.5094Z" stroke-opacity="0.780392" stroke-width="0.9" stroke-miterlimit="8.7" stroke-linecap="round" stroke-linejoin="bevel" />
-										<path id="Vector 1" d="M7.40993 1.81482L7.40992 5.87938C7.40992 6.48912 8.21387 6.71015 8.52559 6.18611L8.70954 5.87685C9.02126 5.35281 9.82521 5.57385 9.82521 6.18359V7.46173C9.82521 7.7931 10.0938 8.06173 10.4252 8.06173H11.2689C11.6003 8.06173 11.8689 7.7931 11.8689 7.46173V1.81482" stroke-opacity="0.784" stroke-width="0.9" />
-									</g>
-								</g>
-							</svg>
-						</a>
-					</li>
-					<li>
-						<a href="#mempelai" class="nav_link"><svg viewBox="0 0 19 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<g id="in in-ring-small">
-									<g id="Group 3">
-										<circle id="Ellipse 1" cx="7" cy="17" r="5.55" stroke-opacity="0.7804" stroke-width="0.9" />
-										<circle id="Ellipse 2" cx="12" cy="15" r="5.55" stroke-opacity="0.7804" stroke-width="0.9" />
-										<path id="path3570" d="M10.5477 6.95293C10.3126 7.23939 9.87661 7.24636 9.63248 6.96756L7.59813 4.64433C6.92132 3.61997 6.812 2.64389 7.30536 1.70964C7.32622 1.67014 7.35268 1.63299 7.38342 1.60058C8.09873 0.846372 9.0387 0.84704 9.75268 1.35504C10.1259 1.62059 10.7205 1.61487 11.0807 1.33187C11.7147 0.833733 12.4202 0.951767 13.1276 1.58976C13.1522 1.6119 13.1754 1.63725 13.195 1.66389C13.9632 2.70926 13.1067 3.62881 12.5303 4.53709L10.5477 6.95293Z" stroke-opacity="0.780392" stroke-width="0.9" stroke-miterlimit="8.7" stroke-linecap="round" stroke-linejoin="bevel" />
-									</g>
-								</g>
-							</svg>
-						</a>
-					</li>
-					<li>
-						<a href="#waktu" class="nav_link"><svg viewBox="0 0 19 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<g id="in in-date-small">
-									<g id="Group 9">
-										<g id="Group 4">
-											<path id="Rectangle 3" d="M5 2.80803H14C15.9606 2.80803 17.55 4.39742 17.55 6.35803V19C17.55 20.9606 15.9606 22.55 14 22.55H5C3.03939 22.55 1.45 20.9606 1.45 19V6.35803C1.45 4.39742 3.03939 2.80803 5 2.80803Z" stroke-opacity="0.7804" stroke-width="0.9" />
-											<path id="path3570" d="M9.54769 17.9529C9.3126 18.2394 8.87661 18.2464 8.63248 17.9676L6.59813 15.6443C5.92132 14.62 5.812 13.6439 6.30536 12.7096C6.32622 12.6701 6.35268 12.633 6.38342 12.6006C7.09873 11.8464 8.0387 11.847 8.75268 12.355C9.1259 12.6206 9.72047 12.6149 10.0807 12.3319C10.7147 11.8337 11.4202 11.9518 12.1276 12.5898C12.1522 12.6119 12.1754 12.6372 12.195 12.6639C12.9632 13.7093 12.1067 14.6288 11.5303 15.5371L9.54769 17.9529Z" stroke-opacity="0.780392" stroke-width="0.9" stroke-miterlimit="8.7" stroke-linecap="round" stroke-linejoin="bevel" />
-											<line id="Line 1" x1="1.74988" y1="7.88325" x2="17.2962" y2="7.88325" stroke-opacity="0.7804" stroke-width="0.9" />
-										</g>
-										<line id="Line 5" x1="5.45" y1="1.45" x2="5.45" y2="4.55" stroke-opacity="0.7804" stroke-width="0.9" stroke-linecap="round" />
-										<line id="Line 6" x1="13.45" y1="1.45" x2="13.45" y2="4.55" stroke-opacity="0.7804" stroke-width="0.9" stroke-linecap="round" />
-									</g>
-								</g>
-							</svg>
-						</a>
-					</li>
-					<li>
-						<a href="#galery" class="nav_link">
-							<svg width="26" height="24" viewBox="0 0 26 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<g id="in in-galery-Small">
-									<g id="Group 7">
-										<g id="Group 5">
-											<g id="Group 1">
-												<path id="path3578" d="M14.2051 3.81821L15.0171 1.75688C15.1695 1.37008 15.5451 1.1179 15.9608 1.11779C16.8378 1.11758 18.0161 1.10485 18.9679 1.09643C19.3885 1.0927 19.7654 1.35353 19.9115 1.74794L20.687 3.84152" stroke-opacity="0.780392" stroke-width="0.9" />
-												<path id="path3523" d="M18.8202 22.8387H8.32663C6.31251 22.8387 5.30545 22.8387 4.52057 22.4843C3.63283 22.0835 2.92184 21.3725 2.52101 20.4848C2.16663 19.6999 2.16663 18.6929 2.16663 16.6787V10.1366C2.16663 8.12244 2.16663 7.11538 2.52101 6.33051C2.92184 5.44276 3.63283 4.73178 4.52057 4.33095C5.30545 3.97656 6.31251 3.97656 8.32662 3.97656H13.1217H17.9167C19.9309 3.97656 20.9379 3.97656 21.7228 4.33095C22.6105 4.73178 23.3215 5.44276 23.7224 6.33051C24.0767 7.11538 24.0767 8.12244 24.0767 10.1366V17.5268C24.0767 18.7356 24.0767 19.34 23.9465 19.8379C23.5842 21.2222 22.5102 22.3076 21.1298 22.6843C20.6333 22.8198 20.0289 22.8261 18.8202 22.8387V22.8387Z" stroke-opacity="0.780392" stroke-width="0.9" stroke-miterlimit="9.3" stroke-linecap="round" stroke-linejoin="bevel" />
-												<path id="path3526" d="M7.42505 4.25818L7.42505 20.8724L7.42505 22.5573" stroke-opacity="0.780392" stroke-width="0.9" />
-												<path id="path3570" d="M15.5464 16.9526C15.3113 17.2392 14.8751 17.2461 14.631 16.9672L12.5979 14.6443C11.9214 13.62 11.8121 12.6439 12.3052 11.7096C12.3261 11.6701 12.3525 11.633 12.3832 11.6006C13.0981 10.8466 14.0373 10.847 14.7509 11.3547C15.1242 11.6202 15.719 11.6145 16.0793 11.3315C16.7129 10.8338 17.4179 10.9519 18.1248 11.5897C18.1494 11.6119 18.1726 11.6372 18.1922 11.6639C18.9601 12.7093 18.1039 13.6288 17.5278 14.5371L15.5464 16.9526Z" stroke-opacity="0.780392" stroke-width="0.9" stroke-miterlimit="8.7" stroke-linecap="round" stroke-linejoin="bevel" />
-												<path id="path3587" d="M6.25647 3.6951V3.28748C6.25647 2.73519 6.70418 2.28748 7.25647 2.28748H9.63849C10.1908 2.28748 10.6385 2.73519 10.6385 3.28748V3.6951" stroke-opacity="0.780392" stroke-width="0.9" />
-											</g>
-										</g>
-										<circle id="Ellipse 3" cx="15.1124" cy="14" r="5.55" stroke-opacity="0.7804" stroke-width="0.9" />
-									</g>
-								</g>
-							</svg>
-						</a>
-					</li>
-					<li>
-						<a href="#pesan" class="nav_link">
-							<svg viewBox="0 0 19 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<g id="in in-message-small" clip-path="url(#clip0_37_35)">
-									<g id="Group 6">
-										<path id="Vector 2" d="M1 5V17.7158C1 18.6128 1.7271 19.3399 2.62402 19.3399C3.63489 19.3399 4.40015 20.2535 4.22288 21.2487L4 22.5C3.89214 22.8555 4.34283 23.1091 4.59069 22.8323L7.34281 19.7594C7.58192 19.4924 7.92338 19.3399 8.28178 19.3399H14C16.2091 19.3399 18 17.549 18 15.3399V5C18 2.79086 16.2091 1 14 1H5C2.79086 1 1 2.79086 1 5Z" stroke-opacity="0.7804" stroke-width="0.9" />
-										<path id="path3570" d="M9.54769 15.9529C9.3126 16.2394 8.87661 16.2464 8.63248 15.9676L6.59813 13.6443C5.92132 12.62 5.812 11.6439 6.30536 10.7096C6.32622 10.6701 6.35268 10.633 6.38342 10.6006C7.09873 9.84637 8.0387 9.84704 8.75268 10.355C9.1259 10.6206 9.72047 10.6149 10.0807 10.3319C10.7147 9.83373 11.4202 9.95177 12.1276 10.5898C12.1522 10.6119 12.1754 10.6372 12.195 10.6639C12.9632 11.7093 12.1067 12.6288 11.5303 13.5371L9.54769 15.9529Z" stroke-opacity="0.780392" stroke-width="0.9" stroke-miterlimit="8.7" stroke-linecap="round" stroke-linejoin="bevel" />
-										<line id="Line 2" x1="4.35" y1="7.48337" x2="13.6955" y2="7.48337" stroke-opacity="0.7804" stroke-width="0.7" stroke-linecap="round" />
-										<line id="Line 3" x1="4.35" y1="5.56663" x2="12.15" y2="5.56663" stroke-opacity="0.7804" stroke-width="0.7" stroke-linecap="round" />
-										<line id="Line 4" x1="4.35" y1="3.65" x2="9.83182" y2="3.65" stroke-opacity="0.7804" stroke-width="0.7" stroke-linecap="round" />
-									</g>
-								</g>
-								<defs>
-									<clipPath id="clip0_37_35">
-										<rect width="19" height="24" fill="white" />
-									</clipPath>
-								</defs>
-							</svg>
-						</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-
 
 		<!---------- Musik & Berikan Hadiah---------->
 		<audio id="music" loop>
 			<source src="<?= base_url('assets/music/shane-filan-beautiful-in-white.mpeg') ?>" type="audio/mp3">
+
 		</audio>
 
-		<!-- Wave For Desktop
-        	<img  class="wave-desk" src="assets/image/wave-mempelai-for-Desktop.svg" alt="wave for desktop">
-        
-	       Wave For Tablets
-        	<img class="wave-tab" src="assets/image/wave-mempelai-for-tablets.svg" alt="wave for tablets">
-        
-          Wave For Apple & Android Smartphone
-        	<img class="wave-AAs" src="assets/image/wave-mempelai-for-AAsmartphone.svg" alt="wave for Apple & Android smartphone">
-
-          Wave For Apple Smartphone mini
-        	<img class="wave-Ap-mini" src="assets/image/wave-mempelai-for-Ap-mini.svg" alt="wave for Apple & Android smartphone">-->
-
-		<img class="giftt" id="btnGift" src="<?= base_url() ?>assets/icons/green-shades/in in-gift.svg" alt="gift">
-
-		<img id="setm" class="setmus" src="<?= base_url() ?>assets/icons/green-shades/in in-play.svg" alt="SettingMusic" onclick="setmus()">
+		<div class="gm" id="gm">
+			<img class="giftt" id="btnGift" src="<?= base_url() ?>assets/icons/green-shades/in in-gift.svg" alt="gift">
+			<!--<img id="setm" class="setmus" src="<?= base_url() ?>assets/icons/green-shades/in in-play.svg" alt="SettingMusic" onclick="setmus()">-->
+		</div>
 
 		<!---------- Modal Berikan Hadiah ---------->
 		<div id="myModal" class="myModal">
@@ -301,7 +180,7 @@
 							<img class="barcode-isi" src="<?= base_url() ?>assets/images/green-shades/gift_va(BCA)/gift_card_va_barcode(BCA).png" alt="barcode">
 						</div>
 						<div class="btn-saveQR">
-							<button class="btn-saveQR_Code">Save QR Code</button>
+							<button class="btn-saveQR_Code download-barcode" onclick="fetchFile('<?= base_url() ?>assets/images/green-shades/gift_va(BCA)/gift_card_va_barcode(BCA).png')">Save QR Code</button>
 						</div>
 					</div>
 
@@ -316,12 +195,12 @@
 							<img class="barcode-isi" src="<?= base_url() ?>assets/images/green-shades/gift_va(BRI)/gift_card_va_barcode(BRI).png" alt="barcode">
 						</div>
 						<div class="btn-saveQR">
-							<button class="btn-saveQR_Code">Save QR Code</button>
+							<button class="btn-saveQR_Code download-barcode" onclick="fetchFile('<?= base_url() ?>assets/images/green-shades/gift_va(BCA)/gift_card_va_barcode(BRI).png')">Save QR Code</button>
 						</div>
 					</div>
 
 					<div class="card-box">
-						<img class="va-image" src="a<?= base_url() ?>assets/images/green-shades/gift_va(MANDIRI)/gift_card_va_mandiri.svg" alt="Card Virtual Akun MANDIRI">
+						<img class="va-image" src="<?= base_url() ?>assets/images/green-shades/gift_va(MANDIRI)/gift_card_va_mandiri.svg" alt="Card Virtual Akun MANDIRI">
 						<div class="no-va">
 							<p id="no-va">1234567890123</p>
 							<img class="copy-va" src="<?= base_url() ?>assets/icons/green-shades/in in-copy.svg" alt="copy" onclick="copyToClipboard('no-va');return false;">
@@ -331,29 +210,14 @@
 							<img class="barcode-isi" src="<?= base_url() ?>assets/images/green-shades/gift_va(MANDIRI)/gift_card_va_barcode(MANDIRI).png" alt="barcode">
 						</div>
 						<div class="btn-saveQR">
-							<button class="btn-saveQR_Code">Save QR Code</button>
-						</div>
-					</div>
-
-					<div class="card-box">
-						<img class="va-image" src="<?= base_url() ?>assets/images/green-shades/gift_va(MANDIRI)/gift_card_va_mandiri.svg" alt="Card Virtual Akun MANDIRI">
-						<div class="no-va">
-							<p id="no-va">1234567890</p>
-							<img class="copy-va" src="<?= base_url() ?>assets/icons/green-shades/in in-copy.svg" alt="copy" onclick="copyToClipboard('no-va');return false;">
-						</div>
-						<p class="recipient">*Recipient:Danteria Sah</p>
-						<div class="barcode">
-							<img class="barcode-isi" src="<?= base_url() ?>assets/images/green-shades/gift_va(MANDIRI)/gift_card_va_barcode(MANDIRI).png" alt="barcode">
-						</div>
-						<div class="btn-saveQR">
-							<button class="btn-saveQR_Code">Save QR Code</button>
+							<button class="btn-saveQR_Code" onclick="fetchFile('<?= base_url() ?>assets/images/green-shades/gift_va(BCA)/gift_card_va_barcode(MANDIRI).png')">Save QR Code</button>
 						</div>
 					</div>
 
 					<div class="card-box">
 						<img class="va-image" src="<?= base_url() ?>assets/images/green-shades/gift_va(BSI)/gift_card_va_bsi.svg" alt="Card Virtual Akun BSI">
 						<div class="no-va">
-							<p id="no-va">12345678901234</p>
+							<p id="no-va">1234567890</p>
 							<img class="copy-va" src="<?= base_url() ?>assets/icons/green-shades/in in-copy.svg" alt="copy" onclick="copyToClipboard('no-va');return false">
 						</div>
 						<p class="recipient">*Recipient:Danteria Sah</p>
@@ -361,14 +225,14 @@
 							<img class="barcode-isi" src="<?= base_url() ?>assets/images/green-shades/gift_va(BSI)/gift_card_va_barcode(BSI).png" alt="barcode">
 						</div>
 						<div class="btn-saveQR">
-							<button class="btn-saveQR_Code">Save QR Code</button>
+							<button class="btn-saveQR_Code" onclick="fetchFile('<?= base_url() ?>assets/images/green-shades/gift_va(BCA)/gift_card_va_barcode(BSI).png')">Save QR Code</button>
 						</div>
 					</div>
 
 					<div class="card-box">
 						<img class="va-image" src="<?= base_url() ?>assets/images/green-shades/gift_va(CIMBNIAGA)/gift_card_va_cimbniaga.svg" alt="Card Virtual Akun CIMBNIAGA">
 						<div class="no-va">
-							<p id="no-va">087899706753</p>
+							<p id="no-va">12345678901234</p>
 							<img class="copy-va" src="<?= base_url() ?>assets/icons/green-shades/in in-copy.svg" alt="copy" onclick="copyToClipboard('no-va');return false">
 						</div>
 						<p class="recipient">*Recipient:Danteria Sah</p>
@@ -376,7 +240,22 @@
 							<img class="barcode-isi" src="<?= base_url() ?>assets/images/green-shades/gift_va(CIMBNIAGA)/gift_card_va_barcode(CIMBNIAGA).png" alt="barcode">
 						</div>
 						<div class="btn-saveQR">
-							<button class="btn-saveQR_Code">Save QR Code</button>
+							<button class="btn-saveQR_Code" onclick="fetchFile('<?= base_url() ?>assets/images/green-shades/gift_va(BCA)/gift_card_va_barcode(CIMBNIAGA).png')">Save QR Code</button>
+						</div>
+					</div>
+
+					<div class="card-box">
+						<img class="va-image" src="<?= base_url() ?>assets/images/green-shades/gift_va(DANA)/gift_card_va_dana.svg" alt="Card Virtual Akun DANA">
+						<div class="no-va">
+							<p id="no-va">087899706753</p>
+							<img class="copy-va" src="<?= base_url() ?>assets/icons/green-shades/in in-copy.svg" alt="copy" onclick="copyToClipboard('no-va');return false">
+						</div>
+						<p class="recipient">*Recipient:Danteria Sah</p>
+						<div class="barcode">
+							<img class="barcode-isi" src="<?= base_url() ?>assets/images/green-shades/gift_va(DANA)/gift_card_va_barcode(DANA).png" alt="barcode">
+						</div>
+						<div class="btn-saveQR">
+							<button class="btn-saveQR_Code" onclick="fetchFile('<?= base_url() ?>assets/images/green-shades/gift_va(BCA)/gift_card_va_barcode(DANA).png')">Save QR Code</button>
 						</div>
 					</div>
 				</div>
@@ -386,7 +265,7 @@
 			</div>
 		</div>
 	</section>
-	<!-- ======================= END Landing Page(Cover) ========================-->
+	<!-- ======================= END Landing Page(Sampul) ========================-->
 
 	<!-- ======================= Landing Page(Mempelai) ========================-->
 	<section id="mempelai">
@@ -420,20 +299,23 @@
 		<!--Diveder For Desktop,tablet & tablet mini-->
 		<div class="dive">
 			<img src="<?= base_url() ?>assets/images/green-shades/dive-mempelai.svg" alt="diveder">
-
 		</div>
 
 		<!--Diveder For Android & Apple Smartphone & Apple Smartphone mini-->
 		<div class="dive-AAs">
 			<img src="<?= base_url() ?>assets/images/green-shades/dive-mempelai-for-AAsmartphone.svg" alt="diveder">
-
 		</div>
 	</section>
+	<!-- ======================= END Landing Page(Mempelai) ========================-->
 
+	<!-- ======================= Landing Page(Waktu) ========================-->
 	<section id="waktu">
 		<div class="isi">
 			<!--Tasyakuran-->
 			<div class="tasyakuran" data-aos="fade-down-right" data-aos-duration="1000" data-aos-delay="150">
+				<div class="corak-tasyakuran">
+					<img src="<?= base_url() ?>assets/images/green-shades/corak-tasyakuran.svg" alt="Corak Tasyakuran">
+				</div>
 				<p class="judul">Tasyakuran</p>
 				<div class="batas">
 					<svg height="13" viewBox="0 0 101 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -457,6 +339,9 @@
 
 			<!-- Akad Nikah-->
 			<div class="akad" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="300">
+				<div class="corak-akad">
+					<img src="<?= base_url() ?>assets/images/green-shades/corak-akad.svg" alt="Corak Akad">
+				</div>
 				<p class="judul">Akad Nikah</p>
 				<div class="batas">
 					<svg width="101" height="13" viewBox="0 0 101 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -473,10 +358,10 @@
 					<P>Rabu,31 Januari 2023</P>
 				</div>
 				<div class="jaam">
-					<P>09.00 WIB-Selesai</P>
+					<P>09.00 WIB-Selesai </P>
 				</div>
 				<div class="almt">
-					<p>Jl.Merpati Putih Rt.01 Rw.01 Kec Lorem Ipsum Dorem</p>
+					<p>Jl.Merpati Putih Rt.01 Rw.01 Kec Lorem Ipsum Dorem </p>
 				</div>
 
 				<div class="btn-map">
@@ -498,6 +383,9 @@
 
 			<!-- Resepsi-->
 			<div class="resepsi" data-aos="fade-down-left" data-aos-duration="1000" data-aos-delay="450">
+				<div class="corak-resepsi">
+					<img src="<?= base_url() ?>assets/images/green-shades/corak-resepsi.svg" alt="Corak Resepsi">
+				</div>
 				<p class="judul">Resepsi</p>
 				<div class="batas">
 					<svg width="101" height="13" viewBox="0 0 101 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -538,19 +426,14 @@
 			<!--end Resepsi-->
 		</div>
 
-		<div class="penutup" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="600">
+		<div class="penutup">
 			<p>Atas kehadiran serta doa restu Bapak/Ibu/Saudara(i) kami sampaikan terimakasih</p>
 			<p>Wassalamuaikum Warohmatullohi Wabarokatuh</p>
 		</div>
 
-		<!--Diveder For Desktop-->
+		<!--Diveder For Desktop ,tablet & tablet mini-->
 		<div class="dive-waktu">
 			<img src="<?= base_url() ?>assets/images/green-shades/dive-waktu.svg" alt="diveder">
-		</div>
-
-		<!--Diveder For tablet & tablet mini-->
-		<div class="dive-waktu-tablet">
-			<img src="<?= base_url() ?>assets/images/green-shades/dive-waktu-for-tablet.svg" alt="diveder">
 		</div>
 
 		<!--Diveder For Apple & Android & apple mini-->
@@ -558,105 +441,49 @@
 			<img src="<?= base_url() ?>assets/images/green-shades/dive-waktu-AAs.svg" alt="diveder">
 		</div>
 	</section>
+	<!-- ======================= END Landing Page(Waktu) ========================-->
 
-	<section id="galery">
-		<div class="header">
-			<!--Judul Galeri For Desktop-->
-			<div class="jd-gal-desk">
-				<img src="<?= base_url() ?>assets/images/green-shades/gallery/jdul-galeri-for-desktop.svg" alt="Judul Galeri">
-			</div>
-			<!--Diveder For Apple & Android--->
-			<div class="jd-gal-AAs">
-				<img src="<?= base_url() ?>assets/images/green-shades/gallery/jdul-galeri-for-AAs.svg" alt="Judul Galeri">
-			</div>
-			<!--Diveder For Apple mini--->
-			<div class="jd-gal-Ap-mini">
-				<img src="<?= base_url() ?>assets/images/green-shades/gallery/jdul-galeri-for-Ap-mini.svg" alt="Judul Galeri">
-			</div>
-		</div>
-		<div class="contain">
-			<div class="gallery-img">
-				<a href="<?= base_url() ?>assets/images/green-shades/gallery/1.jpg" data-lightbox="models" data-title="image 1">
-					<img src="<?= base_url() ?>assets/images/green-shades/gallery/1.jpg" alt="img 1" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="250">
-				</a>
-
-				<a href="<?= base_url() ?>assets/images/green-shades/gallery/2.png" data-lightbox="models" data-title="image 2">
-					<img src="<?= base_url() ?>assets/images/green-shades/gallery/2.png" alt="img 2" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="350">
-				</a>
-
-				<a href="<?= base_url() ?>assets/images/green-shades/gallery/3.png" data-lightbox="models" data-title="image 3">
-					<img src="<?= base_url() ?>assets/images/green-shades/gallery/3.png" alt="img 3" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="450">
-				</a>
-
-				<a href="<?= base_url() ?>assets/images/green-shades/gallery/4.png" data-lightbox="models" data-title="image 4">
-					<img src="<?= base_url() ?>assets/images/green-shades/gallery/4.png" alt="img 4" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="550">
-				</a>
-
-				<a href="<?= base_url() ?>assets/images/green-shades/gallery/5.png" data-lightbox="models" data-title="image 5">
-					<img src="<?= base_url() ?>assets/images/green-shades/gallery/5.png" alt="img 5" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="650">
-				</a>
-
-				<a href="<?= base_url() ?>assets/images/green-shades/gallery/6.png" data-lightbox="models" data-title="image 6">
-					<img src="<?= base_url() ?>assets/images/green-shades/gallery/6.png" alt="img 6" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="750">
-				</a>
-			</div>
-		</div>
-
-		<!--Diveder Galery For Desktop-->
-		<div class="dive-galery">
-			<img src="<?= base_url() ?>assets/images/green-shades/dive-galery.svg" alt="diveder">
-		</div>
-
-		<!--Diveder galery For tablet & ipad mini-->
-		<div class="dive-galery-tablet">
-			<img src="<?= base_url() ?>assets/images/green-shades/dive-galery-for-tablet.svg" alt="diveder">
-		</div>
-
-		<!--Diveder galery For Apple ,Android & apple mini -->
-		<div class="dive-galery-AAs">
-			<img src="<?= base_url() ?>assets/images/green-shades/dive-galery-for-AAs.svg" alt="diveder">
-		</div>
-	</section>
+	<!-- ======================= END Landing Page(Pesan) ========================-->
 
 	<section id="pesan">
-	    <div class="pesan-bahagia" data-aos="fade-down-right" data-aos-duration="1000" data-aos-delay="150">
-				<div class="header">
-					<p>Pesan Bahagia</p>
-					<hr>
-				</div>
-				<?= form_open("#", ['id' => 'submit-happy-message']) ?>
-				<input type="hidden" name="guest_name" value="Tamu Undangan">
-				<input type="hidden" id="invtId" name="invt_id" value="0">
-				<div class="inp-pesan">
-					<p>Pesan :</p>
-					<textarea name="pesan" id="" cols="20" rows="2" placeholder="Input pesan bahagia"></textarea>
-				</div>
-				<div class="confirm-kehadiran">
-					<label class="contain">
-						<input type="radio" checked="checked" name="konfirmasiHadir" value="2">
-						<span class="checkmark check"></span>
-						Hadir
-					</label>
-					<label class="contain">
-						<input type="radio" name="konfirmasiHadir" value="1">
-						<span class="checkmark2 check"></span>
-						Tidak Hadir
-					</label>
-					<label class="contain">
-						<input type="radio" name="konfirmasiHadir" value="0">
-						<span class="checkmark3 check"></span>
-						Belum Tahu
-					</label>
-				</div>
-				<div class="btn-kirimm">
-					<button type="submit">Kirim</button>
-					<p>Total Pesan : <span id="count_message"></span></p>
-				</div>
-				<?= form_close() ?>
-				<div class="isi-pesan">
-					<div id="display_message"></div>
-				</div>
+		<div class="pesan-bahagia" data-aos="fade-down-right" data-aos-duration="1000" data-aos-delay="150">
+			<div class="header">
+				<p>Pesan Bahagia</p>
+				<hr>
 			</div>
+			<?= form_open("#", ['id' => 'submit-happy-message']) ?>
+			<input type="hidden" name="guest_name" value="Tamu Undangan">
+			<input type="hidden" id="invtId" name="invt_id" value="0">
+			<div class="inp-pesan">
+				<p>Pesan :</p>
+				<textarea name="pesan" id="" cols="20" rows="2" placeholder="Input pesan bahagia"></textarea>
+			</div>
+			<div class="confirm-kehadiran">
+				<label class="contain">
+					<input type="radio" checked="checked" name="konfirmasiHadir" value="2">
+					<span class="checkmark check"></span>
+					Hadir
+				</label>
+				<label class="contain">
+					<input type="radio" name="konfirmasiHadir" value="1">
+					<span class="checkmark2 check"></span>
+					Tidak Hadir
+				</label>
+				<label class="contain">
+					<input type="radio" name="konfirmasiHadir" value="0">
+					<span class="checkmark3 check"></span>
+					Belum Tahu
+				</label>
+			</div>
+			<div class="btn-kirim">
+				<button type="submit" class="btn-km">Kirim</button>
+				<p>Total Pesan : <span id="count_message"></span></p>
+			</div>
+			<?= form_close() ?>
+			<div class="isi-pesan">
+				<div id="display_message"></div>
+			</div>
+		</div>
 		<div class="akhir" data-aos="fade-down-left" data-aos-duration="1000" data-aos-delay="200">
 			<div class="header">
 				<!--Bingkai atas bagian akhir for desktop  -->
@@ -678,7 +505,7 @@
 			</div>
 			<div class="akhir-isi">
 				<p>“Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu istri-istri dari jenismu sendiri, supaya kamu cenderung merasa tentram kepadanya, dan dijadikan-Nya, diantaramu rasa kasih dan sayang, Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda bagi orang-orang yang berfikir”</p>
-				<p> <strong>(Q.S.Ar-Ruum:21)</strong></p>
+				<p><strong>(Q.S.Ar-Ruum:21)</strong></p>
 			</div>
 		</div>
 
@@ -689,26 +516,46 @@
 			<div class="kontak">
 				<div class="wa">
 					<img src="<?= base_url() ?>assets/images/green-shades/wa.png" alt="Icon WhatApps">
-					<p>087899703471</p>
+					<p>+6287899703471</p>
 				</div>
 
 				<div class="ig">
 					<img src="<?= base_url() ?>assets/images/green-shades/ig.png" alt="Icon Instagram">
-					<p>mesa_digitalUndangan</p>
+					<p>@metasharee</p>
 				</div>
 			</div>
 		</div>
 	</section>
+	<!-- ======================= END Landing Page(Pesan) ========================-->
 
-	<!--Lightbox CSS-->
-	<script src="<?= base_url() ?>assets/vendor/lightbox-plus-jquery.js"></script>
 
-	<script src="<?= base_url() ?>assets/script/gs-script.js"></script>
+	<!-- Script JS-->
+	<script src="<?= base_url('assets/script/yege-shades-script.js') ?>"></script>
+	<script src="<?= base_url('assets/vendor/lightbox-plus-jquery.js') ?>"></script>
 	<!--AOS Animate on scroll library-->
 	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 	<!--Initialize AOS-->
 	<script>
 		AOS.init();
+
+		const downloadBtn = document.querySelector(".download-barcode");
+
+		function fetchFile(url) {
+			fetch(url).then(res => res.blob()).then(file => {
+				let tempUrl = URL.createObjectURL(file);
+				const aTag = document.createElement("a");
+				aTag.href = tempUrl;
+				aTag.download = url.replace(/^.*[\\\/]/, '');
+				document.body.appendChild(aTag);
+				aTag.click();
+				downloadBtn.innerText = "Download File";
+				URL.revokeObjectURL(tempUrl);
+				aTag.remove();
+			}).catch(() => {
+				alert("Failed to download file!");
+				downloadBtn.innerText = "Download File";
+			});
+		}
 	</script>
 	<script>
 		$(document).ready(function() {

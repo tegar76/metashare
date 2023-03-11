@@ -69,12 +69,14 @@ class Invitations extends CI_Controller
 
 				// untuk mengambil data foto prewedding
 				$photos	= $this->invitation->getPhotoPreWedding($invitation->invitation_id);
-				foreach ($photos as $photo) {
-					$img['id'] = $photo->gallery_id;
-					$img['img'] = 	base_url('storage/invitations/gallery/' .  $photo->photo);
-					$imgs[] = $img;
+				if (!empty($photos)) {
+					foreach ($photos as $photo) {
+						$img['id'] = $photo->gallery_id;
+						$img['img'] = 	base_url('storage/invitations/gallery/' .  $photo->photo);
+						$imgs[] = $img;
+					}
+					$data['photos'] = $imgs;
 				}
-				$data['photos'] = $imgs;
 				$data['invitation']	= $invitation; // untuk menampilkan data undangan
 				$data['message'] = $this->db->get_where('message', ['invitation_id' => $invitation->invitation_id])->num_rows(); // untuk menghitung jumlah pesan bahagia yang masuk
 
@@ -374,7 +376,7 @@ class Invitations extends CI_Controller
 
 	public function get_count_message()
 	{
-		if(isset($_GET['id'])) {
+		if (isset($_GET['id'])) {
 			$id = $_GET['id'];
 		} else {
 			$id = 0;

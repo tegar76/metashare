@@ -619,44 +619,44 @@
 	</section>
 
 	<section id="pesan">
-		<div class="pesan-bahagia" data-aos="fade-down-right" data-aos-duration="1000" data-aos-delay="150">
-			<div class="header">
-				<p>Pesan Bahagia</p>
-				<hr>
+	    <div class="pesan-bahagia" data-aos="fade-down-right" data-aos-duration="1000" data-aos-delay="150">
+				<div class="header">
+					<p>Pesan Bahagia</p>
+					<hr>
+				</div>
+				<?= form_open("#", ['id' => 'submit-happy-message']) ?>
+				<input type="hidden" name="guest_name" value="Tamu Undangan">
+				<input type="hidden" id="invtId" name="invt_id" value="0">
+				<div class="inp-pesan">
+					<p>Pesan :</p>
+					<textarea name="pesan" id="" cols="20" rows="2" placeholder="Input pesan bahagia"></textarea>
+				</div>
+				<div class="confirm-kehadiran">
+					<label class="contain">
+						<input type="radio" checked="checked" name="konfirmasiHadir" value="2">
+						<span class="checkmark check"></span>
+						Hadir
+					</label>
+					<label class="contain">
+						<input type="radio" name="konfirmasiHadir" value="1">
+						<span class="checkmark2 check"></span>
+						Tidak Hadir
+					</label>
+					<label class="contain">
+						<input type="radio" name="konfirmasiHadir" value="0">
+						<span class="checkmark3 check"></span>
+						Belum Tahu
+					</label>
+				</div>
+				<div class="btn-kirimm">
+					<button type="submit">Kirim</button>
+					<p>Total Pesan : <span id="count_message"></span></p>
+				</div>
+				<?= form_close() ?>
+				<div class="isi-pesan">
+					<div id="display_message"></div>
+				</div>
 			</div>
-			<?= form_open("#", ['id' => 'submit-happy-message']) ?>
-			<input type="hidden" name="guest_name" value="Tamu Undangan">
-			<input type="hidden" id="invtId" name="invt_id" value="0">
-			<div class="inp-pesan">
-				<p>Pesan :</p>
-				<textarea name="pesan" id="" cols="20" rows="2" placeholder="Input pesan bahagia"></textarea>
-			</div>
-			<div class="confirm-kehadiran">
-				<label class="contain">
-					<input type="radio" checked="checked" name="konfirmasiHadir" value="2">
-					<span class="checkmark check"></span>
-					Hadir
-				</label>
-				<label class="contain">
-					<input type="radio" name="konfirmasiHadir" value="1">
-					<span class="checkmark2 check"></span>
-					Tidak Hadir
-				</label>
-				<label class="contain">
-					<input type="radio" name="konfirmasiHadir" value="0">
-					<span class="checkmark3 check"></span>
-					Belum Tahu
-				</label>
-			</div>
-			<div class="btn-kirimm">
-				<button type="submit">Kirim</button>
-				<p>Total Pesan : <span id="count_message"></span></p>
-			</div>
-			<?= form_close() ?>
-			<div class="isi-pesan">
-				<div id="display_message"></div>
-			</div>
-		</div>
 		<div class="akhir" data-aos="fade-down-left" data-aos-duration="1000" data-aos-delay="200">
 			<div class="header">
 				<!--Bingkai atas bagian akhir for desktop  -->

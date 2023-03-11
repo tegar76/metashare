@@ -1,6 +1,3 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.min.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" />
-
 <div class="lg:hidden text-base-md tracking-wide xl:text-lg text-slate-700 font-medium bg-gray-400/5 border-b  drop-shadow-sm border-b-gray-400/20 xl:border-0 pl-2 py-2 mb-8 absolute top-0 left-0 w-full">
 	<div class="flex items-center">
 		<a href="<?= base_url('profile') ?>" class="py-2 px-3 active:text-primary-blue-cyan-hover"><i class="fa-solid fa-angle-left"></i></a>
@@ -13,10 +10,10 @@
 	<div class="lg:flex lg:w-[30%] border-slate-400 shadow rounded-xl lg:rounded-l-3xl lg:rounded-r-none bg-gradient-to-b from-[#5C9CF0] to-[#8671EA] justify-center border border-r-0 border-b-4 py-8 lg:py-20 mb-4 lg:mb-0 opacity-70">
 		<div>
 			<img src="<?= ($customer->image == 'default.jpg') ? base_url('assets/icons/icons_super_admin/default_foto_profil_kustomer.svg') : base_url('storage/profiles/' . $customer->image) ?>" id="uploaded_image" class="w-20 lg:w-36 border-2 border-white-50 rounded-full mx-auto">
-			<form action="" class="mx-8 lg:mx-1">
-				<label class="block mb-2 mt-4 text-base-md font-medium text-black contrast-200 saturate-200" for="small_size">Foto Profile</label>
-				<input class="block mb-5 w-full text-xs text-slate-900 bg-gray-50 rounded-lg border border-gray-400 cursor-pointer focus:outline-none opacity-90" id="upload_image" type="file">
-			</form>
+			<?= form_open_multipart('profile/update/update_photo', ['class' => 'mx-8 lg:mx-1']) ?>
+			<label class="block mb-2 mt-4 text-base-md font-medium text-black contrast-200 saturate-200" for="small_size">Foto Profile</label>
+			<input class="block mb-5 w-full text-xs text-slate-900 bg-gray-50 rounded-lg border border-gray-400 cursor-pointer focus:outline-none opacity-90" id="upload_image" type="file" name="image" onchange="form.submit()" accept="image/png, image/gif, image/jpeg">
+			<?= form_close() ?>
 		</div>
 	</div>
 
@@ -40,6 +37,13 @@
 			<input id="email" name="email_update" aria-labelledby="email" type="email" class="bg-gray-50 rounded-md text-xs font-medium leading-none placeholder-gray-800 text-gray-800 py-3 w-full pl-3 mt-2 p-2 border-b-2 border-b-gray-400 border-gray-300 outline-none opacity-80 focus:border-primary-blue-cyan/10" value="<?= $customer->email ?>" />
 			<?= (form_error('email_update')) ? form_error('email_update', '<p class="text-danger">', '</p>') : '' ?>
 		</div>
+		<div class="mt-5">
+			<button type="submit" name="update_profile" role="button" class="focus:ring-2 focus:ring-offset-2 focus:ring-success font-semibold leading-none text-white focus:outline-none bg-success border border-success rounded-lg hover:bg-success-hover py-2 px-4 lg:px-6 transition duration-500 text-xs lg:text-sm tracking-wide">Simpan</button>
+		</div>
+		<?= form_close() ?>
+
+		<!-- form update password -->
+		<?= form_open($this->uri->uri_string()) ?>
 		<p class="text-primary-blue-cyan text-base-md mt-5">Settings Password</p>
 		<div class="mt-3 w-full">
 			<label for="inputOldPassword" class="text-slate-700">Password Lama</label>
@@ -87,74 +91,11 @@
 			<?= (form_error('confirm_password')) ? form_error('confirm_password', '<p class="text-danger">', '</p>') : '' ?>
 		</div>
 		<div class="mt-5">
-			<button type="submit" name="update" role="button" class="focus:ring-2 focus:ring-offset-2 focus:ring-success font-semibold leading-none text-white focus:outline-none bg-success border border-success rounded-lg hover:bg-success-hover py-2 px-4 lg:px-6 transition duration-500 text-xs lg:text-sm tracking-wide">Simpan</button>
+			<button type="submit" name="update_password" role="button" class="focus:ring-2 focus:ring-offset-2 focus:ring-success font-semibold leading-none text-white focus:outline-none bg-success border border-success rounded-lg hover:bg-success-hover py-2 px-4 lg:px-6 transition duration-500 text-xs lg:text-sm tracking-wide">Simpan</button>
 		</div>
 		<?= form_close() ?>
 	</div>
 </div>
-
-
-<!-- Modal toggle -->
-<!-- <button data-modal-target="modal" data-modal-toggle="modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-  Toggle modal
-</button> -->
-
-<!-- Main modal -->
-
-<!-- Modal toggle -->
-<button id="buttonModal" data-modal-target="modalCropImage" data-modal-toggle="modalCropImage" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button" style="display: none;">
-	Toggle modal
-</button>
-
-<!-- Main modal -->
-<div id="modalCropImage" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
-	<div class="relative w-full h-full max-w-2xl md:h-auto">
-		<div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-			<div class="p-6 space-y-6">
-				<img src="" id="sample_image" style="width: 50%"/>
-				<div class="preview"></div>
-			</div>
-			<div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
-				<button id="crop-button" data-modal-hide="modalCropImage" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" id="crop-image">Crop</button>
-				<button id="cancle-crop" data-modal-hide="modalCropImage" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Decline</button>
-			</div>
-		</div>
-	</div>
-</div>
-
-<!-- 
-
-<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-	<div class="modal-dialog modal-md" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title">Crop Image</h5>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">×</span>
-				</button>
-			</div>
-			<div class="modal-body">
-				<div class="img-container">
-					<div class="row">
-						<div class="col-md-8">
-							<img src="" id="sample_image" />
-						</div>
-						<div class="col-md-4">
-							<div class="preview"></div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="modal-footer">
-				<button type="button" id="crop" class="btn btn-primary">Crop</button>
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-			</div>
-		</div>
-	</div>
-</div> -->
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
 
 <script>
 	function showNewPassword() {
@@ -201,137 +142,4 @@
 			showConfirmPassword.classList.remove("hidden");
 		}
 	}
-</script>
-
-<script>
-	$(document).ready(function() {
-		const $targetEl = document.querySelector('#modalCropImage');
-		const image = document.querySelector('#sample_image');
-		const cropButton = document.querySelector("#crop-button");
-		const changeImage = document.querySelector("#upload_image");
-		const buttonModal = document.querySelector("#buttonModal");
-		const cancleCrop = document.querySelector("#cancle-crop");
-
-		let cropper;
-
-
-		changeImage.addEventListener('change', function(event) {
-			const files = event.target.files;
-			const done = function(url) {
-				image.src = url;
-				// $targetEl.show();
-				buttonModal.click();
-			}
-
-			if (files && files.length > 0) {
-				const reader = new FileReader();
-				reader.onload = function(event) {
-					done(reader.result);
-				};
-				reader.readAsDataURL(files[0]);
-			}
-
-
-		});
-
-		buttonModal.addEventListener('click', function() {
-			cropper = new Cropper(image, {
-				aspectRatio: 1,
-				viewMode: 3,
-			});
-		});
-
-		cancleCrop.addEventListener('click', function() {
-			cropper.destroy();
-			cropper = null;
-		});
-
-		// $('#upload_image').change(function() {
-		// 	var files = event.target.files;
-		// 	var done = function(url) {
-		// 		image.src = url;
-		// 		buttonModal.addEventListener('click');
-		// 	};
-
-		// 	if (files && files.length > 0) {
-		// 		const reader = new FileReader();
-		// 		reader.onload = function(event) {
-		// 			done(reader.result);
-		// 		};
-		// 		reader.readAsDataURL(files[0]);
-		// 	}
-
-		// 	const cropper = new Cropper(image, {
-		// 		aspectRatio: 1,
-		// 		viewMode: 3,
-		// 		preview: '.preview'
-		// 	});
-
-		// 	$('#crop-image').click(function() {
-		// 		const canvas = cropper.getCroppedCanvas({
-		// 			width: 400,
-		// 			height: 400
-		// 		});
-
-		// 		canvas.toBlob(function(blob) {
-		// 			url = URL.createObjectURL(blob);
-		// 			var reader = new FileReader();
-		// 			reader.readAsDataURL(blob);
-		// 			reader.onloadend = function() {
-		// 				var base64data = reader.result;
-		// 				$.ajax({
-		// 					url: '<?php echo base_url('profile/update/do_upload') ?>',
-		// 					method: 'POST',
-		// 					data: {
-		// 						image: base64data
-		// 					},
-		// 					success: function(data) {
-		// 						$modal.modal('hide');
-		// 						$('#uploaded_image').attr('src', data);
-		// 					}
-		// 				});
-		// 			};
-		// 		});
-		// 	});
-
-		// });
-
-		// $modal.onShow(function() {
-		// 	cropper = new Cropper(image, {
-		// 		aspectRatio: 1,
-		// 		viewMode: 3,
-		// 		preview: '.preview'
-		// 	});
-		// }).on('hiden.bs.modal', function() {
-		// 	cropper.destroy();
-		// 	cropper = null;
-		// });
-
-		// $('#crop-image').click(function() {
-		// 	canvas = cropper.getCroppedCanvas({
-		// 		width: 400,
-		// 		height: 400
-		// 	});
-
-		// 	canvas.toBlob(function(blob) {
-		// 		url = URL.createObjectURL(blob);
-		// 		var reader = new FileReader();
-		// 		reader.readAsDataURL(blob);
-		// 		reader.onloadend = function() {
-		// 			var base64data = reader.result;
-		// 			$.ajax({
-		// 				url: '<?php echo base_url('profile/update/do_upload') ?>',
-		// 				method: 'POST',
-		// 				data: {
-		// 					image: base64data
-		// 				},
-		// 				success: function(data) {
-		// 					$modal.modal('hide');
-		// 					$('#uploaded_image').attr('src', data);
-		// 				}
-		// 			});
-		// 		};
-		// 	});
-		// });
-	});
 </script>

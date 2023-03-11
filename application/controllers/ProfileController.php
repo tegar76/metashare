@@ -1,5 +1,7 @@
 <?php
 
+use PhpParser\Node\Expr\Cast\Array_;
+
 class ProfileController extends CI_Controller
 {
 	public function __construct()
@@ -24,7 +26,7 @@ class ProfileController extends CI_Controller
 		$data['customer'] = $customer;
 		$data['title'] = 'Profile';
 		$data['content'] = 'marketplace/contents/profile/v_edit_profile';
-		if (isset($_POST['update'])) {
+		if (isset($_POST['update_profile'])) {
 			if ($customer->email != $_POST['email_update']) {
 				$rules = 'trim|required|xss_clean|valid_email|is_unique[customer.email]';
 				$errors = [
@@ -70,31 +72,6 @@ class ProfileController extends CI_Controller
 					]
 				],
 			]);
-			$this->form_validation->set_rules('current_password', 'Password Lama', 'callback_password_check');
-			$this->form_validation->set_rules([
-				[
-					'field' => 'new_password',
-					'label' => 'Password Baru',
-					'rules' => 'trim|xss_clean|required|min_length[8]',
-					'errors' => [
-						'xss_clean' => 'cek kembali pada {field}',
-						'required' => '{field} harus diisi',
-						'min_length' => '{field} terlalu pendek'
-					]
-				],
-				[
-					'field' => 'confirm_password',
-					'label' => 'Konfirmasi Password Baru',
-					'rules' => 'trim|xss_clean|required|min_length[8]|matches[new_password]',
-					'errors' => [
-						'xss_clean' => 'cek kembali pada {field}',
-						'required' => '{field} harus diisi',
-						'min_length' => '{field} terlalu pendek',
-						'matches' => '{field} tidak sesuai'
-					]
-				],
-			]);
-
 			if ($this->form_validation->run() === false) {
 				$this->load->view('marketplace/layouts/wrapper', $data, false);
 			} else {
@@ -115,6 +92,53 @@ class ProfileController extends CI_Controller
 				sweetAlert("Berhasil", "Profile berhasil diupdate", "success");
 				redirect('profile');
 			}
+		} elseif (isset($_POST['update_password'])) {
+			$this->update_password();
+		}
+		$this->load->view('marketplace/layouts/wrapper', $data, false);
+	}
+
+	public function update_password()
+	{
+		$data['customer'] = $this->db->get_where('customer', ['email' => $this->session->userdata('email')])->row();
+		$data['title'] = 'Profile';
+		$data['content'] = 'marketplace/contents/profile/v_edit_profile';
+		$this->form_validation->set_rules('current_password', 'Password Lama', 'callback_password_check');
+		$this->form_validation->set_rules([
+			[
+				'field' => 'new_password',
+				'label' => 'Password Baru',
+				'rules' => 'trim|xss_clean|required|min_length[8]',
+				'errors' => [
+					'xss_clean' => 'cek kembali pada {field}',
+					'required' => '{field} harus diisi',
+					'min_length' => '{field} terlalu pendek'
+				]
+			],
+			[
+				'field' => 'confirm_password',
+				'label' => 'Konfirmasi Password Baru',
+				'rules' => 'trim|xss_clean|required|min_length[8]|matches[new_password]',
+				'errors' => [
+					'xss_clean' => 'cek kembali pada {field}',
+					'required' => '{field} harus diisi',
+					'min_length' => '{field} terlalu pendek',
+					'matches' => '{field} tidak sesuai'
+				]
+			],
+		]);
+		if ($this->form_validation->run() === false) {
+			$this->load->view('marketplace/layouts/wrapper', $data, false);
+		} else {
+			$pass	= htmlspecialchars($this->input->post('confirm_password', true));
+			$newpass = password_hash($pass, PASSWORD_DEFAULT);
+			if ($data['customer']->password != $newpass) {
+				$this->db->set('password', $newpass);
+			}
+			$this->db->where('cus_id', $this->input->post('id', true));
+			$this->db->update('customer');
+			sweetAlert("Berhasil", "Password berhasil diupdate", "success");
+			redirect('profile');
 		}
 		$this->load->view('marketplace/layouts/wrapper', $data, false);
 	}
@@ -128,6 +152,32 @@ class ProfileController extends CI_Controller
 		}
 		return true;
 	}
+
+	public function update_photo()
+	{
+		$cutomer = $this->db->get_where('customer', ['email' => $this->session->userdata('email')])->row();
+
+		if (isset($_FILES['image']['tmp_name'])) {
+			$conf['upload_path']   = './storage/profiles/';
+			$conf['allowed_types'] = 'gif|jpg|png|jpeg';
+			$conf['max_size']      = 2048;
+			$conf['overwrite']     = true;
+			$conf['encrypt_name'] = true;
+			$this->load->library('upload', $conf);
+			if ($this->upload->do_upload('image', true)) {
+				if ($cutomer->image != 'default.jpg') {
+					@unlink(FCPATH . './storage/profiles/' . $cutomer->image);
+				}
+				$newProfile = $this->upload->data('file_name');
+				$this->db->set('image', $newProfile);
+				$this->db->where(['email' => $cutomer->email]);
+				$this->db->update('customer');
+				sweetAlert("Berhasil", "Foto profile berhasil diupdate", "success");
+			}
+		}
+		redirect('profile/update');
+	}
+
 
 	public function do_upload()
 	{

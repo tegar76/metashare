@@ -493,13 +493,6 @@
 							form.reset();
 						}
 					},
-					error: function() {
-						swal.fire(
-							"Gagal",
-							"Pesan tidak tersampaikan",
-							"error"
-						);
-					},
 				});
 			});
 

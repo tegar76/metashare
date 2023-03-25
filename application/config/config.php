@@ -25,7 +25,7 @@ date_default_timezone_set('Asia/Jakarta');
 |
 */
 
-$config['base_url'] = 'https://metashare.paralogy.id/';
+$config['base_url'] = 'http://localhost/metashare/'; // https://metashare.paralogy.id/
 
 
 /*

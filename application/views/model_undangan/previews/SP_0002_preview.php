@@ -733,7 +733,7 @@
 								</div>
 								<div class="">
 									<div>
-										<p class="opacity-70 font-semibold tracking-wide mb-3 md:mb-5 mt-4 md:mt-8 text-sm 2xs:text-base-sm 1xs:text-base-md md:text-[27px] lg:text-base lg:leading-6">Total Pesan : <span><?= $message ?></span></p>
+										<p class="opacity-70 font-semibold tracking-wide mb-3 md:mb-5 mt-4 md:mt-8 text-sm 2xs:text-base-sm 1xs:text-base-md md:text-[27px] lg:text-base lg:leading-6">Total Pesan : <span id="count_message"></span></p>
 									</div>
 									<div class="overflow-y-scroll h-[350px] xl:h-[250px] border border-tema1-teal/60 cursor-all-scroll rounded-md bg-white/30 shadow-sm lg:shadow-md shadow-tema1-teal/50 border-r-tema1-teal mb-5">
 										<div class="mx-3 mb-3">
@@ -825,7 +825,7 @@
 										<img class="h-32" src="<?= base_url('storage/invitations/gifts/') . $gift->qr ?>" alt="">
 									</div>
 									<div class="flex items-center justify-center mt-3">
-										<button class="px-3 py-1 font-Montserrat font-semibold border border-tema1-teal/60 text-tema1-teal mx-auto hover:bg-tema1-teal/80 hover:text-white transition delay-150 rounded-md text-base-1xs 2xs:text-base-xs 1xs:text-base-sm md:text-[16px] lg:text-[14px] lg:leading-6">Simpan</button>
+										<button class="px-3 py-1 font-Montserrat font-semibold border border-tema1-teal/60 text-tema1-teal mx-auto hover:bg-tema1-teal/80 hover:text-white transition delay-150 rounded-md text-base-1xs 2xs:text-base-xs 1xs:text-base-sm md:text-[16px] lg:text-[14px] lg:leading-6" onclick="fetchFile('<?= base_url('storage/invitations/gifts/') . $gift->qr ?>')">Simpan</button>
 									</div>
 								</div>
 							</div>
@@ -965,6 +965,25 @@
 		// Animate On Scroll
 
 		AOS.init();
+
+		const downloadBtn = document.querySelector(".download-barcode");
+
+		function fetchFile(url) {
+			fetch(url).then(res => res.blob()).then(file => {
+				let tempUrl = URL.createObjectURL(file);
+				const aTag = document.createElement("a");
+				aTag.href = tempUrl;
+				aTag.download = url.replace(/^.*[\\\/]/, '');
+				document.body.appendChild(aTag);
+				aTag.click();
+				// downloadBtn.innerText = "Download File";
+				URL.revokeObjectURL(tempUrl);
+				aTag.remove();
+			}).catch(() => {
+				alert("Failed to download file!");
+				// downloadBtn.innerText = "Download File";
+			});
+		}
 	</script>
 
 	<script>
@@ -984,22 +1003,10 @@
 					dataType: "json",
 					success: function(response) {
 						if (response.success == true) {
-							swal.fire(
-								"Pesan Tersampaikan",
-								"Terima kasih atas ucapannya",
-								"success"
-							);
 							load_comment();
 							load_count_comment();
 							form.reset();
 						}
-					},
-					error: function() {
-						swal.fire(
-							"Gagal",
-							"Pesan tidak tersampaikan",
-							"error"
-						);
 					},
 				});
 			});

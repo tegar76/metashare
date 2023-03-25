@@ -44,10 +44,10 @@
 		</div>
 		<!--Responsive Bingkai-->
 		<div class="bing1">
-			<img class="animate__animated animate__fadeInTopRight animate__delay-1s" src="<?= base_url('assets/images/green-shades/sampul/bingkai1.svg') ?>" alt="bingkai1">
+			<img class="animate__fadeInTopRight animate__delay-1s" src="<?= base_url('assets/images/green-shades/sampul/bingkai1.svg') ?>" alt="bingkai1">
 		</div>
 		<div class="bing2">
-			<img class="animate__animated animate__fadeInBottomLeft animate__delay-1s" src="<?= base_url('assets/images/green-shades/sampul/bingkai2.svg') ?>" alt="bingkai2">
+			<img class="animate__fadeInBottomLeft animate__delay-1s" src="<?= base_url('assets/images/green-shades/sampul/bingkai2.svg') ?>" alt="bingkai2">
 		</div>
 
 		<div class="contain">

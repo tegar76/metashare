@@ -24,7 +24,7 @@ class MasterData extends CI_Controller
 					$val['name'] = $value->name;
 					$val['type'] = $value->type;
 					$val['category'] = $value->category;
-					$val['price'] = $value->price;
+					$val['price'] = number_format($value->price, 0, ',', '.');
 					$val['view'] = $value->view_model;
 					$val['create'] = date('d-m-Y H:i', strtotime($value->create_time)) . " WIB";
 					$val['update'] = ($value->update_time != $value->create_time) ? date('d-m-Y H:i', strtotime($value->update_time)) . " WIB" : '-';
@@ -44,7 +44,7 @@ class MasterData extends CI_Controller
 					$val['name'] = $value->name;
 					$val['type'] = $value->type;
 					$val['category'] = $value->category;
-					$val['price'] = $value->price;
+					$val['price'] = number_format($value->price, 0, ',', '.');
 					$val['view'] = $value->view_model;
 					$val['create'] = date('d-m-Y H:i', strtotime($value->create_time)) . " WIB";
 					$val['update'] = ($value->update_time != $value->create_time) ? date('d-m-Y H:i', strtotime($value->update_time)) . " WIB" : '-';

@@ -5,7 +5,12 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title><?= $title ?></title>
+	
+	<meta name="description" content="Pilih model undangan pernikahan digital yang menurut anda yang paling menarik & kami akan mensettingnya untuk anda"/>    
+	<meta name="keywords" content="undangan online,undangan digital,undangan murah,undangan pernikahan,undangan website"/>
+    <meta name="title" content="Metashare - Undangan Pernikahan Digital Murah">
+	
+	<title>Metashare - Undangan Pernikahan Digital Murah</title>
 
 	<!-- Favicon -->
 	<link rel="icon" type="image/png" sizes="16x16" href="<?= base_url() ?>/assets/icons/logo_metashare_small.png">

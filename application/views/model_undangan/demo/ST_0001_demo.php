@@ -301,7 +301,7 @@
 							<img class="barcode-isi" src="<?= base_url() ?>assets/images/green-shades/gift_va(BCA)/gift_card_va_barcode(BCA).png" alt="barcode">
 						</div>
 						<div class="btn-saveQR">
-							<button class="btn-saveQR_Code">Save QR Code</button>
+							<button class="btn-saveQR_Code" onclick="fetchFile('<?= base_url('assets/images/green-shades/gift_va(BCA)/gift_card_va_barcode(BCA).png') ?>')">Save QR Code</button>
 						</div>
 					</div>
 
@@ -316,7 +316,7 @@
 							<img class="barcode-isi" src="<?= base_url() ?>assets/images/green-shades/gift_va(BRI)/gift_card_va_barcode(BRI).png" alt="barcode">
 						</div>
 						<div class="btn-saveQR">
-							<button class="btn-saveQR_Code">Save QR Code</button>
+							<button class="btn-saveQR_Code" onclick="fetchFile('<?= base_url('assets/images/green-shades/gift_va(BCA)/gift_card_va_barcode(BCA).png') ?>')">Save QR Code</button>
 						</div>
 					</div>
 
@@ -331,7 +331,7 @@
 							<img class="barcode-isi" src="<?= base_url() ?>assets/images/green-shades/gift_va(MANDIRI)/gift_card_va_barcode(MANDIRI).png" alt="barcode">
 						</div>
 						<div class="btn-saveQR">
-							<button class="btn-saveQR_Code">Save QR Code</button>
+							<button class="btn-saveQR_Code" onclick="fetchFile('<?= base_url('assets/images/green-shades/gift_va(BCA)/gift_card_va_barcode(BCA).png') ?>')">Save QR Code</button>
 						</div>
 					</div>
 
@@ -346,7 +346,7 @@
 							<img class="barcode-isi" src="<?= base_url() ?>assets/images/green-shades/gift_va(MANDIRI)/gift_card_va_barcode(MANDIRI).png" alt="barcode">
 						</div>
 						<div class="btn-saveQR">
-							<button class="btn-saveQR_Code">Save QR Code</button>
+							<button class="btn-saveQR_Code" onclick="fetchFile('<?= base_url('assets/images/green-shades/gift_va(BCA)/gift_card_va_barcode(BCA).png') ?>')">Save QR Code</button>
 						</div>
 					</div>
 
@@ -361,7 +361,7 @@
 							<img class="barcode-isi" src="<?= base_url() ?>assets/images/green-shades/gift_va(BSI)/gift_card_va_barcode(BSI).png" alt="barcode">
 						</div>
 						<div class="btn-saveQR">
-							<button class="btn-saveQR_Code">Save QR Code</button>
+							<button class="btn-saveQR_Code" onclick="fetchFile('<?= base_url('assets/images/green-shades/gift_va(BCA)/gift_card_va_barcode(BCA).png') ?>')">Save QR Code</button>
 						</div>
 					</div>
 
@@ -376,7 +376,7 @@
 							<img class="barcode-isi" src="<?= base_url() ?>assets/images/green-shades/gift_va(CIMBNIAGA)/gift_card_va_barcode(CIMBNIAGA).png" alt="barcode">
 						</div>
 						<div class="btn-saveQR">
-							<button class="btn-saveQR_Code">Save QR Code</button>
+							<button class="btn-saveQR_Code" onclick="fetchFile('<?= base_url('assets/images/green-shades/gift_va(BCA)/gift_card_va_barcode(BCA).png') ?>')">Save QR Code</button>
 						</div>
 					</div>
 				</div>
@@ -709,6 +709,23 @@
 	<!--Initialize AOS-->
 	<script>
 		AOS.init();
+
+		function fetchFile(url) {
+			fetch(url).then(res => res.blob()).then(file => {
+				let tempUrl = URL.createObjectURL(file);
+				const aTag = document.createElement("a");
+				aTag.href = tempUrl;
+				aTag.download = url.replace(/^.*[\\\/]/, '');
+				document.body.appendChild(aTag);
+				aTag.click();
+				// downloadBtn.innerText = "Download File";
+				URL.revokeObjectURL(tempUrl);
+				aTag.remove();
+			}).catch(() => {
+				alert("Failed to download file!");
+				// downloadBtn.innerText = "Download File";
+			});
+		}
 	</script>
 	<script>
 		$(document).ready(function() {

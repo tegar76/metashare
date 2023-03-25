@@ -4,10 +4,10 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="icon" href="<?= base_url('assets/icons/green-shades/ic-ms.png') ?>">
+	<link rel="icon" type="image/png" sizes="16x16" href="<?= base_url('assets/icons/green-shades/ic-ms.png') ?>">
 	<title>Wedding <?= $invitation->groom_nickname . ' & ' . $invitation->bride_nickname ?></title>
 	<!--Style CSS-->
-	<link rel="stylesheet" href="<?= base_url('assets/style/green-shades-style.css') ?>">
+	<link rel="stylesheet" href="<?= base_url('assets/style/gs-style.css') ?>">
 	<!--Lightbox CSS-->
 	<link rel="stylesheet" href="<?= base_url('assets/vendor/lightbox.css') ?>">
 	<!--CCS ANIMATE-->
@@ -15,12 +15,12 @@
 	<!--AOS-->
 	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 	<!--Icon Tittle -->
-
+	<link rel="stylesheet" href="<?= base_url('assets/') ?>plugin/sweetalert2/sweetalert2.min.css">
+	<script src="<?= base_url('assets/') ?>plugin/sweetalert2/sweetalert2.all.min.js"></script>
 	<!--<style>
 		img[alt="www.000webhost.com"] {
 			display: none
 		}
-
 		;
 	</style>-->
 </head>
@@ -289,7 +289,7 @@
 								<img class="barcode-isi" src="<?= base_url('storage/invitations/gifts/') . $gift->qr ?>" alt="barcode">
 							</div>
 							<div class="btn-saveQR">
-								<button class="btn-saveQR_Code">Save QR Code</button>
+								<button class="btn-saveQR_Code" onclick="fetchFile('<?= base_url('storage/invitations/gifts/') . $gift->qr ?>')">Save QR Code</button>
 							</div>
 						</div>
 					<?php endforeach ?>
@@ -602,12 +602,31 @@
 	<!--Lightbox CSS-->
 	<script src="<?= base_url() ?>assets/vendor/lightbox-plus-jquery.js"></script>
 
-	<script src="<?= base_url() ?>assets/script/green-shades-script_.js"></script>
+	<script src="<?= base_url() ?>assets/script/gs-script.js"></script>
 	<!--AOS Animate on scroll library-->
 	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 	<!--Initialize AOS-->
 	<script>
 		AOS.init();
+
+		const downloadBtn = document.querySelector(".download-barcode");
+
+		function fetchFile(url) {
+			fetch(url).then(res => res.blob()).then(file => {
+				let tempUrl = URL.createObjectURL(file);
+				const aTag = document.createElement("a");
+				aTag.href = tempUrl;
+				aTag.download = url.replace(/^.*[\\\/]/, '');
+				document.body.appendChild(aTag);
+				aTag.click();
+				// downloadBtn.innerText = "Download File";
+				URL.revokeObjectURL(tempUrl);
+				aTag.remove();
+			}).catch(() => {
+				alert("Failed to download file!");
+				// downloadBtn.innerText = "Download File";
+			});
+		}
 	</script>
 
 	<script>
@@ -631,13 +650,6 @@
 							load_count_comment();
 							form.reset();
 						}
-					},
-					error: function() {
-						swal.fire(
-							"Gagal",
-							"Pesan tidak tersampaikan",
-							"error"
-						);
 					},
 				});
 			});

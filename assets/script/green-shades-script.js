@@ -13,7 +13,7 @@ const BASEURL = base_url();
 //Untuk Memunculkan halaman Sampul
 window.addEventListener("load", function () {
 	setTimeout(function open(event) {
-		document.querySelector(".sampul").style.display = "block"; //block
+		document.querySelector(".sampul").style.display="block"; //block
 		document
 			.querySelector(".sampul")
 			.classList.add(
@@ -27,7 +27,7 @@ window.addEventListener("load", function () {
 //Untuk Button Buka Undangan
 document.querySelector("#buka").addEventListener("click", function () {
 	setTimeout(function close(event) {
-		//document.querySelector(".sampul").style.display="none";
+		//document.querySelector(".sampul").style.display="block";
 		document
 			.querySelector(".sampul")
 			.classList.add(

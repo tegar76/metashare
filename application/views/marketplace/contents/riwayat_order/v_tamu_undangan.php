@@ -3,7 +3,7 @@
 	<!-- Title Mobile -->
 	<div class="lg:hidden text-base-md tracking-wide xl:text-lg text-slate-700 font-medium bg-gray-400/5 border-b  drop-shadow-sm border-b-gray-400/20 xl:border-0 pl-2 py-2 mb-8 absolute top-0 left-0 w-full">
 		<div class="flex items-center">
-			<a href="<?= base_url('history/order/' . $code) ?>" class="active:text-primary-blue-cyan-hover py-2 px-3 "><i class="fa-solid fa-angle-left"></i></a>
+			<a href="<?= base_url('history/order/' . $code. '/detail') ?>" class="active:text-primary-blue-cyan-hover py-2 px-3 "><i class="fa-solid fa-angle-left"></i></a>
 			<h1><?= $title ?></h1>
 		</div>
 	</div>

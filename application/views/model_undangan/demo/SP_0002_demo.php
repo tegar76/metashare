@@ -702,8 +702,8 @@
 							<div class="">
 								<div class="">
 									<?= form_open("#", ['id' => 'submit-message']) ?>
-									<input type="hidden" name="guest_name" value="Tamu Undangan">
-									<input type="hidden" id="invtId" name="invt_id" value="0">
+									<input type="hidden" name="guest_name" value="Tamu Undangan"> 
+									<input type="hidden" id="invtId" name="invt_id" value="0"> 
 									<div class="">
 										<label for="pesan" class="opacity-70 font-semibold tracking-wide cursor-pointer text-sm 2xs:text-base-sm 1xs:text-base-md md:text-[27px] lg:text-base lg:leading-6">Pesan</label>
 										<div class="mt-2">

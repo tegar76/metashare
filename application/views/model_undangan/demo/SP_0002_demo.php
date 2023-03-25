@@ -30,6 +30,7 @@
 	<script src="<?= base_url() ?>assets/vendor/aos/dist/aos.js"></script>
 
 
+
 	<title>Wedding Sunset Shades</title>
 
 
@@ -807,8 +808,9 @@
 						Berikan Hadiah</h1>
 				</div>
 				<div class="modal-body relative p-4">
-					<p class="mb-4 text-base-xs 2xs:text-base-sm 1xs:text-base-md md:text-[20px] lg:text-base-md lg:leading-6 font-normal text-slate-800 text-justify"><span class="font-semibold">
-							Tanpa mengurangi rasa hormat,</span> untuk melengkapi kebahagian pengantin, anda dapat memberikan tanda kasih dengan melalui transfer ke rekening berikut :
+					<p class="mb-4 text-base-xs 2xs:text-base-sm 1xs:text-base-md md:text-[20px] lg:text-base-md lg:leading-6 font-normal text-slate-800 text-justify">
+						<span class="font-semibold"> Tanpa mengurangi rasa hormat,</span>
+						untuk melengkapi kebahagian pengantin, anda dapat memberikan tanda kasih dengan melalui transfer ke rekening berikut :
 					</p>
 					<!-- content card bca-->
 					<div class="rounded-lg p-4 my-5 tracking-widest shadow-md shadow-tema1-teal/10 border border-tema1-teal/40">
@@ -826,10 +828,10 @@
 							<div class="shadow-sm p-1 shadow-tema1-teal/20 my-4 -mx-6"></div>
 							<div class="qr-code">
 								<div class="flex items-center justify-center">
-									<img class="h-32" src="<?= base_url() ?>assets/images/example-barcode.png" alt="">
+									<img class="h-32" src="<?= base_url('assets/images/example-barcode.png') ?>" alt="">
 								</div>
 								<div class="flex items-center justify-center mt-3">
-									<button class="px-3 py-1 font-Montserrat font-semibold border border-tema1-teal/60 text-tema1-teal mx-auto hover:bg-tema1-teal/80 hover:text-white transition delay-150 rounded-md text-base-1xs 2xs:text-base-xs 1xs:text-base-sm md:text-[16px] lg:text-[14px] lg:leading-6">Simpan</button>
+									<button class="px-3 py-1 font-Montserrat font-semibold border border-tema1-teal/60 text-tema1-teal mx-auto hover:bg-tema1-teal/80 hover:text-white transition delay-150 rounded-md text-base-1xs 2xs:text-base-xs 1xs:text-base-sm md:text-[16px] lg:text-[14px] lg:leading-6" onclick="fetchFile('<?= base_url('assets/images/example-barcode.png') ?>')">Simpan</button>
 								</div>
 							</div>
 						</div>
@@ -854,7 +856,7 @@
 									<img class="h-32" src="<?= base_url() ?>assets/images/example-barcode.png" alt="">
 								</div>
 								<div class="flex items-center justify-center mt-3">
-									<button class="px-3 py-1 font-Montserrat font-semibold border border-tema1-teal/60 text-tema1-teal mx-auto hover:bg-tema1-teal/80 hover:text-white transition delay-150 rounded-md text-base-1xs 2xs:text-base-xs 1xs:text-base-sm md:text-[16px] lg:text-[14px] lg:leading-6">Simpan</button>
+									<button class="px-3 py-1 font-Montserrat font-semibold border border-tema1-teal/60 text-tema1-teal mx-auto hover:bg-tema1-teal/80 hover:text-white transition delay-150 rounded-md text-base-1xs 2xs:text-base-xs 1xs:text-base-sm md:text-[16px] lg:text-[14px] lg:leading-6" onclick="fetchFile('<?= base_url('assets/images/example-barcode.png') ?>')">Simpan</button>
 								</div>
 							</div>
 						</div>
@@ -879,7 +881,7 @@
 									<img class="h-32" src="<?= base_url() ?>assets/images/example-barcode.png" alt="">
 								</div>
 								<div class="flex items-center justify-center mt-3">
-									<button class="px-3 py-1 font-Montserrat font-semibold border border-tema1-teal/60 text-tema1-teal mx-auto hover:bg-tema1-teal/80 hover:text-white transition delay-150 rounded-md text-base-1xs 2xs:text-base-xs 1xs:text-base-sm md:text-[16px] lg:text-[14px] lg:leading-6">Simpan</button>
+									<button class="px-3 py-1 font-Montserrat font-semibold border border-tema1-teal/60 text-tema1-teal mx-auto hover:bg-tema1-teal/80 hover:text-white transition delay-150 rounded-md text-base-1xs 2xs:text-base-xs 1xs:text-base-sm md:text-[16px] lg:text-[14px] lg:leading-6" onclick="fetchFile('<?= base_url('assets/images/example-barcode.png') ?>')">Simpan</button>
 								</div>
 							</div>
 						</div>
@@ -904,7 +906,7 @@
 									<img class="h-32" src="<?= base_url() ?>assets/images/example-barcode.png" alt="">
 								</div>
 								<div class="flex items-center justify-center mt-3">
-									<button class="px-3 py-1 font-Montserrat font-semibold border border-tema1-teal/60 text-tema1-teal mx-auto hover:bg-tema1-teal/80 hover:text-white transition delay-150 rounded-md text-base-1xs 2xs:text-base-xs 1xs:text-base-sm md:text-[16px] lg:text-[14px] lg:leading-6">Simpan</button>
+									<button class="px-3 py-1 font-Montserrat font-semibold border border-tema1-teal/60 text-tema1-teal mx-auto hover:bg-tema1-teal/80 hover:text-white transition delay-150 rounded-md text-base-1xs 2xs:text-base-xs 1xs:text-base-sm md:text-[16px] lg:text-[14px] lg:leading-6" onclick="fetchFile('<?= base_url('assets/images/example-barcode.png') ?>')">Simpan</button>
 								</div>
 							</div>
 						</div>
@@ -929,7 +931,7 @@
 									<img class="h-32" src="<?= base_url() ?>assets/images/example-barcode.png" alt="">
 								</div>
 								<div class="flex items-center justify-center mt-3">
-									<button class="px-3 py-1 font-Montserrat font-semibold border border-tema1-teal/60 text-tema1-teal mx-auto hover:bg-tema1-teal/80 hover:text-white transition delay-150 rounded-md text-base-1xs 2xs:text-base-xs 1xs:text-base-sm md:text-[16px] lg:text-[14px] lg:leading-6">Simpan</button>
+									<button class="px-3 py-1 font-Montserrat font-semibold border border-tema1-teal/60 text-tema1-teal mx-auto hover:bg-tema1-teal/80 hover:text-white transition delay-150 rounded-md text-base-1xs 2xs:text-base-xs 1xs:text-base-sm md:text-[16px] lg:text-[14px] lg:leading-6" onclick="fetchFile('<?= base_url('assets/images/example-barcode.png') ?>')">Simpan</button>
 								</div>
 							</div>
 						</div>
@@ -954,7 +956,7 @@
 									<img class="h-32" src="<?= base_url() ?>assets/images/example-barcode.png" alt="">
 								</div>
 								<div class="flex items-center justify-center mt-3">
-									<button class="px-3 py-1 font-Montserrat font-semibold border border-tema1-teal/60 text-tema1-teal mx-auto hover:bg-tema1-teal/80 hover:text-white transition delay-150 rounded-md text-base-1xs 2xs:text-base-xs 1xs:text-base-sm md:text-[16px] lg:text-[14px] lg:leading-6">Simpan</button>
+									<button class="px-3 py-1 font-Montserrat font-semibold border border-tema1-teal/60 text-tema1-teal mx-auto hover:bg-tema1-teal/80 hover:text-white transition delay-150 rounded-md text-base-1xs 2xs:text-base-xs 1xs:text-base-sm md:text-[16px] lg:text-[14px] lg:leading-6" onclick="fetchFile('<?= base_url('assets/images/example-barcode.png') ?>')">Simpan</button>
 								</div>
 							</div>
 						</div>
@@ -979,7 +981,7 @@
 									<img class="h-32" src="<?= base_url() ?>assets/images/example-barcode.png" alt="">
 								</div>
 								<div class="flex items-center justify-center mt-3">
-									<button class="px-3 py-1 font-Montserrat font-semibold border border-tema1-teal/60 text-tema1-teal mx-auto hover:bg-tema1-teal/80 hover:text-white transition delay-150 rounded-md text-base-1xs 2xs:text-base-xs 1xs:text-base-sm md:text-[16px] lg:text-[14px] lg:leading-6">Simpan</button>
+									<button class="px-3 py-1 font-Montserrat font-semibold border border-tema1-teal/60 text-tema1-teal mx-auto hover:bg-tema1-teal/80 hover:text-white transition delay-150 rounded-md text-base-1xs 2xs:text-base-xs 1xs:text-base-sm md:text-[16px] lg:text-[14px] lg:leading-6" onclick="fetchFile('<?= base_url('assets/images/example-barcode.png') ?>')">Simpan</button>
 								</div>
 							</div>
 						</div>
@@ -1120,6 +1122,23 @@
 		// Animate On Scroll
 
 		AOS.init();
+
+		function fetchFile(url) {
+			fetch(url).then(res => res.blob()).then(file => {
+				let tempUrl = URL.createObjectURL(file);
+				const aTag = document.createElement("a");
+				aTag.href = tempUrl;
+				aTag.download = url.replace(/^.*[\\\/]/, '');
+				document.body.appendChild(aTag);
+				aTag.click();
+				// downloadBtn.innerText = "Download File";
+				URL.revokeObjectURL(tempUrl);
+				aTag.remove();
+			}).catch(() => {
+				alert("Failed to download file!");
+				// downloadBtn.innerText = "Download File";
+			});
+		}
 	</script>
 	<script>
 		$(document).ready(function() {

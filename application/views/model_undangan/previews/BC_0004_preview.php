@@ -6,11 +6,11 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="icon" type="image/png" sizes="16x16" href="<?= base_url('assets/icons/green-shades/ic-ms.png') ?>">
-	<title>0103|YegeShades|Demo</title>
+	<!-- Title Invitation -->
+	<title>The Wedding Of <?= $invitation->groom_nickname . ' & ' . $invitation->bride_nickname ?></title>
 	<!--Style CSS-->
-	<link rel="stylesheet" href="<?= base_url('assets/style/yege-shades.css') ?>">
+	<link rel="stylesheet" href="<?= base_url('assets/style/yege-shades-style.css') ?>">
 	<link rel="stylesheet" href="<?= base_url('assets/vendor/lightbox.css') ?>">
-
 	<!--CCS ANIMATE-->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 	<!--AOS-->
@@ -18,30 +18,14 @@
 	<!--Icon Tittle -->
 	<style>
 		img[alt="www.000webhost.com"] {
-			display: none
+			display: none;
 		}
-
-		;
 	</style>
 </head>
 
 <body>
 	<!-- ======================= Landing Page(Sampul) ========================-->
 	<section class="sampul" id="sampul">
-		<!--note Demo for Desktop,tablet & ipad mini-->
-		<div class="ndemo-desk">
-			<img src="<?= base_url() ?>assets/images/green-shades/note-demo-for-desk.svg" alt="note demo">
-		</div>
-
-		<!--note Demo for Apple Android smartphone-->
-		<!--<div class="ndemo-AAs">
-            <img src="<?= base_url() ?>assets/images/green-shades/note-demo-for-AAs.svg" alt="note demo">
-        </div>-->
-
-		<!--note Demo for Apple Apple mini-->
-		<div class="ndemo-Ap-mini">
-			<img src="<?= base_url('assets/images/green-shades/note-demo-for-Apple-mini.svg') ?>" alt="note demo">
-		</div>
 		<!--Responsive Bingkai-->
 		<div class="bing1">
 			<img class="animate__animated animate__fadeInTopRight animate__delay-1s" src="<?= base_url('assets/images/green-shades/sampul/bingkai1.svg') ?>" alt="bingkai1">
@@ -59,7 +43,7 @@
 			</div>
 
 			<div class="waktuAkad">
-				<p>09 September 2022</p>
+				<p><?= $akadDate['tanggal'] . ' ' . $akadDate['bulan'] . ' ' . $akadDate['tahun'] ?></p>
 			</div>
 
 			<div class="batas">
@@ -73,7 +57,7 @@
 			</div>
 
 			<div class="mempelai">
-				<P>Runa & Ratna</P>
+				<P><?= $invitation->groom_nickname . ' & ' . $invitation->bride_nickname ?></P>
 			</div>
 
 			<div class="batas">
@@ -90,7 +74,7 @@
 				<div class="isi">
 					<p>Kepada Yth</p>
 					<p>Bapak/Ibu/Saudara/i</p>
-					<h2>Danur Pratama S.Kom</h2>
+					<h2><?= (!empty($guest) ? $guest : '-') ?></h2>
 				</div>
 			</div>
 
@@ -117,7 +101,7 @@
 				<div class="jud">
 					<p>Waktu Mundur Acara Akad Nikah</p>
 				</div>
-				<input type="hidden" id="countDownTime" name="count_down" value="May 30, 2023 13:43:00">
+				<input type="hidden" id="countDownTime" name="count_down" value="<?= $countdown ?>">
 				<div class="subjud">
 					<ul>
 						<li>
@@ -143,13 +127,11 @@
 
 		<!---------- Musik & Berikan Hadiah---------->
 		<audio id="music" loop>
-			<source src="<?= base_url('assets/music/shane-filan-beautiful-in-white.mpeg') ?>" type="audio/mp3">
-
+			<source src="<?= base_url('storage/invitations/uploads/' . $invitation->music_bg) ?>" type="audio/mp3">
 		</audio>
 
 		<div class="gm" id="gm">
 			<img class="giftt" id="btnGift" src="<?= base_url() ?>assets/icons/green-shades/in in-gift.svg" alt="gift">
-			<!--<img id="setm" class="setmus" src="<?= base_url() ?>assets/icons/green-shades/in in-play.svg" alt="SettingMusic" onclick="setmus()">-->
 		</div>
 
 		<!---------- Modal Berikan Hadiah ---------->
@@ -168,96 +150,22 @@
 					<p>Tanpa mengurangi rasa hormat, untuk melengkapi kebahagian pengantin, anda dapat memberikan tanda kasih dengan melalui transfer ke rekening berikut:</p>
 				</div>
 				<div class="card">
-					<!----------Virtual Account----------->
-					<div class="card-box">
-						<img class="va-image" src="<?= base_url() ?>assets/images/green-shades/gift_va(BCA)/gift_card_va_bca.svg" alt="Card Virtual Akun BCA">
-						<div class="no-va">
-							<p id="no-va">2235577</p>
-							<img class="copy-va" src="<?= base_url() ?>assets/icons/green-shades/in in-copy.svg" alt="copy" onclick="copyToClipboard('no-va');return false">
+					<?php foreach ($gifts as $gift) : ?>
+						<div class="card-box">
+							<img class="va-image" src="<?= base_url('storage/') . $gift->icon ?>" alt="Card Virtual Akun BCA">
+							<div class="no-va">
+								<p id="no-va-<?= $gift->id ?>"><?= $gift->account ?></p>
+								<img class="copy-va" src="<?= base_url() ?>assets/icons/green-shades/in in-copy.svg" alt="copy" onclick="copyToClipboard('no-va-<?= $gift->id ?>');return false">
+							</div>
+							<p class="recipient">*Recipient: <?= $gift->recipient ?></p>
+							<div class="barcode">
+								<img class="barcode-isi" src="<?= base_url('storage/invitations/gifts/') . $gift->qr ?>" alt="barcode">
+							</div>
+							<div class="btn-saveQR">
+								<button class="btn-saveQR_Code download-barcode" onclick="fetchFile('<?= base_url('storage/invitations/gifts/') . $gift->qr ?>')">Save QR Code</button>
+							</div>
 						</div>
-						<p class="recipient">*Recipient:Danteria Sah</p>
-						<div class="barcode">
-							<img class="barcode-isi" src="<?= base_url() ?>assets/images/green-shades/gift_va(BCA)/gift_card_va_barcode(BCA).png" alt="barcode">
-						</div>
-						<div class="btn-saveQR">
-							<button class="btn-saveQR_Code download-barcode" onclick="fetchFile('<?= base_url() ?>assets/images/green-shades/gift_va(BCA)/gift_card_va_barcode(BCA).png')">Save QR Code</button>
-						</div>
-					</div>
-
-					<div class="card-box">
-						<img class="va-image" src="<?= base_url() ?>assets/images/green-shades/gift_va(BRI)/gift_card_va_bri.svg" alt="Card Virtual Akun BRI">
-						<div class="no-va">
-							<p id="no-va">123456789012345</p>
-							<img class="copy-va" src="<?= base_url() ?>assets/icons/green-shades/in in-copy.svg" alt="copy" onclick="copyToClipboard('no-va');return false;">
-						</div>
-						<p class="recipient">*Recipient:Danteria Sah</p>
-						<div class="barcode">
-							<img class="barcode-isi" src="<?= base_url() ?>assets/images/green-shades/gift_va(BRI)/gift_card_va_barcode(BRI).png" alt="barcode">
-						</div>
-						<div class="btn-saveQR">
-							<button class="btn-saveQR_Code download-barcode" onclick="fetchFile('<?= base_url() ?>assets/images/green-shades/gift_va(BCA)/gift_card_va_barcode(BRI).png')">Save QR Code</button>
-						</div>
-					</div>
-
-					<div class="card-box">
-						<img class="va-image" src="<?= base_url() ?>assets/images/green-shades/gift_va(MANDIRI)/gift_card_va_mandiri.svg" alt="Card Virtual Akun MANDIRI">
-						<div class="no-va">
-							<p id="no-va">1234567890123</p>
-							<img class="copy-va" src="<?= base_url() ?>assets/icons/green-shades/in in-copy.svg" alt="copy" onclick="copyToClipboard('no-va');return false;">
-						</div>
-						<p class="recipient">*Recipient:Danteria Sah</p>
-						<div class="barcode">
-							<img class="barcode-isi" src="<?= base_url() ?>assets/images/green-shades/gift_va(MANDIRI)/gift_card_va_barcode(MANDIRI).png" alt="barcode">
-						</div>
-						<div class="btn-saveQR">
-							<button class="btn-saveQR_Code" onclick="fetchFile('<?= base_url() ?>assets/images/green-shades/gift_va(BCA)/gift_card_va_barcode(MANDIRI).png')">Save QR Code</button>
-						</div>
-					</div>
-
-					<div class="card-box">
-						<img class="va-image" src="<?= base_url() ?>assets/images/green-shades/gift_va(BSI)/gift_card_va_bsi.svg" alt="Card Virtual Akun BSI">
-						<div class="no-va">
-							<p id="no-va">1234567890</p>
-							<img class="copy-va" src="<?= base_url() ?>assets/icons/green-shades/in in-copy.svg" alt="copy" onclick="copyToClipboard('no-va');return false">
-						</div>
-						<p class="recipient">*Recipient:Danteria Sah</p>
-						<div class="barcode">
-							<img class="barcode-isi" src="<?= base_url() ?>assets/images/green-shades/gift_va(BSI)/gift_card_va_barcode(BSI).png" alt="barcode">
-						</div>
-						<div class="btn-saveQR">
-							<button class="btn-saveQR_Code" onclick="fetchFile('<?= base_url() ?>assets/images/green-shades/gift_va(BCA)/gift_card_va_barcode(BSI).png')">Save QR Code</button>
-						</div>
-					</div>
-
-					<div class="card-box">
-						<img class="va-image" src="<?= base_url() ?>assets/images/green-shades/gift_va(CIMBNIAGA)/gift_card_va_cimbniaga.svg" alt="Card Virtual Akun CIMBNIAGA">
-						<div class="no-va">
-							<p id="no-va">12345678901234</p>
-							<img class="copy-va" src="<?= base_url() ?>assets/icons/green-shades/in in-copy.svg" alt="copy" onclick="copyToClipboard('no-va');return false">
-						</div>
-						<p class="recipient">*Recipient:Danteria Sah</p>
-						<div class="barcode">
-							<img class="barcode-isi" src="<?= base_url() ?>assets/images/green-shades/gift_va(CIMBNIAGA)/gift_card_va_barcode(CIMBNIAGA).png" alt="barcode">
-						</div>
-						<div class="btn-saveQR">
-							<button class="btn-saveQR_Code" onclick="fetchFile('<?= base_url() ?>assets/images/green-shades/gift_va(BCA)/gift_card_va_barcode(CIMBNIAGA).png')">Save QR Code</button>
-						</div>
-					</div>
-
-					<div class="card-box">
-						<img class="va-image" src="<?= base_url() ?>assets/images/green-shades/gift_va(DANA)/gift_card_va_dana.svg" alt="Card Virtual Akun DANA">
-						<div class="no-va">
-							<p id="no-va">087899706753</p>
-							<img class="copy-va" src="<?= base_url() ?>assets/icons/green-shades/in in-copy.svg" alt="copy" onclick="copyToClipboard('no-va');return false">
-						</div>
-						<p class="recipient">*Recipient:Danteria Sah</p>
-						<div class="barcode">
-							<img class="barcode-isi" src="<?= base_url() ?>assets/images/green-shades/gift_va(DANA)/gift_card_va_barcode(DANA).png" alt="barcode">
-						</div>
-						<div class="btn-saveQR">
-							<button class="btn-saveQR_Code" onclick="fetchFile('<?= base_url() ?>assets/images/green-shades/gift_va(BCA)/gift_card_va_barcode(DANA).png')">Save QR Code</button>
-						</div>
-					</div>
+					<?php endforeach ?>
 				</div>
 				<footer>
 					<div id="in-close" class="in-close">&times;</div>
@@ -278,18 +186,21 @@
 				<p data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="350">Maha Suci Alloh SWT Yang Telah Menciptakan Mahluknya Berpasang-Pasangan, Ya Alloh Semoga Ridho-Mu Tercurah Mengiringi Pernikahan Putra-Putri Kami :</p>
 			</div>
 			<div class="pempelai-pria" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="450">
-				<p>Runa Solahudin</p>
-				<a href="#"><img src="<?= base_url() ?>assets/images/green-shades/ig.png" alt="ic-Instagram"></a>
-				<p>Putri Ke-1 dari Bapak Lorem Ipsum & Ibu Lorem Doren (Bandung)</p>
+				<p><?= $invitation->groom_name ?></p>
+				<a href="https://instagram.com/<?= $invitation->groom_ig ?>">
+					<img src="<?= base_url() ?>assets/images/green-shades/ig.png" alt="ic-Instagram">
+				</a>
+				<p>Putra <?= $invitation->groom_son ?> Bpk. <?= $invitation->groom_father ?> & Ibu <?= $invitation->groom_mother ?></p>
 			</div>
 			<div class="dengan" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="550">
 				<p>Dengan</p>
 			</div>
 			<div class="pempelai-wanita" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="650">
-				<p>Ratna Diah Pitaloka</p>
-				<a href="#">
-					<img src="<?= base_url() ?>assets/images/green-shades/ig.png" alt="ic-Instagram"></a>
-				<p>Putri Ke-2 dari Bapak Lorem Ipsum & Ibu Lorem Doren (Jakarta)</p>
+				<p><?= $invitation->bride_name ?></p>
+				<a href="https://instagram.com/<?= $invitation->bride_ig ?>">
+					<img src="<?= base_url() ?>assets/images/green-shades/ig.png" alt="ic-Instagram">
+				</a>
+				<p>Putri <?= $invitation->bride_daughter; ?> Bpk. <?= $invitation->bride_father ?> & Ibu <?= $invitation->bride_mother ?></p>
 			</div>
 			<div class="penutup" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="750">
 				<p>Untuk Melaksanakan Sunah Rosul-mu dalam membentuk Keluarga Sakinah, Mawadah dan Warohmah</p>
@@ -307,6 +218,7 @@
 		</div>
 	</section>
 	<!-- ======================= END Landing Page(Mempelai) ========================-->
+
 
 	<!-- ======================= Landing Page(Waktu) ========================-->
 	<section id="waktu">
@@ -329,10 +241,10 @@
 					</svg>
 				</div>
 				<div class="tgl">
-					<P>Jum'at - Sabtu,30-31 Januari 2023</P>
+					<P><?= $acara['tasyakur']['tanggal']; ?></P>
 				</div>
 				<div class="almt">
-					<p>Jl.Merpati Putih Rt.01 Rw.01 Kec Lorem Ipsum Dorem</p>
+					<p><?= $acara['tasyakur']['alamat']; ?></p>
 				</div>
 			</div>
 			<!--end tasyakuran -->
@@ -355,17 +267,17 @@
 					</svg>
 				</div>
 				<div class="tgl">
-					<P>Rabu,31 Januari 2023</P>
+					<P><?= $acara['akad']['tanggal'] ?></P>
 				</div>
 				<div class="jaam">
-					<P>09.00 WIB-Selesai </P>
+					<P><?= $acara['akad']['waktu']; ?> - Selesai</P>
 				</div>
 				<div class="almt">
-					<p>Jl.Merpati Putih Rt.01 Rw.01 Kec Lorem Ipsum Dorem </p>
+					<p><?= $acara['akad']['alamat'] ?></p>
 				</div>
 
 				<div class="btn-map">
-					<a href="#map">
+					<a href="<?= $acara['akad']['maps']; ?>">
 						<svg height="14" viewBox="0 0 17 14" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<g id="in in-maps">
 								<path id="path3570" d="M8.96832 6.9728C8.73302 7.26647 8.28858 7.27355 8.04404 6.98752L6.85788 5.6001C6.4138 4.91169 6.33837 4.2554 6.65424 3.62698C6.67414 3.58739 6.69979 3.55032 6.73058 3.51846C7.11291 3.1229 7.55232 3.17252 7.9377 3.44226C8.3175 3.7081 8.91726 3.70865 9.30223 3.45036C9.69352 3.18784 10.1215 3.17221 10.5101 3.51592C10.5348 3.53777 10.5574 3.56316 10.5763 3.59018C11.0692 4.29433 10.5061 4.91459 10.1266 5.52731L8.96832 6.9728Z" stroke="white" stroke-width="0.9" stroke-miterlimit="8.7" stroke-linecap="round" stroke-linejoin="bevel" />
@@ -399,17 +311,17 @@
 					</svg>
 				</div>
 				<div class="tgl">
-					<P>Rabu,31 Januari 2023</P>
+					<P><?= $acara['resepsi']['tanggal'] ?></P>
 				</div>
 				<div class="jaam">
-					<P>11.00 WIB-Selesai</P>
+					<P><?= $acara['resepsi']['waktu']; ?> - Selesai</P>
 				</div>
 				<div class="almt">
-					<p>Jl.Merpati Putih Rt.01 Rw.01 Kec Lorem Ipsum Dorem</p>
+					<p><?= $acara['resepsi']['alamat'] ?></p>
 				</div>
 
 				<div class="btn-map">
-					<a href="#map">
+					<a href="<?= $acara['resepsi']['maps']; ?>">
 						<svg height="14" viewBox="0 0 17 14" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<g id="in in-maps">
 								<path id="path3570" d="M8.96832 6.9728C8.73302 7.26647 8.28858 7.27355 8.04404 6.98752L6.85788 5.6001C6.4138 4.91169 6.33837 4.2554 6.65424 3.62698C6.67414 3.58739 6.69979 3.55032 6.73058 3.51846C7.11291 3.1229 7.55232 3.17252 7.9377 3.44226C8.3175 3.7081 8.91726 3.70865 9.30223 3.45036C9.69352 3.18784 10.1215 3.17221 10.5101 3.51592C10.5348 3.53777 10.5574 3.56316 10.5763 3.59018C11.0692 4.29433 10.5061 4.91459 10.1266 5.52731L8.96832 6.9728Z" stroke="white" stroke-width="0.9" stroke-miterlimit="8.7" stroke-linecap="round" stroke-linejoin="bevel" />
@@ -443,8 +355,8 @@
 	</section>
 	<!-- ======================= END Landing Page(Waktu) ========================-->
 
-	<!-- ======================= END Landing Page(Pesan) ========================-->
 
+	<!-- ======================= END Landing Page(Pesan) ========================-->
 	<section id="pesan">
 		<div class="pesan-bahagia" data-aos="fade-down-right" data-aos-duration="1000" data-aos-delay="150">
 			<div class="header">
@@ -452,30 +364,31 @@
 				<hr>
 			</div>
 			<?= form_open("#", ['id' => 'submit-happy-message']) ?>
-			<input type="hidden" name="guest_name" value="Tamu Undangan">
-			<input type="hidden" id="invtId" name="invt_id" value="0">
+			<input type="hidden" name="guest_name" value="<?= $guest ?>">
+			<input type="hidden" id="invtId" name="invt_id" value="<?= $invitation->invitation_id ?>">
 			<div class="inp-pesan">
 				<p>Pesan :</p>
 				<textarea name="pesan" id="" cols="20" rows="2" placeholder="Input pesan bahagia"></textarea>
 			</div>
 			<div class="confirm-kehadiran">
 				<label class="contain">
-					<input type="radio" checked="checked" name="konfirmasiHadir" value="2">
+					<input type="radio" value="2" checked="checked" name="konfirmasiHadir">
 					<span class="checkmark check"></span>
 					Hadir
 				</label>
 				<label class="contain">
-					<input type="radio" name="konfirmasiHadir" value="1">
+					<input type="radio" value="1" name="konfirmasiHadir">
 					<span class="checkmark2 check"></span>
 					Tidak Hadir
 				</label>
 				<label class="contain">
-					<input type="radio" name="konfirmasiHadir" value="0">
+					<input type="radio" value="0" name="konfirmasiHadir">
 					<span class="checkmark3 check"></span>
 					Belum Tahu
 				</label>
 			</div>
-			<div class="btn-kirim">
+
+			<div class="btn-kirimm">
 				<button type="submit" class="btn-km">Kirim</button>
 				<p>Total Pesan : <span id="count_message"></span></p>
 			</div>
@@ -484,6 +397,7 @@
 				<div id="display_message"></div>
 			</div>
 		</div>
+
 		<div class="akhir" data-aos="fade-down-left" data-aos-duration="1000" data-aos-delay="200">
 			<div class="header">
 				<!--Bingkai atas bagian akhir for desktop  -->
@@ -528,9 +442,8 @@
 	</section>
 	<!-- ======================= END Landing Page(Pesan) ========================-->
 
-
 	<!-- Script JS-->
-	<script src="<?= base_url('assets/script/yege-shades.js') ?>"></script>
+	<script src="<?= base_url('assets/script/yege-shades-script.js') ?>"></script>
 	<script src="<?= base_url('assets/vendor/lightbox-plus-jquery.js') ?>"></script>
 	<!--AOS Animate on scroll library-->
 	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -557,6 +470,7 @@
 			});
 		}
 	</script>
+
 	<script>
 		$(document).ready(function() {
 			load_comment();
@@ -586,7 +500,7 @@
 				let id = $('#invtId').val();
 				$.ajax({
 					type: "GET",
-					url: "<?= base_url('undangan/get_message_demo_standard?id=') ?>" + id,
+					url: "<?= base_url('undangan/get_message_standard?id=') ?>" + id,
 					dataType: "json",
 					success: function(reponse) {
 						$("#display_message").html(reponse);

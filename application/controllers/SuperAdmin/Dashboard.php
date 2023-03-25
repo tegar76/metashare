@@ -16,6 +16,7 @@ class Dashboard extends CI_Controller
 			$code = $_GET['code'];
 			$detail = $this->master->getDetailPenugasan($code);
 			if ($detail) {
+				// status undangan
 				if ($detail->t_desc == 0) {
 					$data['desc'] = '<td class="text-danger">Belum Dikerjakan</td>';
 				} elseif ($detail->t_desc == 1) {
@@ -23,6 +24,15 @@ class Dashboard extends CI_Controller
 				} elseif ($detail->t_desc == 2) {
 					$data['desc'] = '<td class="text-success">Sudah Dikerjakan</td>';
 				}
+				// get invitation info
+				$undangan = $this->db->query("SELECT invitation_id as id, slug FROM invitation WHERE code='$detail->t_code'")->row();
+				$data['invite'] = null;
+				$data['slug'] = null;
+				if (!empty($undangan)) {
+					$data['invite'] = $undangan->id;
+					$data['slug'] = $undangan->slug;
+				}
+				// parsing data ke view
 				$data['detail'] = $detail;
 				$data['title'] = 'Detail Penugasan';
 				$data['content'] = 'super_admin/contents/penugasan/v_detail_penugasan';

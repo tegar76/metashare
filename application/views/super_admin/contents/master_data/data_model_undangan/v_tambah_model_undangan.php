@@ -112,14 +112,14 @@
 			$("#kategoriUndangan").change(function() {
 				var category = $("#kategoriUndangan option:selected").val();
 				if (category == 'special') {
-					$("#showPriceModel").val('Rp. 150.000');
-					$("#priceModel").val(150000);
-				} else if (category == 'standard') {
 					$("#showPriceModel").val('Rp. 130.000');
 					$("#priceModel").val(130000);
-				} else if (category == 'basic') {
+				} else if (category == 'standard') {
 					$("#showPriceModel").val('Rp. 100.000');
 					$("#priceModel").val(100000);
+				} else if (category == 'basic') {
+					$("#showPriceModel").val('Rp. 80.000');
+					$("#priceModel").val(80000);
 				} else {
 					$("#showPriceModel").val('-');
 					$("#priceModel").val(0);

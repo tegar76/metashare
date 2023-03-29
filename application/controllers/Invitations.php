@@ -319,6 +319,44 @@ class Invitations extends CI_Controller
 		echo json_encode([$output]);
 	}
 
+	public function get_message_demo_dark_special()
+	{
+		$output = '';
+		$query 	= $this->db->order_by('create_time', 'DESC')
+			->limit(8)
+			->get_where('message', [
+				'invitation_id' => 0
+			]);
+		$result	= $query->result();
+		foreach ($result as $key => $val) {
+			$inisial = substr($val->name, 0, 1);
+			if ($val->status == 2) {
+				$bgcolor = 'text-green-500';
+			} elseif ($val->status == 1) {
+				$bgcolor = 'text-red-400';
+			} elseif ($val->status == 0) {
+				$bgcolor = 'text-yellow-500';
+			}
+			$output .= '
+			<div class="flex mt-3">
+				<div class="mr-3">
+                    <div class="flex w-9 h-9 md:w-12 md:h-12 lg:w-10 lg:h-10 font-semibold border border-slate-400 text-sm 2xs:text-base-sm 1xs:text-base-md md:text-[27px] lg:text-base lg:leading-6 text-center rounded-full items-center justify-center ' . $bgcolor . '">
+                    	' . $inisial . '
+					</div>
+                </div>
+                <div>
+                    <div>
+                	    <p class="font-semibold opacity-80 tracking-wide text-sm 2xs:text-base-sm 1xs:text-base-md md:text-[26px] lg:text-base-md lg:leading-6">' . $val->name . '</p>
+                        <p class="text-base-1xs 2xs:text-base-xs 1xs:text-base-sm md:text-[22px] lg:text-base-sm lg:leading-6 text-tema2-semi-light mb-1 md:mt-2 lg:mt-0">' . date('d-m-Y H:i', strtotime($val->create_time)) . '</p>
+						<p class="tracking-wide text-tema2-light text-justify mr-2 text-base-xs 2xs:text-base-sm 1xs:text-base-md md:text-[25px] lg:text-base-sm lg:leading-6">' . $val->message . '</p>
+                    </div>
+                </div>
+            </div>
+			';
+		}
+		echo json_encode([$output]);
+	}
+
 	public function get_message_demo_standard()
 	{
 		$output = '';

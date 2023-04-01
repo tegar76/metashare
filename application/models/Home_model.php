@@ -5,6 +5,7 @@ class Home_model extends CI_Model
 	public function getDesginByCategory($category, $limit)
 	{
 		return $this->db->where('category', $category)
+		    ->order_by('create_time', 'DESC')
 			->limit($limit)
 			->get('model_invitation')
 			->result();

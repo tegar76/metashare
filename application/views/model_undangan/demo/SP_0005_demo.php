@@ -139,7 +139,7 @@
 		/* Bg Mobille */
 
 		.bg-cover-mobile {
-			background-image: url('../../assets/foto/foto_cover_full.jpg');
+			background-image: url('<?= base_url() ?>assets/images/foto_cover_full.jpg');
 			width: 100vw;
 			height: 100vh;
 			background-size: cover;

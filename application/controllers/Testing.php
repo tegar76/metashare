@@ -9,7 +9,7 @@ class Testing extends CI_Controller
 
 	public function standard()
 	{
-		return $this->load->view('model_undangan/demo/demo');
+		return $this->load->view('model_undangan/demo/ST_0006_demo');
 	}
 
 	public function special()

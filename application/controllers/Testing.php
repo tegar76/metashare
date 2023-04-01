@@ -4,7 +4,7 @@ class Testing extends CI_Controller
 {
 	public function basic()
 	{
-		return $this->load->view('model_undangan/demo/tema_1_basic');
+		return $this->load->view('model_undangan/demo/BC_0007_demo');
 	}
 
 	public function standard()

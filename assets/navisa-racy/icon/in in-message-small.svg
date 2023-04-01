@@ -1,0 +1,16 @@
+<svg width="19" height="24" viewBox="0 0 19 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="in in-message-small" clip-path="url(#clip0_37_35)">
+<g id="Group 6">
+<path id="Vector 2" d="M1 5V17.7158C1 18.6128 1.7271 19.3399 2.62402 19.3399C3.63489 19.3399 4.40015 20.2535 4.22288 21.2487L4 22.5C3.89214 22.8555 4.34283 23.1091 4.59069 22.8323L7.34281 19.7594C7.58192 19.4924 7.92338 19.3399 8.28178 19.3399H14C16.2091 19.3399 18 17.549 18 15.3399V5C18 2.79086 16.2091 1 14 1H5C2.79086 1 1 2.79086 1 5Z" stroke="#1A262D" stroke-opacity="0.7804" stroke-width="0.9"/>
+<path id="path3570" d="M9.54769 15.9529C9.3126 16.2394 8.87661 16.2464 8.63248 15.9676L6.59813 13.6443C5.92132 12.62 5.812 11.6439 6.30536 10.7096C6.32622 10.6701 6.35268 10.633 6.38342 10.6006C7.09873 9.84637 8.0387 9.84704 8.75268 10.355C9.1259 10.6206 9.72047 10.6149 10.0807 10.3319C10.7147 9.83373 11.4202 9.95177 12.1276 10.5898C12.1522 10.6119 12.1754 10.6372 12.195 10.6639C12.9632 11.7093 12.1067 12.6288 11.5303 13.5371L9.54769 15.9529Z" stroke="#1A262D" stroke-opacity="0.780392" stroke-width="0.9" stroke-miterlimit="8.7" stroke-linecap="round" stroke-linejoin="bevel"/>
+<line id="Line 2" x1="4.35" y1="7.48337" x2="13.6955" y2="7.48337" stroke="#1A262D" stroke-opacity="0.7804" stroke-width="0.7" stroke-linecap="round"/>
+<line id="Line 3" x1="4.35" y1="5.56663" x2="12.15" y2="5.56663" stroke="#1A262D" stroke-opacity="0.7804" stroke-width="0.7" stroke-linecap="round"/>
+<line id="Line 4" x1="4.35" y1="3.65" x2="9.83182" y2="3.65" stroke="#1A262D" stroke-opacity="0.7804" stroke-width="0.7" stroke-linecap="round"/>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_37_35">
+<rect width="19" height="24" fill="white"/>
+</clipPath>
+</defs>
+</svg>

@@ -99,7 +99,7 @@
 														<p class="text-base-1xs xl:text-base-xs opacity-80">Undangan Pernikahan Digital/ <?= $special->category ?></p>
 													</div>
 													<div class="flex mb-4 justify-center">
-														<a target="_blank" href="<?= base_url('demo?model=' . $special->view_model) ?>" class="text-base-xs xl:text-sm border text-primary-blue-cyan/90 border-primary-blue-cyan/70 px-3 py-1 rounded-lg hover:bg-primary-blue-cyan hover:text-white hover:border-white mr-3"> <i class="fa fa-eye"></i> Demo</a>
+														<a href="<?= base_url('demo?model=' . $special->view_model) ?>" class="text-base-xs xl:text-sm border text-primary-blue-cyan/90 border-primary-blue-cyan/70 px-3 py-1 rounded-lg hover:bg-primary-blue-cyan hover:text-white hover:border-white mr-3"> <i class="fa fa-eye"></i> Demo</a>
 														<?php if ($this->session->userdata('logged_in') == true and $this->session->userdata('level') == 'customer') : ?>
 															<?= form_open('#', ['class' => 'order-now']) ?>
 															<input type="hidden" name="model_id" value="<?= $special->model_id; ?>">
@@ -181,7 +181,7 @@
 														<p class="text-base-1xs xl:text-base-xs opacity-80">Undangan Pernikahan Digital/<?= $standard->category ?></p>
 													</div>
 													<div class="flex mb-4 justify-center">
-														<a target="_blank" href="<?= base_url('demo?model=' . $standard->view_model) ?>" class="text-base-xs xl:text-sm border text-primary-blue-cyan/90 border-primary-blue-cyan/70 px-3 py-1 rounded-lg hover:bg-primary-blue-cyan hover:text-white hover:border-white mr-3"> <i class="fa fa-eye"></i> Demo</a>
+														<a href="<?= base_url('demo?model=' . $standard->view_model) ?>" class="text-base-xs xl:text-sm border text-primary-blue-cyan/90 border-primary-blue-cyan/70 px-3 py-1 rounded-lg hover:bg-primary-blue-cyan hover:text-white hover:border-white mr-3"> <i class="fa fa-eye"></i> Demo</a>
 														<?php if ($this->session->userdata('logged_in') == true and $this->session->userdata('level') == 'customer') : ?>
 															<?= form_open('#', ['class' => 'order-now']) ?>
 															<input type="hidden" name="model_id" value="<?= $standard->model_id; ?>">
@@ -262,7 +262,7 @@
 														<p class="text-base-1xs xl:text-base-xs opacity-80">Undangan Pernikahan Digital/<?= $basic->category ?></p>
 													</div>
 													<div class="flex mb-4 justify-center">
-														<a target="_blank" href="<?= base_url('demo?model=' . $basic->view_model) ?>" class="text-base-xs xl:text-sm border text-primary-blue-cyan/90 border-primary-blue-cyan/70 px-3 py-1 rounded-lg hover:bg-primary-blue-cyan hover:text-white hover:border-white mr-3"> <i class="fa fa-eye"></i> Demo</a>
+														<a href="<?= base_url('demo?model=' . $basic->view_model) ?>" class="text-base-xs xl:text-sm border text-primary-blue-cyan/90 border-primary-blue-cyan/70 px-3 py-1 rounded-lg hover:bg-primary-blue-cyan hover:text-white hover:border-white mr-3"> <i class="fa fa-eye"></i> Demo</a>
 														<?php if ($this->session->userdata('logged_in') == true and $this->session->userdata('level') == 'customer') : ?>
 															<?= form_open('#', ['class' => 'order-now']) ?>
 															<input type="hidden" name="model_id" value="<?= $basic->model_id; ?>">

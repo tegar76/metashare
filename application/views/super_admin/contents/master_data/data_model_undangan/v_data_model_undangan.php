@@ -65,7 +65,7 @@
 								<p><?= $value['type'] ?> / <?= $value['category'] ?></p>
 								<h4 class="text-danger mt-n2">Rp. <?= $value['price']; ?></h4>
 								<div class="mt-2">
-									<a target="_blank" href="<?= base_url('demo?model=' . $value['view']) ?>" class="btn btn-sm btn-outline-info text-sm  px-2 mr-3">
+									<a href="<?= base_url('demo?model=' . $value['view']) ?>" class="btn btn-sm btn-outline-info text-sm  px-2 mr-3">
 										<i class="fas fa-eye mr-1"></i>
 										<span class="mb-1">Demo</span>
 									</a>

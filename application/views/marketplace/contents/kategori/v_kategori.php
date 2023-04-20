@@ -47,7 +47,7 @@
 								<p class="text-base-xs xl:text-xs opacity-80">Undangan Pernikahan Digital/<?= $model->category ?></p>
 							</div>
 							<div class="flex mb-4 justify-center">
-								<a target="_blank" href="<?= base_url('demo?model=' . $model->view_model) ?>" class="text-base-xs xl:text-sm border text-primary-blue-cyan/80 border-primary-blue-cyan/70 px-3 py-1 rounded-lg hover:bg-primary-blue-cyan hover:text-white hover:border-white mr-3"> <i class="fa fa-eye"></i> Demo</a>
+								<a href="<?= base_url('demo?model=' . $model->view_model) ?>" class="text-base-xs xl:text-sm border text-primary-blue-cyan/80 border-primary-blue-cyan/70 px-3 py-1 rounded-lg hover:bg-primary-blue-cyan hover:text-white hover:border-white mr-3"> <i class="fa fa-eye"></i> Demo</a>
 								<?php if ($this->session->userdata('logged_in') == true and $this->session->userdata('level') == 'customer') : ?>
 									<?= form_open('#', ['class' => 'order-now']) ?>
 									<input type="hidden" name="model_id" value="<?= $model->model_id; ?>">

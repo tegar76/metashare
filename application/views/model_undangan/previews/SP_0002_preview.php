@@ -809,7 +809,7 @@
 					<?php foreach ($gifts as $gift) : ?>
 						<div class="rounded-lg p-4 my-5 tracking-widest shadow-md shadow-tema1-teal/10 border border-tema1-teal/40">
 							<div class="px-2 py-3">
-								<div class=""><img class="w-20" src="<?= base_url('storage/') . $gift->icon ?>"" alt=" bri"></div>
+								<div class=""><img class="w-20" src="<?= base_url('storage/') . $gift->icon ?>" alt=" bri"></div>
 								<div class="flex mt-4">
 									<div>
 										<p class="font-semibold mr-3 text-base-xs 2xs:text-base-md 1xs:text-sm md:text-[20px] lg:text-base-sm lg:leading-6 text-slate-600" id="<?= $gift->id ?>"><?= $gift->account ?></p>

@@ -14,6 +14,6 @@ class Testing extends CI_Controller
 
 	public function special()
 	{
-		return $this->load->view('model_undangan/demo/SP_0005_demo');
+		return $this->load->view('model_undangan/demo/SP_0008_demo');
 	}
 }

@@ -66,7 +66,7 @@
 					</tr>
 					<tr>
 						<th scope="row">Model Undangan</th>
-						<td><a target="_blank" href="<?= base_url('demo?model=' . $detail->m_view) ?>" class="text-link-detail" data-toggle="tooltip" title="Lihat" data-placement="right"><?= $detail->m_name ?></a></td>
+						<td><a href="<?= base_url('demo?model=' . $detail->m_view) ?>" class="text-link-detail" data-toggle="tooltip" title="Lihat" data-placement="right"><?= $detail->m_name ?></a></td>
 					</tr>
 					<tr>
 						<th scope="row">Harga</th>
@@ -87,7 +87,7 @@
 					</tr>
 					<tr>
 						<th scope="row">Bukti Pembayaran</th>
-						<td><a target="_blank" href="<?= base_url('view/bukti_pembayaran?code=' . $detail->t_code) ?>"><img src="<?= base_url('assets/icons/icon_file_img.svg') ?>" alt="" width="25" data-toggle="tooltip" title="Lihat" data-placement="right"></a></td>
+						<td><a href="<?= base_url('view/bukti_pembayaran?code=' . $detail->t_code) ?>"><img src="<?= base_url('assets/icons/icon_file_img.svg') ?>" alt="" width="25" data-toggle="tooltip" title="Lihat" data-placement="right"></a></td>
 					</tr>
 					<tr>
 						<th scope="row">Sumber Order</th>
@@ -114,7 +114,7 @@
 			<hr class="mt-n3">
 			<div class="d-flex mb-2">
 				<a href="<?= base_url('admin/invitation') ?>" class="btn btn-sm btn-warning px-2 mr-4">Kembali</a>
-				<a target="_blank" href="<?= base_url('wedding/runa-ratna') ?>" class="btn btn-sm btn-outline-primary px-2">
+				<a href="<?= base_url('wedding/runa-ratna') ?>" class="btn btn-sm btn-outline-primary px-2">
 					<i class="fas fa-eye mr-1"></i>
 					<span class="mb-1">Live Demo</span>
 				</a>

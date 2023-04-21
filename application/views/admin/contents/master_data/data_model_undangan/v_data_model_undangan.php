@@ -62,7 +62,7 @@
 						<h5 class="text-black mt-4">Model <?= $value['name'] ?></h5>
 						<p><?= $value['type'] ?> / <?= $value['category'] ?></p>
 						<div>
-							<a target="_blank" href="<?= base_url('demo?model=' . $value['view']) ?>" class="btn btn-sm btn-outline-info text-sm  px-2 mr-3">
+							<a href="<?= base_url('demo?model=' . $value['view']) ?>" class="btn btn-sm btn-outline-info text-sm  px-2 mr-3">
 								<i class="fas fa-eye mr-1"></i>
 								<span class="mb-1">Demo</span>
 							</a>

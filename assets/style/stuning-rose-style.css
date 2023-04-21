@@ -1,0 +1,2494 @@
+@font-face {
+	font-family: cinzel;
+	src: url("../fonts/cinzel-font/CinzelDecorative-Medium.otf");
+}
+
+@font-face {
+	font-family: playFairDisplay;
+	src: url("../fonts/play-fair-display/static/PlayfairDisplay-Regular.ttf");
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+}
+
+body {
+	background-image: url("../images/stunning-rose/bg-undangan.png");
+	overflow-x: hidden;
+	/*z-index: 1;*/
+}
+
+body::-webkit-scrollbar {
+	display: none;
+}
+
+.bingkai-isi-undangan {
+	font-family: playFairDisplay;
+	font-size: 14px;
+	color: #1c2d46;
+	width: 50%;
+	margin-inline: auto;
+	height: fit-content;
+	background-image: url("../images/stunning-rose/bg-isi-undangan.png");
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	border: 1px solid #838786;
+	border-radius: 0px;
+	box-shadow: 2px 4px 5px 3px rgba(0, 0, 0, 0.25);
+}
+
+/*section{
+	width: 100%;
+	font-family: montserrat-tiny;
+}*/
+
+/*------------------ Nav Menu ---------------*/
+.navigasi {
+	position: absolute;
+	width: 50%;
+	bottom: 50%;
+	height: fit-content;
+	display: none; /*none*/
+	justify-content: flex-end;
+	align-items: center;
+	z-index: 10;
+	background-color: blueviolet;
+}
+
+.nav-menu {
+	position: fixed;
+	width: fit-content;
+	height: fit-content;
+	margin-top: 0%;
+	margin-right: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 10px 10px 0px 10px;
+	background-color: #adafaa;
+	border-radius: 5px;
+	border: 1px solid #838786;
+}
+
+.nav-menu ul {
+	list-style-type: none;
+	/*border: 1px solid red;*/
+}
+
+.nav_link {
+	stroke: rgba(28, 45, 70, 0.5);
+}
+
+.nav_link svg {
+	width: 24px;
+	height: 24px;
+	margin-bottom: 10px;
+}
+
+.active-link {
+	position: relative;
+	stroke: white;
+	transition: 0.3s;
+}
+
+/*-- =================== Style Sampul ================== */
+.sampul {
+	width: 100%;
+	height: 100vh;
+	display: flex; /*flex*/
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	text-align: center;
+	/*border: 1px solid red;*/
+}
+
+.pengantar {
+	width: 100%;
+}
+
+.pengantar p {
+	font-family: "Cinzel";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 30px;
+	line-height: 34px;
+	background: linear-gradient(180deg, #838786 38.02%, #d1657e 77.08%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	text-fill-color: transparent;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.waktuAkad p {
+	font-style: normal;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 27px;
+}
+
+.mempelaii {
+	padding: 100px;
+	background-image: url("../images/stunning-rose/sampul/bingkai-mempelai.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: auto;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+}
+
+.mempelaii p:nth-child(1) {
+	font-style: normal;
+	font-weight: 500;
+	font-size: 25px;
+	line-height: 29px;
+	color: #838786;
+}
+
+.mempelaii p:nth-child(2) {
+	font-style: normal;
+	font-weight: 500;
+	font-size: 25px;
+	line-height: 29px;
+	background: linear-gradient(180deg, #838786 38.54%, #ca697f 71.35%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	text-fill-color: transparent;
+}
+
+.mempelaii p:nth-child(3) {
+	font-style: normal;
+	font-weight: 500;
+	font-size: 25px;
+	line-height: 29px;
+	color: #ca697f;
+}
+
+.tamu .isi {
+	width: 200px;
+	margin-inline: auto;
+	height: auto;
+	background-color: transparent;
+	border-radius: 15px;
+	border: 1px solid #a7a7a7;
+}
+
+.tamu .isi p {
+	padding: 5px 5px 5px 5px;
+	font-size: 14px;
+}
+
+.tamu .isi p:nth-child(3) {
+	padding: 5px 5px 5px 5px;
+	font-size: 14px;
+	font-weight: 600;
+	white-space: nowrap;
+}
+
+.ket {
+	padding: 5px;
+	font-size: 11px;
+	font-weight: 500;
+}
+
+.btn {
+	display: flex;
+	justify-content: center;
+	margin-top: 50px;
+	/*background-color: red;*/
+	width: 100%;
+}
+
+.btn .kupu2-sampul {
+	position: absolute;
+	margin-left: 170px;
+	margin-top: -35px;
+}
+
+.btn .kupu2-sampul-ap-mini {
+	display: none;
+}
+
+.btn a {
+	display: flex;
+	flex-direction: row;
+	width: 150px;
+	height: 35px;
+	cursor: pointer;
+	border: 1px solid #a7a7a7;
+	border-radius: 10px;
+	text-decoration: none;
+}
+
+.btn a p {
+	font-size: 14px;
+	font-weight: 500;
+	padding-top: 7px;
+	color: #1c2d46;
+}
+
+.btn a img {
+	width: 13px;
+	height: 15px;
+	stroke: #1c2d46;
+	margin: 9px 7px 20px 15px;
+}
+/*=================== END Style Sampul ================== */
+
+/*=================== Style LANDING Page(Cover) ================== */
+#cover {
+	height: 100vh;
+	width: 100%;
+	background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+		url("../navisa-racy/image/cover/heroCover.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	display: none; /*none*/
+	/*background-attachment: fixed;*/
+}
+
+.isi-cover {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	height: 100vh;
+	/*background-color: red;*/
+}
+
+.nSingkat {
+	text-align: center;
+	font-size: 36px;
+	font-weight: 400;
+	color: #ffffff;
+	/*border: 1px solid blue;*/
+}
+
+.contWa {
+	width: 100%;
+	height: auto;
+	padding-top: 80px;
+	/*border:1px solid yellowgreen;*/
+}
+
+.contWa .jud {
+	font-size: 16px;
+	color: #ffffff;
+	text-align: center;
+}
+
+.contWa .batas-cover {
+	margin-top: 5px;
+}
+
+.subjud {
+	display: flex;
+	justify-content: center;
+}
+
+.subjud ul {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding: 15px;
+	width: 320px;
+	font-family: playFairDisplay;
+	font-size: 14px;
+	color: #ffffff;
+	list-style-type: none;
+	/*border: 1px solid blueviolet;*/
+}
+
+.subjud ul li {
+	width: 50px;
+	height: fit-content;
+	padding: 5px;
+	border: 1px solid #ffffff;
+	border-radius: 5px;
+}
+
+.subjud ul li p {
+	text-align: center;
+	font-size: 14px;
+}
+
+.subjud ul li .hari,
+.jam,
+.menit,
+.detik {
+	font-size: 20px;
+	font-weight: 500;
+	text-align: center;
+}
+
+/*style gift & music*/
+.music-and-gift {
+	position: fixed;
+	bottom: 0%;
+	display: none; /*none*/
+	justify-content: flex-end;
+	align-items: flex-end;
+	flex-direction: column;
+	width: 50%;
+	height: fit-content;
+	z-index: 10;
+	/*background-color: red;*/
+}
+
+.gift {
+	z-index: 10;
+	margin-right: 10px;
+}
+
+.gift {
+	animation: jump-shaking 1.5s infinite;
+}
+
+@keyframes jump-shaking {
+	0% {
+		transform: translateX(0);
+	}
+	25% {
+		transform: translateY(-9px);
+	}
+	35% {
+		transform: translateY(-9px) rotate(17deg);
+	}
+	55% {
+		transform: translateY(-9px) rotate(-17deg);
+	}
+	65% {
+		transform: translateY(-9px) rotate(17deg);
+	}
+	75% {
+		transform: translateY(-9px) rotate(-17deg);
+	}
+	100% {
+		transform: translateY(0) rotate(0);
+	}
+}
+
+.gift img {
+	width: 40px;
+	width: 40px;
+	cursor: pointer;
+}
+
+.setmus {
+	z-index: 10;
+	margin-right: 10px;
+	margin-bottom: 50px;
+}
+
+.setmus img {
+	cursor: pointer;
+	width: 40px;
+	width: 40px;
+}
+/* -------- Modal Berikan Hadiah ---------*/
+.myModal {
+	display: none; /*none*/
+	position: fixed;
+	z-index: 50;
+	top: 0px;
+	width: 50%;
+	height: 100vh;
+	/*background-color: red;*/
+}
+
+.modal-content {
+	width: 400px;
+	height: auto;
+	margin-inline: auto;
+	margin-top: 4%;
+	color: white;
+	background-color: #ffffff;
+	border: 1px solid #838786;
+	border-radius: 10px;
+}
+
+.notf-copy {
+	background-color: #38b000;
+	border: 1px solid #ffffff;
+	border-radius: 8px;
+	position: fixed;
+	display: block;
+	transform: translateX(-50%);
+	top: 17%;
+	left: 50%;
+	position: fixed;
+	display: none;
+}
+
+.notf-copy #cSucces {
+	padding: 5px 10px;
+	color: white;
+	font-size: 12px;
+}
+
+.modal-content .judul {
+	/*background-color: red;*/
+}
+
+.modal-content .jd {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	font-weight: 500;
+	font-size: 22px;
+	text-align: center;
+	color: #1c2d46;
+}
+
+.modal-content .isi {
+	padding: 0px 30px 20px 30px;
+	text-align: center;
+	font-size: 14px;
+	color: #1c2d46;
+}
+
+.modal-content .card {
+	width: 385px;
+	max-height: 380px;
+	margin-inline: auto;
+	margin-bottom: 5px;
+	overflow: auto;
+	/*border: 1px solid #5E887C;*/
+}
+
+/*---------------Virtual Account----------------*/
+.modal-content .card .card-box {
+	font-size: 12px;
+	font-weight: 500;
+	color: #1c2d46;
+	border: 1px solid #a7a7a7;
+	border-radius: 10px;
+	width: 300px;
+	margin-inline: auto;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+
+.modal-content .card .card-box .va-image {
+	width: 60px;
+	height: 18px;
+	margin-left: 0px;
+	margin-bottom: 15px;
+}
+
+.card-box .no-va {
+	display: flex;
+	flex-direction: row;
+	padding-left: 3px;
+	margin-bottom: 5px;
+	letter-spacing: 2.5px;
+	background-color: #ffffff;
+	/*border: 1px solid blue;*/
+}
+
+.card-box .no-va .copy-va {
+	margin-left: 5px;
+	width: 12px;
+	cursor: pointer;
+}
+
+.recipient {
+	letter-spacing: 2px;
+	color: #1c2d46;
+	/*border: 1px solid red;*/
+}
+
+.barcode {
+	display: flex;
+	justify-content: center;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.barcode .barcode-isi {
+	width: 110px;
+	height: 110px;
+}
+
+.btn-saveQR {
+	display: flex;
+	justify-content: center;
+}
+
+.btn-saveQR .btn-saveQR_Code {
+	font-family: sans;
+	background-color: #adafaa;
+	border: none;
+	color: #ffffff;
+	width: 105px;
+	height: 22px;
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+.modal-content footer {
+	margin: auto;
+	border: 1px solid #adafaa;
+	border-radius: 5px;
+	width: 80px;
+	height: 30px;
+	margin-bottom: 15px;
+}
+
+.modal-content footer .in-close {
+	color: #1c2d46;
+	font-size: 40px;
+	font-weight: 400;
+	text-align: center;
+	margin-top: -13px;
+	cursor: pointer;
+}
+
+/*=============Style Landingpage (Mempelai)=============*/
+#mempelai {
+	display: none; /*none*/
+	width: 100%;
+	padding-top: 10px;
+	/*border: 1px solid red;*/
+}
+
+#mempelai .flower-mempelai {
+	position: absolute;
+	width: 50%;
+	margin-top: -10px;
+	display: flex;
+	justify-content: flex-end;
+	/*background-color: red;*/
+	z-index: 1;
+}
+
+#mempelai .flower-mempelai-ap-mini {
+	display: none;
+}
+
+#mempelai .isi {
+	width: 85%;
+	margin-inline: auto;
+	margin-top: 10px;
+	/*border: 1px solid green;*/
+}
+
+#mempelai .isi .bismillah {
+	display: flex;
+	justify-content: center;
+	height: fit-content;
+	margin-bottom: 20px;
+}
+
+#mempelai .isi .bismillah img {
+	width: 200px;
+}
+
+#mempelai .isi .pembuka {
+	/*border: 1px solid blue;*/
+}
+
+#mempelai .isi .pembuka p:nth-child(1) {
+	font-weight: 600;
+	text-align: center;
+	padding-bottom: 5px;
+}
+
+#mempelai .isi .pembuka p:nth-child(2) {
+	text-align: center;
+}
+
+#mempelai .isi .pempelai-pria {
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 22px;
+}
+
+#mempelai .isi .pempelai-pria p:nth-child(1) {
+	font-family: cinzel;
+	font-size: 22px;
+	font-weight: 600;
+	background: linear-gradient(180deg, #838786 38.02%, #d1657e 77.08%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	text-fill-color: transparent;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+#mempelai .isi .pempelai-pria a img {
+	width: 25px;
+}
+
+#mempelai .isi .dengan {
+	text-align: center;
+	font-weight: bold;
+}
+
+#mempelai .isi .dengan p {
+	font-weight: 600;
+}
+
+#mempelai .isi .pempelai-wanita {
+	text-align: center;
+	margin-top: 20px;
+}
+
+#mempelai .isi .pempelai-wanita p:nth-child(1) {
+	font-family: cinzel;
+	font-size: 22px;
+	font-weight: 600;
+	background: linear-gradient(180deg, #838786 38.02%, #d1657e 77.08%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	text-fill-color: transparent;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+#mempelai .isi .pempelai-wanita a img {
+	width: 22px;
+}
+
+#mempelai .isi .pempelai-wanita .penutup {
+	text-align: center;
+	padding-top: 5px;
+	padding-bottom: 10px;
+}
+
+#mempelai .flower-mempelai-bawah {
+	display: flex;
+	justify-content: center;
+	/*background-color: red;*/
+	z-index: 1;
+}
+
+#mempelai .flower-mempelai-bawah-ap-mini {
+	display: none;
+}
+/*=================== END Style Landingpage (Mempelai)================*/
+
+/*=============Style Landingpage (Waktu)=============*/
+#waktu {
+	display: none; /*none*/
+	width: 100%;
+	/*border: 1px solid saddlebrown;*/
+}
+
+#waktu .isi {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	width: 85%;
+	margin-inline: auto;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	/*border: 1px solid red;*/
+}
+
+#waktu .isi .bing-atas-waktu {
+	/*border: 1px solid gold;*/
+	margin-top: 15px;
+}
+
+.bing-atas-waktu img {
+	width: 100%;
+}
+
+#waktu .isi .bing-atas-waktu-to-mobile {
+	display: none;
+}
+
+/*--- Waktu Tasyakuran----*/
+#waktu .isi .tasyakuran {
+	width: 85%;
+	height: fit-content;
+	padding: 10px 10px 10px 10px;
+	margin-inline: auto;
+	text-align: center;
+	/*margin-bottom: 30px;*/
+	/*border: 1px solid #1C2D46;*/
+}
+
+.tasyakuran .judul {
+	font-weight: 600;
+	font-size: 16px;
+}
+
+.tasyakuran .batas-tasyakuran {
+	margin-top: 5px;
+}
+
+.tasyakuran .tgl {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+/*--- Waktu Akad Nikah----*/
+#waktu .isi .akad {
+	width: 85%;
+	height: fit-content;
+	padding: 10px 10px 10px 10px;
+	margin-inline: auto;
+	text-align: center;
+	/*margin-bottom: 30px;*/
+	/*border: 1px solid #1C2D46;*/
+}
+
+.akad .judul {
+	font-weight: 600;
+	font-size: 16px;
+}
+
+.akad .batas-akad {
+	margin-top: 5px;
+}
+
+.akad .tgl {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.akad .jaam {
+	padding-bottom: 5px;
+}
+
+.akad .almt {
+	padding-bottom: 25px;
+}
+
+.akad .btn-map .kupu2-btn-akad {
+	position: absolute;
+	margin-left: 50px;
+	margin-top: -25px;
+}
+
+.akad .btn-map .kupu2-btn-akad-ap-mini {
+	display: none;
+}
+
+.akad .btn-map a {
+	display: flex;
+	flex-direction: row;
+	width: fit-content;
+	height: fit-content;
+	padding: 6px;
+	border: 1px solid #a7a7a7;
+	border-radius: 5px;
+	margin-inline: auto;
+	color: #1c2d46;
+	text-decoration: none;
+}
+
+.akad .btn-map a svg {
+	margin-right: 5px;
+	margin-top: 2px;
+	width: 17px;
+}
+
+/*--- Waktu Resepsi----*/
+#waktu .isi .resepsi {
+	width: 85%;
+	height: fit-content;
+	padding: 10px 10px 10px 10px;
+	margin-inline: auto;
+	text-align: center;
+	/*margin-bottom: 30px;*/
+	/*border: 1px solid #1C2D46;*/
+}
+
+.resepsi .judul {
+	font-weight: 600;
+	font-size: 16px;
+}
+
+.resepsi .batas-resepsi {
+	margin-top: 5px;
+}
+
+.resepsi .tgl {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.resepsi .jaam {
+	padding-bottom: 5px;
+}
+
+.resepsi .almt {
+	padding-bottom: 25px;
+}
+
+.resepsi .btn-map .kupu2-btn-resepsi {
+	position: absolute;
+	margin-left: 50px;
+	margin-top: -25px;
+}
+
+.resepsi .btn-map .kupu2-btn-resepsi-ap-mini {
+	display: none;
+}
+
+.resepsi .btn-map a {
+	display: flex;
+	flex-direction: row;
+	width: fit-content;
+	height: fit-content;
+	padding: 6px;
+	border: 1px solid #a7a7a7;
+	border-radius: 5px;
+	margin-inline: auto;
+	color: #1c2d46;
+	text-decoration: none;
+}
+
+.resepsi .btn-map a svg {
+	margin-right: 5px;
+	margin-top: 2px;
+	width: 17px;
+}
+/*-----resepsi end-----*/
+
+#waktu .isi .bing-bawah-waktu {
+	/*border: 1px solid gold;*/
+	margin-top: 0px;
+}
+
+.bing-bawah-waktu img {
+	width: 100%;
+}
+
+#waktu .isi .bing-bawah-waktu-to-mobile {
+	display: none;
+}
+
+/*-----waktu penutup -----*/
+#waktu .isi .penutup {
+	width: 100%;
+	margin-top: 5px;
+	/*border: 1px solid red;*/
+}
+
+.penutup p:nth-child(1) {
+	padding-bottom: 5px;
+	width: fit-content;
+	text-align: center;
+	color: #1c2d46;
+}
+
+#waktu .penutup p:nth-child(2) {
+	font-weight: 600;
+	margin-inline: auto;
+	padding-bottom: 20px;
+	width: fit-content;
+	color: #1c2d46;
+}
+/*=================== END Style Landingpage (Waktu)================*/
+
+/*=================== Style Landingpage (Gallery)================*/
+#galery {
+	display: none; /*none*/
+	width: 100%;
+	position: relative;
+	margin-top: 10px;
+	/*border: 1px solid blue;*/
+}
+
+#galery .header-gallery {
+	text-align: center;
+	margin-top: 0px;
+	margin-bottom: 15px;
+	/*background-color: red;*/
+}
+
+.header-gallery p {
+	font-family: cinzel;
+	font-size: 20px;
+	font-weight: 600;
+	background: linear-gradient(180deg, #838786 38.02%, #d1657e 77.08%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	text-fill-color: transparent;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+#galery .contain {
+	width: 85%;
+	height: fit-content;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: auto;
+	margin-bottom: 20px;
+	padding: 0px 0px 0px 0px;
+	/* border: 1px solid #1C2D46;*/
+}
+
+#galery .contain .gallery-img {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	grid-gap: 20px;
+	/*background-color: blue;*/
+}
+
+.gallery-img img {
+	width: 100%;
+	border-radius: 10px;
+	border: 1.5px solid #838786;
+	filter: drop-shadow(0px 10px 10px #adafaa);
+}
+
+#galery .flower-gallery-bawah {
+	display: flex;
+	justify-content: center;
+	z-index: 1;
+	/*background-color: red;*/
+}
+
+#galery .flower-gallery-bawah-ap-mini {
+	display: none;
+}
+/*=================== End Style Landingpage (Gallery)================*/
+
+/*=============Style Landingpage (Pesan)=============*/
+#pesan {
+	display: none; /*none*/
+	height: fit-content;
+	justify-content: center;
+	flex-direction: row;
+	flex-wrap: wrap;
+	/*border: 3px solid red;*/
+}
+
+#pesan .pesan-bahagia {
+	margin: 15px 0px 0px 0px;
+	height: fit-content;
+	width: 85%;
+	/*border: 1.5px solid #71A8CA;*/
+	border-radius: 3px 0px 0px 3px;
+}
+
+#pesan .header-pesan {
+	text-align: center;
+	margin-top: 0px;
+	margin-bottom: 15px;
+	/*background-color: red;*/
+}
+
+.header-pesan p {
+	font-family: cinzel;
+	font-size: 20px;
+	font-weight: 600;
+	background: linear-gradient(180deg, #838786 38.02%, #d1657e 77.08%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	text-fill-color: transparent;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.pesan-bahagia .inp-pesan {
+	padding: 0px 0px 10px 0px;
+	/*border: 1px solid blue;*/
+}
+
+.pesan-bahagia .inp-pesan p {
+	padding-top: 15px;
+	padding-bottom: 15px;
+	font-size: 16px;
+	font-weight: 600;
+}
+
+.pesan-bahagia .inp-pesan textarea {
+	width: 100%;
+	border-radius: 2px;
+	resize: none;
+	font-family: playFairDisplay;
+	font-size: 14px;
+	padding: 7px 0px 0px 7px;
+	background: none;
+	border: 1px solid #a7a7a7;
+}
+
+/*Konfirmasi Kehadiran*/
+.pesan-bahagia .confirm-kehadiran {
+	display: flex;
+	flex-direction: row;
+	height: fit-content;
+	padding-left: 0px;
+	margin-bottom: 15px;
+	/*border: 1px solid red;*/
+}
+
+.confirm-kehadiran .contain {
+	display: inline-block;
+	cursor: pointer;
+	width: fit-content;
+	margin-left: 0px;
+	height: fit-content;
+	/*border: 1px solid yellow;*/
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+/*Menyembunyikan default radio button*/
+.confirm-kehadiran .contain input {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+}
+
+/*Membuat custome radio button*/
+.confirm-kehadiran .checkmark {
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	border-radius: 30%;
+	border: 1px solid #a7a7a7;
+}
+
+.confirm-kehadiran .checkmark2 {
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	margin-left: 10px;
+	border-radius: 30%;
+	border: 1px solid #a7a7a7;
+}
+
+.confirm-kehadiran .checkmark3 {
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	margin-left: 10px;
+	border-radius: 30%;
+	border: 1px solid #a7a7a7;
+}
+
+/*ketika mouse lewat pada radio,*/
+.contain:hover input ~ .check {
+	background-color: none;
+}
+
+/*ketika radio dipilih,maka background akan berubah*/
+.confirm-kehadiran input:checked ~ .checkmark {
+	background-color: #5e887c;
+}
+
+.confirm-kehadiran input:checked ~ .checkmark2 {
+	background-color: #bb2222;
+}
+
+.confirm-kehadiran input:checked ~ .checkmark3 {
+	background-color: #daa520;
+}
+/* End Konfirmasi Kehadiran*/
+
+.btn-kirim {
+	padding: 10px 29px 15px 0px;
+}
+
+.btn-kirim .btn-km {
+	padding: 8px 15px 8px 15px;
+	width: fit-content;
+	color: #1c2d46;
+	background-color: transparent;
+	border: 1px solid #a7a7a7;
+	border-radius: 5px;
+	font-family: playFairDisplay;
+	font-size: 14px;
+	cursor: pointer;
+}
+
+.btn-kirim p {
+	margin-top: 20px;
+	font-size: 16px;
+	font-weight: 600;
+}
+
+.isi-pesan {
+	overflow: auto;
+	margin-inline: auto;
+	margin-bottom: 0px;
+	height: 290px;
+	/*border: 1px solid blue;*/
+}
+
+table {
+	width: 100%;
+	/*background-color: yellow;*/
+}
+table .avatar-nama-hadir {
+	width: 40px;
+	height: 40px;
+	margin-right: 15px;
+	background-color: #5e887c;
+	border-radius: 100%;
+	border: 1px solid #e8eef3;
+}
+
+table .avatar-nama-tdkHadir {
+	width: 40px;
+	height: 40px;
+	margin-right: 15px;
+	background-color: #bb2222;
+	border-radius: 100%;
+	border: 1px solid #e8eef3;
+}
+
+table .avatar-nama-blmTahu {
+	width: 40px;
+	height: 40px;
+	margin-right: 15px;
+	background-color: #daa520;
+	border-radius: 100%;
+	border: 1px solid #e8eef3;
+}
+
+.avtr p {
+	font-size: 18px;
+	color: #ffffff;
+	font-weight: 500;
+	margin-top: 6px;
+	text-align: center;
+}
+
+table .nama {
+	font-weight: 600;
+}
+
+table .tgl-kirim {
+	font-size: 12px;
+}
+
+table .ucapan {
+	padding-top: 2px;
+	font-size: 14px;
+	margin-bottom: 10px;
+}
+
+hr {
+	margin-bottom: 10px;
+	color: #a7a7a7;
+}
+/* Batas Hal Pesan  Bahagia */
+
+#pesan .akhir {
+	margin: 0px 0px 0px 0px;
+	height: fit-content;
+	width: 85%;
+	color: #1a262d;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	/*border: 1px solid red;*/
+}
+
+.akhir .header {
+	padding: 50px 60px 60px 50px;
+	background-image: url("../images/stunning-rose/pesan/corak-penutup.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	width: fit-content;
+	height: fit-content;
+	/*border: 1px solid red;*/
+}
+
+.akhir .header .hurufDepan-mempelai {
+	width: 550px;
+	text-align: center;
+	font-family: Cinzel;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 50px;
+	line-height: 67px;
+	letter-spacing: 0.02em;
+	background: linear-gradient(180deg, #838786 34.9%, #d8627d 69.27%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	text-fill-color: transparent;
+	/*border: 1px solid red;*/
+}
+
+.akhir .header .trm {
+	font-size: 18px;
+	font-weight: 500;
+	/*border: 1px solid yellow;*/
+}
+
+/*============= End Style Landingpage (Pesan)=============*/
+
+/*-------------FOOTER--------------*/
+.footer {
+	width: 100vw;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	margin-top: 5px;
+	background-color: transparent;
+}
+
+.footer .isi-foo {
+	width: 30%;
+	margin-inline: auto;
+	/*background-color: red;*/
+}
+
+.isi-foo .logo-ms {
+	width: 120px;
+}
+
+.footer .kontak {
+	display: flex;
+	justify-content: flex-end;
+	width: 30%;
+	margin-inline: auto;
+	/*border: 1px solid yellow;*/
+}
+
+.kontak .wa {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin-right: 15px;
+}
+
+.kontak .wa img {
+	width: 20px;
+	margin-right: 5px;
+}
+
+.kontak .wa p {
+	color: #1a262d;
+	font-size: 14px;
+}
+
+.kontak .ig {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.kontak .ig img {
+	width: 20px;
+	margin-right: 5px;
+}
+
+.kontak .ig p {
+	color: #1a262d;
+	font-size: 14px;
+}
+/*------------- End Footer--------------*/
+
+/*=======Tablet & Ipad =======*/
+@media screen and (min-width: 481px) and (max-width: 1021px) {
+	.bingkai-isi-undangan {
+		font-family: playFairDisplay;
+		font-size: 14px;
+		width: 100%;
+	}
+
+	.navigasi {
+		width: 100%;
+		bottom: 50%;
+	}
+
+	.music-and-gift {
+		bottom: 0%;
+		width: 100%;
+	}
+
+	.myModal {
+		width: 100%;
+	}
+
+	.modal-content {
+		margin-top: 10%;
+	}
+
+	#mempelai .flower-mempelai {
+		width: 100%;
+	}
+
+	#galery .contain .gallery-img {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+		grid-gap: 15px;
+		/*background-color: blue;*/
+	}
+
+	.akhir .header .hurufDepan-mempelai {
+		width: 200px;
+	}
+}
+
+/*=======RESPONSIVE FOR APPLE SMARTPHONE & ANDROID SMARTPHONE=======*/
+@media screen and (min-width: 360px) and (max-width: 480px) {
+	.bingkai-isi-undangan {
+		font-family: playFairDisplay;
+		font-size: 13px;
+		width: 100%;
+	}
+
+	/*----- Sampul ----- */
+	.sampul {
+		width: 100%;
+		height: 100vh;
+	}
+
+	.pengantar p {
+		font-family: "Cinzel";
+		font-size: 28px;
+	}
+
+	.waktuAkad p {
+		font-style: normal;
+		font-weight: 500;
+		font-size: 16px;
+	}
+
+	.mempelaii {
+		padding: 100px;
+		background-image: url("../images/stunning-rose/sampul/bingkai-mempelai-android.png");
+	}
+
+	.mempelaii p:nth-child(1) {
+		font-size: 22px;
+	}
+
+	.mempelaii p:nth-child(2) {
+		font-size: 22px;
+	}
+
+	.mempelaii p:nth-child(3) {
+		font-size: 22px;
+	}
+
+	.tamu .isi {
+		width: 200px;
+	}
+
+	.tamu .isi p {
+		padding: 5px 5px 5px 5px;
+		font-size: 13px;
+	}
+
+	.tamu .isi p:nth-child(3) {
+		padding: 5px 5px 5px 5px;
+		font-size: 13px;
+	}
+
+	.ket {
+		padding: 5px;
+		font-size: 11px;
+	}
+
+	.btn .kupu2-sampul {
+		position: absolute;
+		margin-left: 170px;
+		margin-top: -35px;
+	}
+
+	.btn a {
+		width: 140px;
+		height: 35px;
+	}
+
+	.btn a p {
+		font-size: 13px;
+		padding-top: 7px;
+	}
+
+	.btn a img {
+		width: 13px;
+		height: 15px;
+		margin: 9px 7px 20px 15px;
+	}
+	/* ---------END Style Sampul -------- */
+
+	/*---------- Nav Menu --------*/
+	.navigasi {
+		width: 100%;
+		bottom: 0px;
+		height: fit-content;
+		display: none; /*none*/
+		justify-content: flex-start;
+		align-items: flex-end;
+		z-index: 10;
+		/*background-color: blueviolet;*/
+		position: fixed;
+	}
+
+	.nav-menu {
+		position: relative;
+		width: 100%;
+		height: fit-content;
+		margin-top: 0%;
+		margin-right: 0px;
+		display: block;
+		padding: 10px 10px 0px 10px;
+		border-radius: 0px;
+		border: 1px 0px 0px 0px solid #838786;
+	}
+
+	.nav-menu ul {
+		display: flex;
+		justify-content: space-around;
+		flex-direction: row;
+		list-style-type: none;
+		/*border: 1px solid red;*/
+	}
+
+	ul .in-waktu {
+		width: 50px;
+		height: 50px;
+		margin-top: -30px;
+		border-radius: 100%;
+		background: linear-gradient(
+			180deg,
+			#e89db3 10.42%,
+			#e699ae 47.4%,
+			#d06d81 100%
+		);
+		border: 1px solid #ffffff;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.in-waktu a svg {
+		margin-top: 10px;
+		stroke: #fff;
+	}
+
+	.nav_link {
+		stroke: rgba(28, 45, 70, 0.5);
+	}
+
+	.nav_link svg {
+		width: 26px;
+		height: 26px;
+		margin-bottom: 10px;
+	}
+
+	.active-link {
+		position: relative;
+		stroke: #1c2d46;
+		transition: 0.3s;
+	}
+
+	/*----gift & music----*/
+	.music-and-gift {
+		right: 5px;
+		bottom: 7%;
+		width: fit-content;
+		/*background-color: red;*/
+	}
+
+	.gift {
+		margin-right: 10px;
+	}
+
+	.gift img {
+		width: 35px;
+		width: 35px;
+	}
+
+	.setmus {
+		margin-right: 10px;
+		margin-bottom: 50px;
+	}
+
+	.setmus img {
+		width: 35px;
+		width: 35px;
+	}
+
+	/* -------- Modal Berikan Hadiah ---------*/
+	.myModal {
+		width: 100%;
+	}
+
+	.modal-content {
+		width: 330px;
+		margin-top: 50px;
+	}
+
+	.modal-content .jd {
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+
+	.modal-content .isi {
+		padding: 0px 25px 20px 25px;
+		font-size: 13px;
+	}
+
+	.modal-content .card {
+		width: 270px;
+		max-height: 380px;
+		/*border: 1px solid #5E887C;*/
+	}
+
+	/*---------------Virtual Account----------------*/
+	.modal-content .card .card-box {
+		font-size: 13px;
+		width: 260px;
+		margin-bottom: 15px;
+	}
+
+	.modal-content footer {
+		width: 60px;
+	}
+
+	.modal-content footer .in-close {
+		font-size: 35px;
+	}
+
+	/*------ LANDING Page(Cover) ------ */
+	.nSingkat {
+		font-size: 30px;
+	}
+
+	.subjud ul {
+		width: 280px;
+		font-size: 12px;
+	}
+
+	/*-------Style Landingpage (Mempelai)-----*/
+	#mempelai .flower-mempelai {
+		position: absolute;
+		width: 100%;
+		margin-top: -10px;
+		display: flex;
+		justify-content: flex-end;
+		/*background-color: red;*/
+		z-index: 1;
+	}
+
+	#mempelai .isi .bismillah img {
+		width: 180px;
+	}
+
+	#mempelai .isi .pempelai-pria {
+		text-align: center;
+		margin-top: 20px;
+		margin-bottom: 22px;
+	}
+
+	#mempelai .isi .pempelai-pria p:nth-child(1) {
+		font-family: cinzel;
+		font-size: 18px;
+	}
+
+	#mempelai .isi .pempelai-pria a img {
+		width: 20px;
+	}
+
+	#mempelai .isi .pempelai-wanita p:nth-child(1) {
+		font-family: cinzel;
+		font-size: 18px;
+	}
+
+	#mempelai .isi .pempelai-wanita a img {
+		width: 20px;
+	}
+
+	#mempelai .flower-mempelai-bawah {
+		display: flex;
+		justify-content: center;
+		/*background-color: red;*/
+		z-index: 1;
+	}
+
+	/*------- Landingpage (Waktu)--------*/
+	#waktu .isi .bing-atas-waktu {
+		display: none;
+	}
+
+	#waktu .isi .bing-atas-waktu-to-mobile {
+		/*border: 1px solid gold;*/
+		display: block;
+		margin-top: 5px;
+		display: flex;
+		justify-content: center;
+	}
+
+	.bing-atas-waktu-to-mobile img {
+		width: 85%;
+	}
+
+	#waktu .isi .bing-bawah-waktu {
+		/*border: 1px solid gold;*/
+		margin-top: 0px;
+		display: none;
+	}
+
+	#waktu .isi .bing-bawah-waktu-to-mobile {
+		display: block;
+		margin-top: 0px;
+		display: flex;
+		justify-content: center;
+	}
+
+	.bing-bawah-waktu-to-mobile img {
+		width: 85%;
+	}
+
+	/*-----waktu penutup -----*/
+	#waktu .penutup {
+		width: 85%;
+		margin-top: 5px;
+		text-align: center;
+		/*border: 1px solid red;*/
+	}
+
+	#waktu .penutup p:nth-child(1) {
+		margin-inline: auto;
+		color: #1c2d46;
+	}
+
+	#waktu .penutup p:nth-child(2) {
+		margin-inline: auto;
+		color: #1c2d46;
+	}
+
+	/*--------Landingpage (Gallery)--------*/
+	.header-gallery p {
+		font-family: cinzel;
+		font-size: 20px;
+	}
+
+	#galery .contain {
+		margin-bottom: 20px;
+		padding: 0px 0px 0px 0px;
+	}
+
+	#galery .contain .gallery-img {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+		grid-gap: 15px;
+		/*background-color: blue;*/
+	}
+
+	.gallery-img img {
+		border-radius: 5px;
+	}
+
+	#galery .flower-gallery-bawah {
+		display: flex;
+		justify-content: center;
+		z-index: 1;
+		/*background-color: red;*/
+	}
+
+	/*------Style Landingpage (Pesan)-------*/
+	#pesan .header-pesan {
+		margin-bottom: 15px;
+		/*background-color: red;*/
+	}
+
+	.header-pesan p {
+		font-size: 20px;
+	}
+
+	.pesan-bahagia .inp-pesan {
+		padding: 0px 0px 10px 0px;
+		/*border: 1px solid blue;*/
+	}
+
+	.pesan-bahagia .inp-pesan p {
+		padding-top: 0px;
+		padding-bottom: 15px;
+		font-size: 15px;
+	}
+
+	.pesan-bahagia .inp-pesan textarea {
+		font-size: 13px;
+	}
+
+	.btn-kirim .btn-km {
+		padding: 5px 13px 6px 13px;
+		font-size: 13px;
+	}
+
+	.btn-kirim p {
+		font-size: 15px;
+	}
+
+	table .nama {
+		font-weight: 600;
+		font-size: 13;
+	}
+
+	table .tgl-kirim {
+		font-size: 11px;
+	}
+
+	table .ucapan {
+		padding-top: 2px;
+		font-size: 13px;
+		margin-bottom: 10px;
+	}
+	/* Batas Hal Pesan  Bahagia */
+
+	.akhir .header {
+		padding: 50px 80px 50px 80px;
+		background-image: url("../images/stunning-rose/pesan/corak-penutup-android.png");
+		/*border: 1px solid red;*/
+	}
+
+	.akhir .header .hurufDepan-mempelai {
+		padding: 0px 10px 0px 0px;
+		width: fit-content;
+		font-size: 45px;
+		/*border: 1px solid red;*/
+	}
+
+	.akhir .header .trm {
+		font-size: 16px;
+		/*border: 1px solid yellow;*/
+	}
+	/*-----End Style Landingpage (Pesan)------*/
+
+	/*-------------FOOTER--------------*/
+	.footer {
+		width: 100%;
+		height: 50px;
+		display: flex;
+		align-items: center;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		margin-top: 0px;
+		margin-bottom: 65px;
+		background-color: transparent;
+		/*border: 1px solid red;*/
+	}
+
+	.footer .isi-foo {
+		width: 35%;
+		margin-inline: auto;
+		/*background-color: red;*/
+	}
+
+	.isi-foo .logo-ms {
+		width: 120px;
+	}
+
+	.footer .kontak {
+		display: flex;
+		justify-content: flex-end;
+		flex-direction: column;
+		width: 37%;
+		margin-inline: auto;
+		/*border: 1px solid yellow;*/
+	}
+
+	.kontak .wa {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		margin-right: 15px;
+		margin-bottom: 5px;
+	}
+
+	.kontak .wa img {
+		width: 18px;
+		margin-right: 5px;
+	}
+
+	.kontak .wa p {
+		color: #1a262d;
+		font-size: 13px;
+	}
+
+	.kontak .ig {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+	}
+
+	.kontak .ig img {
+		width: 18px;
+		margin-right: 5px;
+	}
+
+	.kontak .ig p {
+		color: #1a262d;
+		font-size: 13px;
+	}
+}
+
+/*=======RESPONSIVE FOR APPLE SMARTPHONE MINI=======*/
+@media screen and (min-width: 320px) and (max-width: 359px) {
+	.bingkai-isi-undangan {
+		font-family: playFairDisplay;
+		font-size: 12px;
+		width: 100%;
+	}
+
+	/*----- Sampul ----- */
+	.sampul {
+		width: 100%;
+		height: 100vh;
+	}
+
+	.pengantar {
+		width: 100%;
+	}
+
+	.pengantar p {
+		font-size: 22px;
+		line-height: 30px;
+	}
+
+	.waktuAkad p {
+		font-size: 15px;
+	}
+
+	.mempelaii {
+		padding: 50px 100px 60px 100px;
+		background-image: url("../images/stunning-rose/sampul/bingkai-mempelai-apple-mini.png");
+	}
+
+	.mempelaii p:nth-child(1) {
+		font-size: 20px;
+	}
+
+	.mempelaii p:nth-child(2) {
+		font-size: 20px;
+	}
+
+	.mempelaii p:nth-child(3) {
+		font-size: 20px;
+	}
+
+	.tamu .isi {
+		width: 150px;
+		border-radius: 10px;
+	}
+
+	.tamu .isi p {
+		font-size: 12px;
+	}
+
+	.tamu .isi p:nth-child(3) {
+		font-size: 12px;
+	}
+
+	.ket {
+		font-size: 10px;
+	}
+
+	.btn {
+		margin-top: 20px;
+	}
+
+	.btn .kupu2-sampul {
+		display: none;
+	}
+
+	.btn .kupu2-sampul-ap-mini {
+		display: block;
+		position: absolute;
+		margin-left: 150px;
+		margin-top: -18px;
+	}
+
+	.btn a {
+		width: 130px;
+		height: 35px;
+	}
+
+	.btn a p {
+		font-size: 12px;
+	}
+
+	.btn a img {
+		width: 12px;
+		height: 14px;
+	}
+	/* ---------END Style Sampul -------- */
+
+	/*---------- Nav Menu --------*/
+	.navigasi {
+		width: 100%;
+		bottom: 0px;
+		height: fit-content;
+		display: none; /*none*/
+		justify-content: flex-end;
+		align-items: flex-end;
+		z-index: 10;
+		/*background-color: blueviolet;*/
+		position: fixed;
+	}
+
+	.nav-menu {
+		position: relative;
+		width: 100%;
+		height: fit-content;
+		margin-top: 0%;
+		margin-right: 0px;
+		display: block;
+		padding: 10px 10px 0px 10px;
+		border-radius: 0px;
+		border: 1px 0px 0px 0px solid #838786;
+	}
+
+	.nav-menu ul {
+		display: flex;
+		justify-content: space-around;
+		flex-direction: row;
+		list-style-type: none;
+		/*border: 1px solid red;*/
+	}
+
+	ul .in-waktu {
+		width: 50px;
+		height: 50px;
+		margin-top: -30px;
+		border-radius: 100%;
+		background: linear-gradient(
+			180deg,
+			#e89db3 10.42%,
+			#e699ae 47.4%,
+			#d06d81 100%
+		);
+		border: 1px solid #ffffff;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.in-waktu a svg {
+		margin-top: 10px;
+		stroke: #fff;
+	}
+
+	.nav_link {
+		stroke: rgba(28, 45, 70, 0.5);
+	}
+
+	.nav_link svg {
+		width: 23px;
+		height: 23px;
+		margin-bottom: 10px;
+	}
+
+	.active-link {
+		position: relative;
+		stroke: #1c2d46;
+		transition: 0.3s;
+	}
+
+	/*----gift & music----*/
+	.music-and-gift {
+		right: 5px;
+		bottom: 7%;
+		width: fit-content;
+		/*background-color: red;*/
+	}
+
+	.gift {
+		margin-right: 5px;
+	}
+
+	.gift img {
+		width: 35px;
+		width: 35px;
+	}
+
+	.setmus {
+		margin-right: 5px;
+		margin-bottom: 50px;
+	}
+
+	.setmus img {
+		width: 35px;
+		width: 35px;
+	}
+
+	/* -------- Modal Berikan Hadiah ---------*/
+	.myModal {
+		width: 100%;
+	}
+
+	.modal-content {
+		width: 280px;
+		margin-top: 20px;
+	}
+
+	.modal-content .jd {
+		padding-top: 10px;
+		padding-bottom: 10px;
+		font-size: 18px;
+	}
+
+	.modal-content .isi {
+		padding: 0px 25px 20px 25px;
+		font-size: 12px;
+	}
+
+	.modal-content .card {
+		width: 250px;
+		max-height: 240px;
+		/*border: 1px solid #5E887C;*/
+	}
+
+	/*---------------Virtual Account----------------*/
+	.modal-content .card .card-box {
+		font-size: 12px;
+		width: 220px;
+		margin-bottom: 10px;
+	}
+
+	.modal-content footer {
+		width: 60px;
+	}
+
+	.modal-content footer .in-close {
+		font-size: 35px;
+	}
+
+	/*------ LANDING Page(Cover) ------ */
+	.nSingkat {
+		font-size: 28px;
+		margin-bottom: 30px;
+	}
+
+	.contWa {
+		width: 100%;
+		height: auto;
+		padding-top: 0px;
+		/*border:1px solid yellowgreen;*/
+	}
+
+	.contWa .jud {
+		font-size: 14px;
+	}
+
+	.contWa .batas-cover {
+		margin-top: 5px;
+	}
+
+	.subjud ul {
+		width: 280px;
+		font-size: 12px;
+	}
+
+	.subjud ul li p {
+		font-size: 12px;
+	}
+
+	.subjud ul li .hari,
+	.jam,
+	.menit,
+	.detik {
+		font-size: 18px;
+	}
+
+	/*-------Style Landingpage (Mempelai)-----*/
+	#mempelai .flower-mempelai {
+		display: none;
+	}
+
+	#mempelai .flower-mempelai-ap-mini {
+		position: absolute;
+		width: 100%;
+		margin-top: -10px;
+		display: flex;
+		justify-content: flex-end;
+		/*background-color: red;*/
+		z-index: 1;
+	}
+
+	#mempelai .isi .bismillah {
+		margin-bottom: 10px;
+	}
+
+	#mempelai .isi .bismillah img {
+		width: 150px;
+	}
+
+	#mempelai .isi .pempelai-pria {
+		text-align: center;
+		margin-top: 15px;
+		margin-bottom: 10px;
+	}
+
+	#mempelai .isi .pempelai-pria p:nth-child(1) {
+		font-family: cinzel;
+		font-size: 16px;
+	}
+
+	#mempelai .isi .pempelai-pria a img {
+		width: 18px;
+	}
+
+	#mempelai .isi .pempelai-wanita {
+		margin-top: 10px;
+	}
+
+	#mempelai .isi .pempelai-wanita p:nth-child(1) {
+		font-family: cinzel;
+		font-size: 16px;
+	}
+
+	#mempelai .isi .pempelai-wanita a img {
+		width: 18px;
+	}
+
+	#mempelai .flower-mempelai-bawah {
+		display: none;
+	}
+
+	#mempelai .flower-mempelai-bawah-ap-mini {
+		display: flex;
+		justify-content: center;
+		/*background-color: red;*/
+		z-index: 1;
+	}
+
+	/*------- Landingpage (Waktu)--------*/
+	#waktu .isi .bing-atas-waktu {
+		display: none;
+	}
+
+	#waktu .isi .bing-atas-waktu-to-mobile {
+		/*border: 1px solid gold;*/
+		display: block;
+		margin-top: 5px;
+		display: flex;
+		justify-content: center;
+	}
+
+	.bing-atas-waktu-to-mobile img {
+		width: 85%;
+	}
+
+	/*--- Waktu Tasyakuran----*/
+	#waktu .isi .tasyakuran {
+		padding: 0px 10px 10px 10px;
+	}
+
+	.tasyakuran .judul {
+		font-size: 14px;
+	}
+
+	/*--- Waktu Akad Nikah----*/
+	#waktu .isi .akad {
+		padding: 10px 10px 0px 10px;
+	}
+
+	.akad .judul {
+		font-size: 14px;
+	}
+
+	.akad .btn-map .kupu2-btn-akad {
+		display: none;
+	}
+
+	.akad .btn-map .kupu2-btn-akad-ap-mini {
+		display: block;
+		position: absolute;
+		margin-left: 150px;
+		margin-top: -18px;
+	}
+
+	.akad .btn-map a svg {
+		width: 15px;
+	}
+
+	/*--- Waktu Resepsi----*/
+	#waktu .isi .resepsi {
+		padding: 15px 10px 0px 10px;
+	}
+
+	.resepsi .judul {
+		font-size: 14px;
+	}
+
+	.resepsi .btn-map .kupu2-btn-resepsi {
+		display: none;
+	}
+
+	.resepsi .btn-map .kupu2-btn-resepsi-ap-mini {
+		display: block;
+		position: absolute;
+		margin-left: 150px;
+		margin-top: -18px;
+	}
+
+	.resepsi .btn-map a svg {
+		width: 15px;
+	}
+	/*-----resepsi end-----*/
+
+	#waktu .isi .bing-bawah-waktu {
+		/*border: 1px solid gold;*/
+		margin-top: 0px;
+		display: none;
+	}
+
+	#waktu .isi .bing-bawah-waktu-to-mobile {
+		display: block;
+		margin-top: 0px;
+		display: flex;
+		justify-content: center;
+	}
+
+	.bing-bawah-waktu-to-mobile img {
+		width: 85%;
+	}
+
+	/*-----waktu penutup -----*/
+	#waktu .penutup {
+		width: 100%;
+		margin-top: 5px;
+		text-align: center;
+		/*border: 1px solid red;*/
+	}
+
+	#waktu .penutup p:nth-child(1) {
+		margin-inline: auto;
+		color: #1c2d46;
+	}
+
+	#waktu .penutup p:nth-child(2) {
+		margin-inline: auto;
+		color: #1c2d46;
+	}
+
+	/*--------Landingpage (Gallery)--------*/
+	#galery {
+		margin-top: 0px;
+		/*border: 1px solid blue;*/
+	}
+
+	.header-gallery p {
+		font-family: cinzel;
+		font-size: 16px;
+	}
+
+	#galery .contain {
+		margin-bottom: 20px;
+		padding: 0px 0px 0px 0px;
+	}
+
+	#galery .contain .gallery-img {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+		grid-gap: 15px;
+		/*background-color: blue;*/
+	}
+
+	.gallery-img img {
+		border-radius: 5px;
+	}
+
+	#galery .flower-gallery-bawah {
+		display: none;
+	}
+
+	#galery .flower-gallery-bawah-ap-mini {
+		display: flex;
+		justify-content: center;
+		/*background-color: red;*/
+		z-index: 1;
+	}
+
+	/*------Style Landingpage (Pesan)-------*/
+	#pesan {
+		display: none; /*none*/
+		height: fit-content;
+		justify-content: center;
+		flex-direction: row;
+		flex-wrap: wrap;
+		/*border: 3px solid red;*/
+	}
+
+	#pesan .pesan-bahagia {
+		margin: 15px 0px 0px 0px;
+		height: fit-content;
+		width: 85%;
+		/*border: 1.5px solid #71A8CA;*/
+		border-radius: 3px 0px 0px 3px;
+	}
+
+	#pesan .header-pesan {
+		margin-bottom: 15px;
+		/*background-color: red;*/
+	}
+
+	.header-pesan p {
+		font-size: 16px;
+	}
+
+	.pesan-bahagia .inp-pesan {
+		padding: 0px 0px 10px 0px;
+		/*border: 1px solid blue;*/
+	}
+
+	.pesan-bahagia .inp-pesan p {
+		padding-top: 0px;
+		padding-bottom: 15px;
+		font-size: 12px;
+	}
+
+	.pesan-bahagia .inp-pesan textarea {
+		font-size: 12px;
+	}
+
+	.btn-kirim .btn-km {
+		padding: 5px 13px 6px 13px;
+		font-size: 12px;
+	}
+
+	.btn-kirim p {
+		font-size: 14px;
+	}
+
+	table .avatar-nama-hadir {
+		width: 35px;
+		height: 35px;
+	}
+
+	table .avatar-nama-tdkHadir {
+		width: 35px;
+		height: 35px;
+	}
+
+	table .avatar-nama-blmTahu {
+		width: 35px;
+		height: 35px;
+		margin-right: 15px;
+	}
+
+	.avtr p {
+		font-size: 16px;
+		margin-top: 5px;
+	}
+
+	table .nama {
+		font-size: 13;
+	}
+
+	table .tgl-kirim {
+		font-size: 11px;
+	}
+
+	table .ucapan {
+		font-size: 12px;
+	}
+	/* Batas Hal Pesan  Bahagia */
+
+	.akhir .header {
+		padding: 40px 80px 40px 80px;
+		background-image: url("../images/stunning-rose/pesan/corak-penutup-ap-mini.png");
+		/*border: 1px solid red;*/
+	}
+
+	.akhir .header .hurufDepan-mempelai {
+		padding: 0px 10px 0px 0px;
+		width: fit-content;
+		font-size: 35px;
+		/*border: 1px solid red;*/
+	}
+
+	.akhir .header .trm {
+		font-size: 14px;
+		/*border: 1px solid yellow;*/
+	}
+	/*-----End Style Landingpage (Pesan)------*/
+
+	/*-------------FOOTER--------------*/
+	.footer {
+		width: 100%;
+		height: 55px;
+		display: flex;
+		align-items: center;
+		flex-direction: row-reverse;
+		flex-wrap: nowrap;
+		margin-top: 0px;
+		margin-bottom: 65px;
+		background-color: transparent;
+		/*border: 1px solid red;*/
+	}
+
+	.footer .isi-foo {
+		width: 35%;
+		margin-inline: auto;
+		/*background-color: red;*/
+	}
+
+	.isi-foo .logo-ms {
+		width: 120px;
+	}
+
+	.footer .kontak {
+		display: flex;
+		justify-content: flex-end;
+		flex-direction: column;
+		width: 37%;
+		margin-inline: auto;
+		/*border: 1px solid yellow;*/
+	}
+
+	.kontak .wa {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		margin-right: 15px;
+		margin-bottom: 5px;
+	}
+
+	.kontak .wa img {
+		width: 18px;
+		margin-right: 5px;
+	}
+
+	.kontak .wa p {
+		color: #1a262d;
+		font-size: 13px;
+	}
+
+	.kontak .ig {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+	}
+
+	.kontak .ig img {
+		width: 18px;
+		margin-right: 5px;
+	}
+
+	.kontak .ig p {
+		color: #1a262d;
+		font-size: 13px;
+	}
+}

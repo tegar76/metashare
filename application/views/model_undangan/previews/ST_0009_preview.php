@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>0302|Stunning Rose Pattern|Demo</title>
+	<title>Wedding <?= $invitation->groom_nickname . ' & ' . $invitation->bride_nickname ?></title>
 	<!--Style CSS-->
 	<link rel="stylesheet" href="<?= base_url('assets/style/stuning-rose-style.css') ?>">
 	<!--Lightbox CSS-->
@@ -15,13 +15,6 @@
 	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 	<!--Icon Tittle -->
 	<link rel="icon" href="<?= base_url() ?>assets/navisa-racy/icon/ic-ms.png">
-	<style>
-		img[alt="www.000webhost.com"] {
-			display: none
-		}
-
-		;
-	</style>
 </head>
 
 <body>
@@ -30,7 +23,8 @@
 			<div class="nav-menu" id="nav-menu">
 				<ul>
 					<li>
-						<a href="#cover" class="nav_link active-link"><svg viewBox="0 0 19 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<a href="#cover" class="nav_link active-link">
+							<svg viewBox="0 0 19 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<g id="in in-cover-small">
 									<g id="Group 2">
 										<rect id="Rectangle 1" x="1.45" y="1.45" width="16.1" height="21.1" rx="3.55" stroke-opacity="0.784" stroke-width="0.9" />
@@ -38,10 +32,12 @@
 										<path id="Vector 1" d="M7.40993 1.81482L7.40992 5.87938C7.40992 6.48912 8.21387 6.71015 8.52559 6.18611L8.70954 5.87685C9.02126 5.35281 9.82521 5.57385 9.82521 6.18359V7.46173C9.82521 7.7931 10.0938 8.06173 10.4252 8.06173H11.2689C11.6003 8.06173 11.8689 7.7931 11.8689 7.46173V1.81482" stroke-opacity="0.784" stroke-width="0.9" />
 									</g>
 								</g>
-							</svg></a>
+							</svg>
+						</a>
 					</li>
 					<li>
-						<a href="#mempelai" class="nav_link"><svg viewBox="0 0 19 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<a href="#mempelai" class="nav_link">
+							<svg viewBox="0 0 19 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<g id="in in-ring-small">
 									<g id="Group 3">
 										<circle id="Ellipse 1" cx="7" cy="17" r="5.55" stroke-opacity="0.7804" stroke-width="0.9" />
@@ -49,10 +45,12 @@
 										<path id="path3570" d="M10.5477 6.95293C10.3126 7.23939 9.87661 7.24636 9.63248 6.96756L7.59813 4.64433C6.92132 3.61997 6.812 2.64389 7.30536 1.70964C7.32622 1.67014 7.35268 1.63299 7.38342 1.60058C8.09873 0.846372 9.0387 0.84704 9.75268 1.35504C10.1259 1.62059 10.7205 1.61487 11.0807 1.33187C11.7147 0.833733 12.4202 0.951767 13.1276 1.58976C13.1522 1.6119 13.1754 1.63725 13.195 1.66389C13.9632 2.70926 13.1067 3.62881 12.5303 4.53709L10.5477 6.95293Z" stroke-opacity="0.780392" stroke-width="0.9" stroke-miterlimit="8.7" stroke-linecap="round" stroke-linejoin="bevel" />
 									</g>
 								</g>
-							</svg></a>
+							</svg>
+						</a>
 					</li>
 					<li class="in-waktu">
-						<a href="#waktu" class="nav_link"><svg viewBox="0 0 19 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<a href="#waktu" class="nav_link">
+							<svg viewBox="0 0 19 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<g id="in in-date-small">
 									<g id="Group 9">
 										<g id="Group 4">
@@ -64,10 +62,12 @@
 										<line id="Line 6" x1="13.45" y1="1.45" x2="13.45" y2="4.55" stroke-opacity="0.7804" stroke-width="0.9" stroke-linecap="round" />
 									</g>
 								</g>
-							</svg></a>
+							</svg>
+						</a>
 					</li>
 					<li>
-						<a href="#galery" class="nav_link"><svg width="26" height="24" viewBox="0 0 26 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<a href="#galery" class="nav_link">
+							<svg width="26" height="24" viewBox="0 0 26 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<g id="in in-galery-Small">
 									<g id="Group 7">
 										<g id="Group 5">
@@ -82,10 +82,12 @@
 										<circle id="Ellipse 3" cx="15.1124" cy="14" r="5.55" stroke-opacity="0.7804" stroke-width="0.9" />
 									</g>
 								</g>
-							</svg></a>
+							</svg>
+						</a>
 					</li>
 					<li>
-						<a href="#pesan" class="nav_link"><svg viewBox="0 0 19 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<a href="#pesan" class="nav_link">
+							<svg viewBox="0 0 19 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<g id="in in-message-small" clip-path="url(#clip0_37_35)">
 									<g id="Group 6">
 										<path id="Vector 2" d="M1 5V17.7158C1 18.6128 1.7271 19.3399 2.62402 19.3399C3.63489 19.3399 4.40015 20.2535 4.22288 21.2487L4 22.5C3.89214 22.8555 4.34283 23.1091 4.59069 22.8323L7.34281 19.7594C7.58192 19.4924 7.92338 19.3399 8.28178 19.3399H14C16.2091 19.3399 18 17.549 18 15.3399V5C18 2.79086 16.2091 1 14 1H5C2.79086 1 1 2.79086 1 5Z" stroke-opacity="0.7804" stroke-width="0.9" />
@@ -100,7 +102,8 @@
 										<rect width="19" height="24" fill="white" />
 									</clipPath>
 								</defs>
-							</svg></a>
+							</svg>
+						</a>
 					</li>
 				</ul>
 			</div>
@@ -109,7 +112,7 @@
 		<div class="music-and-gift">
 			<!---------- Musik & Berikan Hadiah---------->
 			<audio id="music" loop>
-				<source src="<?= base_url('assets/music/Perfect - Ed Sheeran.mp3') ?>" type="audio/mp3">
+				<source src="<?= base_url('storage/invitations/uploads/' . $invitation->music_bg) ?>" type="audio/mp3">
 			</audio>
 
 			<div class="gift">
@@ -133,99 +136,32 @@
 					<p class="jd">Berikan Hadiah</p>
 				</div>
 				<div class="isi">
-					<p>Tanpa mengurangi rasa hormat, untuk melengkapi kebahagian pengantin, anda dapat memberikan tanda kasih dengan melalui transfer ke rekening berikut:</p>
+					<p>Tanpa mengurangi rasa hormat, untuk melengkapi kebahagian pengantin, anda dapat memberikan tanda
+						kasih dengan melalui transfer ke rekening berikut:</p>
 				</div>
 				<div class="card">
-					<!----------Virtual Account----------->
-					<div class="card-box">
-						<img class="va-image" src="<?= base_url() ?>assets/navisa-racy/image/gift_va(BCA)/gift_card_va_bca.svg" alt="Card Virtual Akun BCA">
-						<div class="no-va">
-							<p id="no-va">2235577</p>
-							<img class="copy-va" src="<?= base_url() ?>assets/navisa-racy/icon/in in-copy.svg" alt="copy" onclick="copyToClipboard('no-va');return false">
+					<?php foreach ($gifts as $gift) : ?>
+						<div class="card-box">
+							<?php if (file_exists(base_url('storage/') . $gift->icon)) : ?>
+								<img class="va-image" src="<?= base_url('storage/') . $gift->icon ?>" alt="Card VA">
+							<?php endif; ?>
+							<div class="no-va">
+								<p id="no-va-<?= $gift->id ?>"><?= $gift->account ?></p>
+								<img class="copy-va" src="<?= base_url() ?>assets/navisa-racy/icon/in in-copy.svg" alt="copy" onclick="copyToClipboard('no-va-<?= $gift->id ?>');return false">
+							</div>
+							<p class="recipient">*Recipient: <?= $gift->recipient ?></p>
+							<?php if (file_exists(base_url('storage/invitations/gifts/') . $gift->qr)) : ?>
+								<!-- TRUE -->
+								<div class="barcode">
+									<img class="barcode-isi" src="<?= base_url('storage/invitations/gifts/') . $gift->qr ?>" alt="barcode">
+								</div>
+								<div class="btn-saveQR">
+									<button class="btn-saveQR_Code" onclick="fetchFile('<?= base_url('storage/invitations/gifts/') . $gift->qr ?>')">
+										Save QR
+								</div>
+							<?php endif ?>
 						</div>
-						<p class="recipient">*Recipient:Runa Vha Ningit</p>
-						<div class="barcode">
-							<img class="barcode-isi" src="<?= base_url() ?>assets/navisa-racy/image/gift_va(BCA)/gift_card_va_barcode(BCA).png" alt="barcode">
-						</div>
-						<div class="btn-saveQR">
-							<button class="btn-saveQR_Code" onclick="fetchFile('<?= base_url('assets/images/green-shades/gift_va(BCA)/gift_card_va_barcode(BCA).png') ?>')">Save QR Code</button>
-						</div>
-					</div>
-
-					<div class="card-box">
-						<img class="va-image" src="<?= base_url() ?>assets/navisa-racy/image/gift_va(BCA)/gift_card_va_bca.svg" alt="Card Virtual Akun BRI">
-						<div class="no-va">
-							<p id="no-va">123456789012345</p>
-							<img class="copy-va" src="<?= base_url() ?>assets/navisa-racy/icon/in in-copy.svg" alt="copy" onclick="copyToClipboard('no-va');return false;">
-						</div>
-						<p class="recipient">*Recipient:Runa Vha Ningit</p>
-						<div class="barcode">
-							<img class="barcode-isi" src="<?= base_url() ?>assets/navisa-racy/image/gift_va(BCA)/gift_card_va_barcode(BCA).png" alt="barcode">
-						</div>
-						<div class="btn-saveQR">
-							<button class="btn-saveQR_Code" onclick="fetchFile('<?= base_url('assets/images/green-shades/gift_va(BCA)/gift_card_va_barcode(BCA).png') ?>')">Save QR Code</button>
-						</div>
-					</div>
-
-					<div class="card-box">
-						<img class="va-image" src="<?= base_url() ?>assets/navisa-racy/image/gift_va(BCA)/gift_card_va_bca.svg" alt="Card Virtual Akun MANDIRI">
-						<div class="no-va">
-							<p id="no-va">1234567890123</p>
-							<img class="copy-va" src="<?= base_url() ?>assets/navisa-racy/icon/in in-copy.svg" alt="copy" onclick="copyToClipboard('no-va');return false;">
-						</div>
-						<p class="recipient">*Recipient:Runa Vha Ningit</p>
-						<div class="barcode">
-							<img class="barcode-isi" src="<?= base_url() ?>assets/navisa-racy/image/gift_va(BCA)/gift_card_va_barcode(BCA).png" alt="barcode">
-						</div>
-						<div class="btn-saveQR">
-							<button class="btn-saveQR_Code" onclick="fetchFile('<?= base_url('assets/images/green-shades/gift_va(BCA)/gift_card_va_barcode(BCA).png') ?>')">Save QR Code</button>
-						</div>
-					</div>
-
-					<div class="card-box">
-						<img class="va-image" src="<?= base_url() ?>assets/navisa-racy/image/gift_va(BCA)/gift_card_va_bca.svg" alt="Card Virtual Akun BSI">
-						<div class="no-va">
-							<p id="no-va">1234567890</p>
-							<img class="copy-va" src="<?= base_url() ?>assets/navisa-racy/icon/in in-copy.svg" alt="copy" onclick="copyToClipboard('no-va');return false">
-						</div>
-						<p class="recipient">*Recipient:Runa Vha Ningit</p>
-						<div class="barcode">
-							<img class="barcode-isi" src="<?= base_url() ?>assets/navisa-racy/image/gift_va(BCA)/gift_card_va_barcode(BCA).png" alt="barcode">
-						</div>
-						<div class="btn-saveQR">
-							<button class="btn-saveQR_Code" onclick="fetchFile('<?= base_url('assets/images/green-shades/gift_va(BCA)/gift_card_va_barcode(BCA).png') ?>')">Save QR Code</button>
-						</div>
-					</div>
-
-					<div class="card-box">
-						<img class="va-image" src="<?= base_url() ?>assets/navisa-racy/image/gift_va(BCA)/gift_card_va_bca.svg" alt="Card Virtual Akun CIMBNIAGA">
-						<div class="no-va">
-							<p id="no-va">12345678901234</p>
-							<img class="copy-va" src="<?= base_url() ?>assets/navisa-racy/icon/in in-copy.svg" alt="copy" onclick="copyToClipboard('no-va');return false">
-						</div>
-						<p class="recipient">*Recipient:Runa Vha Ningit</p>
-						<div class="barcode">
-							<img class="barcode-isi" src="<?= base_url() ?>assets/navisa-racy/image/gift_va(BCA)/gift_card_va_barcode(BCA).png" alt="barcode">
-						</div>
-						<div class="btn-saveQR">
-							<button class="btn-saveQR_Code" onclick="fetchFile('<?= base_url('assets/images/green-shades/gift_va(BCA)/gift_card_va_barcode(BCA).png') ?>')">Save QR Code</button>
-						</div>
-					</div>
-
-					<div class="card-box">
-						<img class="va-image" src="<?= base_url() ?>assets/navisa-racy/image/gift_va(BCA)/gift_card_va_bca.svg" alt="Card Virtual Akun DANA">
-						<div class="no-va">
-							<p id="no-va">087899706753</p>
-							<img class="copy-va" src="<?= base_url() ?>assets/navisa-racy/icon/in in-copy.svg" alt="copy" onclick="copyToClipboard('no-va');return false">
-						</div>
-						<p class="recipient">*Recipient:Runa Vha Ningit</p>
-						<div class="barcode">
-							<img class="barcode-isi" src="<?= base_url() ?>assets/navisa-racy/image/gift_va(BCA)/gift_card_va_barcode(BCA).png" alt="barcode">
-						</div>
-						<div class="btn-saveQR">
-							<button class="btn-saveQR_Code" onclick="fetchFile('<?= base_url('assets/images/green-shades/gift_va(BCA)/gift_card_va_barcode(BCA).png') ?>')">Save QR Code</button>
-						</div>
-					</div>
+					<?php endforeach; ?>
 				</div>
 				<footer>
 					<div id="in-close" class="in-close">&times;</div>
@@ -240,20 +176,20 @@
 			</div>
 
 			<div class="waktuAkad">
-				<p>21 Agustus 2023</p>
+				<p><?= $akadDate['tanggal'] . ' ' . $akadDate['bulan'] . ' ' . $akadDate['tahun'] ?></p>
 			</div>
 
 			<div class="mempelaii">
-				<P>Runa</P>
+				<P><?= $invitation->groom_nickname ?></P>
 				<p>&</p>
-				<p>Ratna</p>
+				<p><?= $invitation->bride_nickname ?></p>
 			</div>
 
 			<div class="tamu">
 				<div class="isi">
 					<p>Kepada Yth</p>
 					<p>Bapak/Ibu/Saudara/i</p>
-					<p>Indah Paramita</p>
+					<p><?= (!empty($guest) ? $guest : '-') ?></p>
 				</div>
 			</div>
 
@@ -278,9 +214,9 @@
 		<section class="cover" id="cover">
 			<div class="isi-cover">
 				<div class="nSingkat">
-					<p class="animate__animated animate__backInDown animate__fast">Runa</p>
+					<p class="animate__animated animate__backInDown animate__fast"><?= $invitation->groom_nickname ?></p>
 					<p>&</p>
-					<p class="animate__animated animate__backInUp animate__fast">Ratna</p>
+					<p class="animate__animated animate__backInUp animate__fast"><?= $invitation->bride_nickname ?></p>
 				</div>
 
 				<div class="contWa">
@@ -288,6 +224,7 @@
 						<p>Akad Nikah</p>
 						<img class="batas-cover" src="<?= base_url('assets/images/stunning-rose/batas.png') ?>" alt="batas">
 					</div>
+					<input type="hidden" id="countDownTime" name="count_down" value="<?= $countdown ?>">
 					<div class="subjud">
 						<ul>
 							<li>
@@ -330,23 +267,32 @@
 					<img src="<?= base_url('assets/images/green-shades/bissmilah.svg') ?>" alt="Bismillah Image">
 				</div>
 				<div class="pembuka">
-					<p data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="250">Assalamuaikum Warohmatullohi Wabaroktuh</p>
-					<p data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="350">Maha Suci Alloh SWT Yang Telah Menciptakan Mahluknya Berpasang-Pasangan, Ya Alloh Semoga Ridho-Mu Tercurah Mengiringi Pernikahan Putra-Putri Kami :</p>
+					<p data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="250">Assalamuaikum Warohmatullohi
+						Wabaroktuh</p>
+					<p data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="350">
+						Maha Suci Alloh SWT Yang Telah
+						Menciptakan Mahluknya Berpasang-Pasangan, Ya Alloh Semoga Ridho-Mu Tercurah Mengiringi
+						Pernikahan Putra-Putri Kami :
+					</p>
 				</div>
 				<div class="pempelai-pria" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="450">
-					<p>Runa Vha Ningit</p>
-					<a href="#"><img src="<?= base_url() ?>assets/navisa-racy/image/ig.png" alt="ic-Instagram"></a>
-					<p>Putra Ke-2 dari Bapak Iwan Yuli Widianto & Ibu Heni Margarini (Purwokerto)</p>
+					<p><?= $invitation->groom_name ?></p>
+					<a href="https://instagram.com/<?= $invitation->groom_ig ?>"><img src="<?= base_url() ?>assets/navisa-racy/image/ig.png" alt="ic-Instagram"></a>
+					<p>Putra <?= $invitation->groom_son ?> Bpk. <?= $invitation->groom_father ?> & Ibu
+						<?= $invitation->groom_mother ?></p>
 				</div>
 				<div class="dengan" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="550">
 					<p>Dengan</p>
 				</div>
 				<div class="pempelai-wanita" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="650">
-					<p>Ratna Sari Astuti</p>
-					<a href="#">
+					<p><?= $invitation->bride_name ?></p>
+					<a href="https://instagram.com/<?= $invitation->bride_ig ?>">
 						<img src="<?= base_url() ?>assets/navisa-racy/image/ig.png" alt="ic-Instagram"></a>
-					<p>Putri Ke-2 dari Bapak Kiki Norhasis & Ibu Rumiati (Purwokerto)</p>
-					<p class="penutup">Untuk Melaksanakan Sunah Rosul-mu dalam membentuk Keluarga Sakinah, Mawadah dan Warohmah</p>
+					<p>Putri <?= $invitation->bride_daughter; ?> Bpk. <?= $invitation->bride_father ?> & Ibu
+						<?= $invitation->bride_mother ?></p>
+					<p class="penutup">Untuk Melaksanakan Sunah Rosul-mu dalam membentuk Keluarga Sakinah, Mawadah dan
+						Warohmah
+					</p>
 				</div>
 			</div>
 			<!--For android, tablet & desktop-->
@@ -382,10 +328,10 @@
 						<img src="<?= base_url() ?>assets/images/stunning-rose/waktu/batas-jd-tasyakuran.png" alt="batas judul tasyakuran">
 					</div>
 					<div class="tgl">
-						Kamis - Senin,20-21 Agustus 2022
+						Kamis - Senin, 20-21 Agustus 2022
 					</div>
 					<div class="almt">
-						Jl.Pramuka Timur No.213 RT.02 RW.01 No.213 RT.02 RW.01 Purwokerto
+						<?= $acara['tasyakur']['alamat']; ?>
 					</div>
 				</div>
 				<!--end tasyakuran -->
@@ -399,13 +345,13 @@
 						<img src="<?= base_url() ?>assets/images/stunning-rose/waktu/batas-jd-akad.png" alt="batas judul akad">
 					</div>
 					<div class="tgl">
-						Senin,21 Agustus 2022
+						<?= $acara['akad']['tanggal'] ?>
 					</div>
 					<div class="jaam">
-						10.00 WIB-Selesai
+						<?= $acara['akad']['waktu']; ?> - Selesai
 					</div>
 					<div class="almt">
-						Jl.Pramuka Timur No.213 RT.02 RW.01 No.213 RT.02 RW.01 Purwokerto
+						<?= $acara['akad']['alamat']; ?>
 					</div>
 
 					<div class="btn-map">
@@ -413,7 +359,7 @@
 						<img class="kupu2-btn-akad" src="<?= base_url() ?>assets/images/stunning-rose/waktu/kupu2-btn-akad.png" alt="kupu-kupu button akad">
 						<!--For apple mini-->
 						<img class="kupu2-btn-akad-ap-mini" src="<?= base_url() ?>assets/images/stunning-rose/waktu/kupu2-btn-resepsi-ap-mini.png" alt="kupu-kupu button akad for apple mini">
-						<a href="#map">
+						<a href="<?= $acara['akad']['maps']; ?>">
 							<svg height="14" viewBox="0 0 17 14" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<g id="in in-maps">
 									<path id="path3570" d="M8.96832 6.9728C8.73302 7.26647 8.28858 7.27355 8.04404 6.98752L6.85788 5.6001C6.4138 4.91169 6.33837 4.2554 6.65424 3.62698C6.67414 3.58739 6.69979 3.55032 6.73058 3.51846C7.11291 3.1229 7.55232 3.17252 7.9377 3.44226C8.3175 3.7081 8.91726 3.70865 9.30223 3.45036C9.69352 3.18784 10.1215 3.17221 10.5101 3.51592C10.5348 3.53777 10.5574 3.56316 10.5763 3.59018C11.0692 4.29433 10.5061 4.91459 10.1266 5.52731L8.96832 6.9728Z" stroke="#1C2D46" stroke-width="0.9" stroke-miterlimit="8.7" stroke-linecap="round" stroke-linejoin="bevel" />
@@ -438,13 +384,13 @@
 						<img src="<?= base_url() ?>assets/images/stunning-rose/waktu/batas-jd-resepsi.png" alt="batas judul resepsi">
 					</div>
 					<div class="tgl">
-						Senin,21 Agustus 2023
+						<?= $acara['resepsi']['tanggal'] ?>
 					</div>
 					<div class="jaam">
-						11.00 WIB-Selesai
+						<?= $acara['resepsi']['waktu']; ?> - Selesai
 					</div>
 					<div class="almt">
-						Jl.Pramuka Timur No.213 RT.02 RW.01 No.213 RT.02 RW.01 Purwokerto
+						<?= $acara['resepsi']['alamat']; ?>
 					</div>
 
 					<div class="btn-map">
@@ -452,7 +398,7 @@
 						<img class="kupu2-btn-resepsi" src="<?= base_url() ?>assets/images/stunning-rose/waktu/kupu2-btn-akad.png" alt="kupu-kupu button resepsi">
 						<!--For apple mini -->
 						<img class="kupu2-btn-resepsi-ap-mini" src="<?= base_url() ?>assets/images/stunning-rose/waktu/kupu2-btn-resepsi-ap-mini.png" alt="kupu-kupu button resepsi for apple mini">
-						<a href="#map">
+						<a href="<?= $acara['resepsi']['maps']; ?>">
 							<svg height="14" viewBox="0 0 17 14" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<g id="in in-maps">
 									<path id="path3570" d="M8.96832 6.9728C8.73302 7.26647 8.28858 7.27355 8.04404 6.98752L6.85788 5.6001C6.4138 4.91169 6.33837 4.2554 6.65424 3.62698C6.67414 3.58739 6.69979 3.55032 6.73058 3.51846C7.11291 3.1229 7.55232 3.17252 7.9377 3.44226C8.3175 3.7081 8.91726 3.70865 9.30223 3.45036C9.69352 3.18784 10.1215 3.17221 10.5101 3.51592C10.5348 3.53777 10.5574 3.56316 10.5763 3.59018C11.0692 4.29433 10.5061 4.91459 10.1266 5.52731L8.96832 6.9728Z" stroke="#1C2D46" stroke-width="0.9" stroke-miterlimit="8.7" stroke-linecap="round" stroke-linejoin="bevel" />
@@ -496,29 +442,12 @@
 			</div>
 			<div class="contain">
 				<div class="gallery-img">
-					<a href="<?= base_url() ?>assets/navisa-racy/image/gallery/1.jpg" data-lightbox="models" data-title="image 1">
-						<img src="<?= base_url() ?>assets/navisa-racy/image/gallery/1.jpg" alt="img 1" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="250">
-					</a>
-
-					<a href="<?= base_url() ?>assets/navisa-racy/image/gallery/2.png" data-lightbox="models" data-title="image 2">
-						<img src="<?= base_url() ?>assets/navisa-racy/image/gallery/2.png" alt="img 2" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="350">
-					</a>
-
-					<a href="<?= base_url() ?>assets/navisa-racy/image/gallery/3.png" data-lightbox="models" data-title="image 3">
-						<img src="<?= base_url() ?>assets/navisa-racy/image/gallery/3.png" alt="img 3" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="450">
-					</a>
-
-					<a href="<?= base_url() ?>assets/navisa-racy/image/gallery/4.png" data-lightbox="models" data-title="image 4">
-						<img src="<?= base_url() ?>assets/navisa-racy/image/gallery/4.png" alt="img 4" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="550">
-					</a>
-
-					<a href="<?= base_url() ?>assets/navisa-racy/image/gallery/5.png" data-lightbox="models" data-title="image 5">
-						<img src="<?= base_url() ?>assets/navisa-racy/image/gallery/5.png" alt="img 5" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="650">
-					</a>
-
-					<a href="<?= base_url() ?>assets/navisa-racy/image/gallery/6.png" data-lightbox="models" data-title="image 6">
-						<img src="<?= base_url() ?>assets/navisa-racy/image/gallery/6.png" alt="img 6" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="750">
-					</a>
+					<?php $incrementPhoto = 250 ?>
+					<?php foreach ($photos as $photo) : ?>
+						<a href="<?= $photo['img'] ?>" data-lightbox="models" data-title="image <?= $photo['id'] ?>">
+							<img src="<?= $photo['img'] ?>" alt="img <?= $photo['id'] ?>" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="<?= $incrementPhoto += 100 ?>">
+						</a>
+					<?php endforeach  ?>
 				</div>
 			</div>
 			<div class="flower-gallery-bawah">
@@ -539,30 +468,32 @@
 					<p>Pesan Bahagia</p>
 				</div>
 				<?= form_open("#", ['id' => 'submit-happy-message']) ?>
-				<input type="hidden" name="guest_name" value="Tamu Undangan">
-				<input type="hidden" id="invtId" name="invt_id" value="0">
-
+				<input type="hidden" name="guest_name" value="<?= $guest ?>">
+				<input type="hidden" id="invtId" name="invt_id" value="<?= $invitation->invitation_id ?>">
 				<div class="inp-pesan">
 					<p>Pesan :</p>
 					<textarea name="pesan" id="" cols="20" rows="2" placeholder="Input pesan bahagia"></textarea>
 				</div>
 				<div class="confirm-kehadiran">
 					<label class="contain">
-						<input type="radio" checked="checked"name="konfirmasiHadir" value="2">
+						<input type="radio" checked="checked" name="konfirmasiHadir" value="2">
 						<span class="checkmark check"></span>
 						Hadir
 					</label>
 					<label class="contain">
-						<input type="radio"name="konfirmasiHadir" value="1">
+						<input type="radio" name="konfirmasiHadir" value="1">
 						<span class="checkmark2 check"></span>
 						Tidak Hadir
 					</label>
 					<label class="contain">
-						<input type="radio"name="konfirmasiHadir" value="0">
+						<input type="radio" name="konfirmasiHadir" value="0">
+
 						<span class="checkmark3 check"></span>
 						Belum Tahu
 					</label>
+
 				</div>
+
 				<div class="btn-kirim">
 					<button class="btn-km">Kirim</button>
 					<p>Total Pesan : <span id="count_message"></span></p>
@@ -575,7 +506,7 @@
 			<div class="akhir" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="100">
 				<div class="header">
 					<div class="hurufDepan-mempelai">
-						<p>R&R</p>
+						<p><?= substr($invitation->groom_nickname, 0, 1) . " & " . substr($invitation->bride_nickname, 0, 1) ?></p>
 					</div>
 					<div class="trm">
 						<p>Terimakasih</p>
@@ -663,7 +594,7 @@
 				let id = $('#invtId').val();
 				$.ajax({
 					type: "GET",
-					url: "<?= base_url('undangan/get_message_demo_standard?id=') ?>" + id,
+					url: "<?= base_url('undangan/get_message_standard?id=') ?>" + id,
 					dataType: "json",
 					success: function(reponse) {
 						$("#display_message").html(reponse);

@@ -26,9 +26,8 @@ class GuestInvitedController extends CI_Controller
 				[
 					'field' => 'guest[]',
 					'label' => 'Nama Tamu Undangan',
-					'rules' => 'trim|required|xss_clean|max_length[25]|min_length[3]',
+					'rules' => 'trim|xss_clean|max_length[25]|min_length[3]',
 					'errors' => [
-						'required' => '{field} harus diisi',
 						'xss_clean' => 'cek kembali pada {field}',
 						'min_length' => '{field} terlalu pendek (minimal 3 karakter)',
 						'max_length' => '{field} terlalu panjang (maksimal 25 karakter)',

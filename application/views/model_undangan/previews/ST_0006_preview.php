@@ -177,7 +177,8 @@
 										<circle id="Ellipse 3" cx="15.1124" cy="14" r="5.55" stroke-opacity="0.7804" stroke-width="0.9" />
 									</g>
 								</g>
-							</svg></a>
+							</svg>
+						</a>
 					</li>
 					<li>
 						<a href="#pesan" class="nav_link"><svg viewBox="0 0 19 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -195,7 +196,8 @@
 										<rect width="19" height="24" fill="white" />
 									</clipPath>
 								</defs>
-							</svg></a>
+							</svg>
+						</a>
 					</li>
 				</ul>
 			</div>
@@ -225,13 +227,16 @@
 					<p class="jd">Berikan Hadiah</p>
 				</div>
 				<div class="isi">
-					<p>Tanpa mengurangi rasa hormat, untuk melengkapi kebahagian pengantin, anda dapat memberikan tanda kasih dengan melalui transfer ke rekening berikut:</p>
+					<p>Tanpa mengurangi rasa hormat, untuk melengkapi kebahagian pengantin, anda dapat memberikan tanda
+						kasih dengan melalui transfer ke rekening berikut:</p>
 				</div>
 				<div class="card">
 					<!----------Virtual Account----------->
 					<?php foreach ($gifts as $gift) : ?>
 						<div class="card-box">
-							<img class="va-image" src="<?= base_url('storage/') . $gift->icon ?>" alt="Card VA">
+							<?php if (file_exists(base_url('storage/') . $gift->icon)) : ?>
+								<img class="va-image" src="<?= base_url('storage/') . $gift->icon ?>" alt="Card VA">
+							<?php endif; ?>
 							<div class="no-va">
 								<p id="no-va-<?= $gift->id ?>"><?= $gift->account ?></p>
 								<img class="copy-va" src="<?= base_url() ?>assets/icons/green-shades/in in-copy.svg" alt="copy" onclick="copyToClipboard('no-va-<?= $gift->id ?>');return false">
@@ -241,7 +246,8 @@
 								<img class="barcode-isi" src="<?= base_url('storage/invitations/gifts/') . $gift->qr ?>" alt="barcode">
 							</div>
 							<div class="btn-saveQR">
-								<button class="btn-saveQR_Code" onclick="fetchFile('<?= base_url('storage/invitations/gifts/') . $gift->qr ?>')">Save QR Code</button>
+								<button class="btn-saveQR_Code" onclick="fetchFile('<?= base_url('storage/invitations/gifts/') . $gift->qr ?>')">Save QR
+									Code</button>
 							</div>
 						</div>
 					<?php endforeach ?>
@@ -272,13 +278,17 @@
 				<img src="<?= base_url() ?>assets/navisa-racy/image/bissmilah.svg" alt="Bismillah Image">
 			</div>
 			<div class="pembuka">
-				<p data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="250">Assalamuaikum Warohmatullohi Wabaroktuh</p>
-				<p data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="350">Maha Suci Alloh SWT Yang Telah Menciptakan Mahluknya Berpasang-Pasangan, Ya Alloh Semoga Ridho-Mu Tercurah Mengiringi Pernikahan Putra-Putri Kami :</p>
+				<p data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="250">Assalamuaikum Warohmatullohi
+					Wabaroktuh</p>
+				<p data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="350">Maha Suci Alloh SWT Yang Telah
+					Menciptakan Mahluknya Berpasang-Pasangan, Ya Alloh Semoga Ridho-Mu Tercurah Mengiringi Pernikahan
+					Putra-Putri Kami :</p>
 			</div>
 			<div class="pempelai-pria" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="450">
 				<p><?= $invitation->groom_name ?></p>
 				<a href="https://instagram.com/<?= $invitation->groom_ig ?>"><img src="<?= base_url() ?>assets/images/green-shades/ig.png" alt="ic-Instagram"></a>
-				<p>Putra <?= $invitation->groom_son ?> Bpk. <?= $invitation->groom_father ?> & Ibu <?= $invitation->groom_mother ?></p>
+				<p>Putra <?= $invitation->groom_son ?> Bpk. <?= $invitation->groom_father ?> & Ibu
+					<?= $invitation->groom_mother ?></p>
 			</div>
 			<div class="dengan" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="550">
 				<p>Dengan</p>
@@ -288,7 +298,8 @@
 				<a href="https://instagram.com/<?= $invitation->bride_ig ?>">
 					<img src="<?= base_url() ?>assets/images/green-shades/ig.png" alt="ic-Instagram">
 				</a>
-				<p>Putri <?= $invitation->bride_daughter; ?> Bpk. <?= $invitation->bride_father ?> & Ibu <?= $invitation->bride_mother ?></p>
+				<p>Putri <?= $invitation->bride_daughter; ?> Bpk. <?= $invitation->bride_father ?> & Ibu
+					<?= $invitation->bride_mother ?></p>
 			</div>
 			<div class="penutup" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="750">
 				<p>Untuk Melaksanakan Sunah Rosul-mu dalam membentuk Keluarga Sakinah, Mawadah dan Warohmah</p>
@@ -484,7 +495,10 @@
 				</div>
 			</div>
 			<div class="akhir-isi">
-				<p>“Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu istri-istri dari jenismu sendiri, supaya kamu cenderung merasa tentram kepadanya, dan dijadikan-Nya, diantaramu rasa kasih dan sayang, Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda bagi orang-orang yang berfikir”</p>
+				<p>“Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu istri-istri dari jenismu
+					sendiri, supaya kamu cenderung merasa tentram kepadanya, dan dijadikan-Nya, diantaramu rasa kasih
+					dan sayang, Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda bagi orang-orang
+					yang berfikir”</p>
 				<p><strong>(Q.S.Ar-Ruum:21)</strong></p>
 			</div>
 		</div>

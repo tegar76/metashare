@@ -211,9 +211,10 @@
 		<!--========================= /SAMPUL END ===================-->
 
 		<!-- ======================= Landing Page(Cover) ========================-->
-		<section class="cover" id="cover">
+		<section class="cover" id="cover" style="background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)),
+        url('<?= base_url('storage/invitations/uploads/' . $invitation->cover_image_2) ?>')">
 			<div class="isi-cover">
-				<div class="nSingkat">
+				<div class="nSingkat">m
 					<p class="animate__animated animate__backInDown animate__fast"><?= $invitation->groom_nickname ?></p>
 					<p>&</p>
 					<p class="animate__animated animate__backInUp animate__fast"><?= $invitation->bride_nickname ?></p>
@@ -290,8 +291,8 @@
 						<img src="<?= base_url() ?>assets/navisa-racy/image/ig.png" alt="ic-Instagram"></a>
 					<p>Putri <?= $invitation->bride_daughter; ?> Bpk. <?= $invitation->bride_father ?> & Ibu
 						<?= $invitation->bride_mother ?></p>
-					<p class="penutup">Untuk Melaksanakan Sunah Rosul-mu dalam membentuk Keluarga Sakinah, Mawadah dan
-						Warohmah
+					<p class="penutup">
+						Untuk Melaksanakan Sunah Rosul-mu dalam membentuk Keluarga Sakinah, Mawadah dan Warohmah
 					</p>
 				</div>
 			</div>
